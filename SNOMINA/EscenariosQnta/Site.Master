@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="EscenariosQnta.Site" %>
+
+<%@ Register Src="CuadroMensajeControlUsu.ascx" TagName="CuadroMensajeControlUsu" TagPrefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>.:  Escenarios :.</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/grid.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="texture font">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div>
+        <!--=====   Header - INICIO =====-->
+        <div id="home" >
+            <div class="navigation single-page-nav">
+                <div class="container_12">
+                    <div class="grid_12">
+                        <div class="logo">
+                            <a href="Default.aspx">
+                                <img src="image/QNTA_White.png" alt="" class="rotate" /></a>
+                        </div>
+                        <nav>
+                            <ul class="menu">
+                                <li><a href="Default.aspx">Inicio</a></li>
+                                <li><a href="">Escenarios</a>
+                                    <ul class="submenu">
+                                        <li><a href="wfrmDatosClienteAlta.aspx">Clientes Alta</a></li>
+                                        <li><a href="wfrmDatosClienteConsulta.aspx">Clientes Consulta</a></li>
+                                        <li><a href="wfrmDatosEmpleado.aspx">Empleado</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="">Calculo</a></li>
+                                <li><a href="">Catalogos</a>
+                                    <ul class="submenu">
+                                        <li><a href="wfrmDatosAreaComercial.aspx">Area Comercial</a></li>
+                                        <li><a href="wfrmTipoPersonal.aspx">Tipo de Personal</a></li>
+                                        <li><a href="wfrmPeriocidadNomina.aspx">Periocidad Nomina</a></li>
+                                        <li><a href="wfrmPrimaRiesgo.aspx">Prima de Riesgo</a></li>
+                                        <li><a href="wfrmTipoNomina.aspx">Tipo Nomina Actual</a></li>
+                                        <li><a href="wfrmCuotasIMSS.aspx">Cuotas IMSS</a></li>
+                                        <li><a href="wfrmSalarioMinimo.aspx">Salario Minimo</a></li>
+                                        <li><a href="wfrmFactorIntegracion.aspx">Factor Integracion</a></li>
+                                        <li><a href="wfrmImpuesto.aspx">Impuesto</a></li>
+                                        <li><a href="wfrmSubsidioEmpleado.aspx">Subsidio Empleado</a></li>
+                                        <li><a href="wfrmUMA.aspx">UMA</a></li> 
+                                        <li><a href="wfrmSalarioMinimoProfesionales.aspx">Salario Minimo Profesionales</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="">Reportes</a></li>
+                                <li><a href="">Cuenta</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--=====   Header - FIN =====-->
+    </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    
+    <asp:TextBox ID="txtDevtroce" runat="server"></asp:TextBox>
+        
+    </asp:ContentPlaceHolder>
+    
+    
+
+    </form>
+</body>
+</html>
