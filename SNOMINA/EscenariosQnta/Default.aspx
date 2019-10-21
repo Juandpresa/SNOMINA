@@ -17,11 +17,11 @@
                 <div>
                     <h1 class="main-title">
                         <span class="thin"></span>
-                        ESCENARIOS
+                        SISTEMA DE NOMINAS
                         </h1>
                 </div>
                 <div>
-                    <img class="logoInicio" src="../image/gif.gif" alt="" />
+                    <%--<img class="logoInicio" src="../image/gif.gif" alt="" />--%>
                 </div>
             </div>
             <%--</div>--%>

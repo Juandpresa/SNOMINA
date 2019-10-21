@@ -157,12 +157,7 @@
                 <div class="container_13">
                 </div>
             </div>
-            <div id="stars">
-            </div>
-            <div id="stars2">
-            </div>
-            <div id="srars3">
-            </div>
+
             <div class="containerTitlePage ">
                 <div class="titlePage">
                     EMPLEADO

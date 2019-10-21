@@ -5,12 +5,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>.: Escenarios :.</title>
+    <title>.: SISTEMA DE NOMINAS :.</title>
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/grid.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="shortcut icon" href="../image/Favicon.ico"/>
+    <link rel="shortcut icon" href="../image/nomina.png"/>
 </head>
 <body class="texture font">
     <form id="form1" runat="server">
@@ -24,8 +24,8 @@
                     <div class="grid_12">--%>
                         
                         <div class="logo">
-                            <a href="../Default.aspx">
-                                <img src="../image/QNTA_White.png" alt="" class="rotate" /></a>
+                            <a href="../Default.aspx">SISTEMA NOMINAS
+                                <%--<img src="../image/QNTA_White.png" alt="" class="rotate" />--%></a>
                         </div>
                                  <div id="menu">                                                    
                                 <li><a href="../Default.aspx">Inicio</a></li>
