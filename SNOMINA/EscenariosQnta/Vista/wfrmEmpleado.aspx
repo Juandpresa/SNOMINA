@@ -263,7 +263,7 @@
             </tr>
             <tr>
               <td class="td">
-                <asp:TextBox ID="TextBox1" runat="server" Text="" CssClass="textbox" required></asp:TextBox>
+                <asp:TextBox ID="txtTelefonoMovil" runat="server" Text="" CssClass="textbox" required></asp:TextBox>
               </td>
               <td class="td">
                 <asp:TextBox ID="txtPuesto" runat="server" Text="" CssClass="textbox"></asp:TextBox>
@@ -474,7 +474,8 @@
             </tr>
             <tr>
               <td class="td">
-                <asp:TextBox ID="txtFechaUltimoPago" runat="server" Text="" CssClass="textbox" required></asp:TextBox>
+                <asp:TextBox ID="txtUltimoPago" runat="server" Text="" CssClass="datepicker" required
+                  placeholder="dd/mm/yyyy"></asp:TextBox>
               </td>
             </tr>
           </table>

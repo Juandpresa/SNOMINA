@@ -53,7 +53,19 @@ namespace EscenariosQnta
         string SueldoMensual = string.Empty;
         string SueldoDiario = string.Empty;
         int TipoEsquema = 0;
+        string Cve = string.Empty;
+        string RSPagadora = string.Empty;
+        string Sexo = string.Empty;
+        string TipoPago = string.Empty;
+        string curp = string.Empty;
+        string rfc = string.Empty;
+        string correo = string.Empty;
+        string telLocal = string.Empty;
+        string telMovil = string.Empty;
+        string FechaUltimoPago = string.Empty;
+        string PeriodoPago = string.Empty;
 
+        DateTime FechUltimoPago;
         DateTime FechIngreso;
         DateTime? FechNacimiento;
 
@@ -818,22 +830,36 @@ namespace EscenariosQnta
                         Id_ClasifEmp = ddlClasificacionEmpleado.SelectedItem.Value;
                         Nacionalidad = txtNacionalidad.Text.ToString();
 
+                        Cve = txtClave.Text.ToString();
+                        RSPagadora = ddlPagadora.SelectedItem.Value;
+                        Sexo = ddlSexo.SelectedItem.Value;
+                        TipoPago = ddlTipoPago.SelectedItem.Value;
+                        curp = txtCurp.Text.ToString();
+                        rfc = txtRfc.Text.ToString();
+                        correo = txtCorreo.Text.ToString();
+                        telLocal = txtTelefonoLocal.Text.ToString();
+                        telMovil = txtTelefonoLocal.Text.ToString();
+                        FechaUltimoPago = txtUltimoPago.Text.ToString();
+                        PeriodoPago = ddlPeriodoPago.SelectedItem.Value;
+
+                        FechUltimoPago = DateTime.Parse(FechaUltimoPago);
                         FechIngreso = DateTime.Parse(FechaIngreso);
                         FechNacimiento = string.IsNullOrEmpty(FechaNac) ? (DateTime?)null : Convert.ToDateTime(FechaNac);
+                        
 
                         if (FechNacimiento == null)
                         {
-                            strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34}",
+                            strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34},'{35}',{36},{37},{38},'{39}','{40}','{41}','{42}','{43}','{44}',{45}",
                                 Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento, Nomina, Asimilados, Honorarios, TN, EZWallet,
                                 Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                                Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema);
+                                Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechUltimoPago.ToString("yyyyMMdd HH:mm:ss"), PeriodoPago);
                         }
                         else
                         {
-                            strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34}",
+                            strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34},'{35}',{36},{37},{38},'{39}','{40}','{41}','{42}','{43}','{44}',{45}",
                                 Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento.Value.ToString("yyyyMMdd"), Nomina, Asimilados, Honorarios, TN, EZWallet,
                                 Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                                Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema);
+                                Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechUltimoPago.ToString("yyyyMMdd HH:mm:ss"), PeriodoPago);
                         }
 
                         RetunValue = clsQuery.execQueryString(strQuery);
