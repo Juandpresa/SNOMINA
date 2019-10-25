@@ -79,12 +79,116 @@ namespace EscenariosQnta
                 ObtenClasificacionEmpleado();
                 ObtenTipoEsquema();
                 //ObtenEmpleado();
+                ObtenPagadoras();
+                ObtenSexo();
+                ObtenTipoPago();
+                ObtenPeriodoPago();
                 ddlEscenario.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
 
             }
         }
 
-        protected void ObtenClientes()
+    protected void ObtenPeriodoPago()
+    {
+      try
+      {
+        DataTable dtPeriodoPago = new DataTable();
+
+        dtPeriodoPago = clsQuery.execQueryDataTable("SP_ObtenPeriodoPago");
+
+        if (dtPeriodoPago.Rows.Count > 0)
+        {
+          ddlPeriodoPago.DataSource = dtPeriodoPago;
+          ddlPeriodoPago.DataTextField = "Nombre";
+          ddlPeriodoPago.DataValueField = "Id_Periodo";
+          ddlPeriodoPago.DataBind();
+        }
+
+        ddlPeriodoPago.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      }
+    }
+
+    protected void ObtenTipoPago()
+    {
+      try
+      {
+        DataTable dtTipoPago = new DataTable();
+
+        dtTipoPago = clsQuery.execQueryDataTable("SP_ObtenTipoPago");
+
+        if (dtTipoPago.Rows.Count > 0)
+        {
+          ddlTipoPago.DataSource = dtTipoPago;
+          ddlTipoPago.DataTextField = "Nombre";
+          ddlTipoPago.DataValueField = "TipoPagoID";
+          ddlTipoPago.DataBind();
+        }
+
+        ddlTipoPago.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      }
+    }
+
+    protected void ObtenSexo()
+    {
+      try
+      {
+        DataTable dtSexo = new DataTable();
+
+        dtSexo = clsQuery.execQueryDataTable("SP_ObtenSexo");
+
+        if (dtSexo.Rows.Count > 0)
+        {
+          ddlSexo.DataSource = dtSexo;
+          ddlSexo.DataTextField = "Nombre";
+          ddlSexo.DataValueField = "SexoID";
+          ddlSexo.DataBind();
+        }
+
+        ddlSexo.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      }
+    }
+
+    protected void ObtenPagadoras()
+    {
+      try
+      {
+        DataTable dtPagadora = new DataTable();
+
+        dtPagadora = clsQuery.execQueryDataTable("SP_ObtenPagadoras");
+
+        if (dtPagadora.Rows.Count > 0)
+        {
+          ddlPagadora.DataSource = dtPagadora;
+          ddlPagadora.DataTextField = "Alias";
+          ddlPagadora.DataValueField = "idRSociaRol";
+          ddlPagadora.DataBind();
+        }
+
+        ddlPagadora.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      }
+    }
+
+    protected void ObtenClientes()
         {
             try
             {
