@@ -317,26 +317,18 @@
         <div class="contenPanel">
           <table>
             <tr>
-              <td>Cliente
+              <td>Grado de Estudio:
               </td>
-              <td>Escenario:
-              </td>
-              <td>Prima Riesgo:
+              <td>Carrera:
               </td>
             </tr>
             <tr>
               <td class="td">
-                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged"
-                  AutoPostBack="true">
+                <asp:DropDownList ID="ddlNivelE" runat="server" CssClass="cssDropdown" AutoPostBack="true">
                 </asp:DropDownList>
               </td>
               <td class="td">
-                <asp:DropDownList ID="DropDownList2" runat="server" CssClass="cssDropdown" AutoPostBack="true"
-                  OnSelectedIndexChanged="ddlEscenario_SelectedIndexChanged">
-                </asp:DropDownList>
-              </td>
-              <td class="td">
-                <asp:DropDownList ID="DropDownList3" runat="server" CssClass="cssDropdown">
+                <asp:DropDownList ID="ddlCarrera" runat="server" CssClass="cssDropdown" AutoPostBack="true">
                 </asp:DropDownList>
               </td>
             </tr>

@@ -96,10 +96,42 @@ namespace EscenariosQnta
                 ObtenTipoPago();
                 ObtenPeriodoPago();
                 ddlEscenario.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+        ObtenCarrera();
 
             }
         }
 
+
+    protected void ObtenCarrera()
+    {
+      DataTable dtCarrera = new DataTable();
+
+      dtCarrera = clsQuery.execQueryDataTable("SP_ObtenerCarrera");
+
+      if (dtCarrera.Rows.Count > 0)
+      {
+        ddlCarrera.DataSource = dtCarrera;
+        ddlCarrera.DataTextField = "NombreCarrera";
+        ddlCarrera.DataValueField = "CarreraID";
+        ddlCarrera.DataBind();
+      }
+      ddlCarrera.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    }
+    protected void ObtenerNivelE()
+    {
+      DataTable dtNivelE = new DataTable();
+
+      dtNivelE = clsQuery.execQueryDataTable("SP_ObtenerNivelE");
+
+      if (dtNivelE.Rows.Count > 0)
+      {
+        ddlNivelE.DataSource = dtNivelE;
+        ddlNivelE.DataTextField = "NombreNivelE";
+        ddlNivelE.DataValueField = "NivelEstudioId";
+        ddlNivelE.DataBind();
+      }
+      ddlNivelE.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    }
     protected void ObtenPeriodoPago()
     {
       try
