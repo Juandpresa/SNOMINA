@@ -97,6 +97,7 @@ namespace EscenariosQnta
                 ObtenPeriodoPago();
                 ddlEscenario.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
         ObtenCarrera();
+        ObtenerNivelE();
 
             }
         }
