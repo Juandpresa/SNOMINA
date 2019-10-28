@@ -319,16 +319,22 @@
             <tr>
               <td>Grado de Estudio:
               </td>
+                <td>Institución:
+              </td>
               <td>Carrera:
               </td>
             </tr>
             <tr>
               <td class="td">
-                <asp:DropDownList ID="ddlNivelE" runat="server" CssClass="cssDropdown" AutoPostBack="true">
+                <asp:DropDownList ID="ddlNivelE" runat="server" CssClass="cssDropdown">
+                </asp:DropDownList>
+              </td>
+                <td class="td">
+                <asp:DropDownList ID="ddlInstitucion" runat="server" CssClass="cssDropdown">
                 </asp:DropDownList>
               </td>
               <td class="td">
-                <asp:DropDownList ID="ddlCarrera" runat="server" CssClass="cssDropdown" AutoPostBack="true">
+                <asp:DropDownList ID="ddlCarrera" runat="server" CssClass="cssDropdown">
                 </asp:DropDownList>
               </td>
             </tr>

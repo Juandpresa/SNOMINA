@@ -98,6 +98,7 @@ namespace EscenariosQnta
                 ddlEscenario.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
         ObtenCarrera();
         ObtenerNivelE();
+        ObtenerInstitucion();
 
             }
         }
@@ -132,6 +133,21 @@ namespace EscenariosQnta
         ddlNivelE.DataBind();
       }
       ddlNivelE.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    }
+    protected void ObtenerInstitucion()
+    {
+      DataTable dtInstitucion = new DataTable();
+
+      dtInstitucion = clsQuery.execQueryDataTable("SP_ObtenerInstituto");
+
+      if (dtInstitucion.Rows.Count > 0)
+      {
+        ddlInstitucion.DataSource = dtInstitucion;
+        ddlInstitucion.DataTextField = "NombreInstituto";
+        ddlInstitucion.DataValueField = "InstitutoId";
+        ddlInstitucion.DataBind();
+      }
+      ddlInstitucion.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
     }
     protected void ObtenPeriodoPago()
     {
