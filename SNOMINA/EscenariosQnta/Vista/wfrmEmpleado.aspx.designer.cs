@@ -121,6 +121,24 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.RadioButtonList rbtTipoEsquema;
         
         /// <summary>
+        /// Control ddlNivelE.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlNivelE;
+        
+        /// <summary>
+        /// Control ddlCarrera.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCarrera;
+        
+        /// <summary>
         /// Control divPorcentaje.
         /// </summary>
         /// <remarks>

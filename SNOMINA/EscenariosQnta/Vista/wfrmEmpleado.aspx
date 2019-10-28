@@ -172,14 +172,11 @@
                 <div class="contenPanel">
                     <table>
                         <tr>
-                            <td>
-                                Cliente
+                            <td>Cliente
                             </td>
-                            <td>
-                                Escenario:
+                            <td>Escenario:
                             </td>
-                            <td>
-                                Prima Riesgo:
+                            <td>Prima Riesgo:
                             </td>
                         </tr>
                         <tr>
@@ -199,14 +196,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                Nombre:
+                            <td>Nombre:
                             </td>
-                            <td>
-                                Apellido Paterno:
+                            <td>Apellido Paterno:
                             </td>
-                            <td>
-                                Apellido Materno:
+                            <td>Apellido Materno:
                             </td>
                         </tr>
                         <tr>
@@ -221,14 +215,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                Puesto:
+                            <td>Puesto:
                             </td>
-                            <td>
-                                Descripcion Puesto:
+                            <td>Descripcion Puesto:
                             </td>
-                            <td>
-                                Ubicacion Laboral:
+                            <td>Ubicacion Laboral:
                             </td>
                         </tr>
                         <tr>
@@ -243,11 +234,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                Fecha Ingreso:
+                            <td>Fecha Ingreso:
                             </td>
-                            <td>
-                                Fecha Nacimiento:
+                            <td>Fecha Nacimiento:
                             </td>
                         </tr>
                         <tr>
@@ -261,8 +250,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="td">
-                                Tipo de esquema
+                            <td class="td">Tipo de esquema
                             </td>
                         </tr>
                         <tr>
@@ -277,18 +265,45 @@
                     </table>
                 </div>
             </div>
-          <div class="container_12">
+
+            <div class="container_12">
+                DATOS ESCOLARES
+                <div style="width: auto; border: 2px Solid #4a1414;">
+                </div>
+                <div class="contenPanel">
+                    <table>
+                        <tr>
+                            <td>Grado de Estudios: 
+                            </td>
+<%--                            <td>Institución:
+                            </td>--%>
+                            <td>Carrera:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td">
+                                <asp:DropDownList ID="ddlNivelE" runat="server" CssClass="cssDropdown" AutoPostBack="true">
+                                </asp:DropDownList>
+                            </td>
+                            <td class="td">
+                                <asp:DropDownList ID="ddlCarrera" runat="server" CssClass="cssDropdown" AutoPostBack="true">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container_12">
                 <div style="width: auto; border: 2px Solid #4a1414;">
                 </div>
                 <div class="contenPanel">
                     <div runat="server" id="divPorcentaje" style="display: none;">
                         <table>
                             <tr>
-                                <td>
-                                    Porcentaje Nomina:
+                                <td>Porcentaje Nomina:
                                 </td>
-                                <td>
-                                    Sueldo:
+                                <td>Sueldo:
                                 </td>
                             </tr>
                             <tr>
@@ -300,8 +315,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    Porcentaje Asimilados:
+                                <td>Porcentaje Asimilados:
                                 </td>
                             </tr>
                             <tr>
@@ -310,8 +324,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    Porcentaje Honorarios:
+                                <td>Porcentaje Honorarios:
                                 </td>
                             </tr>
                             <tr>
@@ -320,8 +333,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    Porcentaje TN:
+                                <td>Porcentaje TN:
                                 </td>
                             </tr>
                             <tr>
@@ -330,8 +342,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    Porcentaje EZ Wallet:
+                                <td>Porcentaje EZ Wallet:
                                 </td>
                             </tr>
                             <tr>
@@ -344,8 +355,7 @@
                     <div runat="server" id="divFijo" style="display: none;">
                         <table>
                             <tr>
-                                <td>
-                                    Sueldo Bruto:
+                                <td>Sueldo Bruto:
                                 </td>
                             </tr>
                             <tr>
@@ -354,8 +364,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    Sueldo Neto:
+                                <td>Sueldo Neto:
                                 </td>
                             </tr>
                             <tr>
@@ -364,8 +373,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    Sueldo Honorarios
+                                <td>Sueldo Honorarios
                                 </td>
                             </tr>
                             <tr>
@@ -375,8 +383,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    Sueldo TN:
+                                <td>Sueldo TN:
                                 </td>
                             </tr>
                             <tr>
@@ -385,8 +392,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    Sueldo EZ Wallet:
+                                <td>Sueldo EZ Wallet:
                                 </td>
                             </tr>
                             <tr>
@@ -398,14 +404,11 @@
                     </div>
                     <table>
                         <tr>
-                            <td>
-                                Bono
+                            <td>Bono
                             </td>
-                            <td>
-                                Comision
+                            <td>Comision
                             </td>
-                            <td>
-                                Otros Ingresos
+                            <td>Otros Ingresos
                             </td>
                         </tr>
                         <tr>
@@ -428,14 +431,11 @@
                 <div class="contenPanel">
                     <table>
                         <tr>
-                            <td>
-                                Importe Fonacot:
+                            <td>Importe Fonacot:
                             </td>
-                            <td>
-                                Infonavit:
+                            <td>Infonavit:
                             </td>
-                            <td>
-                                Importe Infonavit:
+                            <td>Importe Infonavit:
                             </td>
                         </tr>
                         <tr>
@@ -452,14 +452,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                Prestacion:
+                            <td>Prestacion:
                             </td>
-                            <td>
-                                Pension Alimenticia:
+                            <td>Pension Alimenticia:
                             </td>
-                            <td>
-                                Importe Pension:
+                            <td>Importe Pension:
                             </td>
                         </tr>
                         <tr>
@@ -476,14 +473,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                Esquema Actual:
+                            <td>Esquema Actual:
                             </td>
-                            <td>
-                                Clasificacion Empleado:
+                            <td>Clasificacion Empleado:
                             </td>
-                            <td>
-                                Nacionalidad:
+                            <td>Nacionalidad:
                             </td>
                         </tr>
                         <tr>
