@@ -309,6 +309,41 @@
           </table>
         </div>
       </div>
+
+        <div class="container_12">
+        DATOS ESCOLARES
+                <div style="width: auto; border: 2px Solid #4a1414;">
+                </div>
+        <div class="contenPanel">
+          <table>
+            <tr>
+              <td>Cliente
+              </td>
+              <td>Escenario:
+              </td>
+              <td>Prima Riesgo:
+              </td>
+            </tr>
+            <tr>
+              <td class="td">
+                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged"
+                  AutoPostBack="true">
+                </asp:DropDownList>
+              </td>
+              <td class="td">
+                <asp:DropDownList ID="DropDownList2" runat="server" CssClass="cssDropdown" AutoPostBack="true"
+                  OnSelectedIndexChanged="ddlEscenario_SelectedIndexChanged">
+                </asp:DropDownList>
+              </td>
+              <td class="td">
+                <asp:DropDownList ID="DropDownList3" runat="server" CssClass="cssDropdown">
+                </asp:DropDownList>
+              </td>
+            </tr>
+              </table>
+      </div>
+
+
       <div class="container_12">
         <div style="width: auto; border: 2px Solid #4a1414;">
         </div>
