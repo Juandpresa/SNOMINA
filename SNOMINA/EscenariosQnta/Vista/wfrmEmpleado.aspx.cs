@@ -64,6 +64,10 @@ namespace EscenariosQnta
         string telMovil = string.Empty;
         string FechaUltimoPago = string.Empty;
         string PeriodoPago = string.Empty;
+        string IdEmpleado = string.Empty;
+        int IdNEstudios = 0;
+        int IdInstituto = 0;
+        int IdCarrera = 0;
 
         DateTime FechUltimoPago;
         DateTime FechIngreso;
@@ -96,8 +100,9 @@ namespace EscenariosQnta
                 ObtenTipoPago();
                 ObtenPeriodoPago();
                 ddlEscenario.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
-        ObtenCarrera();
-        ObtenerNivelE();
+                ObtenCarrera();
+                ObtenerNivelE();
+                ObtenerInstitucion();
 
             }
         }
@@ -132,6 +137,21 @@ namespace EscenariosQnta
         ddlNivelE.DataBind();
       }
       ddlNivelE.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    }
+    protected void ObtenerInstitucion()
+    {
+      DataTable dtInstitucion = new DataTable();
+
+      dtInstitucion = clsQuery.execQueryDataTable("SP_ObtenerInstituto");
+
+      if (dtInstitucion.Rows.Count > 0)
+      {
+        ddlInstitucion.DataSource = dtInstitucion;
+        ddlInstitucion.DataTextField = "NombreInstituto";
+        ddlInstitucion.DataValueField = "InstitutoId";
+        ddlInstitucion.DataBind();
+      }
+      ddlInstitucion.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
     }
     protected void ObtenPeriodoPago()
     {
@@ -901,6 +921,8 @@ namespace EscenariosQnta
             }
 
                         RetunValue = clsQuery.execQueryString(strQuery);
+                        IdEmpleado = string.Format("dbo.SP_ObtenerUltimoID");
+                        strQuery = string.Format("dbo.SP_InsertaIEscolar {0}, {1}, {2}, {3}", IdEmpleado, IdNEstudios, IdInstituto, IdCarrera);
 
                         if (RetunValue == "1")
                         {
