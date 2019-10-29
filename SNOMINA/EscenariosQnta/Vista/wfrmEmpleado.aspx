@@ -12,7 +12,7 @@
   <script type="text/javascript">
 
     $(document).ready(function () {
-      $(".datepicker").datepicker({ format: 'dd/mm/yyyy', autoclose: true, todayBtn: 'linked' })
+      $(".datepicker").datepicker({ format: 'yyyy/mm/dd', autoclose: true, todayBtn: 'linked' })
     });
 
 

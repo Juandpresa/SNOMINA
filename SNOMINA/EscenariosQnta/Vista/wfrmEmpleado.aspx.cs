@@ -3,6 +3,7 @@ using EscenariosQnta.Data;
 using System;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Globalization;
 
 namespace EscenariosQnta
 {
@@ -851,7 +852,8 @@ namespace EscenariosQnta
             DescriPto = txtDescripcion.Text.ToString();
             Id_PrimaRgo = ddlPrimaRiesgo.SelectedItem.Value;
             FechaIngreso = txtFechaIngreso.Text.ToString();
-            FechaNac = string.IsNullOrEmpty(txtFechaNacimiento.Text.ToString()) ? null : txtFechaNacimiento.Text.ToString();
+            FechaNac = txtFechaNacimiento.Text.ToString();
+            //FechaNac = string.IsNullOrEmpty(txtFechaNacimiento.Text.ToString()) ? null : txtFechaNacimiento.Text.ToString();
             Nomina = txtNomina.Text.ToString();
             Asimilados = txtAsimilados.Text.ToString();
             Honorarios = txtHonorarios.Text.ToString();
@@ -894,27 +896,27 @@ namespace EscenariosQnta
             IdInstituto = ddlInstitucion.SelectedItem.Value;
             IdCarrera = ddlCarrera.SelectedItem.Value;
 
-            FechUltimoPago = DateTime.Parse(FechaUltimoPago);
-            FechIngreso = DateTime.Parse(FechaIngreso);
-            FechNacimiento = string.IsNullOrEmpty(FechaNac) ? (DateTime?)null : Convert.ToDateTime(FechaNac);
+            //FechUltimoPago = DateTime.Parse(FechaUltimoPago);
+            //FechIngreso = DateTime.Parse(FechaIngreso);
+            //FechNacimiento = string.IsNullOrEmpty(FechaNac) ? (DateTime?)null : Convert.ToDateTime(FechaNac);
 
-            string FechUltimoPago1 = "2019-01-09 00:00:00.000";
-            string FechIngreso1 = "2019-01-09 00:00:00.000";
-            string FechNacimiento1 = "2019-01-09 00:00:00.000";
+            //string FechUltimoPago1 = "2019-01-09 00:00:00.000";
+            //string FechIngreso1 = "2019-01-09 00:00:00.000";
+            //string FechNacimiento1 = "2019-01-09 00:00:00.000";
 
-            if (FechNacimiento == null)
+            if (FechaNac == null)
             {
               strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34},'{35}',{36},{37},{38},'{39}','{40}','{41}','{42}','{43}','{44}',{45}",
-                  Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento, Nomina, Asimilados, Honorarios, TN, EZWallet,
+                  Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
                   Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                  Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechUltimoPago.ToString("yyyyMMdd HH:mm:ss"), PeriodoPago);
+                  Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, PeriodoPago);
             }
             else
             {
               strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34},'{35}',{36},{37},{38},'{39}','{40}','{41}','{42}','{43}','{44}',{45}",
-                  Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso1, FechNacimiento1, Nomina, Asimilados, Honorarios, TN, EZWallet,
+                  Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
                   Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                  Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechUltimoPago1, PeriodoPago);
+                  Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, PeriodoPago);
 
               //strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34}",
               //                  Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento.Value.ToString("yyyyMMdd"), Nomina, Asimilados, Honorarios, TN, EZWallet,
@@ -923,7 +925,8 @@ namespace EscenariosQnta
             }
 
             RetunValue = clsQuery.execQueryString(strQuery);
-            //IdEmpleado = string.Format("dbo.SP_ObtenerUltimoID");
+            IdEmpleado = string.Format("dbo.SP_ObtenerUltimoID");
+            string RetunValue2 = clsQuery.execQueryString(IdEmpleado);
             strQueryE = string.Format("dbo.SP_InsertaIEscolar {0}, {1}, {2}, {3}", IdEmpleado, IdNEstudios, IdInstituto, IdCarrera);
 
             if (RetunValue == "1")

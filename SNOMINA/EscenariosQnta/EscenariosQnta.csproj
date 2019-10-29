@@ -179,13 +179,16 @@
   <ItemGroup>
     <Content Include="css\bootstrap-datepicker.css" />
     <Content Include="css\CuadroMensaje.css" />
+    <Content Include="css\jquery.datetimepicker.css" />
     <Content Include="css\login.css" />
     <Content Include="image\nomina.png" />
     <Content Include="js\bootstrap-datepicker.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\jquery-2.1.1.min.js" />
     <Content Include="js\jquery-latest.js" />
+    <Content Include="js\jquery.datetimepicker.full.min.js" />
     <Content Include="js\jquery.maskedinput-1.3.1.min_.js" />
+    <Content Include="js\moment-with-locales.js" />
     <Content Include="Vista\ControlUsuario\CuadroMensajeControlUsu.ascx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
