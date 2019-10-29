@@ -65,9 +65,9 @@ namespace EscenariosQnta
         string FechaUltimoPago = string.Empty;
         string PeriodoPago = string.Empty;
         string IdEmpleado = string.Empty;
-        int IdNEstudios = 0;
-        int IdInstituto = 0;
-        int IdCarrera = 0;
+        string IdNEstudios = string.Empty;
+        string IdInstituto = string.Empty;
+        string IdCarrera = string.Empty;
 
         DateTime FechUltimoPago;
         DateTime FechIngreso;
@@ -895,6 +895,10 @@ namespace EscenariosQnta
                         telMovil = txtTelefonoLocal.Text.ToString();
                         FechaUltimoPago = txtUltimoPago.Text.ToString();
                         PeriodoPago = ddlPeriodoPago.SelectedItem.Value;
+
+                        IdNEstudios = ddlNivelE.SelectedItem.Value;
+                        IdCarrera = ddlCarrera.SelectedItem.Value;
+                        IdInstituto = ddlInstitucion.SelectedItem.Value;
 
                         FechUltimoPago = DateTime.Parse(FechaUltimoPago);
                         FechIngreso = DateTime.Parse(FechaIngreso);
