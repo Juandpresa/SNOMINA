@@ -926,7 +926,7 @@ namespace EscenariosQnta
             }
 
                         RetunValue = clsQuery.execQueryString(strQuery);
-                        IdEmpleado = string.Format("dbo.SP_ObtenerUltimoID");
+                        //IdEmpleado = string.Format("dbo.SP_ObtenerUltimoID");
                         strQueryE = string.Format("dbo.SP_InsertaIEscolar {0}, {1}, {2}, {3}", IdEmpleado, IdNEstudios, IdInstituto, IdCarrera);
 
                         if (RetunValue == "1")
