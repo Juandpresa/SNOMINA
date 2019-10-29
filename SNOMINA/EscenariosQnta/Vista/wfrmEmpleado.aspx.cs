@@ -64,6 +64,10 @@ namespace EscenariosQnta
         string telMovil = string.Empty;
         string FechaUltimoPago = string.Empty;
         string PeriodoPago = string.Empty;
+        string IdEmpleado = string.Empty;
+        int IdNEstudios = 0;
+        int IdInstituto = 0;
+        int IdCarrera = 0;
 
         DateTime FechUltimoPago;
         DateTime FechIngreso;
@@ -96,9 +100,9 @@ namespace EscenariosQnta
                 ObtenTipoPago();
                 ObtenPeriodoPago();
                 ddlEscenario.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
-        ObtenCarrera();
-        ObtenerNivelE();
-        ObtenerInstitucion();
+                ObtenCarrera();
+                ObtenerNivelE();
+                ObtenerInstitucion();
 
             }
         }
@@ -912,6 +916,8 @@ namespace EscenariosQnta
                         }
 
                         RetunValue = clsQuery.execQueryString(strQuery);
+                        IdEmpleado = string.Format("dbo.SP_ObtenerUltimoID");
+                        strQuery = string.Format("dbo.SP_InsertaIEscolar {0}, {1}, {2}, {3}", IdEmpleado, IdNEstudios, IdInstituto, IdCarrera);
 
                         if (RetunValue == "1")
                         {
