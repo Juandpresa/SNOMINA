@@ -65,9 +65,9 @@ namespace EscenariosQnta
         string FechaUltimoPago = string.Empty;
         string PeriodoPago = string.Empty;
         string IdEmpleado = string.Empty;
-        string IdNEstudios = string.Empty;
-        string IdInstituto = string.Empty;
-        string IdCarrera = string.Empty;
+        int IdNEstudios = 0;
+        int IdInstituto = 0;
+        int IdCarrera = 0;
 
         DateTime FechUltimoPago;
         DateTime FechIngreso;
@@ -896,16 +896,15 @@ namespace EscenariosQnta
                         FechaUltimoPago = txtUltimoPago.Text.ToString();
                         PeriodoPago = ddlPeriodoPago.SelectedItem.Value;
 
-                        IdNEstudios = ddlNivelE.SelectedItem.Value;
-                        IdCarrera = ddlCarrera.SelectedItem.Value;
-                        IdInstituto = ddlInstitucion.SelectedItem.Value;
+            FechUltimoPago = DateTime.Parse(FechaUltimoPago);
+            FechIngreso = DateTime.Parse(FechaIngreso);
+            FechNacimiento = string.IsNullOrEmpty(FechaNac) ? (DateTime?)null : Convert.ToDateTime(FechaNac);
 
-                        FechUltimoPago = DateTime.Parse(FechaUltimoPago);
-                        FechIngreso = DateTime.Parse(FechaIngreso);
-                        FechNacimiento = string.IsNullOrEmpty(FechaNac) ? (DateTime?)null : Convert.ToDateTime(FechaNac);
-                        
+            string FechUltimoPago1 = "2019-01-09 00:00:00.000";
+            string FechIngreso1 = "2019-01-09 00:00:00.000";
+            string FechNacimiento1 = "2019-01-09 00:00:00.000";
 
-                        if (FechNacimiento == null)
+            if (FechNacimiento == null)
                         {
                             strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34},'{35}',{36},{37},{38},'{39}','{40}','{41}','{42}','{43}','{44}',{45}",
                                 Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento, Nomina, Asimilados, Honorarios, TN, EZWallet,
@@ -914,15 +913,15 @@ namespace EscenariosQnta
                         }
                         else
                         {
-                            //strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34},'{35}',{36},{37},{38},'{39}','{40}','{41}','{42}','{43}','{44}',{45}",
-                            //    Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento.Value.ToString("yyyyMMdd"), Nomina, Asimilados, Honorarios, TN, EZWallet,
-                            //    Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                            //    Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechUltimoPago.ToString("yyyyMMdd HH:mm:ss"), PeriodoPago);
+              strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34},'{35}',{36},{37},{38},'{39}','{40}','{41}','{42}','{43}','{44}',{45}",
+                  Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso1, FechNacimiento1, Nomina, Asimilados, Honorarios, TN, EZWallet,
+                  Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
+                  Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechUltimoPago1, PeriodoPago);
 
-              strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34}",
-                                Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento.Value.ToString("yyyyMMdd"), Nomina, Asimilados, Honorarios, TN, EZWallet,
-                                Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                                Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema);
+              //strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34}",
+              //                  Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento.Value.ToString("yyyyMMdd"), Nomina, Asimilados, Honorarios, TN, EZWallet,
+              //                  Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
+              //                  Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema);
             }
 
                         RetunValue = clsQuery.execQueryString(strQuery);
