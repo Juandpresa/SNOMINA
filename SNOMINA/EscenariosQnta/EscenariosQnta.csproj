@@ -260,6 +260,10 @@
   <ItemGroup>
     <Compile Include="Clases\CuadroMensaje.cs" />
     <Compile Include="Clases\CuadroMensajeBasico.cs" />
+    <Compile Include="Data\DALEmpleado.cs" />
+    <Compile Include="Data\DALGradoAcademico.cs" />
+    <Compile Include="Negocio\BLLEmpleado.cs" />
+    <Compile Include="Negocio\BLLGradoAcademico.cs" />
     <Compile Include="Reportes\Reporte_Resumen.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
