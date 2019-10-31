@@ -185,11 +185,11 @@
                                     AutoPostBack="true">
                                 </asp:DropDownList>
                             </td>
-                            <td class="td">
+                            <%--<td class="td">
                                 <asp:DropDownList ID="ddlEscenario" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlEscenario_SelectedIndexChanged"
                                     AutoPostBack="true">
                                 </asp:DropDownList>
-                            </td>
+                            </td>--%>
                             <td class="td">
                                 <asp:DropDownList ID="ddlPrimaRiesgo" runat="server" CssClass="cssDropdown">
                                 </asp:DropDownList>
