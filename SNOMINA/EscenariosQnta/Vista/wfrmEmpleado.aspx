@@ -282,7 +282,7 @@
             </tr>
             <tr>
               <td class="td">
-                <asp:TextBox ID="txtFechaIngreso" runat="server" Text="" CssClass="datepicker" required
+                <asp:TextBox ID="txtFechaIngreso" runat="server" Text="" CssClass="datepicker" required="required"
                   placeholder="dd/mm/yyyy"></asp:TextBox>
               </td>
               <td class="td">
@@ -309,7 +309,43 @@
           </table>
         </div>
       </div>
-
+                <div class="container_12">
+        DATOS DE PAGO
+                <div style="width: auto; border: 2px Solid #4a1414;">
+                </div>
+ 
+<div class="contenPanel">
+          <table>
+            <tr>
+              <td>Banco:
+              </td>
+                <td>Cuenta:
+              </td>
+              <td>CLABE:
+              </td>
+                <td>Sucursal:
+              </td>
+            </tr>
+            <tr>
+              <td class="td">
+                <asp:DropDownList ID="ddlBanco" runat="server" CssClass="cssDropdown">
+                </asp:DropDownList>
+              </td>
+                <td class="td">
+                <asp:TextBox ID="txtCuenta" runat="server" CssClass="textbox" FilterType="Numbers">
+                </asp:TextBox>
+              </td>
+              <td class="td">
+                <asp:TextBox ID="txtClabe" runat="server" CssClass="textbox" FilterType="Numbers">
+                </asp:TextBox>
+              </td>
+                <td class="td">
+                <asp:TextBox ID="txtSucursal" runat="server" CssClass="textbox">
+                </asp:TextBox>
+              </td>
+            </tr>
+              </table>
+      </div>
         <div class="container_12">
         DATOS ESCOLARES
                 <div style="width: auto; border: 2px Solid #4a1414;">
@@ -591,4 +627,6 @@
       </div>
     </div>
   </div>
+        </div>
+      </div>
 </asp:Content>

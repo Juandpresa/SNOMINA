@@ -100,10 +100,25 @@ namespace EscenariosQnta
         ObtenCarrera();
         ObtenerNivelE();
         ObtenerInstitucion();
+        ObtenBanco();
 
       }
     }
+    protected void ObtenBanco()
+    {
+      DataTable dtBanco = new DataTable();
 
+      dtBanco = clsQuery.execQueryDataTable("SP_ObtenerBanco");
+
+      if (dtBanco.Rows.Count > 0)
+      {
+        ddlBanco.DataSource = dtBanco;
+        ddlBanco.DataTextField = "NombreBanco";
+        ddlBanco.DataValueField = "BancoId";
+        ddlBanco.DataBind();
+      }
+      ddlBanco.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    }
 
     protected void ObtenCarrera()
     {
