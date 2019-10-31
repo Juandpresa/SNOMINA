@@ -63,6 +63,7 @@ namespace EscenariosQnta
     string FechaUltimoPago = string.Empty;
     string PeriodoPago = string.Empty;
     string IdEmpleado = string.Empty;
+    string Identificador = string.Empty;
     string IdNEstudios = string.Empty;
     string IdInstituto = string.Empty;
     string IdCarrera = string.Empty;
@@ -108,10 +109,13 @@ namespace EscenariosQnta
       }
     }
 
-    protected void ObtenUltimoId()
+    protected void ObtenClave(int idCte)
     {
       IdEmpleado = BLLEmpleado.ObtenerUltimoEmpleado();
       emp = (int.Parse(IdEmpleado)) + 1;
+      txtClave.Text = emp.ToString();
+      Identificador = BLLEmpleado.ObtenerIdentificador(idCte);
+      txtIdentificador.Text = Identificador.ToString();
     }
 
     protected void ObtenBanco()
@@ -262,7 +266,7 @@ namespace EscenariosQnta
         {
           ddlPagadora.DataSource = dtPagadora;
           ddlPagadora.DataTextField = "Alias";
-          ddlPagadora.DataValueField = "idRSociaRol";
+          ddlPagadora.DataValueField = "idRazonSocial";
           ddlPagadora.DataBind();
         }
 
@@ -281,13 +285,13 @@ namespace EscenariosQnta
       {
         DataTable dtCliente = new DataTable();
 
-        dtCliente = clsQuery.execQueryDataTable("SP_ObtenClientes");
+        dtCliente = clsQuery.execQueryDataTable("SP_ObtenClientes2");
 
         if (dtCliente.Rows.Count > 0)
         {
           ddlCliente.DataSource = dtCliente;
-          ddlCliente.DataTextField = "Nombre_RazonSocial";
-          ddlCliente.DataValueField = "Id_Cliente";
+          ddlCliente.DataTextField = "Alias";
+          ddlCliente.DataValueField = "idRazonSocial";
           ddlCliente.DataBind();
         }
 
@@ -989,6 +993,7 @@ namespace EscenariosQnta
     protected void ddlCliente_SelectedIndexChanged(object sender, EventArgs e)
     {
       ObtenEscenarioPorCliente(int.Parse(ddlCliente.SelectedValue));
+      ObtenClave(int.Parse(ddlCliente.SelectedValue));
     }
 
     protected void ddlClientegv_SelectedIndexChanged(object sender, EventArgs e)

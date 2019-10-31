@@ -21,5 +21,17 @@ namespace EscenariosQnta.Negocio
       }
     }
 
+    public static string ObtenerIdentificador(int idIdentificador)
+    {
+      try
+      {
+        return DALEmpleado.ObtenerIdentificador(idIdentificador);
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+    }
+
   }
 }
