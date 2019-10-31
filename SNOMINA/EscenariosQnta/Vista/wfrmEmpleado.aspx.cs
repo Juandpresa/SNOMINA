@@ -4,6 +4,8 @@ using System;
 using System.Data;
 using System.Web.UI.WebControls;
 using System.Globalization;
+using System.IO;
+using EscenariosQnta.Negocio;
 
 namespace EscenariosQnta
 {
@@ -940,9 +942,12 @@ namespace EscenariosQnta
             }
 
             RetunValue = clsQuery.execQueryString(strQuery);
-            IdEmpleado = string.Format("dbo.SP_ObtenerUltimoID");
-            string RetunValue2 = clsQuery.execQueryString(IdEmpleado);
-            strQueryE = string.Format("dbo.SP_InsertaIEscolar {0}, {1}, {2}, {3}", IdEmpleado, IdNEstudios, IdInstituto, IdCarrera);
+            IdEmpleado = BLLEmpleado.ObtenerUltimoEmpleado();
+            int emp = int.Parse(IdEmpleado);
+            int ne = int.Parse(IdNEstudios);
+            int ins = int.Parse(IdInstituto);
+            int carr = int.Parse(IdCarrera);
+            strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, ne, ins, carr);
 
             if (RetunValue == "1")
             {
