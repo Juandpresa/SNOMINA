@@ -217,7 +217,6 @@
                         <tr>
                             <td>Clave:
                             </td>
-                            <td></td>
                             <td>Sexo:
                             </td>
                             <td>RFC:
@@ -225,9 +224,7 @@
                         </tr>
                         <tr>
                             <td class="td">
-                                <asp:TextBox ID="txtIdentificador" runat="server" Text="" CssClass="textboxid" required=""></asp:TextBox>
-                            </td>
-                            <td class="td" style="width:15px;">
+                                <asp:TextBox ID="txtIdentificador" runat="server" Text="" CssClass="textboxid" readonly="true"></asp:TextBox>
                                 <asp:TextBox ID="txtClave" runat="server" Text="" CssClass="textboxcl" required=""></asp:TextBox>
 
                             </td>
@@ -236,7 +233,7 @@
                                 </asp:DropDownList>
                             </td>
                             <td class="td">
-                                <asp:TextBox ID="txtRfc" runat="server" Text="" CssClass="textbox" required></asp:TextBox>
+                                <asp:TextBox ID="txtRfc" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
