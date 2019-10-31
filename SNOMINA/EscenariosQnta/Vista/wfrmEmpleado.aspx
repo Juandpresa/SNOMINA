@@ -205,7 +205,7 @@
                         </tr>
                         <tr>
                             <td class="td">
-                                <asp:TextBox ID="txtNombre" runat="server" Text="" CssClass="textbox" required></asp:TextBox>
+                                <asp:TextBox ID="txtNombre" runat="server" Text="" CssClass="textbox" required="true"></asp:TextBox>
                             </td>
                             <td class="td">
                                 <asp:TextBox ID="txtPaterno" runat="server" Text="" CssClass="textbox"></asp:TextBox>
