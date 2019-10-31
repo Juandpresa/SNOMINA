@@ -174,8 +174,6 @@
                         <tr>
                             <td>Cliente
                             </td>
-                            <td>Escenario:
-                            </td>
                             <td>Prima Riesgo:
                             </td>
                         </tr>
