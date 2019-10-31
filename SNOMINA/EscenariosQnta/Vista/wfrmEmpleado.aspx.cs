@@ -559,7 +559,7 @@ namespace EscenariosQnta
       ObtenEsquema();
       ObtenClasificacionEmpleado();
 
-      ddlEscenario.SelectedIndex = 0;
+      //ddlEscenario.SelectedIndex = 0;
     }
 
     //protected void ObtenEmpleado()
@@ -872,7 +872,7 @@ namespace EscenariosQnta
               }
             }
 
-            Id_Escenario = ddlEscenario.SelectedValue;
+            //Id_Escenario = ddlEscenario.SelectedValue;
             Id_Cliente = ddlCliente.SelectedItem.Value;
             Nombre = txtNombre.Text.ToString();
             Paterno = txtPaterno.Text.ToString();
