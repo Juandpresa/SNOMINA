@@ -100,7 +100,7 @@ namespace EscenariosQnta
         ObtenSexo();
         ObtenTipoPago();
         ObtenPeriodoPago();
-        ddlEscenario.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+        //ddlEscenario.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
         ObtenCarrera();
         ObtenerNivelE();
         ObtenerInstitucion();
@@ -304,32 +304,32 @@ namespace EscenariosQnta
       }
     }
 
-    protected void ObtenEscenarioPorCliente(int Id_Cliente)
-    {
-      try
-      {
-        DataTable dtEscenarioByCliente = new DataTable();
+    //protected void ObtenEscenarioPorCliente(int Id_Cliente)
+    //{
+    //  try
+    //  {
+    //    DataTable dtEscenarioByCliente = new DataTable();
 
-        strQuery = string.Format("SP_ObtenEscenarioPorCliente {0}", Id_Cliente);
+    //    strQuery = string.Format("SP_ObtenEscenarioPorCliente {0}", Id_Cliente);
 
-        dtEscenarioByCliente = clsQuery.execQueryDataTable(strQuery);
+    //    dtEscenarioByCliente = clsQuery.execQueryDataTable(strQuery);
 
-        if (dtEscenarioByCliente.Rows.Count > 0)
-        {
-          ddlEscenario.DataSource = dtEscenarioByCliente;
-          ddlEscenario.DataTextField = "Id_Escenario";
-          ddlEscenario.DataValueField = "Id_Escenario";
-          ddlEscenario.DataBind();
-        }
+    //    if (dtEscenarioByCliente.Rows.Count > 0)
+    //    {
+    //      ddlEscenario.DataSource = dtEscenarioByCliente;
+    //      ddlEscenario.DataTextField = "Id_Escenario";
+    //      ddlEscenario.DataValueField = "Id_Escenario";
+    //      ddlEscenario.DataBind();
+    //    }
 
-        ddlEscenario.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
-      }
-      catch (Exception ex)
-      {
-        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
-      }
+    //    ddlEscenario.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    //  }
+    //  catch (Exception ex)
+    //  {
+    //    Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+    //  }
 
-    }
+    //}
 
     protected void ObtenPrimaRiesgo()
     {
@@ -1026,68 +1026,68 @@ namespace EscenariosQnta
       }
     }
 
-    protected void ddlEscenario_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      ValidaPorcentajes();
-    }
+    //protected void ddlEscenario_SelectedIndexChanged(object sender, EventArgs e)
+    //{
+    //  ValidaPorcentajes();
+    //}
 
-    public void ValidaPorcentajes()
-    {
-      int returnvalor = 0;
+    //public void ValidaPorcentajes()
+    //{
+    //  int returnvalor = 0;
 
-      DataTable dtPorcentajes = new DataTable();
-      string Cliente = ddlCliente.SelectedItem.Value;
-      string Escenario = ddlEscenario.SelectedItem.Value;
+    //  DataTable dtPorcentajes = new DataTable();
+    //  string Cliente = ddlCliente.SelectedItem.Value;
+    //  string Escenario = ddlEscenario.SelectedItem.Value;
 
-      strQuery = string.Format("SP_ObtenPorcentajes {0}, {1}", Cliente, Escenario);
-      dtPorcentajes = clsQuery.execQueryDataTable(strQuery);
+    //  strQuery = string.Format("SP_ObtenPorcentajes {0}, {1}", Cliente, Escenario);
+    //  dtPorcentajes = clsQuery.execQueryDataTable(strQuery);
 
-      if (dtPorcentajes.Rows.Count > 0)
-      {
-        Nomina = dtPorcentajes.Rows[0]["PorcNomina"].ToString();
-        Asimilados = dtPorcentajes.Rows[0]["PorcAsimilados"].ToString();
-        Honorarios = dtPorcentajes.Rows[0]["PorcHonorarios"].ToString();
-        //OtrosProductos = dtPorcentajes.Rows[0]["PorOtrosProductos"].ToString();
+    //  if (dtPorcentajes.Rows.Count > 0)
+    //  {
+    //    Nomina = dtPorcentajes.Rows[0]["PorcNomina"].ToString();
+    //    Asimilados = dtPorcentajes.Rows[0]["PorcAsimilados"].ToString();
+    //    Honorarios = dtPorcentajes.Rows[0]["PorcHonorarios"].ToString();
+    //    //OtrosProductos = dtPorcentajes.Rows[0]["PorOtrosProductos"].ToString();
 
-        //if (Nomina == "0" & Asimilados == "0" & Honorarios == "0" & OtrosProductos == "0")
-        //{
+    //    //if (Nomina == "0" & Asimilados == "0" & Honorarios == "0" & OtrosProductos == "0")
+    //    //{
 
-        if (!string.IsNullOrEmpty(txtNomina.Text) && txtNomina.Text != "0")
-          returnvalor = 1;
+    //    if (!string.IsNullOrEmpty(txtNomina.Text) && txtNomina.Text != "0")
+    //      returnvalor = 1;
 
-        if (!string.IsNullOrEmpty(txtAsimilados.Text) && txtAsimilados.Text != "0")
-          returnvalor = 1;
+    //    if (!string.IsNullOrEmpty(txtAsimilados.Text) && txtAsimilados.Text != "0")
+    //      returnvalor = 1;
 
-        if (!string.IsNullOrEmpty(txtHonorarios.Text) && txtHonorarios.Text != "0")
-          returnvalor = 1;
+    //    if (!string.IsNullOrEmpty(txtHonorarios.Text) && txtHonorarios.Text != "0")
+    //      returnvalor = 1;
 
-        //if (!string.IsNullOrEmpty(txtOtrosProductos.Text) && txtOtrosProductos.Text != "0")
-        //    returnvalor = 1;
-        //}
-        //else
-        //{
-        //    returnvalor = 1;
-        //}
+    //    //if (!string.IsNullOrEmpty(txtOtrosProductos.Text) && txtOtrosProductos.Text != "0")
+    //    //    returnvalor = 1;
+    //    //}
+    //    //else
+    //    //{
+    //    //    returnvalor = 1;
+    //    //}
 
-        //if (Nomina == "100")
-        //{
-        //    //rdlTipoNomina.Items[0].Selected = true;
-        //    //rdlTipoNomina.Items[1].Selected = false;
-        //    txtSueldoBruto.Enabled = true;
-        //    txtSueldoNeto.Enabled = false;
-        //}
-        //else if (Asimilados == "100")
-        //{
-        //    //rdlTipoNomina.Items[0].Selected = false;
-        //    //rdlTipoNomina.Items[1].Selected = true;
-        //    txtSueldoBruto.Enabled = false;
-        //    txtSueldoNeto.Enabled = true;
-        //}
+    //    //if (Nomina == "100")
+    //    //{
+    //    //    //rdlTipoNomina.Items[0].Selected = true;
+    //    //    //rdlTipoNomina.Items[1].Selected = false;
+    //    //    txtSueldoBruto.Enabled = true;
+    //    //    txtSueldoNeto.Enabled = false;
+    //    //}
+    //    //else if (Asimilados == "100")
+    //    //{
+    //    //    //rdlTipoNomina.Items[0].Selected = false;
+    //    //    //rdlTipoNomina.Items[1].Selected = true;
+    //    //    txtSueldoBruto.Enabled = false;
+    //    //    txtSueldoNeto.Enabled = true;
+    //    //}
 
 
-      }
-      //return returnvalor;
-    }
+    //  }
+    //  //return returnvalor;
+    //}
 
     public string ValidaSalarios()
     {
@@ -1118,8 +1118,8 @@ namespace EscenariosQnta
     {
       string returnValidacion = string.Empty;
 
-      if (ddlEscenario.SelectedItem.Value == "-1")
-        returnValidacion = "Seleccione un Escenario Por Favor";
+      //if (ddlEscenario.SelectedItem.Value == "-1")
+      //  returnValidacion = "Seleccione un Escenario Por Favor";
 
       if (ddlCliente.SelectedItem.Value == "-1")
         returnValidacion = "Seleccione un Cliente Por Favor";
