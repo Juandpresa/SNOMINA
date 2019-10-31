@@ -992,7 +992,7 @@ namespace EscenariosQnta
 
     protected void ddlCliente_SelectedIndexChanged(object sender, EventArgs e)
     {
-      ObtenEscenarioPorCliente(int.Parse(ddlCliente.SelectedValue));
+      //ObtenEscenarioPorCliente(int.Parse(ddlCliente.SelectedValue));
       ObtenClave(int.Parse(ddlCliente.SelectedValue));
     }
 
