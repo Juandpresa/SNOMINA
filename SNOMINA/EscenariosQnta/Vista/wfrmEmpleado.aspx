@@ -174,7 +174,7 @@
             <tr>
               <td>Cliente
               </td>
-              <td>Escenario:
+                <td>Escenario:
               </td>
               <td>Prima Riesgo:
               </td>
@@ -185,9 +185,9 @@
                   AutoPostBack="true">
                 </asp:DropDownList>
               </td>
-              <td class="td">
-                <asp:DropDownList ID="ddlEscenario" runat="server" CssClass="cssDropdown" AutoPostBack="true"
-                  OnSelectedIndexChanged="ddlEscenario_SelectedIndexChanged">
+                <td class="td">
+                <asp:DropDownList ID="ddlEscenario" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlEscenario_SelectedIndexChanged"
+                  AutoPostBack="true">
                 </asp:DropDownList>
               </td>
               <td class="td">
@@ -224,7 +224,8 @@
             </tr>
             <tr>
               <td class="td">
-                <asp:TextBox ID="txtClave" runat="server" Text="" CssClass="textbox" required></asp:TextBox>
+                <asp:TextBox ID="txtIdentificador" runat="server" Text="" CssClass="textbox col-xs-3" required=""></asp:TextBox>
+                  <asp:TextBox ID="txtClave" runat="server" Text="" CssClass="textbox col-xs-5" required=""></asp:TextBox>
               </td>
               <td class="td">
                 <asp:DropDownList ID="ddlSexo" runat="server" CssClass="cssDropdown">
