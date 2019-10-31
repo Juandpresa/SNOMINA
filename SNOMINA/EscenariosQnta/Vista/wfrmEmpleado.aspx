@@ -172,7 +172,9 @@
                 <div class="contenPanel">
                     <table>
                         <tr>
-                            <td>Cliente
+                            <td>Cliente:
+                            </td>
+                            <td>Clave Empleado:
                             </td>
                             <td>Prima Riesgo:
                             </td>
@@ -188,6 +190,11 @@
                                     AutoPostBack="true">
                                 </asp:DropDownList>
                             </td>--%>
+                            <td class="td">
+                                <asp:TextBox ID="txtIdentificador" runat="server" Text="" CssClass="textboxid" readonly="true"></asp:TextBox>
+                                <asp:TextBox ID="txtClave" runat="server" Text="" CssClass="textboxcl" required=""></asp:TextBox>
+
+                            </td>
                             <td class="td">
                                 <asp:DropDownList ID="ddlPrimaRiesgo" runat="server" CssClass="cssDropdown">
                                 </asp:DropDownList>
@@ -213,19 +220,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Clave:
-                            </td>
                             <td>Sexo:
                             </td>
                             <td>RFC:
                             </td>
                         </tr>
                         <tr>
-                            <td class="td">
-                                <asp:TextBox ID="txtIdentificador" runat="server" Text="" CssClass="textboxid" readonly="true"></asp:TextBox>
-                                <asp:TextBox ID="txtClave" runat="server" Text="" CssClass="textboxcl" required=""></asp:TextBox>
-
-                            </td>
+                            
                             <td class="td">
                                 <asp:DropDownList ID="ddlSexo" runat="server" CssClass="cssDropdown">
                                 </asp:DropDownList>
