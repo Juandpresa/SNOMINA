@@ -66,6 +66,7 @@ namespace EscenariosQnta
     string IdNEstudios = string.Empty;
     string IdInstituto = string.Empty;
     string IdCarrera = string.Empty;
+    int emp = 0;
 
     DateTime FechUltimoPago;
     DateTime FechIngreso;
@@ -106,6 +107,13 @@ namespace EscenariosQnta
 
       }
     }
+
+    protected void ObtenUltimoId()
+    {
+      IdEmpleado = BLLEmpleado.ObtenerUltimoEmpleado();
+      emp = (int.Parse(IdEmpleado)) + 1;
+    }
+
     protected void ObtenBanco()
     {
       DataTable dtBanco = new DataTable();
@@ -943,7 +951,7 @@ namespace EscenariosQnta
 
             RetunValue = clsQuery.execQueryString(strQuery);
             IdEmpleado = BLLEmpleado.ObtenerUltimoEmpleado();
-            int emp = int.Parse(IdEmpleado);
+            emp = int.Parse(IdEmpleado);
             int ne = int.Parse(IdNEstudios);
             int ins = int.Parse(IdInstituto);
             int carr = int.Parse(IdCarrera);
