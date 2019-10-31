@@ -67,6 +67,10 @@ namespace EscenariosQnta
     string IdNEstudios = string.Empty;
     string IdInstituto = string.Empty;
     string IdCarrera = string.Empty;
+    string IdBanco = string.Empty;
+    string cuenta = string.Empty;
+    string clabe = string.Empty;
+    string sucursal = string.Empty;
     int emp = 0;
 
     DateTime FechUltimoPago;
@@ -76,6 +80,7 @@ namespace EscenariosQnta
     //bool chkTipoNomina = false;
     string strQuery = string.Empty;
     string strQueryE = string.Empty;
+    string strQueryIB = string.Empty;
     string RetunValue;
     clsDatos clsQuery = new clsDatos();
     string ValidacionControles = string.Empty;
@@ -924,6 +929,10 @@ namespace EscenariosQnta
             IdNEstudios = ddlNivelE.SelectedItem.Value;
             IdInstituto = ddlInstitucion.SelectedItem.Value;
             IdCarrera = ddlCarrera.SelectedItem.Value;
+            IdBanco = ddlBanco.SelectedItem.Value;
+            cuenta = txtCuenta.Text.ToString();
+            clabe = txtClabe.Text.ToString();
+            sucursal = txtSucursal.Text.ToString();
 
             //FechUltimoPago = DateTime.Parse(FechaUltimoPago);
             //FechIngreso = DateTime.Parse(FechaIngreso);
@@ -960,6 +969,8 @@ namespace EscenariosQnta
             int ins = int.Parse(IdInstituto);
             int carr = int.Parse(IdCarrera);
             strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, ne, ins, carr);
+            int idBan = int.Parse(IdBanco);
+            strQueryIB = BLLInfoBancaria.InsInfoBancaria(idBan, emp, cuenta, clabe, sucursal);
 
             if (RetunValue == "1")
             {
