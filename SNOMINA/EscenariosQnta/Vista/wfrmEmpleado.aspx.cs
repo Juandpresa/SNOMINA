@@ -14,7 +14,7 @@ namespace EscenariosQnta
     #region Variables
 
     string Id = string.Empty;
-    string Id_Escenario = string.Empty;
+    string Id_Escenario = "1";
     string Id_Cliente = string.Empty;
     string Nombre = string.Empty;
     string Paterno = string.Empty;
@@ -910,7 +910,7 @@ namespace EscenariosQnta
             Id_ClasifEmp = ddlClasificacionEmpleado.SelectedItem.Value;
             Nacionalidad = txtNacionalidad.Text.ToString();
 
-            Cve = txtClave.Text.ToString();
+            Cve = txtIdentificador.Text.ToString() + txtClave.Text.ToString();
             RSPagadora = ddlPagadora.SelectedItem.Value;
             Sexo = ddlSexo.SelectedItem.Value;
             TipoPago = ddlTipoPago.SelectedItem.Value;
@@ -943,7 +943,7 @@ namespace EscenariosQnta
             else
             {
               strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34},'{35}',{36},{37},{38},'{39}','{40}','{41}','{42}','{43}','{44}',{45}",
-                  Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
+                  int.Parse(Id_Escenario), int.Parse(Id_Cliente), Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
                   Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
                   Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, PeriodoPago);
 
