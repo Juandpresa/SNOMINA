@@ -143,7 +143,8 @@
                 document.getElementById('ContentPlaceHolder1_txtSueldo').value = 0;
             }
 
-        }
+        
+
 
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
 
