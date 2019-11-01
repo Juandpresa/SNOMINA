@@ -21,7 +21,7 @@ namespace EscenariosQnta.Data
         SqlCommand cmd = new SqlCommand(Query, conn);
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@BancoID", idBan);
-        cmd.Parameters.AddWithValue("@Empleado", idEmp);
+        cmd.Parameters.AddWithValue("@EmpleadoID", idEmp);
         cmd.Parameters.AddWithValue("@Cuenta", cuenta);
         cmd.Parameters.AddWithValue("@Clabe", clabe);
         cmd.Parameters.AddWithValue("@Sucursal", sucursal);
