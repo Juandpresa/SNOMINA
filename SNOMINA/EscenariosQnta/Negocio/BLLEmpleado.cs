@@ -33,5 +33,17 @@ namespace EscenariosQnta.Negocio
       }
     }
 
+    //public static string ObtenerClavesExistentes()
+    //{
+    //  try
+    //  {
+    //    return DALEmpleado.ObtenerClavesExistentes();
+    //  }
+    //  catch (Exception)
+    //  {
+    //    throw;
+    //  }
+    //}
+
   }
 }

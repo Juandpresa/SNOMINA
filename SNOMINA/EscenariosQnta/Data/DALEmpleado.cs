@@ -57,5 +57,43 @@ namespace EscenariosQnta.Data
         conn.Close();
       }
     }
+
+    //public static List<T> ObtenerClavesExistentes()
+    //{
+    //  try
+    //  {
+    //    conn.Open();
+    //    string Query = "SP_ObtenerClavesExistentes";
+    //    SqlCommand cmd = new SqlCommand(Query, conn);
+    //    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+    //    cmd.CommandType = CommandType.StoredProcedure;
+    //    DataSet cves = new DataSet();
+    //    adapter.Fill(cves);
+
+    //    if (cves.Tables[0].Rows.Count > 0)
+    //    {
+    //      //Encontro un registro
+    //      DataRow dr = cves.Tables[0].Rows[0];
+    //      CamionVO Camion = new CamionVO(dr);
+    //      return Camion;
+    //    }
+    //    else
+    //    {
+    //      //La tabla esta vacia
+    //      CamionVO Camion = new CamionVO();
+    //      return Camion;
+    //    }
+
+    //  }
+    //  catch (Exception)
+    //  {
+
+    //    throw;
+    //  }
+    //  finally
+    //  {
+    //    conn.Close();
+    //  }
+    //}
   }
 }
