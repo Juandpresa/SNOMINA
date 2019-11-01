@@ -143,8 +143,7 @@
                 document.getElementById('ContentPlaceHolder1_txtSueldo').value = 0;
             }
 
-        
-
+        }
 
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
 
@@ -587,6 +586,10 @@
                                         </td>
                                         <td>Fecha Ultimo Pago:
                                         </td>
+                                        <td></td>
+                                        <td>
+                                            <asp:Label Text="Antiguedad" ID="lblAntiguedad" runat="server" Visible="false" />
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="td">
@@ -596,6 +599,12 @@
                                         <td class="td">
                                             <asp:TextBox ID="txtUltimoPago" runat="server" Text="" CssClass="datepicker" required
                                                 placeholder="dd/mm/yyyy"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:CheckBox runat="server" ID="chkAntiguedad" CssClass="chkBox" CausesValidation="True" Text="Presenta Antiguedad" OnCheckedChanged="chkAntiguedad_CheckedChanged" AutoPostBack="true"></asp:CheckBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox runat="server" ID="txtAntiguedad" CssClass="textbox" Visible="false" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
                                     </tr>
                                 </table>
@@ -653,4 +662,5 @@
                 </div>
             </div>
         </div>
+    </div>
 </asp:Content>

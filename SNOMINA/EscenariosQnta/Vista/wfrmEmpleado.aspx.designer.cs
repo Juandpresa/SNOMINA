@@ -445,6 +445,15 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.DropDownList ddlPeriodoPago;
         
         /// <summary>
+        /// Control lblAntiguedad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAntiguedad;
+        
+        /// <summary>
         /// Control ddlEsquemaActual.
         /// </summary>
         /// <remarks>
@@ -461,6 +470,24 @@ namespace EscenariosQnta {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUltimoPago;
+        
+        /// <summary>
+        /// Control chkAntiguedad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkAntiguedad;
+        
+        /// <summary>
+        /// Control txtAntiguedad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAntiguedad;
         
         /// <summary>
         /// Control txtImporteFonacot.

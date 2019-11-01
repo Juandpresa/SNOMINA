@@ -1,11 +1,9 @@
 ﻿using EscenariosQnta.Clases;
 using EscenariosQnta.Data;
+using EscenariosQnta.Negocio;
 using System;
 using System.Data;
 using System.Web.UI.WebControls;
-using System.Globalization;
-using System.IO;
-using EscenariosQnta.Negocio;
 
 namespace EscenariosQnta
 {
@@ -1134,6 +1132,18 @@ namespace EscenariosQnta
       ltrMensaje.Text = Mensaje.Mostrar(this);
     }
 
-
+    protected void chkAntiguedad_CheckedChanged(object sender, EventArgs e)
+    {
+      if (chkAntiguedad.Checked == true)
+      {
+        txtAntiguedad.Visible = true;
+        lblAntiguedad.Visible = true;
+      }
+      else
+      {
+        txtAntiguedad.Visible = false;
+        lblAntiguedad.Visible = false;
+      }
+    }
   }
 }
