@@ -15,7 +15,7 @@ namespace EscenariosQnta.Data
     public static void InsInfoBancaria(int idBan, int idEmp, string cuenta, string clabe, string sucursal)
     {
       try
-      {
+        {
         conn.Open();
         string Query = "SP_InsertaIBancaria";
         SqlCommand cmd = new SqlCommand(Query, conn);
