@@ -106,7 +106,7 @@
         function showContent() {
             var porcentaje = document.getElementById('ContentPlaceHolder1_divPorcentaje');
             var fijo = document.getElementById('ContentPlaceHolder1_divFijo');
-
+      
 
             var rb = document.getElementById("<%=rbtTipoEsquema.ClientID%>");
             var inputs = rb.getElementsByTagName('input');
@@ -141,6 +141,8 @@
                 document.getElementById('ContentPlaceHolder1_txtEZWallet').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldo').value = 0;
             }
+
+             datosocultos.style.display = 'block';
 
         }
 
@@ -367,7 +369,7 @@
                             </table>
                         </div>
                     </div>
-                  <div class="datosocultos" style="display:none">
+                  <div id="datosocultos" style="display:none">
                     <div class="container_12">
                         DATOS LABORALES
                 <div style="width: auto; border: 2px Solid #4a1414;">
