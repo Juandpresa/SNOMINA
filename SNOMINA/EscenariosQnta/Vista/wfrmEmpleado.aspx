@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site.Master" AutoEventWireup="true"
+﻿  <%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site.Master" AutoEventWireup="true"
     CodeBehind="wfrmEmpleado.aspx.cs" Inherits="EscenariosQnta.wfrmEmpleado" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -129,7 +129,6 @@
                 document.getElementById('ContentPlaceHolder1_txtSueldoHonorarios').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
-
             }
             else {
                 //alert('Please select an option');
@@ -368,6 +367,7 @@
                             </table>
                         </div>
                     </div>
+                  <div class="datosocultos" style="display:none">
                     <div class="container_12">
                         DATOS LABORALES
                 <div style="width: auto; border: 2px Solid #4a1414;">
@@ -653,6 +653,7 @@
                                         </td>
                                     </tr>
                                 </table>
+                            </div>
                             </div>
                             <div>
                                 <asp:Button ID="btnGuardar" Text="Guardar" runat="server" CssClass="btn" OnClick="btnGuardar_Click" />
