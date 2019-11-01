@@ -262,8 +262,10 @@
     <Compile Include="Clases\CuadroMensajeBasico.cs" />
     <Compile Include="Data\DALEmpleado.cs" />
     <Compile Include="Data\DALGradoAcademico.cs" />
+    <Compile Include="Data\DALInfoBancaria.cs" />
     <Compile Include="Negocio\BLLEmpleado.cs" />
     <Compile Include="Negocio\BLLGradoAcademico.cs" />
+    <Compile Include="Negocio\BLLInfoBancaria.cs" />
     <Compile Include="Reportes\Reporte_Resumen.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
