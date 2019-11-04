@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using EscenariosQnta.VO;
 
 using EscenariosQnta.Data;
 
@@ -33,17 +34,32 @@ namespace EscenariosQnta.Negocio
       }
     }
 
-    //public static string ObtenerClavesExistentes()
-    //{
-    //  try
-    //  {
-    //    return DALEmpleado.ObtenerClavesExistentes();
-    //  }
-    //  catch (Exception)
-    //  {
-    //    throw;
-    //  }
-    //}
+    public static string ObtenerClavesExistentes(string cv)
+    {
+      try
+      {
+        List<EmpleadoVO> LstCves = DALEmpleado.ObtenerClavesExistentes(cv);
+        bool Existe = false;
+
+        foreach (EmpleadoVO item in LstCves)
+        {
+          if (item.Clave == cv)
+          {
+            Existe = true;
+          }
+        }
+
+        if (Existe)
+        {
+          return "Esta clave fue utilizada con anteriodidad";
+        }
+
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+    }
 
   }
 }

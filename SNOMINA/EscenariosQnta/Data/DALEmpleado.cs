@@ -5,6 +5,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using EscenariosQnta.VO;
 
 
 namespace EscenariosQnta.Data
@@ -58,42 +59,37 @@ namespace EscenariosQnta.Data
       }
     }
 
-    //public static List<T> ObtenerClavesExistentes()
-    //{
-    //  try
-    //  {
-    //    conn.Open();
-    //    string Query = "SP_ObtenerClavesExistentes";
-    //    SqlCommand cmd = new SqlCommand(Query, conn);
-    //    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-    //    cmd.CommandType = CommandType.StoredProcedure;
-    //    DataSet cves = new DataSet();
-    //    adapter.Fill(cves);
+    public static List<EmpleadoVO> ObtenerClavesExistentes(string cv)
+    {
+      try
+      {
+        conn.Open();
+        string Query = "SP_ObtenerClavesExistentes";
+        SqlCommand cmd = new SqlCommand(Query, conn);
+        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+        cmd.CommandType = CommandType.StoredProcedure;
+        DataSet cves = new DataSet();
+        adapter.Fill(cves);
 
-    //    if (cves.Tables[0].Rows.Count > 0)
-    //    {
-    //      //Encontro un registro
-    //      DataRow dr = cves.Tables[0].Rows[0];
-    //      CamionVO Camion = new CamionVO(dr);
-    //      return Camion;
-    //    }
-    //    else
-    //    {
-    //      //La tabla esta vacia
-    //      CamionVO Camion = new CamionVO();
-    //      return Camion;
-    //    }
+        List<EmpleadoVO> LstClaves = new List<EmpleadoVO>();
 
-    //  }
-    //  catch (Exception)
-    //  {
+        foreach (DataRow dr in cves.Tables[0].Rows)
+        {
+          LstClaves.Add(new EmpleadoVO(dr));
+        }
 
-    //    throw;
-    //  }
-    //  finally
-    //  {
-    //    conn.Close();
-    //  }
-    //}
+        return LstClaves;
+
+      }
+      catch (Exception)
+      {
+
+        throw;
+      }
+      finally
+      {
+        conn.Close();
+      }
+    }
   }
 }

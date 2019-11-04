@@ -570,6 +570,7 @@
     <Compile Include="Vista\wfrmVistaReportes.aspx.designer.cs">
       <DependentUpon>wfrmVistaReportes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="VO\EmpleadoVO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Vista\Site.Master" />
