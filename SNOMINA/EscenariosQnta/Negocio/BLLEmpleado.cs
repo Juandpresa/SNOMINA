@@ -34,32 +34,32 @@ namespace EscenariosQnta.Negocio
       }
     }
 
-    public static string ObtenerClavesExistentes(string cv)
-    {
-      try
-      {
-        List<EmpleadoVO> LstCves = DALEmpleado.ObtenerClavesExistentes(cv);
-        bool Existe = false;
+    //public static string ObtenerClavesExistentes(string cv)
+    //{
+    //  try
+    //  {
+    //    List<EmpleadoVO> LstCves = DALEmpleado.ObtenerClavesExistentes(cv);
+    //    bool Existe = false;
 
-        foreach (EmpleadoVO item in LstCves)
-        {
-          if (item.Clave == cv)
-          {
-            Existe = true;
-          }
-        }
+    //    foreach (EmpleadoVO item in LstCves)
+    //    {
+    //      if (item.Clave == cv)
+    //      {
+    //        Existe = true;
+    //      }
+    //    }
 
-        if (Existe)
-        {
-          return "Esta clave fue utilizada con anteriodidad";
-        }
+    //    if (Existe)
+    //    {
+    //      return "Esta clave fue utilizada con anteriodidad";
+    //    }
 
-      }
-      catch (Exception)
-      {
-        throw;
-      }
-    }
+    //  }
+    //  catch (Exception)
+    //  {
+    //    throw;
+    //  }
+    //}
 
   }
 }
