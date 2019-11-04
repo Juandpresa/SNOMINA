@@ -36,23 +36,22 @@ namespace EscenariosQnta.Negocio
 
     public static string ObtenerClavesExistentes(string cv)
     {
+      string claves = "";
       try
       {
-        List<EmpleadoVO> LstCves = DALEmpleado.ObtenerClavesExistentes(cv);
+        string  Cves = DALEmpleado.ObtenerClavesExistentes(cv);
         bool Existe = false;
 
-        foreach (EmpleadoVO item in LstCves)
+        if (Cves == cv)
         {
-          if (item.Clave == cv)
-          {
-            Existe = true;
-          }
+          Existe = true;
         }
 
         if (Existe)
         {
-          return "Esta clave fue utilizada con anteriodidad";
+          claves= "Esta clave fue utilizada con anteriodidad";
         }
+        return claves;
 
       }
       catch (Exception)

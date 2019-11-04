@@ -59,26 +59,27 @@ namespace EscenariosQnta.Data
       }
     }
 
-    public static List<EmpleadoVO> ObtenerClavesExistentes(string cv)
+    public static string ObtenerClavesExistentes(string cv)
     {
       try
       {
         conn.Open();
         string Query = "SP_ObtenerClavesExistentes";
         SqlCommand cmd = new SqlCommand(Query, conn);
-        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
         cmd.CommandType = CommandType.StoredProcedure;
-        DataSet cves = new DataSet();
-        adapter.Fill(cves);
-
-        List<EmpleadoVO> LstClaves = new List<EmpleadoVO>();
-
-        foreach (DataRow dr in cves.Tables[0].Rows)
-        {
-          LstClaves.Add(new EmpleadoVO(dr));
+        SqlDataReader reader = cmd.ExecuteReader();
+        int i = 0;
+        string cve = "";
+        while (reader.Read())
+        {          
+          if (reader[i].ToString() == cv)
+          {
+            cve = reader[i].ToString();
+          }
         }
 
-        return LstClaves;
+
+        return cve;
 
       }
       catch (Exception)

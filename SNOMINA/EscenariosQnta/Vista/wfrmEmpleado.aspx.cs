@@ -942,6 +942,7 @@ namespace EscenariosQnta
             //string FechUltimoPago1 = "2019-01-09 00:00:00.000";
             //string FechIngreso1 = "2019-01-09 00:00:00.000";
             //string FechNacimiento1 = "2019-01-09 00:00:00.000";
+            strQueryIB = BLLEmpleado.ObtenerClavesExistentes(Cve);
 
             if (FechaNac == null)
             {
