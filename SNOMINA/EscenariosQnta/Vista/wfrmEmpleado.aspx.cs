@@ -563,7 +563,9 @@ namespace EscenariosQnta
       ObtenPension();
       ObtenEsquema();
       ObtenClasificacionEmpleado();
-
+      ObtenerNivelE();
+      ObtenerInstitucion();
+      ObtenBanco();
       //ddlEscenario.SelectedIndex = 0;
     }
 

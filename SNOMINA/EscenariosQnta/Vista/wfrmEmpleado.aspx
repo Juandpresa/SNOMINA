@@ -129,6 +129,7 @@
                 document.getElementById('ContentPlaceHolder1_txtSueldoHonorarios').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
+                datosocultos.style.display = 'block';
             }
             else {
                 //alert('Please select an option');
@@ -140,15 +141,15 @@
                 document.getElementById('ContentPlaceHolder1_txtTN').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtEZWallet').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldo').value = 0;
+                datosocultos.style.display = 'block';
             }
-
-             datosocultos.style.display = 'block';
 
         }
 
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
 
     </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
@@ -603,8 +604,8 @@
                                                 placeholder="dd/mm/yyyy"></asp:TextBox>
                                         </td>
                                         <td>
-                                            <asp:CheckBox runat="server" ID="chkAntiguedad" CssClass="chkBox" CausesValidation="True" Text="Presenta Antiguedad" OnCheckedChanged="chkAntiguedad_CheckedChanged" AutoPostBack="true"></asp:CheckBox>
-                                        </td>
+                                            <asp:CheckBox runat="server" ID="chkAntiguedad" CssClass="chkBox" CausesValidation="True" Text="Presenta Antiguedad" OnCheckedChanged="chkAntiguedad_CheckedChanged" AutoPostBack="true"></asp:CheckBox >
+                                            </td>
                                         <td>
                                             <asp:TextBox runat="server" ID="txtAntiguedad" CssClass="textbox" Visible="false" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
