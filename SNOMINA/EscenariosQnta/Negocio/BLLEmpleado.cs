@@ -49,7 +49,7 @@ namespace EscenariosQnta.Negocio
 
         if (Existe)
         {
-          claves= "Esta clave fue utilizada con anteriodidad";
+          claves= "1";
         }
         return claves;
 

@@ -63,28 +63,30 @@ namespace EscenariosQnta.Data
     {
       try
       {
+        string cveXfila = "";
+        string cve = "";
         conn.Open();
         string Query = "SP_ObtenerClavesExistentes";
         SqlCommand cmd = new SqlCommand(Query, conn);
         cmd.CommandType = CommandType.StoredProcedure;
-        SqlDataReader reader = cmd.ExecuteReader();
-        int i = 0;
-        string cve = "";
-        while (reader.Read())
-        {          
-          if (reader[i].ToString() == cv)
+        //SqlDataReader reader = cmd.ExecuteReader();
+        DataTable tabla = new DataTable();
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        da.Fill(tabla);
+        DataColumn Clave = new DataColumn();
+        for (int i = 0; i < 45; i++)
+        {
+          cveXfila = tabla.Rows[i]["Clave"].ToString();
+          if (cv == cveXfila)
           {
-            cve = reader[i].ToString();
+            cve = cveXfila;
           }
+          
         }
-
-
         return cve;
-
       }
       catch (Exception)
       {
-
         throw;
       }
       finally
