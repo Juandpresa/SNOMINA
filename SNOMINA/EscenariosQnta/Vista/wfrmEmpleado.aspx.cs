@@ -869,11 +869,11 @@ namespace EscenariosQnta
             {
               if (rbtTipoEsquema.Items[i].Selected == true)
               {
-                if (rbtTipoEsquema.SelectedItem.Text.ToString() == "Porcentaje")
+                if (rbtTipoEsquema.SelectedItem.Text.ToString() == "Esquema IMSS Asimilado")
                 {
                   TipoEsquema = 1;
                 }
-                else if (rbtTipoEsquema.SelectedItem.Text.ToString() == "Fijo")
+                else if (rbtTipoEsquema.SelectedItem.Text.ToString() == "Esquema IMSS Fijo")
                 {
                   TipoEsquema = 2;
                 }

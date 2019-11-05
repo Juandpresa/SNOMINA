@@ -69,11 +69,13 @@ namespace EscenariosQnta.Data
         string Query = "SP_ObtenerClavesExistentes";
         SqlCommand cmd = new SqlCommand(Query, conn);
         cmd.CommandType = CommandType.StoredProcedure;
-        //SqlDataReader reader = cmd.ExecuteReader();
+        // El resultado lo guardaremos en una tabla
         DataTable tabla = new DataTable();
+        // Usamos un DataAdapter para leer los datos
         SqlDataAdapter da = new SqlDataAdapter(cmd);
+        // Llenamos la tabla con los datos leídos
         da.Fill(tabla);
-        DataColumn Clave = new DataColumn();
+        //DataColumn Clave = new DataColumn();
         for (int i = 0; i < tabla.Rows.Count; i++)
         {
           cveXfila = tabla.Rows[i]["Clave"].ToString();
