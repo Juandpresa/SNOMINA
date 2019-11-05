@@ -74,7 +74,7 @@ namespace EscenariosQnta.Data
         SqlDataAdapter da = new SqlDataAdapter(cmd);
         da.Fill(tabla);
         DataColumn Clave = new DataColumn();
-        for (int i = 0; i < 45; i++)
+        for (int i = 0; i < tabla.Rows.Count; i++)
         {
           cveXfila = tabla.Rows[i]["Clave"].ToString();
           if (cv == cveXfila)
