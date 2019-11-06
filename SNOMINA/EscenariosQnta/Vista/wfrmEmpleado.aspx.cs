@@ -68,7 +68,7 @@ namespace EscenariosQnta
     string IdBanco = string.Empty;
     string cuenta = string.Empty;
     string clabe = string.Empty;
-    string sucursal = string.Empty;
+    string tarjeta = string.Empty;
     string Antiguedad = string.Empty;
 
     int emp = 0;
@@ -111,23 +111,23 @@ namespace EscenariosQnta
         ObtenerNivelE();
         ObtenerInstitucion();
         ObtenBanco();
-        ObtenerContratista();
+        ObtenerEmpleadora();
       }
     }
-    protected void ObtenerContratista()
+    protected void ObtenerEmpleadora()
     {
-      DataTable dtContratista = new DataTable();
+      DataTable dtEmpleadora = new DataTable();
 
-      dtContratista = clsQuery.execQueryDataTable("SP_ObtenerContartista");
+      dtEmpleadora = clsQuery.execQueryDataTable("SP_ObtenerEmpleadoras");
 
-      if (dtContratista.Rows.Count > 0)
+      if (dtEmpleadora.Rows.Count > 0)
       {
-        ddlContratista.DataSource = dtContratista;
-        ddlContratista.DataTextField = "NombreBanco";
-        ddlContratista.DataValueField = "BancoId";
-        ddlContratista.DataBind();
+        ddlEmpleadora.DataSource = dtEmpleadora;
+        ddlEmpleadora.DataTextField = "Alias";
+        ddlEmpleadora.DataValueField = "idRazonSocial";
+        ddlEmpleadora.DataBind();
       }
-      ddlContratista.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+      ddlEmpleadora.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
     }
     protected void ObtenClave(int idCte)
     {
@@ -950,7 +950,7 @@ namespace EscenariosQnta
             IdBanco = ddlBanco.SelectedItem.Value;
             cuenta = txtCuenta.Text.ToString();
             clabe = txtClabe.Text.ToString();
-            sucursal = txtSucursal.Text.ToString();
+            tarjeta = txtTarjeta.Text.ToString();
             Antiguedad = txtAntiguedad.Text.ToString();
 
             //FechUltimoPago = DateTime.Parse(FechaUltimoPago);
@@ -986,7 +986,7 @@ namespace EscenariosQnta
               int carr = int.Parse(IdCarrera);
               strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, ne, ins, carr);
               int idBan = int.Parse(IdBanco);
-              strQueryIB = BLLInfoBancaria.InsInfoBancaria(idBan, emp, cuenta, clabe, sucursal);
+              strQueryIB = BLLInfoBancaria.InsInfoBancaria(idBan, emp, cuenta, clabe, tarjeta);
 
               if (RetunValue == "1")
               {

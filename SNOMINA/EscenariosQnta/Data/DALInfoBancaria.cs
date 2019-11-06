@@ -12,7 +12,7 @@ namespace EscenariosQnta.Data
   {
     static SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnxSQL"].ConnectionString);
 
-    public static void InsInfoBancaria(int idBan, int idEmp, string cuenta, string clabe, string sucursal)
+    public static void InsInfoBancaria(int idBan, int idEmp, string cuenta, string clabe, string tarjeta)
     {
       try
         {
@@ -24,7 +24,7 @@ namespace EscenariosQnta.Data
         cmd.Parameters.AddWithValue("@EmpleadoID", idEmp);
         cmd.Parameters.AddWithValue("@Cuenta", cuenta);
         cmd.Parameters.AddWithValue("@Clabe", clabe);
-        cmd.Parameters.AddWithValue("@Sucursal", sucursal);
+        cmd.Parameters.AddWithValue("@Tarjeta", tarjeta);
 
         cmd.ExecuteNonQuery();
       }

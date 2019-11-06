@@ -178,13 +178,13 @@
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseUno" aria-expanded="true" aria-controls="collapseUno">
                                 DATOS GENERALES
                             </button>
                         </h2>
                     </div>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseUno" class="collapse show" aria-labelledby="headingUno" data-parent="#accordionExample">
                         <div class="card-body">
                             <div class="container_12 container">
                                 <div style="width: auto; border: 2px Solid #4a1414;">
@@ -192,7 +192,7 @@
                                 <div class="contenPanel">
                                     <table>
                                         <tr>
-                                            <td>Contratista:
+                                            <td>Empleadora:
                                             </td>
                                             <td>Cliente:
                                             </td>
@@ -202,7 +202,7 @@
 
                                         <tr>
                                             <td class="td">
-                                                <asp:DropDownList ID="ddlContratista" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged"
+                                                <asp:DropDownList ID="ddlEmpleadora" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged"
                                                     AutoPostBack="true">
                                                 </asp:DropDownList>
                                             </td>
@@ -218,7 +218,7 @@
                             </td>--%>
                                             <td class="td">
                                                 <asp:TextBox ID="txtIdentificador" runat="server" Text="" CssClass="textboxid" ReadOnly="true"></asp:TextBox>
-                                                <asp:TextBox ID="txtClave" runat="server" Text="" CssClass="textboxcl" required=""></asp:TextBox>
+                                                <asp:TextBox ID="txtClave" runat="server" Text="" CssClass="textboxcl" required="required"></asp:TextBox>
 
                                             </td>
                                         </tr>
@@ -232,7 +232,7 @@
                                         </tr>
                                         <tr>
                                             <td class="td">
-                                                <asp:TextBox ID="txtNombre" runat="server" Text="" CssClass="textbox" required="true"></asp:TextBox>
+                                                <asp:TextBox ID="txtNombre" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
                                             </td>
                                             <td class="td">
                                                 <asp:TextBox ID="txtPaterno" runat="server" Text="" CssClass="textbox"></asp:TextBox>
@@ -260,7 +260,7 @@
                                                     placeholder="dd/mm/yyyy"></asp:TextBox>
                                             </td>
                                             <td class="td">
-                                                <asp:TextBox ID="txtCurp" runat="server" Text="" CssClass="textbox" required></asp:TextBox>
+                                                <asp:TextBox ID="txtCurp" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -274,7 +274,7 @@
                                                 <asp:TextBox ID="txtRfc" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
                                             </td>
                                             <td class="td">
-                                                <asp:TextBox ID="txtCorreo" runat="server" Text="" CssClass="textbox" required></asp:TextBox>
+                                                <asp:TextBox ID="txtCorreo" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
                                             </td>
 
                                         </tr>
@@ -286,10 +286,10 @@
                                         </tr>
                                         <tr>
                                             <td class="td">
-                                                <asp:TextBox ID="txtTelefonoMovil" runat="server" Text="" CssClass="textbox" required></asp:TextBox>
+                                                <asp:TextBox ID="txtTelefonoMovil" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
                                             </td>
                                             <td class="td">
-                                                <asp:TextBox ID="txtTelefonoLocal" runat="server" Text="" CssClass="textbox" required></asp:TextBox>
+                                                <asp:TextBox ID="txtTelefonoLocal" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
                                             </td>
                                         </tr>
 
@@ -303,14 +303,41 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingTwo">
+                    <div class="card-header" id="headingDos">
                         <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseDos" aria-expanded="false" aria-controls="collapseDos">
+                                DATOS DE RESIDENCIA
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseDos" class="collapse" aria-labelledby="headingDos" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="container_12 container">
+                                <div style="width: auto; border: 2px Solid #4a1414;">
+                                </div>
+                                <div class="contenPanel">
+                                    <table>
+                                        <tr>
+                                           <td class="td">
+                                                <asp:TextBox ID="txtCalle" runat="server" Text="" CssClass="textbox" required="true"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="width: auto; border: 2px Solid #4a1414;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="card">
+                    <div class="card-header" id="headingTres">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTres" aria-expanded="false" aria-controls="collapseTres">
                                 TIPO DE ALTA
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div id="collapseTres" class="collapse" aria-labelledby="headingTres" data-parent="#accordionExample">
                         <div class="card-body">
                             <div class="container_12 container">
                                 <div style="width: auto; border: 2px Solid #4a1414;">
@@ -332,14 +359,14 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingThree">
+                        <div class="card-header" id="headingCuatro">
                             <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseCuatro" aria-expanded="false" aria-controls="collapseCuatro">
                                     DATOS DE CONTRATACIÓN
                                 </button>
                             </h2>
                         </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div id="collapseCuatro" class="collapse" aria-labelledby="headingCuatro" data-parent="#accordionExample">
                             <div class="card-body">
                                 <div class="container_12 container">
                                     <div style="width: auto; border: 2px Solid #4a1414;">
@@ -353,8 +380,6 @@
                                                 <td>Cuenta:
                                                 </td>
                                                 <td>CLABE:
-                                                </td>
-                                                <td>Sucursal:
                                                 </td>
                                             </tr>
                                             <tr>
@@ -370,8 +395,14 @@
                                                     <asp:TextBox ID="txtClabe" runat="server" CssClass="textbox" FilterType="Numbers">
                                                     </asp:TextBox>
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                                <td>No. Tarjeta:
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtSucursal" runat="server" CssClass="textbox">
+                                                    <asp:TextBox ID="txtTarjeta" runat="server" CssClass="textbox">
                                                     </asp:TextBox>
                                                 </td>
                                             </tr>
@@ -413,44 +444,6 @@
                                     </tr>
                                 </table>
                             </div>
-                            <%--<div class="container_12 container">
-                        DATOS DE PAGO
-                <div style="width: auto; border: 2px Solid #4a1414;">
-                </div>
-
-                        <div class="contenPanel">
-                            <table>
-                                <tr>
-                                    <td>Banco:
-                                    </td>
-                                    <td>Cuenta:
-                                    </td>
-                                    <td>CLABE:
-                                    </td>
-                                    <td>Sucursal:
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="td">
-                                        <asp:DropDownList ID="ddlBanco" runat="server" CssClass="cssDropdown">
-                                        </asp:DropDownList>
-                                    </td>
-                                    <td class="td">
-                                        <asp:TextBox ID="txtCuenta" runat="server" CssClass="textbox" FilterType="Numbers">
-                                        </asp:TextBox>
-                                    </td>
-                                    <td class="td">
-                                        <asp:TextBox ID="txtClabe" runat="server" CssClass="textbox" FilterType="Numbers">
-                                        </asp:TextBox>
-                                    </td>
-                                    <td class="td">
-                                        <asp:TextBox ID="txtSucursal" runat="server" CssClass="textbox">
-                                        </asp:TextBox>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                            </div>--%>
 
                             <div id="datosocultos" style="display: none">
                                 <div class="container_12">
@@ -684,7 +677,7 @@
                                                         </asp:DropDownList>
                                                     </td>
                                                     <td class="td">
-                                                        <asp:TextBox ID="txtUltimoPago" runat="server" Text="" CssClass="datepicker" required
+                                                        <asp:TextBox ID="txtUltimoPago" runat="server" Text="" CssClass="datepicker" required="required"
                                                             placeholder="dd/mm/yyyy"></asp:TextBox>
                                                     </td>
                                                     <td>

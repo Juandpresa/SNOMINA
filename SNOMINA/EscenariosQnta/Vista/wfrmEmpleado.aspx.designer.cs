@@ -13,13 +13,13 @@ namespace EscenariosQnta {
     public partial class wfrmEmpleado {
         
         /// <summary>
-        /// Control ddlContratista.
+        /// Control ddlEmpleadora.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlContratista;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmpleadora;
         
         /// <summary>
         /// Control ddlCliente.
@@ -139,6 +139,15 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtTelefonoLocal;
         
         /// <summary>
+        /// Control txtCalle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCalle;
+        
+        /// <summary>
         /// Control rbtTipoEsquema.
         /// </summary>
         /// <remarks>
@@ -175,13 +184,13 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtClabe;
         
         /// <summary>
-        /// Control txtSucursal.
+        /// Control txtTarjeta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSucursal;
+        protected global::System.Web.UI.WebControls.TextBox txtTarjeta;
         
         /// <summary>
         /// Control ddlNivelE.

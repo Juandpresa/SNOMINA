@@ -28,7 +28,7 @@
                     <a href="../Default.aspx">SISTEMA NOMINAS
                                 <%--<img src="../image/QNTA_White.png" alt="" class="rotate" />--%></a>
                 </div>
-                <div id="menu" class="dropdown-menu">
+                <div id="menu">
                     <li><a href="../Default.aspx">Inicio</a></li>
                     <li><a>Escenarios</a>
                         <ul>
