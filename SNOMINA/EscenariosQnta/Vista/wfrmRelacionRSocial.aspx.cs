@@ -9,6 +9,12 @@ namespace EscenariosQnta.Vista
 {
   public partial class wfrmRelacionRSocial : System.Web.UI.Page
   {
+    string strQueryR = string.Empty;
+    int Contratista = 0;
+    int Empleadora = 0;
+    int Pagadora = 0;
+    int Cliente = 0;
+    int Facturista = 0;
     clsDatos clsQuery = new clsDatos();
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -157,7 +163,39 @@ namespace EscenariosQnta.Vista
 
     protected void btnGuardar_Click(object sender, EventArgs e)
     {
+      try
+      {
+        Contratista = int.Parse(ddlContratista.SelectedItem.Value);
+        Empleadora = int.Parse(ddlEmpleadora.SelectedItem.Value);
+        Pagadora = int.Parse(ddlPagadora.SelectedItem.Value);
+        Cliente = int.Parse(ddlCliente.SelectedItem.Value);
+        Facturista = int.Parse(ddlFacturista.SelectedItem.Value);
 
+        strQueryR = BLLRelacionRSocial.InsRelacionRSocial(Contratista, Empleadora, Pagadora, Cliente, Facturista);
+
+        if (strQueryR == "1")
+        {
+          LimpiarControles();
+          Mensaje("GUARDADO", CuadroMensaje.CuadroMensajeIcono.Exitoso);
+        }
+
+        
+      }
+      catch (Exception)
+      {
+
+        throw;
+      }
+     
+    }
+
+    private void LimpiarControles()
+    {
+      ObtenContratistas();
+      ObtenEmpleadoras();
+      ObtenPagadoras();
+      ObtenClientes();
+      ObtenFacturistas();
     }
   }
 }
