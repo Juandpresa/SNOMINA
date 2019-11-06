@@ -612,7 +612,7 @@
                       </td>
                       <td>
                         <div class="panelAntiguedad" style="display: none">
-                          <asp:TextBox runat="server" ID="txtAntiguedad" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                          <asp:TextBox runat="server" value="0" ID="txtAntiguedad" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                         </div>
 
                       </td>
