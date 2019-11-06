@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfrmRelacionRSocial.aspx.cs" Inherits="EscenariosQnta.Vista.wfrmRelacionRSocial" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Vista/Site.Master" CodeBehind="wfrmRelacionRSocial.aspx.cs" Inherits="EscenariosQnta.Vista.wfrmRelacionRSocial" %>
 
 <asp:content id="Content1" contentplaceholderid="head" runat="server">
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
@@ -55,13 +55,13 @@
 
                                         <tr>
                                             <td class="td">
-                                                <asp:DropDownList ID="ddlContratista" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlContratista" runat="server" CssClass="cssDropdown"></asp:DropDownList>
                                             </td>
                                             <td class="td">
-                                                <asp:DropDownList ID="ddlEmpleadora" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlEmpleadora" runat="server" CssClass="cssDropdown"></asp:DropDownList>
                                             </td>
                                             <td class="td">
-                                                <asp:DropDownList ID="ddlPagadora" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlPagadora" runat="server" CssClass="cssDropdown"></asp:DropDownList>
                                             </td>
                                         </tr>
                                         <tr>
@@ -72,10 +72,10 @@
                                         </tr>
                                         <tr>
                                             <td class="td">
-                                                <asp:DropDownList ID="ddlCliente" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlCliente" runat="server" CssClass="cssDropdown"></asp:DropDownList>
                                             </td>
                                             <td class="td">
-                                                <asp:DropDownList ID="ddlFacturista" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged" AuoPostBack="true"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlFacturista" runat="server" CssClass="cssDropdown"></asp:DropDownList>
                                             </td>
                                         </tr>
 
