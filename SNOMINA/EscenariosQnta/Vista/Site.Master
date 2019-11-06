@@ -5,108 +5,110 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <meta name="viewport" content="width=device-width, user-scalble=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <title>.: SISTEMA DE NOMINAS :.</title>
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/grid.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="shortcut icon" href="../image/nomina.png"/>
+    <link rel="shortcut icon" href="../image/nomina.png" />
 </head>
 <body class="texture font">
     <form id="form1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="True">
-    </asp:ScriptManager>
-    <div>
-        <!--=====   Header - INICIO =====-->
-        <div id="home">
-       <%--     <div class="navigation single-page-nav">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="True">
+        </asp:ScriptManager>
+        <div>
+            <!--=====   Header - INICIO =====-->
+            <div id="home">
+                <%--     <div class="navigation single-page-nav">
                 <div class="containerMenu">
                     <div class="grid_12">--%>
-                        
-                        <div class="logo">
-                            <a href="../Default.aspx">SISTEMA NOMINAS
+
+                <div class="logo">
+                    <a href="../Default.aspx">SISTEMA NOMINAS
                                 <%--<img src="../image/QNTA_White.png" alt="" class="rotate" />--%></a>
-                        </div>
-                                 <div id="menu">                                                    
-                                <li><a href="../Default.aspx">Inicio</a></li>
-                                <li><a>Escenarios</a>
-                                    <ul >
-                                        <li>
-                                        <a>Cliente</a>
-                                        <ul>
-                                            <li><a href="../Vista/wfrmClienteAlta.aspx">Alta</a></li>
-                                            <li><a href="../Vista/wfrmClienteConsulta.aspx">Consulta y Edicion</a></li>
-                                        </ul>
-                                        </li>                                        
-                                        <li>
-                                        <a>Escenario</a>
-                                        <ul>
-                                            <li><a href="../Vista/wfrmEscenarios.aspx">Alta</a></li>
-                                            <li><a href="../Vista/wfrmEscenariosConsulta.aspx">Consulta y Edicion</a></li>
-                                            <li><a href="../Vista/wfrmEscenarioConcepto.aspx">Relacion Escenario / Concepto</a></li>
-                                            <li><a href="../Vista/wfrmConceptosEscenario.aspx">Conceptos por Escenario</a></li>
-                                        </ul>
-                                        </li>
-                                        <li>
-                                        <a>Empleado</a>
-                                        <ul>
-                                            <li><a href="../Vista/wfrmEmpleado.aspx">Alta</a></li>
-                                            <li><a href="../Vista/wfrmEmpleadoConsulta.aspx">Consulta y Edicion</a></li>
-                                            <li><a href="../Vista/wfrmEmpleadoCargaMasiva.aspx">Carga Masiva</a></li> 
-                                        </ul>
-                                        </li>                   
-                                    </ul>
-                                </li>
-                                <li><a>Calculo</a>
-                                    <ul >                                       
-                                        <li><a href="../Vista/wfrmCalculo.aspx">Calculo</a></li>                                       
-                                        </ul>
-                                </li>
-                                <li><a>Catalogos</a>
-                                    <ul >
-                                        <li><a> Cliente </a> 
-                                        <ul>
-                                                <li><a href="../Vista/wfrmTipoAreaComercial.aspx">Tipo de Area Comercial</a></li>
-                                                <li><a href="../Vista/wfrmAreaComercial.aspx">Area Comercial</a></li>
-                                                <li><a href="../Vista/wfrmTipoPersonal.aspx">Tipo de Personal</a></li>                                      
-                                                <li><a href="../Vista/wfrmPeriocidadNomina.aspx">Periocidad Nomina</a></li>
-                                                <li><a href="../Vista/wfrmPrimaRiesgo.aspx">Prima de Riesgo</a></li>
-                                                <li><a href="../Vista/wfrmNominaActual.aspx">Nomina Actual</a></li>
-                                        </ul>
-                                        </li>                                       
-                                        <li><a href="../Vista/wfrmCuotasIMSS.aspx">Cuotas IMSS</a></li>
-                                        <li><a href="../Vista/wfrmSalarioMinimo.aspx">Salario Minimo General</a></li>
-                                        <li><a href="../Vista/wfrmFactorIntegracion.aspx">Factor Integracion</a></li>
-                                        <li><a href="../Vista/wfrmImpuesto.aspx">Impuesto</a></li>
-                                        <li><a href="../Vista/wfrmSubsidioEmpleado.aspx">Subsidio Empleado</a></li>
-                                        <li><a href="../Vista/wfrmUMA.aspx">UMA</a></li> 
-                                        <li><a href="../Vista/wfrmSalarioMinimoProfesionales.aspx">Salario Minimo Profesional</a></li>
-                                        <li><a href="../Vista/wfrmClasificacionEmpleados.aspx">Clasificacion Empleado</a></li>
-                                    <%--<li><a href="wfrmPrestacion.aspx">Prestaciones</a></li>--%>
-                                        <li><a href="../Vista/wfrmInfonavit.aspx">Infonavit</a></li>
-                                        <li><a href="../Vista/wfrmPensionAlimenticia.aspx">Pension Alimenticia</a></li>
-                                    <%--<li><a href="../Vista/wfrmEsquemaPago.aspx">Esquema Actual</a></li>--%>
-                                        <li><a href="../Vista/wfrmFunciones.aspx">Funciones</a></li>
-                                        <li><a href="../Vista/wfrmConceptos.aspx">Conceptos</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="">Reportes</a>
-                                    <ul>
-                                    <li><a href="../Vista/wfrmReportes.aspx">Reportes</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="">Cuenta</a></li>                                                                                   
-                        </div>
-             <%--       </div>
+                </div>
+                <div id="menu" class="dropdown-menu">
+                    <li><a href="../Default.aspx">Inicio</a></li>
+                    <li><a>Escenarios</a>
+                        <ul>
+                            <li>
+                                <a>Cliente</a>
+                                <ul>
+                                    <li><a href="../Vista/wfrmClienteAlta.aspx">Alta</a></li>
+                                    <li><a href="../Vista/wfrmClienteConsulta.aspx">Consulta y Edicion</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>Escenario</a>
+                                <ul>
+                                    <li><a href="../Vista/wfrmEscenarios.aspx">Alta</a></li>
+                                    <li><a href="../Vista/wfrmEscenariosConsulta.aspx">Consulta y Edicion</a></li>
+                                    <li><a href="../Vista/wfrmEscenarioConcepto.aspx">Relacion Escenario / Concepto</a></li>
+                                    <li><a href="../Vista/wfrmConceptosEscenario.aspx">Conceptos por Escenario</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>Empleado</a>
+                                <ul>
+                                    <li><a href="../Vista/wfrmEmpleado.aspx">Alta</a></li>
+                                    <li><a href="../Vista/wfrmEmpleadoConsulta.aspx">Consulta y Edicion</a></li>
+                                    <li><a href="../Vista/wfrmEmpleadoCargaMasiva.aspx">Carga Masiva</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a>Calculo</a>
+                        <ul>
+                            <li><a href="../Vista/wfrmCalculo.aspx">Calculo</a></li>
+                        </ul>
+                    </li>
+                    <li><a>Catalogos</a>
+                        <ul>
+                            <li><a>Cliente </a>
+                                <ul>
+                                    <li><a href="../Vista/wfrmTipoAreaComercial.aspx">Tipo de Area Comercial</a></li>
+                                    <li><a href="../Vista/wfrmAreaComercial.aspx">Area Comercial</a></li>
+                                    <li><a href="../Vista/wfrmTipoPersonal.aspx">Tipo de Personal</a></li>
+                                    <li><a href="../Vista/wfrmPeriocidadNomina.aspx">Periocidad Nomina</a></li>
+                                    <li><a href="../Vista/wfrmPrimaRiesgo.aspx">Prima de Riesgo</a></li>
+                                    <li><a href="../Vista/wfrmNominaActual.aspx">Nomina Actual</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../Vista/wfrmRelacionRSocial.aspx">Relacion de Razones Sociales</a></li>
+                            <li><a href="../Vista/wfrmCuotasIMSS.aspx">Cuotas IMSS</a></li>
+                            <li><a href="../Vista/wfrmSalarioMinimo.aspx">Salario Minimo General</a></li>
+                            <li><a href="../Vista/wfrmFactorIntegracion.aspx">Factor Integracion</a></li>
+                            <li><a href="../Vista/wfrmImpuesto.aspx">Impuesto</a></li>
+                            <li><a href="../Vista/wfrmSubsidioEmpleado.aspx">Subsidio Empleado</a></li>
+                            <li><a href="../Vista/wfrmUMA.aspx">UMA</a></li>
+                            <li><a href="../Vista/wfrmSalarioMinimoProfesionales.aspx">Salario Minimo Profesional</a></li>
+                            <li><a href="../Vista/wfrmClasificacionEmpleados.aspx">Clasificacion Empleado</a></li>
+                            <%--<li><a href="wfrmPrestacion.aspx">Prestaciones</a></li>--%>
+                            <li><a href="../Vista/wfrmInfonavit.aspx">Infonavit</a></li>
+                            <li><a href="../Vista/wfrmPensionAlimenticia.aspx">Pension Alimenticia</a></li>
+                            <%--<li><a href="../Vista/wfrmEsquemaPago.aspx">Esquema Actual</a></li>--%>
+                            <li><a href="../Vista/wfrmFunciones.aspx">Funciones</a></li>
+                            <li><a href="../Vista/wfrmConceptos.aspx">Conceptos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Reportes</a>
+                        <ul>
+                            <li><a href="../Vista/wfrmReportes.aspx">Reportes</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Cuenta</a></li>
+                </div>
+                <%--       </div>
                 </div>
             </div>--%>
+            </div>
+            <!--=====   Header - FIN =====-->
         </div>
-        <!--=====   Header - FIN =====-->
-    </div>
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-    </asp:ContentPlaceHolder>
-    <asp:Literal ID="ltrMensaje" runat="server"></asp:Literal>
-    <uc1:CuadroMensajeControlUsu ID="CuadroMensajeControlUsu1" runat="server" />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <asp:Literal ID="ltrMensaje" runat="server"></asp:Literal>
+        <uc1:CuadroMensajeControlUsu ID="CuadroMensajeControlUsu1" runat="server" />
     </form>
 </body>
 </html>

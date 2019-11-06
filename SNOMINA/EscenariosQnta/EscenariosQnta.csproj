@@ -178,11 +178,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap-datepicker.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\CuadroMensaje.css" />
     <Content Include="css\jquery.datetimepicker.css" />
     <Content Include="css\login.css" />
     <Content Include="image\nomina.png" />
     <Content Include="js\bootstrap-datepicker.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="js\jquery-2.1.1.min.js" />
     <Content Include="js\jquery-latest.js" />
@@ -218,6 +222,7 @@
     <Content Include="Vista\wfrmPensionAlimenticia.aspx" />
     <Content Include="Vista\wfrmPrestacion.aspx" />
     <Content Include="Vista\wfrmPropuesta.aspx" />
+    <Content Include="Vista\wfrmRelacionRSocial.aspx" />
     <Content Include="Vista\wfrmReportes.aspx" />
     <Content Include="Vista\wfrmSalarioMinimo.aspx" />
     <Content Include="Vista\wfrmCuotasIMSS.aspx" />
@@ -433,6 +438,13 @@
     </Compile>
     <Compile Include="Vista\wfrmPropuesta.aspx.designer.cs">
       <DependentUpon>wfrmPropuesta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\wfrmRelacionRSocial.aspx.cs">
+      <DependentUpon>wfrmRelacionRSocial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\wfrmRelacionRSocial.aspx.designer.cs">
+      <DependentUpon>wfrmRelacionRSocial.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\wfrmReportes.aspx.cs">
       <DependentUpon>wfrmReportes.aspx</DependentUpon>

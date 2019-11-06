@@ -13,6 +13,15 @@ namespace EscenariosQnta {
     public partial class wfrmEmpleado {
         
         /// <summary>
+        /// Control ddlContratista.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlContratista;
+        
+        /// <summary>
         /// Control ddlCliente.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace EscenariosQnta {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtClave;
-        
-        /// <summary>
-        /// Control ddlPrimaRiesgo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPrimaRiesgo;
         
         /// <summary>
         /// Control txtNombre.
@@ -94,15 +94,6 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtFechaNacimiento;
         
         /// <summary>
-        /// Control txtNacionalidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNacionalidad;
-        
-        /// <summary>
         /// Control txtCurp.
         /// </summary>
         /// <remarks>
@@ -148,31 +139,13 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtTelefonoLocal;
         
         /// <summary>
-        /// Control ddlNivelE.
+        /// Control rbtTipoEsquema.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNivelE;
-        
-        /// <summary>
-        /// Control ddlInstitucion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlInstitucion;
-        
-        /// <summary>
-        /// Control ddlCarrera.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCarrera;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbtTipoEsquema;
         
         /// <summary>
         /// Control ddlBanco.
@@ -211,13 +184,31 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtSucursal;
         
         /// <summary>
-        /// Control rbtTipoEsquema.
+        /// Control ddlNivelE.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbtTipoEsquema;
+        protected global::System.Web.UI.WebControls.DropDownList ddlNivelE;
+        
+        /// <summary>
+        /// Control ddlInstitucion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlInstitucion;
+        
+        /// <summary>
+        /// Control ddlCarrera.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCarrera;
         
         /// <summary>
         /// Control txtPuesto.

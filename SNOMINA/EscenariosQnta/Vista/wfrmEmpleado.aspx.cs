@@ -93,7 +93,7 @@ namespace EscenariosQnta
       if (!IsPostBack)
       {
         ObtenClientes();
-        ObtenPrimaRiesgo();
+        //ObtenPrimaRiesgo();
         ObtenInfonavit();
         //ObtenPrestacion();
         ObtenFactor();
@@ -111,10 +111,24 @@ namespace EscenariosQnta
         ObtenerNivelE();
         ObtenerInstitucion();
         ObtenBanco();
-
+        ObtenerContratista();
       }
     }
+    protected void ObtenerContratista()
+    {
+      DataTable dtContratista = new DataTable();
 
+      dtContratista = clsQuery.execQueryDataTable("SP_ObtenerContartista");
+
+      if (dtContratista.Rows.Count > 0)
+      {
+        ddlContratista.DataSource = dtContratista;
+        ddlContratista.DataTextField = "NombreBanco";
+        ddlContratista.DataValueField = "BancoId";
+        ddlContratista.DataBind();
+      }
+      ddlContratista.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    }
     protected void ObtenClave(int idCte)
     {
       IdEmpleado = BLLEmpleado.ObtenerUltimoEmpleado();
@@ -337,29 +351,30 @@ namespace EscenariosQnta
 
     //}
 
-    protected void ObtenPrimaRiesgo()
-    {
-      try
-      {
-        DataTable dtPrimaRiesgo = new DataTable();
+      //SE COMENTA PRIMA DE RIESGO YA QUE SE QUITA DE ALTA DE EMPLEADO 06/11/2019 XD :V
+    //protected void ObtenPrimaRiesgo()
+    //{
+    //  try
+    //  {
+    //    DataTable dtPrimaRiesgo = new DataTable();
 
-        dtPrimaRiesgo = clsQuery.execQueryDataTable("SP_ObtenPrimaRiesgo");
+    //    dtPrimaRiesgo = clsQuery.execQueryDataTable("SP_ObtenPrimaRiesgo");
 
-        if (dtPrimaRiesgo.Rows.Count > 0)
-        {
-          ddlPrimaRiesgo.DataSource = dtPrimaRiesgo;
-          ddlPrimaRiesgo.DataTextField = "Clase";
-          ddlPrimaRiesgo.DataValueField = "Id_Clase";
-          ddlPrimaRiesgo.DataBind();
-        }
-        ddlPrimaRiesgo.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    //    if (dtPrimaRiesgo.Rows.Count > 0)
+    //    {
+    //      ddlPrimaRiesgo.DataSource = dtPrimaRiesgo;
+    //      ddlPrimaRiesgo.DataTextField = "Clase";
+    //      ddlPrimaRiesgo.DataValueField = "Id_Clase";
+    //      ddlPrimaRiesgo.DataBind();
+    //    }
+    //    ddlPrimaRiesgo.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
 
-      }
-      catch (Exception ex)
-      {
-        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
-      }
-    }
+    //  }
+    //  catch (Exception ex)
+    //  {
+    //    Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+    //  }
+    //}
 
     protected void ObtenInfonavit()
     {
@@ -557,7 +572,7 @@ namespace EscenariosQnta
       //txtSueldoNeto.Enabled = false;
 
       ObtenClientes();
-      ObtenPrimaRiesgo();
+      //ObtenPrimaRiesgo();
       ObtenInfonavit();
       //ObtenPrestacion();
       ObtenFactor();
@@ -887,7 +902,7 @@ namespace EscenariosQnta
             Materno = txtMaterno.Text.ToString();
             Puesto = txtPuesto.Text.ToString();
             DescriPto = txtDescripcion.Text.ToString();
-            Id_PrimaRgo = ddlPrimaRiesgo.SelectedItem.Value;
+            //Id_PrimaRgo = ddlPrimaRiesgo.SelectedItem.Value;
             FechaIngreso = txtFechaIngreso.Text.ToString();
             FechaNac = txtFechaNacimiento.Text.ToString();
             //FechaNac = string.IsNullOrEmpty(txtFechaNacimiento.Text.ToString()) ? null : txtFechaNacimiento.Text.ToString();
@@ -916,7 +931,7 @@ namespace EscenariosQnta
             ImportePension = txtImportePension.Text.ToString();
             Id_EsquemaActual = ddlEsquemaActual.SelectedItem.Value;
             Id_ClasifEmp = ddlClasificacionEmpleado.SelectedItem.Value;
-            Nacionalidad = txtNacionalidad.Text.ToString();
+            //Nacionalidad = txtNacionalidad.Text.ToString();
 
             Cve = txtIdentificador.Text.ToString() + txtClave.Text.ToString();
             RSPagadora = ddlPagadora.SelectedItem.Value;
