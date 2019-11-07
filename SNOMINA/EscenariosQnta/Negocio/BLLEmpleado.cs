@@ -5,6 +5,7 @@ using System.Web;
 using EscenariosQnta.VO;
 
 using EscenariosQnta.Data;
+using System.Data;
 
 namespace EscenariosQnta.Negocio
 {
@@ -60,5 +61,18 @@ namespace EscenariosQnta.Negocio
       }
     }
 
+    public static DataTable ObtenClientes(int idEmpleadora)
+    {
+      DataTable tabla = new DataTable();
+      try
+      {
+        tabla = DALEmpleado.ObtenClientes(idEmpleadora);
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+      return tabla;
+    }
   }
 }

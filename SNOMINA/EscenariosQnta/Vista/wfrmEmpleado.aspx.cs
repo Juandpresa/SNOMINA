@@ -92,7 +92,6 @@ namespace EscenariosQnta
     {
       if (!IsPostBack)
       {
-        ObtenClientes();
         //ObtenPrimaRiesgo();
         ObtenInfonavit();
         //ObtenPrestacion();
@@ -112,6 +111,7 @@ namespace EscenariosQnta
         ObtenerInstitucion();
         ObtenBanco();
         ObtenerEmpleadora();
+        ObtenEmpleadoras();
       }
     }
     protected void ObtenerEmpleadora()
@@ -299,23 +299,48 @@ namespace EscenariosQnta
       }
     }
 
-    protected void ObtenClientes()
+    protected void ObtenClientes(int idEmpleadora)
     {
       try
       {
         DataTable dtCliente = new DataTable();
 
-        dtCliente = clsQuery.execQueryDataTable("SP_ObtenClientes2");
+        dtCliente = BLLEmpleado.ObtenClientes(idEmpleadora);
 
         if (dtCliente.Rows.Count > 0)
         {
           ddlCliente.DataSource = dtCliente;
           ddlCliente.DataTextField = "Alias";
-          ddlCliente.DataValueField = "idRazonSocial";
+          ddlCliente.DataValueField = "ClienteID";
           ddlCliente.DataBind();
         }
 
         ddlCliente.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      }
+    }
+
+    protected void ObtenEmpleadoras()
+    {
+      try
+      {
+        DataTable dtEmpleadora = new DataTable();
+
+        dtEmpleadora = clsQuery.execQueryDataTable("SP_ObtenEmpleadoras");
+
+        if (dtEmpleadora.Rows.Count > 0)
+        {
+          ddlEmpleadora.DataSource = dtEmpleadora;
+          ddlEmpleadora.DataTextField = "Alias";
+          ddlEmpleadora.DataValueField = "idRazonSocial";
+          ddlEmpleadora.DataBind();
+        }
+
+        ddlEmpleadora.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
 
       }
       catch (Exception ex)
@@ -351,7 +376,7 @@ namespace EscenariosQnta
 
     //}
 
-      //SE COMENTA PRIMA DE RIESGO YA QUE SE QUITA DE ALTA DE EMPLEADO 06/11/2019 XD :V
+    //SE COMENTA PRIMA DE RIESGO YA QUE SE QUITA DE ALTA DE EMPLEADO 06/11/2019 XD :V
     //protected void ObtenPrimaRiesgo()
     //{
     //  try
@@ -571,7 +596,7 @@ namespace EscenariosQnta
       //txtSueldoBruto.Enabled = false;
       //txtSueldoNeto.Enabled = false;
 
-      ObtenClientes();
+      
       //ObtenPrimaRiesgo();
       ObtenInfonavit();
       //ObtenPrestacion();
@@ -1180,6 +1205,11 @@ namespace EscenariosQnta
         txtAntiguedad.Visible = false;
         lblAntiguedad.Visible = false;
       }
+    }
+
+    protected void ddlEmpleadora_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      ObtenClientes(int.Parse(ddlEmpleadora.SelectedValue));
     }
   }
 }
