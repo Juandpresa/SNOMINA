@@ -1019,20 +1019,19 @@ header {
     }
 
 /**** Bonton - INICIO ****/
-.btn {
+.btnG {
     /*display: inline-block;*/
     background-color: #4a1414;
-    color: #ffffff;
     font: 20px/20px 'Yanone Kaffeesatz', sans-serif;
+    color: #ffffff;
     padding: 5px 30px 10px;
     /*margin-top: 36px;*/
     border-radius: 10px;
 }
 
-    .btn:hover {
+    .btnG:hover {
         background-color: #4a1414;
-        color: #ffffff;
-    }
+        color: #e9e9ea;}
 /**** FIN ****/
 
 /**** CheckBox - INICIO****/
