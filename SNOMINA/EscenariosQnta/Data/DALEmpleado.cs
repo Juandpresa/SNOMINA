@@ -96,5 +96,36 @@ namespace EscenariosQnta.Data
         conn.Close();
       }
     }
+
+    public static DataTable ObtenClientes(int idEmpleadora)
+    {
+      DataSet ds = new DataSet();
+      DataTable tabla = new DataTable();
+      try
+      {
+        conn.Open();
+        string Query = "SP_ObtenClientesRelacionEmpleadora";
+        SqlCommand cmd = new SqlCommand(Query, conn);
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.Parameters.AddWithValue("@EmpleadoraID", idEmpleadora);  
+        // Usamos un DataAdapter para leer los datos
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        // Llenamos la tabla con los datos leídos
+        da.Fill(ds, "TB");
+
+        if (ds.Tables.Count > 0)
+          tabla = ds.Tables[0];
+
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+      finally
+      {
+        conn.Close();
+      }
+      return tabla;
+    }
   }
 }

@@ -43,7 +43,7 @@ namespace EscenariosQnta.Data
             return dt;
         }
 
-        public string execQueryString(string QueryString)
+    public string execQueryString(string QueryString)
         {
             string strValue = string.Empty;
             DataSet ds = new DataSet();
