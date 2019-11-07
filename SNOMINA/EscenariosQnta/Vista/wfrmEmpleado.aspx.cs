@@ -568,7 +568,7 @@ namespace EscenariosQnta
       txtNombre.Text = string.Empty;
       txtPaterno.Text = string.Empty;
       txtMaterno.Text = string.Empty;
-      txtPuesto.Text = string.Empty;
+      //txtPuesto.Text = string.Empty;
       txtDescripcion.Text = string.Empty;
       txtFechaIngreso.Text = string.Empty;
       txtFechaNacimiento.Text = string.Empty;
@@ -925,7 +925,7 @@ namespace EscenariosQnta
             Nombre = txtNombre.Text.ToString();
             Paterno = txtPaterno.Text.ToString();
             Materno = txtMaterno.Text.ToString();
-            Puesto = txtPuesto.Text.ToString();
+            //Puesto = txtPuesto.Text.ToString();
             DescriPto = txtDescripcion.Text.ToString();
             //Id_PrimaRgo = ddlPrimaRiesgo.SelectedItem.Value;
             FechaIngreso = txtFechaIngreso.Text.ToString();
