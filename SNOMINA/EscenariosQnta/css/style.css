@@ -1019,7 +1019,7 @@ header {
     }
 
 /**** Bonton - INICIO ****/
-.btn {
+.btnG {
     /*display: inline-block;*/
     background-color: #4a1414;
     color: #ffffff;
@@ -1029,9 +1029,9 @@ header {
     border-radius: 10px;
 }
 
-    .btn:hover {
+    .btnG:hover {
         background-color: #4a1414;
-        color: #ffffff;
+        color: #c8c8c8;
     }
 /**** FIN ****/
 

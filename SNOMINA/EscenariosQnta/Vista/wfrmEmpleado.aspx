@@ -205,7 +205,7 @@
 
                                     <tr>
                                         <td class="td">
-                                            <asp:DropDownList ID="ddlEmpleadora" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged"
+                                            <asp:DropDownList ID="ddlEmpleadora" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlEmpleadora_SelectedIndexChanged"
                                                 AutoPostBack="true">
                                             </asp:DropDownList>
                                         </td>
