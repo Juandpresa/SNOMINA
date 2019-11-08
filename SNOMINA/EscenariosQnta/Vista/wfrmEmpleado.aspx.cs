@@ -972,10 +972,6 @@ namespace EscenariosQnta
             IdNEstudios = ddlNivelE.SelectedItem.Value;
             IdInstituto = ddlInstitucion.SelectedItem.Value;
             IdCarrera = ddlCarrera.SelectedItem.Value;
-            IdBanco = ddlBanco.SelectedItem.Value;
-            cuenta = txtCuenta.Text.ToString();
-            clabe = txtClabe.Text.ToString();
-            tarjeta = txtTarjeta.Text.ToString();
             Antiguedad = txtAntiguedad.Text.ToString();
 
             //FechUltimoPago = DateTime.Parse(FechaUltimoPago);
@@ -1010,8 +1006,17 @@ namespace EscenariosQnta
               int ins = int.Parse(IdInstituto);
               int carr = int.Parse(IdCarrera);
               strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, ne, ins, carr);
-              int idBan = int.Parse(IdBanco);
-              strQueryIB = BLLInfoBancaria.InsInfoBancaria(idBan, emp, cuenta, clabe, tarjeta);
+              
+              for (int i = 0; i < 2; i++)
+              {
+                IdBanco = ddlBanco.SelectedItem.Value;
+                cuenta = txtCuenta.Text.ToString();
+                clabe = txtClabe.Text.ToString();
+                tarjeta = txtTarjeta.Text.ToString();
+                int idBan = int.Parse(IdBanco);
+                strQueryIB = BLLInfoBancaria.InsInfoBancaria(idBan, emp, cuenta, clabe, tarjeta);
+              }
+              
 
               if (RetunValue == "1")
               {
