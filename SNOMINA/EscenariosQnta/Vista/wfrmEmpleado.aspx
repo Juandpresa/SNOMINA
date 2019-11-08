@@ -28,142 +28,142 @@
 
         });
 
-            var accordionItems = new Array();
+        var accordionItems = new Array();
 
-            function init() {
+        function init() {
 
-                // Grab the accordion items from the page
-                var divs = document.getElementsByTagName('div');
-                for (var i = 0; i < divs.length; i++) {
-                    if (divs[i].className == 'accordionItem') accordionItems.push(divs[i]);
-                }
-
-                // Assign onclick events to the accordion item headings
-                for (var i = 0; i < accordionItems.length; i++) {
-                    var h2 = getFirstChildWithTagName(accordionItems[i], 'H2');
-                    h2.onclick = toggleItem;
-                }
-
-                // Hide all accordion item bodies except the first
-                for (var i = 1; i < accordionItems.length; i++) {
-                    accordionItems[i].className = 'accordionItem hide';
-                }
+            // Grab the accordion items from the page
+            var divs = document.getElementsByTagName('div');
+            for (var i = 0; i < divs.length; i++) {
+                if (divs[i].className == 'accordionItem') accordionItems.push(divs[i]);
             }
 
-
-            function toggleItem() {
-                var itemClass = this.parentNode.className;
-
-                // Hide all items
-                for (var i = 0; i < accordionItems.length; i++) {
-                    accordionItems[i].className = 'accordionItem hide';
-                }
-
-                // Show this item if it was previously hidden
-                if (itemClass == 'accordionItem hide') {
-                    this.parentNode.className = 'accordionItem';
-
-                }
+            // Assign onclick events to the accordion item headings
+            for (var i = 0; i < accordionItems.length; i++) {
+                var h2 = getFirstChildWithTagName(accordionItems[i], 'H2');
+                h2.onclick = toggleItem;
             }
 
-            function getFirstChildWithTagName(element, tagName) {
-                for (var i = 0; i < element.childNodes.length; i++) {
-                    if (element.childNodes[i].nodeName == tagName) return element.childNodes[i];
-                }
+            // Hide all accordion item bodies except the first
+            for (var i = 1; i < accordionItems.length; i++) {
+                accordionItems[i].className = 'accordionItem hide';
+            }
+        }
+
+
+        function toggleItem() {
+            var itemClass = this.parentNode.className;
+
+            // Hide all items
+            for (var i = 0; i < accordionItems.length; i++) {
+                accordionItems[i].className = 'accordionItem hide';
             }
 
-            // **** Valida Letras *****//
-            function isAlphabetKey(evt) {
-                var charCode = (evt.which) ? evt.which : event.keyCode
-                if ((charCode <= 93 && charCode >= 65) || (charCode <= 122 && charCode >= 97 || charCode == 32)) {
-
-                    return true;
-                }
-                return false;
+            // Show this item if it was previously hidden
+            if (itemClass == 'accordionItem hide') {
+                this.parentNode.className = 'accordionItem';
 
             }
+        }
 
-            //**** Valida Decimales ****//
-            function isDecimalKey(e, field) {
-                key = e.keyCode ? e.keyCode : e.which
-                // backspace
-                if (key == 8) return true
-                // 0-9
-                if ((key >= 47 && key <= 58)) {
-                    if (field.val == "") return true
-
-                    if (field.value.indexOf(".") != -1) {
-                        //Decimales
-                        regexp = /.[0-9]{5}$/
-                    }
-                    else {
-                        //Enteros
-                        regexp = /.[0-9]{}$/
-                    }
-
-                    return !(regexp.test(field.value))
-                }
-
-                // .
-                if (key == 46) {
-                    if (field.value == "") return false
-                    regexp = /^[0-9]+$/
-                    return regexp.test(field.value)
-                }
-
-                // other key
-                return false
+        function getFirstChildWithTagName(element, tagName) {
+            for (var i = 0; i < element.childNodes.length; i++) {
+                if (element.childNodes[i].nodeName == tagName) return element.childNodes[i];
             }
+        }
 
-            function showContent() {
-                var porcentaje = document.getElementById('ContentPlaceHolder1_divPorcentaje');
-                var fijo = document.getElementById('ContentPlaceHolder1_divFijo');
-                var reside = document.getElementById('ContentPlaceHolder1_cresidencia');
+        // **** Valida Letras *****//
+        function isAlphabetKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if ((charCode <= 93 && charCode >= 65) || (charCode <= 122 && charCode >= 97 || charCode == 32)) {
 
-                var rb = document.getElementById("<%=rbtTipoEsquema.ClientID%>");
-                var inputs = rb.getElementsByTagName('input');
-                var flag = false;
-                var selected;
-                for (var i = 0; i < inputs.length; i++) {
-                    if (inputs[i].checked) {
-                        selected = inputs[i];
-                        flag = true;
-                        break;
-                    }
-                }
+                return true;
+            }
+            return false;
 
-                if (selected.value == "1") {
-                    //alert(selected.value);
-                    porcentaje.style.display = 'block';
-                    fijo.style.display = 'none';
-                    document.getElementById('ContentPlaceHolder1_txtSueldoBruto').value = 0;
-                    document.getElementById('ContentPlaceHolder1_txtSueldoNeto').value = 0;
-                    document.getElementById('ContentPlaceHolder1_txtSueldoHonorarios').value = 0;
-                    document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
-                    document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
-                    //Card´s
-                    cresidencia.style.display = 'block';
-                    cdlaborales.style.display = 'block';
-                    cpago.style.display = 'block';
-                    cdcomplemento.style.display = 'none';
+        }
+
+        //**** Valida Decimales ****//
+        function isDecimalKey(e, field) {
+            key = e.keyCode ? e.keyCode : e.which
+            // backspace
+            if (key == 8) return true
+            // 0-9
+            if ((key >= 47 && key <= 58)) {
+                if (field.val == "") return true
+
+                if (field.value.indexOf(".") != -1) {
+                    //Decimales
+                    regexp = /.[0-9]{5}$/
                 }
                 else {
-                    //alert('Please select an option');
-                    porcentaje.style.display = 'none';
-                    fijo.style.display = 'block';
-                    document.getElementById('ContentPlaceHolder1_txtNomina').value = 0;
-                    document.getElementById('ContentPlaceHolder1_txtAsimilados').value = 0;
-                    document.getElementById('ContentPlaceHolder1_txtHonorarios').value = 0;
-                    document.getElementById('ContentPlaceHolder1_txtTN').value = 0;
-                    document.getElementById('ContentPlaceHolder1_txtEZWallet').value = 0;
-                    document.getElementById('ContentPlaceHolder1_txtSueldo').value = 0;
-                    //Card´s
-                    cresidencia.style.display = 'block';
-                    cdlaborales.style.display = 'block';
-                    cpago.style.display = 'block';
-                    cdcomplemento.style.display = 'block';
+                    //Enteros
+                    regexp = /.[0-9]{}$/
+                }
+
+                return !(regexp.test(field.value))
+            }
+
+            // .
+            if (key == 46) {
+                if (field.value == "") return false
+                regexp = /^[0-9]+$/
+                return regexp.test(field.value)
+            }
+
+            // other key
+            return false
+        }
+
+        function showContent() {
+            var porcentaje = document.getElementById('ContentPlaceHolder1_divPorcentaje');
+            var fijo = document.getElementById('ContentPlaceHolder1_divFijo');
+            var reside = document.getElementById('ContentPlaceHolder1_cresidencia');
+
+            var rb = document.getElementById("<%=rbtTipoEsquema.ClientID%>");
+            var inputs = rb.getElementsByTagName('input');
+            var flag = false;
+            var selected;
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].checked) {
+                    selected = inputs[i];
+                    flag = true;
+                    break;
                 }
             }
+
+            if (selected.value == "1") {
+                //alert(selected.value);
+                porcentaje.style.display = 'block';
+                fijo.style.display = 'none';
+                document.getElementById('ContentPlaceHolder1_txtSueldoBruto').value = 0;
+                document.getElementById('ContentPlaceHolder1_txtSueldoNeto').value = 0;
+                document.getElementById('ContentPlaceHolder1_txtSueldoHonorarios').value = 0;
+                document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
+                document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
+                //Card´s
+                cresidencia.style.display = 'block';
+                cdlaborales.style.display = 'block';
+                cpago.style.display = 'block';
+                cdcomplemento.style.display = 'none';
+            }
+            else {
+                //alert('Please select an option');
+                porcentaje.style.display = 'none';
+                fijo.style.display = 'block';
+                document.getElementById('ContentPlaceHolder1_txtNomina').value = 0;
+                document.getElementById('ContentPlaceHolder1_txtAsimilados').value = 0;
+                document.getElementById('ContentPlaceHolder1_txtHonorarios').value = 0;
+                document.getElementById('ContentPlaceHolder1_txtTN').value = 0;
+                document.getElementById('ContentPlaceHolder1_txtEZWallet').value = 0;
+                document.getElementById('ContentPlaceHolder1_txtSueldo').value = 0;
+                //Card´s
+                cresidencia.style.display = 'block';
+                cdlaborales.style.display = 'block';
+                cpago.style.display = 'block';
+                cdcomplemento.style.display = 'block';
+            }
+        }
 
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
 
@@ -532,7 +532,7 @@
                                     <button type="button" class="btn btn-success add" id="btnAgregarBanco"><i class="fa fa-plus"></i>Agregar</button>
                                 </div>
 
-                                <table id="tblBancos" class="table table-bordered">
+                                <table id="tblBancos" class="table table-bordered" runat="server">
                                     <thead>
                                         <tr>
                                             <td class="keyValue" hidden="hidden">ConceptoID</td>
@@ -545,11 +545,20 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Bancomer</td>
-                                            <td>Mantenimiento </td>
-                                            <td>Pago Conmutador</td>
-                                            <td>14608.26</td>
-
+                                            <td>1</td>
+                                            <td>123456789</td>
+                                            <td>1234567890</td>
+                                            <td>12345678901</td>
+                                            <td>
+                                                <a class="add addBancosRow" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                                <a class="delete deleteConceptoRow" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>123456789</td>
+                                            <td>1234567890</td>
+                                            <td>12345678901</td>
                                             <td>
                                                 <a class="add addBancosRow" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                                 <a class="delete deleteConceptoRow" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
@@ -840,6 +849,46 @@
 
         </div>
     </div>
+    <script type="text/javascript">
+        function AgregarBanco() {
+
+            //Agregamos datos de pago
+            var banco = $("#ddlBanco").find('option:selected').text();
+            var cuenta = $("#txtCuenta").val();
+            var clabe = $("#txtClabe").val();
+            var tarjeta = $("#txtTarjeta").val();
+            var numbanco= $("#txtNumB").val();
+            if (parseFloat(capcarga) >= parseFloat(nuevacarga)) {
+                //Agregamos pago
+                var numcarga = parseInt($("#NumCarga").val()) + 1;
+                $("#NumCarga").val(numcarga);
+                //Agregamos el banco a la tabla
+                $("#tblCarga").append(
+                    "<tr>" +
+                    "<td>" +
+                    "<input type='text' style='border:0;background:transparent;' " +
+                    " name='descid" + numcarga + "'" +
+                    " id='descid" + numcarga + "'" +
+                    " readonly" +
+                    " value='" + descripcion + "'/>" +
+                    "</td>" +
+                    "<td>" +
+                    "<input type='text' style='border:0;background:transparent;' " +
+                    " name='pesoid" + numcarga + "'" +
+                    " id='pesoid" + numcarga + "'" +
+                    " readonly" +
+                    " value='" + peso + "'/>" +
+                    "</td>" +
+                    "</tr>"
+                );
+
+            }
+            else {
+                swal("Atención!", "La capacidad del camión ha sido superada", "warning");
+            }
+
+        }
+    </script>
 </asp:Content>
 <%--<td>Nacionalidad:
 </td>
