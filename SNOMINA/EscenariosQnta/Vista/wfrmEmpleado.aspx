@@ -545,11 +545,20 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Bancomer</td>
-                                            <td>Mantenimiento </td>
-                                            <td>Pago Conmutador</td>
-                                            <td>14608.26</td>
-
+                                            <td>1</td>
+                                            <td>123456789</td>
+                                            <td>1234567890</td>
+                                            <td>12345678901</td>
+                                            <td>
+                                                <a class="add addBancosRow" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                                <a class="delete deleteConceptoRow" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>123456789</td>
+                                            <td>1234567890</td>
+                                            <td>12345678901</td>
                                             <td>
                                                 <a class="add addBancosRow" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                                 <a class="delete deleteConceptoRow" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
