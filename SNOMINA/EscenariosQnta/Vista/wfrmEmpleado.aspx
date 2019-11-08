@@ -23,144 +23,178 @@
                     $(".panelAntiguedad").hide();
                 }
             });
-        });
 
-        var accordionItems = new Array();
+            $('#btnAgregarBanco').on("click", ".addBancoRow", function () {
+                var self = this;
 
-        function init() {
+                var empty = false;
+                var input = $(this).parents("tr").find('input[type="text"]');
+                input.each(function () {
+                    if (!$(this).val()) {
+                        $(this).addClass("error");
+                        empty = true;
+                    } else {
+                        $(this).removeClass("error");
+                    }
+                });
+                $(this).parents("tr").find(".error").first().focus();
+                if (!empty) {
+                    input.each(function () {
+                        $(this).parent("td").html($(this).htmlText);
+                        $(this).parents("tr").find(".form-control").addClass("noEditControl");
+                    });
+                    // $(this).parents("tr").find(".add, .edit").toggle();
+                    $(this).parents("tr").find(".add").toggle(); //Para que no muestre el edit button
+                }
+                var banco = $(this).parents("tr").find(".tblConceptos_Concepto").val();
+                var cuenta = $(this).parents("tr").find(".tblConceptos_Descripcion").val();
+                var clabe = $(this).parents("tr").find(".tblConceptos_Importe").val();
+                var tarjeta = $(this).parents("tr").find(".tblConceptos_Importe").val();
+                var params =
+                {
+                    "bancoid": banco,
+                    "cuenta": cuenta,
+                    "clabe": clabe,
+                    "tarjeta": tarjeta
+                }
+            });
 
-            // Grab the accordion items from the page
-            var divs = document.getElementsByTagName('div');
-            for (var i = 0; i < divs.length; i++) {
-                if (divs[i].className == 'accordionItem') accordionItems.push(divs[i]);
+            var accordionItems = new Array();
+
+            function init() {
+
+                // Grab the accordion items from the page
+                var divs = document.getElementsByTagName('div');
+                for (var i = 0; i < divs.length; i++) {
+                    if (divs[i].className == 'accordionItem') accordionItems.push(divs[i]);
+                }
+
+                // Assign onclick events to the accordion item headings
+                for (var i = 0; i < accordionItems.length; i++) {
+                    var h2 = getFirstChildWithTagName(accordionItems[i], 'H2');
+                    h2.onclick = toggleItem;
+                }
+
+                // Hide all accordion item bodies except the first
+                for (var i = 1; i < accordionItems.length; i++) {
+                    accordionItems[i].className = 'accordionItem hide';
+                }
             }
 
-            // Assign onclick events to the accordion item headings
-            for (var i = 0; i < accordionItems.length; i++) {
-                var h2 = getFirstChildWithTagName(accordionItems[i], 'H2');
-                h2.onclick = toggleItem;
+
+            function toggleItem() {
+                var itemClass = this.parentNode.className;
+
+                // Hide all items
+                for (var i = 0; i < accordionItems.length; i++) {
+                    accordionItems[i].className = 'accordionItem hide';
+                }
+
+                // Show this item if it was previously hidden
+                if (itemClass == 'accordionItem hide') {
+                    this.parentNode.className = 'accordionItem';
+
+                }
             }
 
-            // Hide all accordion item bodies except the first
-            for (var i = 1; i < accordionItems.length; i++) {
-                accordionItems[i].className = 'accordionItem hide';
-            }
-        }
-
-
-        function toggleItem() {
-            var itemClass = this.parentNode.className;
-
-            // Hide all items
-            for (var i = 0; i < accordionItems.length; i++) {
-                accordionItems[i].className = 'accordionItem hide';
+            function getFirstChildWithTagName(element, tagName) {
+                for (var i = 0; i < element.childNodes.length; i++) {
+                    if (element.childNodes[i].nodeName == tagName) return element.childNodes[i];
+                }
             }
 
-            // Show this item if it was previously hidden
-            if (itemClass == 'accordionItem hide') {
-                this.parentNode.className = 'accordionItem';
+            // **** Valida Letras *****//
+            function isAlphabetKey(evt) {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if ((charCode <= 93 && charCode >= 65) || (charCode <= 122 && charCode >= 97 || charCode == 32)) {
+
+                    return true;
+                }
+                return false;
 
             }
-        }
 
-        function getFirstChildWithTagName(element, tagName) {
-            for (var i = 0; i < element.childNodes.length; i++) {
-                if (element.childNodes[i].nodeName == tagName) return element.childNodes[i];
+            //**** Valida Decimales ****//
+            function isDecimalKey(e, field) {
+                key = e.keyCode ? e.keyCode : e.which
+                // backspace
+                if (key == 8) return true
+                // 0-9
+                if ((key >= 47 && key <= 58)) {
+                    if (field.val == "") return true
+
+                    if (field.value.indexOf(".") != -1) {
+                        //Decimales
+                        regexp = /.[0-9]{5}$/
+                    }
+                    else {
+                        //Enteros
+                        regexp = /.[0-9]{}$/
+                    }
+
+                    return !(regexp.test(field.value))
+                }
+
+                // .
+                if (key == 46) {
+                    if (field.value == "") return false
+                    regexp = /^[0-9]+$/
+                    return regexp.test(field.value)
+                }
+
+                // other key
+                return false
             }
-        }
 
-        // **** Valida Letras *****//
-        function isAlphabetKey(evt) {
-            var charCode = (evt.which) ? evt.which : event.keyCode
-            if ((charCode <= 93 && charCode >= 65) || (charCode <= 122 && charCode >= 97 || charCode == 32)) {
+            function showContent() {
+                var porcentaje = document.getElementById('ContentPlaceHolder1_divPorcentaje');
+                var fijo = document.getElementById('ContentPlaceHolder1_divFijo');
+                var reside = document.getElementById('ContentPlaceHolder1_cresidencia');
 
-                return true;
-            }
-            return false;
+                var rb = document.getElementById("<%=rbtTipoEsquema.ClientID%>");
+                var inputs = rb.getElementsByTagName('input');
+                var flag = false;
+                var selected;
+                for (var i = 0; i < inputs.length; i++) {
+                    if (inputs[i].checked) {
+                        selected = inputs[i];
+                        flag = true;
+                        break;
+                    }
+                }
 
-        }
-
-        //**** Valida Decimales ****//
-        function isDecimalKey(e, field) {
-            key = e.keyCode ? e.keyCode : e.which
-            // backspace
-            if (key == 8) return true
-            // 0-9
-            if ((key >= 47 && key <= 58)) {
-                if (field.val == "") return true
-
-                if (field.value.indexOf(".") != -1) {
-                    //Decimales
-                    regexp = /.[0-9]{5}$/
+                if (selected.value == "1") {
+                    //alert(selected.value);
+                    porcentaje.style.display = 'block';
+                    fijo.style.display = 'none';
+                    document.getElementById('ContentPlaceHolder1_txtSueldoBruto').value = 0;
+                    document.getElementById('ContentPlaceHolder1_txtSueldoNeto').value = 0;
+                    document.getElementById('ContentPlaceHolder1_txtSueldoHonorarios').value = 0;
+                    document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
+                    document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
+                    //Card´s
+                    cresidencia.style.display = 'block';
+                    cdlaborales.style.display = 'block';
+                    cpago.style.display = 'block';
+                    cdcomplemento.style.display = 'none';
                 }
                 else {
-                    //Enteros
-                    regexp = /.[0-9]{}$/
-                }
-
-                return !(regexp.test(field.value))
-            }
-
-            // .
-            if (key == 46) {
-                if (field.value == "") return false
-                regexp = /^[0-9]+$/
-                return regexp.test(field.value)
-            }
-
-            // other key
-            return false
-        }
-
-        function showContent() {
-            var porcentaje = document.getElementById('ContentPlaceHolder1_divPorcentaje');
-            var fijo = document.getElementById('ContentPlaceHolder1_divFijo');
-            var reside = document.getElementById('ContentPlaceHolder1_cresidencia');
-
-            var rb = document.getElementById("<%=rbtTipoEsquema.ClientID%>");
-            var inputs = rb.getElementsByTagName('input');
-            var flag = false;
-            var selected;
-            for (var i = 0; i < inputs.length; i++) {
-                if (inputs[i].checked) {
-                    selected = inputs[i];
-                    flag = true;
-                    break;
+                    //alert('Please select an option');
+                    porcentaje.style.display = 'none';
+                    fijo.style.display = 'block';
+                    document.getElementById('ContentPlaceHolder1_txtNomina').value = 0;
+                    document.getElementById('ContentPlaceHolder1_txtAsimilados').value = 0;
+                    document.getElementById('ContentPlaceHolder1_txtHonorarios').value = 0;
+                    document.getElementById('ContentPlaceHolder1_txtTN').value = 0;
+                    document.getElementById('ContentPlaceHolder1_txtEZWallet').value = 0;
+                    document.getElementById('ContentPlaceHolder1_txtSueldo').value = 0;
+                    //Card´s
+                    cresidencia.style.display = 'block';
+                    cdlaborales.style.display = 'block';
+                    cpago.style.display = 'block';
+                    cdcomplemento.style.display = 'block';
                 }
             }
-
-            if (selected.value == "1") {
-                //alert(selected.value);
-                porcentaje.style.display = 'block';
-                fijo.style.display = 'none';
-                document.getElementById('ContentPlaceHolder1_txtSueldoBruto').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtSueldoNeto').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtSueldoHonorarios').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
-                //Card´s
-                cresidencia.style.display = 'block';
-                cdlaborales.style.display='block';
-                cpago.style.display = 'block';
-                cdcomplemento.style.display = 'none';
-            }
-            else {
-                //alert('Please select an option');
-                porcentaje.style.display = 'none';
-                fijo.style.display = 'block';
-                document.getElementById('ContentPlaceHolder1_txtNomina').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtAsimilados').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtHonorarios').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtTN').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtEZWallet').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtSueldo').value = 0;
-                //Card´s
-                cresidencia.style.display = 'block';
-                cdlaborales.style.display='block';
-                cpago.style.display = 'block';
-                cdcomplemento.style.display = 'block';
-            }
-        }
 
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
 
@@ -525,6 +559,34 @@
                                         </td>
                                     </tr>
                                 </table>
+                                <div>
+                                    <button type="button" class="btn btn-success add addConceptoRow" id="btnAgregarBanco"><i class="fa fa-plus"></i>Agregar</button>
+                                </div>
+
+                                <table id="tblBancos" class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td class="keyValue" hidden="hidden">ConceptoID</td>
+                                            <th>Banco</th>
+                                            <th>Cuenta</th>
+                                            <th>CLABE</th>
+                                            <th>No. Tarjeta</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Bancomer</td>
+                                            <td>Mantenimiento </td>
+                                            <td>Pago Conmutador</td>
+                                            <td>14608.26</td>
+
+                                            <td>
+                                                <a class="add addBancosRow" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                                <a class="delete deleteConceptoRow" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            </td>
+                                        </tr>
+                                </table>
                             </div>
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
@@ -576,232 +638,232 @@
                                 DATOS LABORALES
                                             <div style="width: auto; border: 2px Solid #4a1414;">
                                             </div>
-                                    </div>
-                                    <div class="contenPanel">
-                                        <div runat="server" id="divPorcentaje" style="display: none;">
-                                            <table>
-                                                <tr>
-                                                    <td>Porcentaje Nomina:
-                                                    </td>
-                                                    <td>Sueldo:
-                                                    </td>
+                            </div>
+                            <div class="contenPanel">
+                                <div runat="server" id="divPorcentaje" style="display: none;">
+                                    <table>
+                                        <tr>
+                                            <td>Porcentaje Nomina:
+                                            </td>
+                                            <td>Sueldo:
+                                            </td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">
-                                                        <asp:TextBox ID="txtNomina" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                    </td>
-                                                    <td>
-                                                        <asp:TextBox ID="txtSueldo" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Porcentaje Asimilados:
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">
-                                                        <asp:TextBox ID="txtAsimilados" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Porcentaje Honorarios:
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">
-                                                        <asp:TextBox ID="txtHonorarios" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Porcentaje TN:
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">
-                                                        <asp:TextBox ID="txtTN" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Porcentaje EZ Wallet:
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">
-                                                        <asp:TextBox ID="txtEZWallet" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                        <div runat="server" id="divFijo" style="display: none;">
-                                            <table>
-                                                <tr>
-                                                    <td>Sueldo Bruto:
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">
-                                                        <asp:TextBox ID="txtSueldoBruto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Sueldo Honorarios
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">
-                                                        <asp:TextBox ID="txtSueldoHonorarios" runat="server" Text="0" CssClass="textbox"
-                                                            onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sueldo TN:
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">
-                                                        <asp:TextBox ID="txtSueldoTN" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sueldo EZ Wallet:
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td">
-                                                        <asp:TextBox ID="txtSueldoEZWallet" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                        <table>
-                                            <tr>
-                                                <td>Bono
-                                                </td>
-                                                <td>Comision
-                                                </td>
-                                                <td>Otros Ingresos
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <asp:TextBox ID="txtBono" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                </td>
-                                                <td>
-                                                    <asp:TextBox ID="txtComisionEmp" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                </td>
-                                                <td>
-                                                    <asp:TextBox ID="txtOtrosIngresos" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtNomina" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="txtSueldo" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Porcentaje Asimilados:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtAsimilados" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Porcentaje Honorarios:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtHonorarios" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Porcentaje TN:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtTN" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Porcentaje EZ Wallet:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtEZWallet" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
-                                <div class="container_12 container">
-                                    PAGOS
+                                <div runat="server" id="divFijo" style="display: none;">
+                                    <table>
+                                        <tr>
+                                            <td>Sueldo Bruto:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtSueldoBruto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Sueldo Honorarios
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtSueldoHonorarios" runat="server" Text="0" CssClass="textbox"
+                                                    onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sueldo TN:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtSueldoTN" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sueldo EZ Wallet:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtSueldoEZWallet" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <td>Bono
+                                        </td>
+                                        <td>Comision
+                                        </td>
+                                        <td>Otros Ingresos
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtBono" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtComisionEmp" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="txtOtrosIngresos" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="container_12 container">
+                            PAGOS
                 <div style="width: auto; border: 2px Solid #4a1414;">
                 </div>
-                                    <div class="contenPanel">
-                                        <table>
-                                            <tr>
-                                                <td>Razon Social Pagadora:
-                                                </td>
-                                                <td>Tipo Pago:
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="td">
-                                                    <asp:DropDownList ID="ddlPagadora" runat="server" CssClass="cssDropdown">
-                                                    </asp:DropDownList>
-                                                </td>
-                                                <td class="td">
-                                                    <asp:DropDownList ID="ddlTipoPago" runat="server" CssClass="cssDropdown">
-                                                    </asp:DropDownList>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Esquema Actual:
-                                                </td>
-                                                <td>Fecha Ultimo Pago:
-                                                </td>
-                                                <td></td>
-                                                <td>
-                                                    <div class="panelAntiguedad" style="display: none">
-                                                        <asp:Label Text="Antiguedad (Años)" ID="lblAntiguedad" runat="server" />
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="td">
-                                                    <asp:DropDownList ID="ddlEsquemaActual" runat="server" CssClass="cssDropdown">
-                                                    </asp:DropDownList>
-                                                </td>
-                                                <td class="td">
-                                                    <asp:TextBox ID="txtUltimoPago" runat="server" Text="" CssClass="datepicker" required="required"
-                                                        placeholder="dd/mm/yyyy"></asp:TextBox>
-                                                </td>
-                                                <td>
-                                                    <asp:CheckBox runat="server" ID="chkAntiguedad" CssClass="chkBox" CausesValidation="True" Text="Presenta Antiguedad" OnCheckedChanged="chkAntiguedad_CheckedChanged"></asp:CheckBox>
-                                                </td>
-                                                <td>
-                                                    <div class="panelAntiguedad" style="display: none">
-                                                        <asp:TextBox runat="server" value="0" ID="txtAntiguedad" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                    </div>
+                            <div class="contenPanel">
+                                <table>
+                                    <tr>
+                                        <td>Razon Social Pagadora:
+                                        </td>
+                                        <td>Tipo Pago:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlPagadora" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlTipoPago" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Esquema Actual:
+                                        </td>
+                                        <td>Fecha Ultimo Pago:
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <div class="panelAntiguedad" style="display: none">
+                                                <asp:Label Text="Antiguedad (Años)" ID="lblAntiguedad" runat="server" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlEsquemaActual" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtUltimoPago" runat="server" Text="" CssClass="datepicker" required="required"
+                                                placeholder="dd/mm/yyyy"></asp:TextBox>
+                                        </td>
+                                        <td>
+                                            <asp:CheckBox runat="server" ID="chkAntiguedad" CssClass="chkBox" CausesValidation="True" Text="Presenta Antiguedad" OnCheckedChanged="chkAntiguedad_CheckedChanged"></asp:CheckBox>
+                                        </td>
+                                        <td>
+                                            <div class="panelAntiguedad" style="display: none">
+                                                <asp:TextBox runat="server" value="0" ID="txtAntiguedad" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </div>
 
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
 
-                                <div class="container_12 container">
-                                    <div style="width: auto; border: 2px Solid #4a1414;">
-                                    </div>
-                                    <div class="contenPanel ">
-                                        <table>
-                                            <tr>
-                                                <td>Importe Fonacot:
-                                                </td>
-                                                <td>Infonavit:
-                                                </td>
-                                                <td>Importe Infonavit:
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <asp:TextBox ID="txtImporteFonacot" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                </td>
-                                                <td class="td">
-                                                    <asp:DropDownList ID="ddlInfonavit" runat="server" CssClass="cssDropdown">
-                                                    </asp:DropDownList>
-                                                </td>
-                                                <td class="td">
-                                                    <asp:TextBox ID="txtImporteInfonavit" runat="server" Text="0" CssClass="textbox"
-                                                        onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Pension Alimenticia:
-                                                </td>
-                                                <td>Importe Pension:
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="td">
-                                                    <asp:DropDownList ID="ddlPension" runat="server" CssClass="cssDropdown">
-                                                    </asp:DropDownList>
-                                                </td>
-                                                <td class="td">
-                                                    <asp:TextBox ID="txtImportePension" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
+                        <div class="container_12 container">
+                            <div style="width: auto; border: 2px Solid #4a1414;">
+                            </div>
+                            <div class="contenPanel ">
+                                <table>
+                                    <tr>
+                                        <td>Importe Fonacot:
+                                        </td>
+                                        <td>Infonavit:
+                                        </td>
+                                        <td>Importe Infonavit:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:TextBox ID="txtImporteFonacot" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlInfonavit" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtImporteInfonavit" runat="server" Text="0" CssClass="textbox"
+                                                onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pension Alimenticia:
+                                        </td>
+                                        <td>Importe Pension:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlPension" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtImportePension" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
             <div>
                 <asp:Button ID="btnGuardar" Text="Guardar" runat="server" CssClass="btnG" OnClick="btnGuardar_Click" />
             </div>
