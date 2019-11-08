@@ -3,6 +3,7 @@ using EscenariosQnta.Data;
 using EscenariosQnta.Negocio;
 using System;
 using System.Data;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace EscenariosQnta
@@ -877,6 +878,7 @@ namespace EscenariosQnta
 
     protected void btnGuardar_Click(object sender, EventArgs e)
     {
+      
       try
       {
         ValidacionControles = ValidadorControles();
@@ -1006,8 +1008,8 @@ namespace EscenariosQnta
               int ins = int.Parse(IdInstituto);
               int carr = int.Parse(IdCarrera);
               strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, ne, ins, carr);
-              
-              for (int i = 0; i < 2; i++)
+
+              for (int i = 0; i < tblBancos.Rows.Count; i++)
               {
                 IdBanco = ddlBanco.SelectedItem.Value;
                 cuenta = txtCuenta.Text.ToString();
@@ -1016,7 +1018,7 @@ namespace EscenariosQnta
                 int idBan = int.Parse(IdBanco);
                 strQueryIB = BLLInfoBancaria.InsInfoBancaria(idBan, emp, cuenta, clabe, tarjeta);
               }
-              
+
 
               if (RetunValue == "1")
               {
