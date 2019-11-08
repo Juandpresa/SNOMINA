@@ -113,6 +113,20 @@ namespace EscenariosQnta
         ObtenBanco();
         ObtenerEmpleadora();
         ObtenEmpleadoras();
+        var filas = tblBancos.Rows;
+        foreach (var item in filas)
+        {
+          
+        }
+        //for (int i = 0; i < tblBancos.Rows.Count; i++)
+        //{
+         
+        //  //cuenta = txtCuenta.Text.ToString();
+        //  //clabe = txtClabe.Text.ToString();
+        //  //tarjeta = txtTarjeta.Text.ToString();
+        //  //int idBan = int.Parse(IdBanco);
+        //  //strQueryIB = BLLInfoBancaria.InsInfoBancaria(idBan, emp, cuenta, clabe, tarjeta);
+        //}
       }
     }
     protected void ObtenerEmpleadora()
@@ -1009,15 +1023,15 @@ namespace EscenariosQnta
               int carr = int.Parse(IdCarrera);
               strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, ne, ins, carr);
 
-              for (int i = 0; i < tblBancos.Rows.Count; i++)
-              {
-                IdBanco = ddlBanco.SelectedItem.Value;
-                cuenta = txtCuenta.Text.ToString();
-                clabe = txtClabe.Text.ToString();
-                tarjeta = txtTarjeta.Text.ToString();
-                int idBan = int.Parse(IdBanco);
-                strQueryIB = BLLInfoBancaria.InsInfoBancaria(idBan, emp, cuenta, clabe, tarjeta);
-              }
+              //for (int i = 0; i < tblBancos.Rows.Count; i++)
+              //{
+              //  IdBanco = ddlBanco.SelectedItem.Value;
+              //  cuenta = txtCuenta.Text.ToString();
+              //  clabe = txtClabe.Text.ToString();
+              //  tarjeta = txtTarjeta.Text.ToString();
+              //  int idBan = int.Parse(IdBanco);
+              //  strQueryIB = BLLInfoBancaria.InsInfoBancaria(idBan, emp, cuenta, clabe, tarjeta);
+              //}
 
 
               if (RetunValue == "1")
