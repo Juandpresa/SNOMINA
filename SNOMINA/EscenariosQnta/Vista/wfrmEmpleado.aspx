@@ -24,6 +24,8 @@
                 }
             });
 
+            $('#btnAgregarBanco')
+
         });
 
             var accordionItems = new Array();
@@ -527,7 +529,7 @@
                                     </tr>
                                 </table>
                                 <div>
-                                    <button type="button" class="btn btn-success add addConceptoRow" id="btnAgregarBanco"><i class="fa fa-plus"></i>Agregar</button>
+                                    <button type="button" class="btn btn-success add" id="btnAgregarBanco"><i class="fa fa-plus"></i>Agregar</button>
                                 </div>
 
                                 <table id="tblBancos" class="table table-bordered">
