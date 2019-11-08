@@ -24,40 +24,7 @@
                 }
             });
 
-            //$('#btnAgregarBanco').on("click", ".addBancoRow", function () {
-            //    var self = this;
-
-            //    var empty = false;
-            //    var input = $(this).parents("tr").find('input[type="text"]');
-            //    input.each(function () {
-            //        if (!$(this).val()) {
-            //            $(this).addClass("error");
-            //            empty = true;
-            //        } else {
-            //            $(this).removeClass("error");
-            //        }
-            //    });
-            //    $(this).parents("tr").find(".error").first().focus();
-            //    if (!empty) {
-            //        input.each(function () {
-            //            $(this).parent("td").html($(this).htmlText);
-            //            $(this).parents("tr").find(".form-control").addClass("noEditControl");
-            //        });
-            //        // $(this).parents("tr").find(".add, .edit").toggle();
-            //        $(this).parents("tr").find(".add").toggle(); //Para que no muestre el edit button
-            //    }
-            //    var banco = $(this).parents("tr").find(".tblConceptos_Concepto").val();
-            //    var cuenta = $(this).parents("tr").find(".tblConceptos_Descripcion").val();
-            //    var clabe = $(this).parents("tr").find(".tblConceptos_Importe").val();
-            //    var tarjeta = $(this).parents("tr").find(".tblConceptos_Importe").val();
-            //    var params =
-            //    {
-            //        "bancoid": banco,
-            //        "cuenta": cuenta,
-            //        "clabe": clabe,
-            //        "tarjeta": tarjeta
-                //}
-            });
+        });
 
             var accordionItems = new Array();
 
