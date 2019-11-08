@@ -24,7 +24,9 @@
                 }
             });
 
-            $('#btnAgregarBanco')
+            $('#btnAgregarBanco').click(function () {
+                AgregarBanco();
+            });
 
         });
 
@@ -505,6 +507,10 @@
                                             <asp:TextBox ID="txtClabe" runat="server" CssClass="textbox" FilterType="Numbers">
                                             </asp:TextBox>
                                         </td>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtNumB" runat="server" CssClass="textbox">
+                                            </asp:TextBox>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>No. Tarjeta:
@@ -529,28 +535,25 @@
                                     </tr>
                                 </table>
                                 <div>
-                                    <button type="button" class="btn btn-success add" id="btnAgregarBanco"><i class="fa fa-plus"></i>Agregar</button>
+                                    <button type="button" class="btn btn-success" id="btnAgregarBanco">Agregar</button>
                                 </div>
 
-                                <table id="tblBancos" class="table table-bordered" runat="server">
+                                <table id="tblBancos" class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <td class="keyValue" hidden="hidden">ConceptoID</td>
                                             <th>Banco</th>
                                             <th>Cuenta</th>
                                             <th>CLABE</th>
                                             <th>No. Tarjeta</th>
-                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
+                                        <%-- <tr>
+                                           <td>1</td>
                                             <td>123456789</td>
                                             <td>1234567890</td>
                                             <td>12345678901</td>
                                             <td>
-                                                <a class="add addBancosRow" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                                 <a class="delete deleteConceptoRow" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                             </td>
                                         </tr>
@@ -560,11 +563,12 @@
                                             <td>1234567890</td>
                                             <td>12345678901</td>
                                             <td>
-                                                <a class="add addBancosRow" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                                 <a class="delete deleteConceptoRow" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                             </td>
-                                        </tr>
+                                        </tr>--%>
+                                    </tbody>
                                 </table>
+
                             </div>
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
@@ -853,40 +857,37 @@
         function AgregarBanco() {
 
             //Agregamos datos de pago
-            var banco = $("#ddlBanco").find('option:selected').text();
-            var cuenta = $("#txtCuenta").val();
-            var clabe = $("#txtClabe").val();
-            var tarjeta = $("#txtTarjeta").val();
-            var numbanco= $("#txtNumB").val();
-            if (parseFloat(capcarga) >= parseFloat(nuevacarga)) {
-                //Agregamos pago
-                var numcarga = parseInt($("#NumCarga").val()) + 1;
-                $("#NumCarga").val(numcarga);
-                //Agregamos el banco a la tabla
-                $("#tblCarga").append(
-                    "<tr>" +
-                    "<td>" +
-                    "<input type='text' style='border:0;background:transparent;' " +
-                    " name='descid" + numcarga + "'" +
-                    " id='descid" + numcarga + "'" +
-                    " readonly" +
-                    " value='" + descripcion + "'/>" +
-                    "</td>" +
-                    "<td>" +
-                    "<input type='text' style='border:0;background:transparent;' " +
-                    " name='pesoid" + numcarga + "'" +
-                    " id='pesoid" + numcarga + "'" +
-                    " readonly" +
-                    " value='" + peso + "'/>" +
-                    "</td>" +
-                    "</tr>"
-                );
+            var banco = $("#<%=ddlBanco.ClientID%>").find('option:selected').text();
+            var cuenta = $("#<%=txtCuenta.ClientID%>").val();
+            var clabe = $("#<%=txtClabe.ClientID%>").val();
+            var tarjeta = $("#<%=txtTarjeta.ClientID%>").val();
+            var numbanco = $("#<%=txtNumB.ClientID%>").val();
+            //if ((numbanco != 0) || (numbanco = 0)) {
+            //Agregamos pago
+            var numbanco = numbanco + 1;
+            //Agregamos el banco a la tabla
+            $("#tblBancos").append(
+                "<tr>" +
+                "<td>" +
+                banco +
+                "</td>" +
+                "<td>" +
+                cuenta +
+                "</td>" +
+                "<td>" +
+                clabe +
+                "</td>" +
+                "<td>" +
+                tarjeta +
+                "</td>" +
+                "</tr>"
+            );
 
-            }
-            else {
-                swal("Atención!", "La capacidad del camión ha sido superada", "warning");
-            }
-
+            //}
+            //else {
+            //    Mensaje("Error: Ingrese Datos de Pago", CuadroMensaje.CuadroMensajeIcono.Error);
+            //}
+            $("#<%=txtNumB%>").val(numbanco);
         }
     </script>
 </asp:Content>
