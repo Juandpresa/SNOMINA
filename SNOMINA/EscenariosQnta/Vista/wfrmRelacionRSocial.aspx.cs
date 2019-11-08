@@ -183,8 +183,8 @@ namespace EscenariosQnta.Vista
       }
       catch (Exception)
       {
-
-        throw;
+        LimpiarControles();
+        Mensaje("ERROR: " + "Relacion Existente, no se pueden duplicar!", CuadroMensaje.CuadroMensajeIcono.Error);
       }
      
     }
