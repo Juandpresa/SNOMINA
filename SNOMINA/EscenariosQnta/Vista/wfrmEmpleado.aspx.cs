@@ -587,16 +587,16 @@ namespace EscenariosQnta
 
       if (dtFactor.Rows.Count > 0)
       {
-        ddlPrestacion.DataSource = dtFactor;
-        ddlPrestacion.DataTextField = "Nombre";
-        ddlPrestacion.DataValueField = "Id_Factor";
-        ddlPrestacion.DataBind();
+        //ddlPrestacion.DataSource = dtFactor;
+        //ddlPrestacion.DataTextField = "Nombre";
+        //ddlPrestacion.DataValueField = "Id_Factor";
+        //ddlPrestacion.DataBind();
 
         //gvFactor.DataSource = dtFactor;
         //gvFactor.DataBind();
       }
 
-      ddlPrestacion.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+      //ddlPrestacion.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
 
     }
 
@@ -639,7 +639,7 @@ namespace EscenariosQnta
       txtBono.Text = "0"; //string.Empty;
       txtComisionEmp.Text = "0"; //string.Empty;
       txtOtrosIngresos.Text = "0"; //string.Empty;
-      txtUbicacionLaboral.Text = string.Empty;
+      //txtUbicacionLaboral.Text = string.Empty;
       txtImporteFonacot.Text = "0"; //string.Empty;
       txtImportePension.Text = "0"; //string.Empty;
                                     //txtNacionalidad.Text = string.Empty;
