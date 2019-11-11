@@ -448,6 +448,8 @@
                                         </td>--%>
                                         <td>Tipo de Contrato:
                                         </td>
+                                        <td>Empleado de Construccion:
+                                        </td>
 <%--                                        <td>Ubicacion Laboral:
                                         </td>--%>
                                     </tr>
@@ -459,6 +461,9 @@
                                         <td class="td">
                                             <asp:DropDownList ID="ddlContrato" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
+                                        </td>
+                                        <td>
+                                            <asp:CheckBox ID="chkObra" runat="server" CssClass="chkBox" />
                                         </td>
 <%--                                        <td class="td">
                                             <asp:TextBox ID="txtUbicacionLaboral" runat="server" Text="" CssClass="textbox"></asp:TextBox>
@@ -815,6 +820,8 @@
                                         </td>
                                         <td>Importe Pension:
                                         </td>
+                                        <td>Prima de Riesgo:
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="td">
@@ -824,8 +831,42 @@
                                         <td class="td">
                                             <asp:TextBox ID="txtImportePension" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlPrimaRiesgo" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
                                     </tr>
                                 </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="card">
+                <div class="card-header" id="heading2">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                            DATOS DE OBRA
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="container_12 container">
+                            <div style="width: auto; border: 2px Solid #4a1414;">
+                            </div>
+                            <div class="contenPanel">
+                                <table>
+                                    <tr>
+                                        <td class="td">
+                                            <asp:RadioButtonList runat="server" ID="RadioButtonList1" CssClass="chkBox" onchange="javascript:showContent()"
+                                                CausesValidation="True">
+                                            </asp:RadioButtonList>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
                         </div>
                     </div>
