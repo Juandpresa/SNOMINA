@@ -446,21 +446,25 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Prestacion:
+                                        <%--<td>Prestacion:
+                                        </td>--%>
+                                        <td>Tipo de Contrato:
                                         </td>
-                                        <td>Ubicacion Laboral:
-                                        </td>
+<%--                                        <td>Ubicacion Laboral:
+                                        </td>--%>
                                     </tr>
                                     <tr>
+                                        <%--<td class="td">
+                                            <asp:DropDownList ID="ddlPrestacion" runat="server" CssClass="cssDropdown" required="required">
+                                            </asp:DropDownList>
+                                        </td>--%>
                                         <td class="td">
-                                            <asp:DropDownList ID="ddlPrestacion" runat="server" CssClass="cssDropdown">
+                                            <asp:DropDownList ID="ddlContrato" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
                                         </td>
-
-                                        <td class="td">
+<%--                                        <td class="td">
                                             <asp:TextBox ID="txtUbicacionLaboral" runat="server" Text="" CssClass="textbox"></asp:TextBox>
-                                        </td>
-
+                                        </td>--%>
                                     </tr>
 
                                 </table>
