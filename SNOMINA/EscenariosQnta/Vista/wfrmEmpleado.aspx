@@ -23,7 +23,12 @@
                     $(".panelAntiguedad").hide();
                 }
             });
-
+            $('#<%=chkObra.ClientID%>').click(function () {
+                $("#cdobra").style.display = 'block';
+                if (this.checked == false) {
+                    $("#cdobra").style.display = 'none';
+                }
+            });
             $('#btnAgregarBanco').click(function () {
                 AgregarBanco();
                 Limpiar();
@@ -450,7 +455,7 @@
                                         </td>
                                         <td>Empleado de Construccion:
                                         </td>
-<%--                                        <td>Ubicacion Laboral:
+                                        <%--                                        <td>Ubicacion Laboral:
                                         </td>--%>
                                     </tr>
                                     <tr>
@@ -465,7 +470,7 @@
                                         <td>
                                             <asp:CheckBox ID="chkObra" runat="server" CssClass="chkBox" />
                                         </td>
-<%--                                        <td class="td">
+                                        <%--                                        <td class="td">
                                             <asp:TextBox ID="txtUbicacionLaboral" runat="server" Text="" CssClass="textbox"></asp:TextBox>
                                         </td>--%>
                                     </tr>
@@ -842,15 +847,15 @@
                     </div>
                 </div>
             </div>
-             <div class="card">
-                <div class="card-header" id="heading2">
+            <div class="card" id="cdobra" style="display: none">
+                <div class="card-header" id="heading7">
                     <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
                             DATOS DE OBRA
                         </button>
                     </h2>
                 </div>
-                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+                <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordionExample">
                     <div class="card-body">
                         <div class="container_12 container">
                             <div style="width: auto; border: 2px Solid #4a1414;">
@@ -858,10 +863,46 @@
                             <div class="contenPanel">
                                 <table>
                                     <tr>
+                                        <td>Centro de Costos:
+                                        </td>
+                                        <td>Fecha Inicio de Obra:
+                                        </td>
+                                        <td>Fecha Fin de Obra:
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td class="td">
-                                            <asp:RadioButtonList runat="server" ID="RadioButtonList1" CssClass="chkBox" onchange="javascript:showContent()"
-                                                CausesValidation="True">
-                                            </asp:RadioButtonList>
+                                            <asp:DropDownList ID="ddlCCostos" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+
+                                        <td class="td">
+                                            <asp:TextBox ID="txtFIObra" runat="server" Text="" CssClass="datepicker"
+                                                placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
+                                        </td>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtFFObra" runat="server" Text="" CssClass="datepicker"
+                                                placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Dias Totales de Obra:
+                                        </td>
+                                        <td>Tipo de Obra:
+                                        </td>
+                                        <td>Ubicación:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                        </td>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                        </td>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtUbicacionO" TextMode="MultiLine" runat="server" Text="" CssClass="textbox"></asp:TextBox>
                                         </td>
                                     </tr>
                                 </table>
