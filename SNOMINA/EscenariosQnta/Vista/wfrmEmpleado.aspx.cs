@@ -114,6 +114,32 @@ namespace EscenariosQnta
         ObtenerEmpleadora();
         ObtenEmpleadoras();
         ObtenEntidad();
+        ObtenTipoContrato();
+      }
+    }
+
+    protected void ObtenTipoContrato()
+    {
+      try
+      {
+        DataTable dtTipoContrato = new DataTable();
+
+        dtTipoContrato = clsQuery.execQueryDataTable("SP_ObtenTipoContrato");
+
+        if (dtTipoContrato.Rows.Count > 0)
+        {
+          ddlContrato.DataSource = dtTipoContrato;
+          ddlContrato.DataTextField = "Contrato";
+          ddlContrato.DataValueField = "TipoContratoID";
+          ddlContrato.DataBind();
+        }
+
+        ddlContrato.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
       }
     }
 
@@ -972,8 +998,8 @@ namespace EscenariosQnta
             SueldoHonorarios = txtSueldoHonorarios.Text.ToString();
             SueldoTN = txtSueldoTN.Text.ToString();
             SueldoEZWallet = txtSueldoEZWallet.Text.ToString();
-            Id_Prestac = ddlPrestacion.SelectedItem.Value;
-            UbicaLabora = txtUbicacionLaboral.Text.ToString();
+            //Id_Prestac = ddlPrestacion.SelectedItem.Value;
+            //UbicaLabora = txtUbicacionLaboral.Text.ToString();
             Id_Infonavit = ddlInfonavit.SelectedItem.Value;
             ImporteInfonavit = txtImporteInfonavit.Text.ToString();
             Bono = txtBono.Text.ToString();
