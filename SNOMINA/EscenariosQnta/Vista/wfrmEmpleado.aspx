@@ -26,6 +26,7 @@
 
             $('#btnAgregarBanco').click(function () {
                 AgregarBanco();
+                Limpiar();
             });
 
         });
@@ -273,7 +274,7 @@
                                                 placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtCurp" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
+                                            <asp:TextBox ID="txtCurp" runat="server" Text="" CssClass="textbox" required="required"  Style="text-transform: uppercase"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -284,7 +285,7 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:TextBox ID="txtRfc" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
+                                            <asp:TextBox ID="txtRfc" runat="server" Text="" CssClass="textbox" required="required"  Style="text-transform: uppercase"></asp:TextBox>
                                         </td>
                                         <td class="td">
                                             <asp:TextBox ID="txtCorreo" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
@@ -299,10 +300,10 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:TextBox ID="txtTelefonoMovil" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
+                                            <asp:TextBox ID="txtTelefonoMovil" runat="server" Text="" CssClass="textbox" required="required" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtTelefonoLocal" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                            <asp:TextBox ID="txtTelefonoLocal" runat="server" Text="" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
                                     </tr>
 
@@ -373,7 +374,7 @@
                                             <asp:TextBox ID="txtCalle" runat="server" Text="" CssClass="textbox" required="true"></asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtNumero" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            <asp:TextBox ID="txtNumero" runat="server" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
                                         <td class="td">
                                             <asp:TextBox ID="txtColonia" runat="server" Text="" CssClass="textbox" required="true"></asp:TextBox>
@@ -396,7 +397,7 @@
                                             <asp:TextBox ID="txtCiudadDel" runat="server" Text="" CssClass="textbox" required="true"></asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtCP" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            <asp:TextBox ID="txtCP" runat="server" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
                                     </tr>
                                 </table>
@@ -500,11 +501,11 @@
                                             </asp:DropDownList>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtCuenta" runat="server" CssClass="textbox" FilterType="Numbers">
+                                            <asp:TextBox ID="txtCuenta" runat="server" CssClass="textbox" FilterType="Numbers" onkeypress="return isDecimalKey(event, this);">
                                             </asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtClabe" runat="server" CssClass="textbox" FilterType="Numbers">
+                                            <asp:TextBox ID="txtClabe" runat="server" CssClass="textbox" FilterType="Numbers" onkeypress="return isDecimalKey(event, this);">
                                             </asp:TextBox>
                                         </td>
                                         <td class="td">
@@ -522,7 +523,7 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:TextBox ID="txtTarjeta" runat="server" CssClass="textbox">
+                                            <asp:TextBox ID="txtTarjeta" runat="server" CssClass="textbox" onkeypress="return isDecimalKey(event, this);">
                                             </asp:TextBox>
                                         </td>
                                         <td class="td">
@@ -536,6 +537,8 @@
                                 </table>
                                 <div>
                                     <button type="button" class="btn btn-success" id="btnAgregarBanco">Agregar</button>
+                                    <br/>
+                                    <br/>
                                 </div>
 
                                 <table id="tblBancos" class="table table-bordered" runat="server">
@@ -548,24 +551,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%-- <tr>
-                                           <td>1</td>
-                                            <td>123456789</td>
-                                            <td>1234567890</td>
-                                            <td>12345678901</td>
-                                            <td>
-                                                <a class="delete deleteConceptoRow" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>123456789</td>
-                                            <td>1234567890</td>
-                                            <td>12345678901</td>
-                                            <td>
-                                                <a class="delete deleteConceptoRow" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                            </td>
-                                        </tr>--%>
                                     </tbody>
                                 </table>
 
@@ -888,6 +873,13 @@
             //    Mensaje("Error: Ingrese Datos de Pago", CuadroMensaje.CuadroMensajeIcono.Error);
             //}
             $("#<%=txtNumB%>").val(numbanco);
+        }
+        function Limpiar() {
+            var banco = $("#<%=ddlBanco.ClientID%>").select('option:selected[-1]').text();
+            var cuenta = $("#<%=txtCuenta.ClientID%>").val(' ');
+            var clabe = $("#<%=txtClabe.ClientID%>").val(' ');
+            var tarjeta = $("#<%=txtTarjeta.ClientID%>").val(' ');
+            var numbanco = $("#<%=txtNumB.ClientID%>").val(' ');
         }
     </script>
 </asp:Content>
