@@ -274,7 +274,7 @@
                                                 placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtCurp" runat="server" Text="" CssClass="textbox" required="required"  Style="text-transform: uppercase"></asp:TextBox>
+                                            <asp:TextBox ID="txtCurp" runat="server" Text="" CssClass="textbox" required="required" Style="text-transform: uppercase"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -285,7 +285,7 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:TextBox ID="txtRfc" runat="server" Text="" CssClass="textbox" required="required"  Style="text-transform: uppercase"></asp:TextBox>
+                                            <asp:TextBox ID="txtRfc" runat="server" Text="" CssClass="textbox" required="required" Style="text-transform: uppercase"></asp:TextBox>
                                         </td>
                                         <td class="td">
                                             <asp:TextBox ID="txtCorreo" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
@@ -537,8 +537,8 @@
                                 </table>
                                 <div>
                                     <button type="button" class="btn btn-success" id="btnAgregarBanco">Agregar</button>
-                                    <br/>
-                                    <br/>
+                                    <br />
+                                    <br />
                                 </div>
 
                                 <table id="tblBancos" class="table table-bordered" runat="server">
@@ -548,6 +548,8 @@
                                             <th>Cuenta</th>
                                             <th>CLABE</th>
                                             <th>No. Tarjeta</th>
+                                            <th style="visibility: hidden">IdBanco:
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -842,6 +844,7 @@
         function AgregarBanco() {
 
             //Agregamos datos de pago
+            var idb = $("#<%=ddlBanco.ClientID%>").find('option:selected').val();   
             var banco = $("#<%=ddlBanco.ClientID%>").find('option:selected').text();
             var cuenta = $("#<%=txtCuenta.ClientID%>").val();
             var clabe = $("#<%=txtClabe.ClientID%>").val();
@@ -864,6 +867,9 @@
                 "</td>" +
                 "<td>" +
                 tarjeta +
+                "</td>" +
+                "<td style='visibility: hidden'>" +
+                idb +
                 "</td>" +
                 "</tr>"
             );
