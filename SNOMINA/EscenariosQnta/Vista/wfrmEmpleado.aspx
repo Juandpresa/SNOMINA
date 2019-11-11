@@ -508,10 +508,6 @@
                                             <asp:TextBox ID="txtClabe" runat="server" CssClass="textbox" FilterType="Numbers" onkeypress="return isDecimalKey(event, this);">
                                             </asp:TextBox>
                                         </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtNumB" runat="server" CssClass="textbox">
-                                            </asp:TextBox>
-                                        </td>
                                     </tr>
                                     <tr>
                                         <td>No. Tarjeta:
@@ -849,8 +845,6 @@
             var cuenta = $("#<%=txtCuenta.ClientID%>").val();
             var clabe = $("#<%=txtClabe.ClientID%>").val();
             var tarjeta = $("#<%=txtTarjeta.ClientID%>").val();
-            var numbanco = $("#<%=txtNumB.ClientID%>").val();
-            //if ((numbanco != 0) || (numbanco = 0)) {
             //Agregamos pago
             var numbanco = numbanco + 1;
             //Agregamos el banco a la tabla
@@ -873,19 +867,12 @@
                 "</td>" +
                 "</tr>"
             );
-
-            //}
-            //else {
-            //    Mensaje("Error: Ingrese Datos de Pago", CuadroMensaje.CuadroMensajeIcono.Error);
-            //}
-            $("#<%=txtNumB%>").val(numbanco);
         }
+
         function Limpiar() {
-            var banco = $("#<%=ddlBanco.ClientID%>").select('option:selected[-1]').text();
             var cuenta = $("#<%=txtCuenta.ClientID%>").val(' ');
             var clabe = $("#<%=txtClabe.ClientID%>").val(' ');
             var tarjeta = $("#<%=txtTarjeta.ClientID%>").val(' ');
-            var numbanco = $("#<%=txtNumB.ClientID%>").val(' ');
         }
     </script>
 </asp:Content>
