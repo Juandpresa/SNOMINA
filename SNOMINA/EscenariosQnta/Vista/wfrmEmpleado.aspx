@@ -137,8 +137,6 @@
 
             if (selected.value == "1") {
                 //alert(selected.value);
-                porcentaje.style.display = 'block';
-                fijo.style.display = 'none';
                 document.getElementById('ContentPlaceHolder1_txtSueldoBruto').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldoNeto').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldoHonorarios').value = 0;
@@ -152,7 +150,7 @@
             }
             else {
                 //alert('Please select an option');
-                porcentaje.style.display = 'none';
+                porcentaje.style.display = 'block';
                 fijo.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtNomina').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtAsimilados').value = 0;
