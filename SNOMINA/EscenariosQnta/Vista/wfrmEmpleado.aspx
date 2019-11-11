@@ -541,7 +541,7 @@
                                     <br/>
                                 </div>
 
-                                <table id="tblBancos" class="table table-bordered">
+                                <table id="tblBancos" class="table table-bordered" runat="server">
                                     <thead>
                                         <tr>
                                             <th>Banco</th>
@@ -851,7 +851,7 @@
             //Agregamos pago
             var numbanco = numbanco + 1;
             //Agregamos el banco a la tabla
-            $("#tblBancos").append(
+            $("#<%=tblBancos.ClientID%>").append(
                 "<tr>" +
                 "<td>" +
                 banco +
