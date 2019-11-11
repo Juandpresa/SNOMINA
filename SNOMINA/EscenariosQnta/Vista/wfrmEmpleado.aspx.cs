@@ -113,6 +113,32 @@ namespace EscenariosQnta
         ObtenBanco();
         ObtenerEmpleadora();
         ObtenEmpleadoras();
+        ObtenEntidad();
+      }
+    }
+
+    protected void ObtenEntidad()
+    {
+      try
+      {
+        DataTable dtEntidad = new DataTable();
+
+        dtEntidad = clsQuery.execQueryDataTable("SP_ObtenerEntidad");
+
+        if (dtEntidad.Rows.Count > 0)
+        {
+          ddlEntidad.DataSource = dtEntidad;
+          ddlEntidad.DataTextField = "Nombre";
+          ddlEntidad.DataValueField = "Id_EntFed";
+          ddlEntidad.DataBind();
+        }
+
+        ddlEntidad.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
       }
     }
     protected void ObtenerEmpleadora()
@@ -1009,15 +1035,6 @@ namespace EscenariosQnta
               int carr = int.Parse(IdCarrera);
               strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, ne, ins, carr);
 
-              //for (int i = 0; i < tblBancos.Rows.Count; i++)
-              //{
-              //  IdBanco = ddlBanco.SelectedItem.Value;
-              //  cuenta = txtCuenta.Text.ToString();
-              //  clabe = txtClabe.Text.ToString();
-              //  tarjeta = txtTarjeta.Text.ToString();
-              //  int idBan = int.Parse(IdBanco);
-              //  strQueryIB = BLLInfoBancaria.InsInfoBancaria(idBan, emp, cuenta, clabe, tarjeta);
-              //}
               for (int i = 0; i <= tblBancos.Rows.Count; i++)
               {
                 // Iterate through the cells of a row.
