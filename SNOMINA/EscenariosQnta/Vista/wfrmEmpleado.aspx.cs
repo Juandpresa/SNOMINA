@@ -94,7 +94,7 @@ namespace EscenariosQnta
     {
       if (!IsPostBack)
       {
-        //ObtenPrimaRiesgo();
+        ObtenPrimaRiesgo();
         ObtenInfonavit();
         //ObtenPrestacion();
         ObtenFactor();
@@ -431,29 +431,29 @@ namespace EscenariosQnta
     //}
 
     //SE COMENTA PRIMA DE RIESGO YA QUE SE QUITA DE ALTA DE EMPLEADO 06/11/2019 XD :V
-    //protected void ObtenPrimaRiesgo()
-    //{
-    //  try
-    //  {
-    //    DataTable dtPrimaRiesgo = new DataTable();
+    protected void ObtenPrimaRiesgo()
+    {
+      try
+      {
+        DataTable dtPrimaRiesgo = new DataTable();
 
-    //    dtPrimaRiesgo = clsQuery.execQueryDataTable("SP_ObtenPrimaRiesgo");
+        dtPrimaRiesgo = clsQuery.execQueryDataTable("SP_ObtenPrimaRiesgo");
 
-    //    if (dtPrimaRiesgo.Rows.Count > 0)
-    //    {
-    //      ddlPrimaRiesgo.DataSource = dtPrimaRiesgo;
-    //      ddlPrimaRiesgo.DataTextField = "Clase";
-    //      ddlPrimaRiesgo.DataValueField = "Id_Clase";
-    //      ddlPrimaRiesgo.DataBind();
-    //    }
-    //    ddlPrimaRiesgo.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+        if (dtPrimaRiesgo.Rows.Count > 0)
+        {
+          ddlPrimaRiesgo.DataSource = dtPrimaRiesgo;
+          ddlPrimaRiesgo.DataTextField = "Clase";
+          ddlPrimaRiesgo.DataValueField = "Id_Clase";
+          ddlPrimaRiesgo.DataBind();
+        }
+        ddlPrimaRiesgo.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
 
-    //  }
-    //  catch (Exception ex)
-    //  {
-    //    Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
-    //  }
-    //}
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      }
+    }
 
     protected void ObtenInfonavit()
     {
@@ -651,7 +651,7 @@ namespace EscenariosQnta
       //txtSueldoNeto.Enabled = false;
 
       
-      //ObtenPrimaRiesgo();
+      ObtenPrimaRiesgo();
       ObtenInfonavit();
       //ObtenPrestacion();
       ObtenFactor();
@@ -964,11 +964,11 @@ namespace EscenariosQnta
             {
               if (rbtTipoEsquema.Items[i].Selected == true)
               {
-                if (rbtTipoEsquema.SelectedItem.Text.ToString() == "Esquema IMSS Asimilado")
+                if (rbtTipoEsquema.SelectedItem.Text.ToString() == "Alta Simple")
                 {
                   TipoEsquema = 1;
                 }
-                else if (rbtTipoEsquema.SelectedItem.Text.ToString() == "Esquema IMSS Fijo")
+                else if (rbtTipoEsquema.SelectedItem.Text.ToString() == "Alta Completa")
                 {
                   TipoEsquema = 2;
                 }
@@ -980,9 +980,9 @@ namespace EscenariosQnta
             Nombre = txtNombre.Text.ToString();
             Paterno = txtPaterno.Text.ToString();
             Materno = txtMaterno.Text.ToString();
-            //Puesto = txtPuesto.Text.ToString();
+            Puesto = ddlClasificacionEmpleado.SelectedItem.Text;
             DescriPto = txtDescripcion.Text.ToString();
-            //Id_PrimaRgo = ddlPrimaRiesgo.SelectedItem.Value;
+            Id_PrimaRgo = ddlPrimaRiesgo.SelectedItem.Value;
             FechaIngreso = txtFechaIngreso.Text.ToString();
             FechaNac = txtFechaNacimiento.Text.ToString();
             //FechaNac = string.IsNullOrEmpty(txtFechaNacimiento.Text.ToString()) ? null : txtFechaNacimiento.Text.ToString();
