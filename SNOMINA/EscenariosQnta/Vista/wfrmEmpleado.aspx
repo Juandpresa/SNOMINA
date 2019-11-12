@@ -24,11 +24,12 @@
                 }
             });
             $('#<%=chkObra.ClientID%>').click(function () {
-                $("#cdobra").style.display = 'block';
+                $("#cdobra").show();
                 if (this.checked == false) {
-                    $("#cdobra").style.display = 'none';
+                    $("#cdobra").hide();
                 }
             });
+
             $('#btnAgregarBanco').click(function () {
                 AgregarBanco();
                 Limpiar();
@@ -517,7 +518,7 @@
                                             </asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtClabe" runat="server" CssClass="textbox" FilterType="Numbers" onkeypress="return isDecimalKey(event, this);">
+                                            <asp:TextBox ID="txtClabe" runat="server" CssClass="textbox" MaxLength="18" FilterType="Numbers" onkeypress="return isDecimalKey(event, this);">
                                             </asp:TextBox>
                                         </td>
                                     </tr>
@@ -531,7 +532,7 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:TextBox ID="txtTarjeta" runat="server" CssClass="textbox" onkeypress="return isDecimalKey(event, this);">
+                                            <asp:TextBox ID="txtTarjeta" runat="server" MaxLength="16" CssClass="textbox" onkeypress="return isDecimalKey(event, this);">
                                             </asp:TextBox>
                                         </td>
                                         <td class="td">
@@ -847,7 +848,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card" id="cdobra" style="display: none">
+            <div class="card cdobra" id="cdobra" style="display: none">
                 <div class="card-header" id="heading7">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
@@ -924,7 +925,7 @@
         function AgregarBanco() {
 
             //Agregamos datos de pago
-            var idb = $("#<%=ddlBanco.ClientID%>").find('option:selected').val();   
+            var idb = $("#<%=ddlBanco.ClientID%>").find('option:selected').val();
             var banco = $("#<%=ddlBanco.ClientID%>").find('option:selected').text();
             var cuenta = $("#<%=txtCuenta.ClientID%>").val();
             var clabe = $("#<%=txtClabe.ClientID%>").val();
