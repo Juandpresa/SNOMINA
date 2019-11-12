@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site.Master" AutoEventWireup="true"
+﻿
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site.Master" AutoEventWireup="true"
     CodeBehind="wfrmEmpleado.aspx.cs" Inherits="EscenariosQnta.wfrmEmpleado" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -24,11 +26,12 @@
                 }
             });
             $('#<%=chkObra.ClientID%>').click(function () {
-                $("#cdobra").style.display = 'block';
+                $("#cdobra").style.display='block';
                 if (this.checked == false) {
-                    $("#cdobra").style.display = 'none';
+                    $("#cdobra");
                 }
             });
+
             $('#btnAgregarBanco').click(function () {
                 AgregarBanco();
                 Limpiar();
@@ -847,7 +850,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card" id="cdobra" style="display: none">
+            <div class="card cdobra" id="cdobra" style="display: none">
                 <div class="card-header" id="heading7">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
