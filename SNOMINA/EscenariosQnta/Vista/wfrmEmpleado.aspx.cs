@@ -1037,9 +1037,7 @@ namespace EscenariosQnta
               }
               else
               {
-                strQueryEmp = BLLEmpleado.InsEmpleado(Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
-                    Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                    Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, PeriodoPago, Antiguedad, Id_Empleadora);
+                strQueryEmp = BLLEmpleado.InsEmpleado(Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet, Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet, Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, PeriodoPago, Antiguedad, Id_Empleadora);
                 
               }
 
@@ -1275,6 +1273,18 @@ namespace EscenariosQnta
     protected void ddlEmpleadora_SelectedIndexChanged(object sender, EventArgs e)
     {
       ObtenClientes(int.Parse(ddlEmpleadora.SelectedValue));
+    }
+
+    protected void btnABanco_Click(object sender, EventArgs e)
+    {
+      HtmlTableRow tRow = new HtmlTableRow();
+      for (int i = 1; i < 8; i++)
+      {
+        HtmlTableCell tb = new HtmlTableCell();
+        tb.InnerText = "text";
+        tRow.Controls.Add(tb);
+      }
+      tblBancos.Rows.Add(tRow);
     }
   }
 }

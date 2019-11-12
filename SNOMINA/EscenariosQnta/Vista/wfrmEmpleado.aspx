@@ -551,12 +551,12 @@
                                     </tr>
                                 </table>
                                 <div>
-                                    <asp:Button ID="btnABanco" Text="Agregar" runat="server" CssClass="btn btn-info" />
+                                    <asp:Button ID="btnABanco" Text="Agregar" runat="server" CssClass="btn btn-info" CausesValidation="False" OnClick="btnABanco_Click" UseSubmitBehavior="False" />
                                     <%--                                    <button type="button" class="btn btn-success" id="btnAgregarBanco">Agregar</button>--%>
                                     <br />
                                     <br />
                                 </div>
-                                <asp:Table ID="tblBancos"
+                                <%--<asp:Table ID="tblBancos"
                                     Font-Size="Large"
                                     Width="550"
                                     ForeColor="#000"
@@ -589,8 +589,8 @@
                                         <asp:TableCell>1</asp:TableCell>
 
                                     </asp:TableRow>
-                                </asp:Table>
-                                <%-- <table id="tblBancos" class="table table-bordered" runat="server">
+                                </asp:Table>--%>
+                                 <table id="tblBancos" class="table table-bordered" runat="server">
                                     <thead>
                                         <tr>
                                             <th>Banco</th>
@@ -605,7 +605,7 @@
                                     </thead>
                                     <tbody>
                                     </tbody>
-                                </table>--%>
+                                </table>
                             </div>
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
@@ -617,8 +617,7 @@
                 <div class="card-header" id="heading6">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
-                            DATOS COMPLEMENTARIOS
-                        </button>
+                            DATOS COMPLEMENTARIOS</button>
                     </h2>
                 </div>
                 <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionExample">
