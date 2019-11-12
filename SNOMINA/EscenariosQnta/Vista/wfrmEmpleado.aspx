@@ -1,6 +1,4 @@
-﻿
-
-<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site.Master" AutoEventWireup="true"
     CodeBehind="wfrmEmpleado.aspx.cs" Inherits="EscenariosQnta.wfrmEmpleado" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -26,9 +24,9 @@
                 }
             });
             $('#<%=chkObra.ClientID%>').click(function () {
-                $("#cdobra").style.display='block';
+                $("#cdobra").show();
                 if (this.checked == false) {
-                    $("#cdobra");
+                    $("#cdobra").hide();
                 }
             });
 
@@ -520,7 +518,7 @@
                                             </asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtClabe" runat="server" CssClass="textbox" FilterType="Numbers" onkeypress="return isDecimalKey(event, this);">
+                                            <asp:TextBox ID="txtClabe" runat="server" CssClass="textbox" MaxLength="18" FilterType="Numbers" onkeypress="return isDecimalKey(event, this);">
                                             </asp:TextBox>
                                         </td>
                                     </tr>
@@ -534,7 +532,7 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:TextBox ID="txtTarjeta" runat="server" CssClass="textbox" onkeypress="return isDecimalKey(event, this);">
+                                            <asp:TextBox ID="txtTarjeta" runat="server" MaxLength="16" CssClass="textbox" onkeypress="return isDecimalKey(event, this);">
                                             </asp:TextBox>
                                         </td>
                                         <td class="td">
@@ -927,7 +925,7 @@
         function AgregarBanco() {
 
             //Agregamos datos de pago
-            var idb = $("#<%=ddlBanco.ClientID%>").find('option:selected').val();   
+            var idb = $("#<%=ddlBanco.ClientID%>").find('option:selected').val();
             var banco = $("#<%=ddlBanco.ClientID%>").find('option:selected').text();
             var cuenta = $("#<%=txtCuenta.ClientID%>").val();
             var clabe = $("#<%=txtClabe.ClientID%>").val();
