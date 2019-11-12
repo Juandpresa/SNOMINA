@@ -84,6 +84,7 @@ namespace EscenariosQnta
     string strQueryE = string.Empty;
     string strQueryIB = string.Empty;
     string strQueryCV = string.Empty;
+    string strQueryEmp = string.Empty;
     string RetunValue;
     clsDatos clsQuery = new clsDatos();
     string ValidacionControles = string.Empty;
@@ -1035,13 +1036,6 @@ namespace EscenariosQnta
 
             Id_Empleadora = ddlEmpleadora.SelectedItem.Value;
 
-            //FechUltimoPago = DateTime.Parse(FechaUltimoPago);
-            //FechIngreso = DateTime.Parse(FechaIngreso);
-            //FechNacimiento = string.IsNullOrEmpty(FechaNac) ? (DateTime?)null : Convert.ToDateTime(FechaNac);
-
-            //string FechUltimoPago1 = "2019-01-09 00:00:00.000";
-            //string FechIngreso1 = "2019-01-09 00:00:00.000";
-            //string FechNacimiento1 = "2019-01-09 00:00:00.000";
             strQueryCV = BLLEmpleado.ObtenerClavesExistentes(Cve);
             if (strQueryCV != "1")
             {
@@ -1054,17 +1048,13 @@ namespace EscenariosQnta
               }
               else
               {
-                strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},{33},'{34}',{35},{36},{37},'{38}','{39}','{40}','{41}','{42}','{43}',{44},{45},{46}",
-                    int.Parse(Id_Escenario), int.Parse(Id_Cliente), Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
+                strQueryEmp = BLLEmpleado.InsEmpleado(int.Parse(Id_Escenario), int.Parse(Id_Cliente), int.Parse(Id_PrimaRgo), Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
                     Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                    Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, PeriodoPago, int.Parse(Antiguedad), int.Parse(Id_Empleadora));
-                //strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},'{33}',{34},'{35}',{36},{37},{38},'{39}','{40}','{41}','{42}','{43}','{44}',{45},{46}",
-                //    int.Parse(Id_Escenario), int.Parse(Id_Cliente), Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
-                //    Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                //    Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, PeriodoPago, int.Parse(Antiguedad));
+                    Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, int.Parse(Id_Infonavit), ImporteInfonavit, int.Parse(Id_Prestac), int.Parse(Id_Pension), ImportePension, int.Parse(Id_EsquemaActual), int.Parse(Id_ClasifEmp), TipoEsquema, Cve, int.Parse(RSPagadora), int.Parse(Sexo), int.Parse(TipoPago), curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, int.Parse(PeriodoPago), int.Parse(Antiguedad), int.Parse(Id_Empleadora));
+                
               }
 
-              RetunValue = clsQuery.execQueryString(strQuery);
+              RetunValue = strQueryEmp;
               IdEmpleado = BLLEmpleado.ObtenerUltimoEmpleado();
               emp = int.Parse(IdEmpleado);
               int ne = int.Parse(IdNEstudios);
