@@ -30,6 +30,12 @@
                 }
             });
 
+            $("#<%=tblBancos.ClientID%>").on('click', '.delete', function () {
+                $(this).closest('tr').remove();
+            });
+
+
+
             $('#btnAgregarBanco').click(function () {
                 AgregarBanco();
                 Limpiar();
@@ -544,9 +550,11 @@
                                         </td>
                                     </tr>
                                 </table>
+                                <asp:CheckBox ID="chkPrioridadT" runat="server" CssClass="chkBox" />Prioridad
+                                <br />
+                                <br/>
                                 <div>
                                     <button type="button" class="btn btn-success" id="btnAgregarBanco">Agregar</button>
-                                    <br />
                                     <br />
                                 </div>
 
@@ -557,6 +565,7 @@
                                             <th>Cuenta</th>
                                             <th>CLABE</th>
                                             <th>No. Tarjeta</th>
+                                            <th>Borrar</th>
                                             <th style="visibility: hidden">IdBanco:
                                             </th>
                                         </tr>
@@ -946,6 +955,9 @@
                 "</td>" +
                 "<td>" +
                 tarjeta +
+                "</td>" +
+                "<td align='center'>" +
+                "<button type='button' ID='delete' class='delete btn btn-danger' href='#'>X</i></button>" +
                 "</td>" +
                 "<td style='visibility: hidden'>" +
                 idb +
