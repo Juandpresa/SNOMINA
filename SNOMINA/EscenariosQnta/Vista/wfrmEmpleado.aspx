@@ -958,11 +958,10 @@
                 <asp:Button ID="btnGuardar" Text="Guardar" runat="server" CssClass="btnG" OnClick="btnGuardar_Click" />
             </div>
 
-
+            <input type="text" name="numbanco" id="numbanco" value="0"/>
         </div>
     </div>
     <script type="text/javascript">
-        var prioridad;
         function AgregarBanco() {
             //Agregamos datos de pago
             var idb = $("#<%=ddlBanco.ClientID%>").find('option:selected').val();
@@ -970,34 +969,71 @@
             var cuenta = $("#<%=txtCuenta.ClientID%>").val();
             var clabe = $("#<%=txtClabe.ClientID%>").val();
             var tarjeta = $("#<%=txtTarjeta.ClientID%>").val();
+            var numb = parseInt($("#numbanco").val()) + 1;
             //Agregamos el banco a la tabla
             $("#<%=tblBancos.ClientID%>").append(
-                "<tr>" +
-                "<td>" +
-                banco +
-                "</td>" +
-                "<td>" +
-                cuenta +
-                "</td>" +
-                "<td>" +
-                clabe +
-                "</td>" +
-                "<td>" +
-                tarjeta +
-                "</td>" +
-                "<td align='center'>" +
-                "<input type='checkbox' ID='Prioridad' class='checkbox'>" +
-                "</td>" +
-                "<td align='center'>" +
-                "<button type='button' ID='delete' class='delete btn btn-danger' href='#'>X</i></button>" +
-                "</td>" +
-                "<td style='visibility: hidden'>" +
-                idb +
-                "</td>" +
-                "</tr>"
-            );
-        }
 
+                "<tr>" +
+                "<td><input type='text' style='border:0;background:transparent;' name='bancotxt'" + numb + " id='bancotxt'" + numb + " readonly value='" + banco + "'/>" +
+              "</td>" +
+              "<td>" +
+              "<input type='text' style='border:0;background:transparent;'" +
+              " name='cuentaid" + numb + "'" +
+                " id='cuentaid" + numb + "'" +
+                " value='" + cuenta + "'/>" +
+              "</td>" + "<td>" +
+              "<input type='text' style='border:0;background:transparent;'" +
+              " name='clabeid" + numb + "'" +
+              " id='clabeid" + numb + "'" +
+                " readonly " +
+                " value='" + clabe + "'/>" +
+              "</td>" +"<td>" +
+              "<input type='text' style='border:0;background:transparent;'" +
+              " name='clabeid" + numb + "'" +
+              " id='clabeid" + numb + "'" +
+                " readonly " +
+                " value='" + tarjeta + "'/>" +
+              "</td>" + "<td align='center'>" +
+              "<input type='checkbox' ID='Prioridad' class='checkbox'>" +
+              "</td>" +"<td align='center'>" +
+              "<button type='button' ID='delete' class='delete btn btn-danger' href='#'>X</i></button>" +
+              "</td>" +
+              "<td style='visibility: hidden'>" +
+              "<input type='text' style='border:0;background:transparent;'" +
+              " name='idTipoPago" + numb + "'" +
+              " id='idTipoPago" + numb + "'" +
+                " readonly " +
+                " value='" + idb + "'/>" +
+              "</td>" +
+              "</tr>"
+            
+                //"<tr>" +
+                //"<td>" +
+                //banco +
+                //"</td>" +
+                //"<td>" +
+                //cuenta +
+                //"</td>" +
+                //"<td>" +
+                //clabe +
+                //"</td>" +
+                //"<td>" +
+                //tarjeta +
+                //"</td>" +
+                //"<td align='center'>" +
+                //"<input type='checkbox' ID='Prioridad' class='checkbox'>" +
+                //"</td>" +
+                //"<td align='center'>" +
+                //"<button type='button' ID='delete' class='delete btn btn-danger' href='#'>X</i></button>" +
+                //"</td>" +
+                //"<td style='visibility: hidden'>" +
+                //idb +
+                //"</td>" +
+                //"</tr>"
+            );
+             $('#numbanco').val(numb);
+        }
+       
         function Limpiar() {
             var cuenta = $("#<%=txtCuenta.ClientID%>").val(' ');
             var clabe = $("#<%=txtClabe.ClientID%>").val(' ');
