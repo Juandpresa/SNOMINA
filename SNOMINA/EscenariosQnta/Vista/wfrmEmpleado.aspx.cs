@@ -1051,7 +1051,7 @@ namespace EscenariosQnta
               //int carr = int.Parse(IdCarrera);
               strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, IdNEstudios, IdInstituto, IdCarrera);
 
-              for (int i = 1; i <= 3; i++)
+              for (int i = 0; i <= tblBancos.Rows.Count; i++)
               {
                 // Iterate through the cells of a row.
                 for (int j = 0; j <= tblBancos.Rows[i].Cells.Count - 1; j++)
