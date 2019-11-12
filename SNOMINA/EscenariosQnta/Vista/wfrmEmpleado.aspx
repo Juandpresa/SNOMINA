@@ -550,21 +550,54 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <asp:CheckBox ID="chkPrioridadT" runat="server" CssClass="chkBox" />Prioridad
-                                <br />
-                                <br/>
                                 <div>
-                                    <button type="button" class="btn btn-success" id="btnAgregarBanco">Agregar</button>
+                                    <asp:Button ID="btnABanco" Text="Agregar" runat="server" CssClass="btn btn-info" />
+                                    <%--                                    <button type="button" class="btn btn-success" id="btnAgregarBanco">Agregar</button>--%>
+                                    <br />
                                     <br />
                                 </div>
+                                <asp:Table ID="tblBancos"
+                                    Font-Size="Large"
+                                    Width="550"
+                                    ForeColor="#000"
+                                    CellPadding="5"
+                                    CellSpacing="5"
+                                    GridLines="Both"
+                                    runat="server">
+                                    <asp:TableHeaderRow
+                                        runat="server"
+                                        ForeColor="#000"
+                                        Font-Bold="true"
+                                        BorderStyle="Solid"
+                                        BorderWidth="2"
+                                        GridLines="Both">
+                                        <asp:TableHeaderCell>Banco</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell>Cuenta</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell>CLABE</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell>No. Tarjeta</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell>Prioridad</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell>Borrar</asp:TableHeaderCell>
+                                        <asp:TableHeaderCell>IdBanco</asp:TableHeaderCell>
+                                    </asp:TableHeaderRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>1</asp:TableCell>
+                                        <asp:TableCell>1</asp:TableCell>
+                                        <asp:TableCell>1</asp:TableCell>
+                                        <asp:TableCell>1</asp:TableCell>
+                                        <asp:TableCell>1</asp:TableCell>
+                                        <asp:TableCell>1</asp:TableCell>
+                                        <asp:TableCell>1</asp:TableCell>
 
-                                <table id="tblBancos" class="table table-bordered" runat="server">
+                                    </asp:TableRow>
+                                </asp:Table>
+                                <%-- <table id="tblBancos" class="table table-bordered" runat="server">
                                     <thead>
                                         <tr>
                                             <th>Banco</th>
                                             <th>Cuenta</th>
                                             <th>CLABE</th>
                                             <th>No. Tarjeta</th>
+                                            <th>Prioridad</th>
                                             <th>Borrar</th>
                                             <th style="visibility: hidden">IdBanco:
                                             </th>
@@ -572,8 +605,7 @@
                                     </thead>
                                     <tbody>
                                     </tbody>
-                                </table>
-
+                                </table>--%>
                             </div>
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
@@ -931,16 +963,14 @@
         </div>
     </div>
     <script type="text/javascript">
+        var prioridad;
         function AgregarBanco() {
-
             //Agregamos datos de pago
             var idb = $("#<%=ddlBanco.ClientID%>").find('option:selected').val();
             var banco = $("#<%=ddlBanco.ClientID%>").find('option:selected').text();
             var cuenta = $("#<%=txtCuenta.ClientID%>").val();
             var clabe = $("#<%=txtClabe.ClientID%>").val();
             var tarjeta = $("#<%=txtTarjeta.ClientID%>").val();
-            //Agregamos pago
-            var numbanco = numbanco + 1;
             //Agregamos el banco a la tabla
             $("#<%=tblBancos.ClientID%>").append(
                 "<tr>" +
@@ -955,6 +985,9 @@
                 "</td>" +
                 "<td>" +
                 tarjeta +
+                "</td>" +
+                "<td align='center'>" +
+                "<input type='checkbox' ID='Prioridad' class='checkbox'>" +
                 "</td>" +
                 "<td align='center'>" +
                 "<button type='button' ID='delete' class='delete btn btn-danger' href='#'>X</i></button>" +
