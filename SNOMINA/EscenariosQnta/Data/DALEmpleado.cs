@@ -14,6 +14,74 @@ namespace EscenariosQnta.Data
   {
     static SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnxSQL"].ConnectionString);
 
+    public static void InsEmpleado(int idEscenario, int idCte, int idPrimaRgo, string nombre, string paterno, string materno, string puesto, string descPuesto, string ubicacion, string fechIngreso, string fechNacimiento, string porcNomina, string porcAsimilados, string porcHonorarios, string porcTN, string porcEZWallet, string sueldo, string sueldoB, string sueldoN, string sueldoH, string sueldoT, string sueldoEZ, string bono, string comision, string otrosIngresos, string impFonacot, int idInfonavit, string impInfonavit, int idPrestaciones, int idPension, string impPension, int idEsquemaActual, int idClasifEmp, int idTipoEsquema, string cve, int pagadora, int sexo, int tipoPago, string curp, string rfc, string correo, string telefonoL, string telefonoM, string fechUltimoPago, int periodoPago, int antiguedad, int idEmpleadora)
+    {
+      try
+      {
+        conn.Open();
+        string Query = "SP_InsertaEmpleado";
+        SqlCommand cmd = new SqlCommand(Query, conn);
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.Parameters.AddWithValue("@Id_Escenario ", idEscenario);
+        cmd.Parameters.AddWithValue("@Id_Cliente", idCte);
+        cmd.Parameters.AddWithValue("@Id_PrimaRgo", idPrimaRgo);
+        cmd.Parameters.AddWithValue("@Nombre", nombre);
+        cmd.Parameters.AddWithValue("@Paterno", paterno);
+        cmd.Parameters.AddWithValue("@Materno", materno);
+        cmd.Parameters.AddWithValue("@Puesto", puesto);
+        cmd.Parameters.AddWithValue("@DescriPto", descPuesto);
+        cmd.Parameters.AddWithValue("@UbicaLabora", ubicacion);
+        cmd.Parameters.AddWithValue("@FechaIngreso", fechIngreso);
+        cmd.Parameters.AddWithValue("@FechaNac", fechNacimiento);
+        cmd.Parameters.AddWithValue("@PorcNomina", porcNomina);
+        cmd.Parameters.AddWithValue("@PorcAsimilados", porcAsimilados);
+        cmd.Parameters.AddWithValue("@PorcHonorarios", porcHonorarios);
+        cmd.Parameters.AddWithValue("@PorcTN", porcTN);
+        cmd.Parameters.AddWithValue("@PorcEZWallet", porcEZWallet);
+        cmd.Parameters.AddWithValue("@Sueldo", sueldo);
+        cmd.Parameters.AddWithValue("@SueldoBruto", sueldoB);
+        cmd.Parameters.AddWithValue("@SueldoNeto", sueldoN);
+        cmd.Parameters.AddWithValue("@SueldoHonorarios", sueldoH);
+        cmd.Parameters.AddWithValue("@SueldoTN", sueldoT);
+        cmd.Parameters.AddWithValue("@SueldoEZWallet", sueldoEZ);
+        cmd.Parameters.AddWithValue("@Bono", bono);
+        cmd.Parameters.AddWithValue("@ComisionEmpleado", comision);
+        cmd.Parameters.AddWithValue("@OtrosIngresos", otrosIngresos);
+        cmd.Parameters.AddWithValue("@ImpFonacot", impFonacot);
+        cmd.Parameters.AddWithValue("@Id_Infonavit", idInfonavit);
+        cmd.Parameters.AddWithValue("@ImpInfonavit", impInfonavit);
+        cmd.Parameters.AddWithValue("@Id_Prestac", idPrestaciones);
+        cmd.Parameters.AddWithValue("@Id_Pension", idPension);
+        cmd.Parameters.AddWithValue("@ImportePension", impPension);
+        cmd.Parameters.AddWithValue("@Id_EsquemaActual", idEsquemaActual);
+        cmd.Parameters.AddWithValue("@Id_ClasifEmp", idClasifEmp);
+        cmd.Parameters.AddWithValue("@Id_TipoEsquema", idTipoEsquema);
+        cmd.Parameters.AddWithValue("@Clave", cve);
+        cmd.Parameters.AddWithValue("@RSocialPagadoraID", pagadora);
+        cmd.Parameters.AddWithValue("@SexoID", sexo);
+        cmd.Parameters.AddWithValue("@TipoPagoID", tipoPago);
+        cmd.Parameters.AddWithValue("@Curp", curp);
+        cmd.Parameters.AddWithValue("@Rfc", rfc);
+        cmd.Parameters.AddWithValue("@CorreoElectronico", correo);
+        cmd.Parameters.AddWithValue("@TelefonoLocal", telefonoL);
+        cmd.Parameters.AddWithValue("@TelefonoMovil", telefonoM);
+        cmd.Parameters.AddWithValue("@FechaUltimoPago", fechUltimoPago);
+        cmd.Parameters.AddWithValue("@PeriodoPagoID", periodoPago);
+        cmd.Parameters.AddWithValue("@Antigueda", antiguedad);
+        cmd.Parameters.AddWithValue("@Id_Empleadora", idEmpleadora);
+
+        cmd.ExecuteNonQuery();
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+      finally
+      {
+        conn.Close();
+      }
+    }
+
     public static string ObtenerUltimoEmpleado()
     {
       try
