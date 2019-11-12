@@ -13,65 +13,63 @@ namespace EscenariosQnta
     #region Variables
 
     string Id = string.Empty;
-    string Id_Escenario = "1";
-    string Id_Empleadora = string.Empty;
-    string Id_Cliente = string.Empty;
-    string Nombre = string.Empty;
-    string Paterno = string.Empty;
-    string Materno = string.Empty;
-    string Puesto = string.Empty;
-    string DescriPto = string.Empty;
-    string Id_PrimaRgo = string.Empty;
-    string FechaIngreso = string.Empty;
-    string FechaNac = string.Empty;
-    string Nomina = string.Empty;
-    string Asimilados = string.Empty;
-    string Honorarios = string.Empty;
-    string TN = string.Empty;
-    string EZWallet = string.Empty;
-    string Sueldo = string.Empty;
-    string SueldoBruto = string.Empty;
-    string SueldoNeto = string.Empty;
-    string SueldoHonorarios = string.Empty;
-    string SueldoTN = string.Empty;
-    string SueldoEZWallet = string.Empty;
-    string Id_Prestac = string.Empty;
-    string UbicaLabora = string.Empty;
-    string Id_Infonavit = string.Empty;
-    string ImporteInfonavit = string.Empty;
-    string ImpFonacot = string.Empty;
-    string Bono = string.Empty;
-    string ComisionEmpleado = string.Empty;
-    string OtrosIngresos = string.Empty;
-    string Id_Pension = string.Empty;
-    string ImportePension = string.Empty;
-    string Id_EsquemaActual = string.Empty;
-    string Id_ClasifEmp = string.Empty;
-    string Nacionalidad = string.Empty;
-    string SueldoMensual = string.Empty;
-    string SueldoDiario = string.Empty;
-    int TipoEsquema = 0;
-    string Cve = string.Empty;
-    string RSPagadora = string.Empty;
-    string Sexo = string.Empty;
-    string TipoPago = string.Empty;
-    string curp = string.Empty;
-    string rfc = string.Empty;
-    string correo = string.Empty;
-    string telLocal = string.Empty;
-    string telMovil = string.Empty;
-    string FechaUltimoPago = string.Empty;
-    string PeriodoPago = string.Empty;
-    string IdEmpleado = string.Empty;
+    int Id_Escenario = 1;
+    int Id_Empleadora = 0;
+    int Id_Cliente = 0;
+    string Nombre;
+    string Paterno;
+    string Materno;
+    string Puesto;
+    string DescriPto;
+    int Id_PrimaRgo = 0;
+    DateTime FechaIngreso;
+    DateTime FechaNac;
+    float Nomina;
+    float Asimilados;
+    float Honorarios;
+    float TN;
+    float EZWallet;
+    float Sueldo;
+    float SueldoBruto;
+    float SueldoNeto;
+    float SueldoHonorarios;
+    float SueldoTN;
+    float SueldoEZWallet;
+    int Id_Prestac;
+    string UbicaLabora = "Hola";
+    int Id_Infonavit;
+    decimal  ImporteInfonavit;
+    decimal ImpFonacot;
+    decimal Bono;
+    decimal ComisionEmpleado;
+    decimal OtrosIngresos;
+    int Id_Pension;
+    decimal ImportePension;
+    int Id_EsquemaActual;
+    int Id_ClasifEmp;
+    string Nacionalidad;
+    int TipoEsquema;
+    string Cve;
+    int RSPagadora;
+    int Sexo;
+    int TipoPago;
+    string curp;
+    string rfc;
+    string correo;
+    string telLocal;
+    string telMovil;
+    DateTime FechaUltimoPago;
+    int PeriodoPago;
+    string IdEmpleado;
     string Identificador = string.Empty;
-    string IdNEstudios = string.Empty;
-    string IdInstituto = string.Empty;
-    string IdCarrera = string.Empty;
-    string IdBanco = string.Empty;
-    string cuenta = string.Empty;
-    string clabe = string.Empty;
-    string tarjeta = string.Empty;
-    string Antiguedad = string.Empty;
+    int IdNEstudios;
+    int IdInstituto;
+    int IdCarrera;
+    int IdBanco;
+    string cuenta;
+    string clabe;
+    string tarjeta;
+    int Antiguedad;
 
     int emp = 0;
 
@@ -960,133 +958,124 @@ namespace EscenariosQnta
             //        }
             //    }
             //}
-
-            for (int i = 0; i <= rbtTipoEsquema.Items.Count - 1; i++)
-            {
-              if (rbtTipoEsquema.Items[i].Selected == true)
+            
+              if (rbtTipoEsquema.Items[0].Selected == true)
               {
-                //if (rbtTipoEsquema.SelectedItem.Text.ToString() == "Alta Simple")
-                //{
                   TipoEsquema = 1;
-                //}
-                //else if (rbtTipoEsquema.SelectedItem.Text.ToString() == "Alta Completa")
-                //{
-                  //TipoEsquema = 2;
-                //}
               }
               else
               {
                 TipoEsquema = 2;
               }
-            }
+            
 
             //Id_Escenario = ddlEscenario.SelectedValue;
-            Id_Cliente = ddlCliente.SelectedItem.Value;
+            Id_Cliente = int.Parse(ddlCliente.SelectedItem.Value);
             Nombre = txtNombre.Text.ToString();
             Paterno = txtPaterno.Text.ToString();
             Materno = txtMaterno.Text.ToString();
             Puesto = ddlClasificacionEmpleado.SelectedItem.Text;
             DescriPto = txtDescripcion.Text.ToString();
-            Id_PrimaRgo = ddlPrimaRiesgo.SelectedItem.Value;
-            FechaIngreso = txtFechaIngreso.Text.ToString();
-            FechaNac = txtFechaNacimiento.Text.ToString();
+            Id_PrimaRgo = int.Parse(ddlPrimaRiesgo.SelectedItem.Value);
+            FechaIngreso = DateTime.Parse(txtFechaIngreso.Text.ToString());
+            FechaNac = DateTime.Parse(txtFechaNacimiento.Text.ToString());
             //FechaNac = string.IsNullOrEmpty(txtFechaNacimiento.Text.ToString()) ? null : txtFechaNacimiento.Text.ToString();
-            Nomina = txtNomina.Text.ToString();
-            Asimilados = txtAsimilados.Text.ToString();
-            Honorarios = txtHonorarios.Text.ToString();
-            TN = txtTN.Text.ToString();
-            EZWallet = txtEZWallet.Text.ToString();
+            Nomina = float.Parse(txtNomina.Text.ToString());
+            Asimilados = float.Parse(txtAsimilados.Text.ToString());
+            Honorarios = float.Parse(txtHonorarios.Text.ToString());
+            TN = float.Parse(txtTN.Text.ToString());
+            EZWallet = float.Parse(txtEZWallet.Text.ToString());
             //OtrosProductos = "0";// txtOtrosProductos.Text.ToString();                        
             //SueldoIntegrado = "0";//txtSueldoIntegrado.Text.ToString();
-            Sueldo = txtSueldo.Text.ToString();
-            SueldoBruto = txtSueldoBruto.Text.ToString();
-            SueldoNeto = txtSueldoNeto.Text.ToString();
-            SueldoHonorarios = txtSueldoHonorarios.Text.ToString();
-            SueldoTN = txtSueldoTN.Text.ToString();
-            SueldoEZWallet = txtSueldoEZWallet.Text.ToString();
+            Sueldo = float.Parse(txtSueldo.Text.ToString());
+            SueldoBruto = float.Parse(txtSueldoBruto.Text.ToString());
+            SueldoNeto = float.Parse(txtSueldoNeto.Text.ToString());
+            SueldoHonorarios = float.Parse(txtSueldoHonorarios.Text.ToString());
+            SueldoTN = float.Parse(txtSueldoTN.Text.ToString());
+            SueldoEZWallet = float.Parse(txtSueldoEZWallet.Text.ToString());
             //Id_Prestac = ddlPrestacion.SelectedItem.Value;
             //UbicaLabora = txtUbicacionLaboral.Text.ToString();
-            Id_Infonavit = ddlInfonavit.SelectedItem.Value;
-            ImporteInfonavit = txtImporteInfonavit.Text.ToString();
-            Bono = txtBono.Text.ToString();
-            ComisionEmpleado = txtComisionEmp.Text.ToString();
-            OtrosIngresos = txtOtrosIngresos.Text.ToString();
-            ImpFonacot = txtImporteFonacot.Text.ToString();
-            Id_Pension = ddlPension.SelectedItem.Value;
-            ImportePension = txtImportePension.Text.ToString();
-            Id_EsquemaActual = ddlEsquemaActual.SelectedItem.Value;
-            Id_ClasifEmp = ddlClasificacionEmpleado.SelectedItem.Value;
+            Id_Infonavit = int.Parse(ddlInfonavit.SelectedItem.Value);
+            ImporteInfonavit = decimal.Parse(txtImporteInfonavit.Text.ToString());
+            Bono = decimal.Parse(txtBono.Text.ToString());
+            ComisionEmpleado = decimal.Parse(txtComisionEmp.Text.ToString());
+            OtrosIngresos = decimal.Parse(txtOtrosIngresos.Text.ToString());
+            ImpFonacot = decimal.Parse(txtImporteFonacot.Text.ToString());
+            Id_Pension = int.Parse(ddlPension.SelectedItem.Value);
+            ImportePension = decimal.Parse(txtImportePension.Text.ToString());
+            Id_EsquemaActual = int.Parse(ddlEsquemaActual.SelectedItem.Value);
+            Id_ClasifEmp = int.Parse(ddlClasificacionEmpleado.SelectedItem.Value);
             //Nacionalidad = txtNacionalidad.Text.ToString();
 
             Cve = txtIdentificador.Text.ToString() + txtClave.Text.ToString();
-            RSPagadora = ddlPagadora.SelectedItem.Value;
-            Sexo = ddlSexo.SelectedItem.Value;
-            TipoPago = ddlTipoPago.SelectedItem.Value;
+            RSPagadora = int.Parse(ddlPagadora.SelectedItem.Value);
+            Sexo = int.Parse(ddlSexo.SelectedItem.Value);
+            TipoPago = int.Parse(ddlTipoPago.SelectedItem.Value);
             curp = txtCurp.Text.ToString();
             rfc = txtRfc.Text.ToString();
             correo = txtCorreo.Text.ToString();
             telLocal = txtTelefonoLocal.Text.ToString();
             telMovil = txtTelefonoLocal.Text.ToString();
-            FechaUltimoPago = txtUltimoPago.Text.ToString();
-            PeriodoPago = ddlPeriodoPago.SelectedItem.Value;
-            IdNEstudios = ddlNivelE.SelectedItem.Value;
-            IdInstituto = ddlInstitucion.SelectedItem.Value;
-            IdCarrera = ddlCarrera.SelectedItem.Value;
-            Antiguedad = txtAntiguedad.Text.ToString();
+            FechaUltimoPago = DateTime.Parse(txtUltimoPago.Text.ToString());
+            PeriodoPago = int.Parse(ddlPeriodoPago.SelectedItem.Value);
+            IdNEstudios = int.Parse(ddlNivelE.SelectedItem.Value);
+            IdInstituto = int.Parse(ddlInstitucion.SelectedItem.Value);
+            IdCarrera = int.Parse(ddlCarrera.SelectedItem.Value);
+            Antiguedad = int.Parse(txtAntiguedad.Text.ToString());
 
-            Id_Empleadora = ddlEmpleadora.SelectedItem.Value;
+            Id_Empleadora = int.Parse(ddlEmpleadora.SelectedItem.Value);
 
             strQueryCV = BLLEmpleado.ObtenerClavesExistentes(Cve);
             if (strQueryCV != "1")
             {
               if (FechaNac == null)
               {
-                strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},{33},'{34}',{35},{36},{37},'{38}','{39}','{40}','{41}','{42}','{43}',{44},{45},{46}",
-                    Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
-                    Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                    Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, PeriodoPago, int.Parse(Antiguedad), int.Parse(Id_Empleadora));
+                //strQuery = string.Format("dbo.SP_InsertaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},{33},'{34}',{35},{36},{37},'{38}','{39}','{40}','{41}','{42}','{43}',{44},{45},{46}",
+                //    Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
+                //    Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
+                //    Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, PeriodoPago, int.Parse(Antiguedad), int.Parse(Id_Empleadora));
               }
               else
               {
-                strQueryEmp = BLLEmpleado.InsEmpleado(int.Parse(Id_Escenario), int.Parse(Id_Cliente), int.Parse(Id_PrimaRgo), Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
+                strQueryEmp = BLLEmpleado.InsEmpleado(Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet,
                     Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                    Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, int.Parse(Id_Infonavit), ImporteInfonavit, int.Parse(Id_Prestac), int.Parse(Id_Pension), ImportePension, int.Parse(Id_EsquemaActual), int.Parse(Id_ClasifEmp), TipoEsquema, Cve, int.Parse(RSPagadora), int.Parse(Sexo), int.Parse(TipoPago), curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, int.Parse(PeriodoPago), int.Parse(Antiguedad), int.Parse(Id_Empleadora));
+                    Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, PeriodoPago, Antiguedad, Id_Empleadora);
                 
               }
 
               RetunValue = strQueryEmp;
               IdEmpleado = BLLEmpleado.ObtenerUltimoEmpleado();
               emp = int.Parse(IdEmpleado);
-              int ne = int.Parse(IdNEstudios);
-              int ins = int.Parse(IdInstituto);
-              int carr = int.Parse(IdCarrera);
-              strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, ne, ins, carr);
+              //int ne = int.Parse(IdNEstudios);
+              //int ins = int.Parse(IdInstituto);
+              //int carr = int.Parse(IdCarrera);
+              strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, IdNEstudios, IdInstituto, IdCarrera);
 
-              //for (int i = 0; i <= tblBancos.Rows.Count; i++)
-              //{
-              //  // Iterate through the cells of a row.
-              //  for (int j = 0; j <= tblBancos.Rows[i].Cells.Count - 1; j++)
-              //  {
-              //    if (j == 1)
-              //    {
-              //      cuenta = tblBancos.Rows[i + 1].Cells[j].InnerText;
-              //    }
-              //    if (j == 2)
-              //    {
-              //      clabe = tblBancos.Rows[i + 1].Cells[j].InnerText;
-              //    }
-              //    if (j == 3)
-              //    {
-              //      tarjeta = tblBancos.Rows[i + 1].Cells[j].InnerText;
-              //    }
-              //    if (j == 4)
-              //    {
-              //      IdBanco = tblBancos.Rows[i + 1].Cells[j].InnerText;
-              //    }
-              //  }
-              //  int idBan = int.Parse(IdBanco);
-              //  strQueryIB = BLLInfoBancaria.InsInfoBancaria(idBan, emp, cuenta, clabe, tarjeta);
-              //}
+              for (int i = 0; i <= tblBancos.Rows.Count; i++)
+              {
+                // Iterate through the cells of a row.
+                for (int j = 0; j <= tblBancos.Rows[i].Cells.Count - 1; j++)
+                {
+                  if (j == 1)
+                  {
+                    cuenta = tblBancos.Rows[i].Cells[j].InnerText;
+                  }
+                  if (j == 2)
+                  {
+                    clabe = tblBancos.Rows[i].Cells[j].InnerText;
+                  }
+                  if (j == 3)
+                  {
+                    tarjeta = tblBancos.Rows[i].Cells[j].InnerText;
+                  }
+                  if (j == 4)
+                  {
+                    IdBanco = int.Parse(tblBancos.Rows[i].Cells[j].InnerText);
+                  }
+                }
+                //int idBan = int.Parse(IdBanco);
+                strQueryIB = BLLInfoBancaria.InsInfoBancaria(IdBanco, emp, cuenta, clabe, tarjeta);
+              }
 
 
               if (RetunValue == "1")
