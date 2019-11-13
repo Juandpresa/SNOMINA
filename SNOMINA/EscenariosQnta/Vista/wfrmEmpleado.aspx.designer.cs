@@ -301,15 +301,6 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.DropDownList ddlPeriodoPago;
         
         /// <summary>
-        /// Control btnABanco.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnABanco;
-        
-        /// <summary>
         /// Control tblBancos.
         /// </summary>
         /// <remarks>
@@ -355,22 +346,13 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPorcentaje;
         
         /// <summary>
-        /// Control txtNomina.
+        /// Control ddlEsquemas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomina;
-        
-        /// <summary>
-        /// Control txtSueldo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSueldo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEsquemas;
         
         /// <summary>
         /// Control txtAsimilados.
@@ -443,15 +425,6 @@ namespace EscenariosQnta {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSueldoTN;
-        
-        /// <summary>
-        /// Control txtSueldoEZWallet.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSueldoEZWallet;
         
         /// <summary>
         /// Control txtBono.
