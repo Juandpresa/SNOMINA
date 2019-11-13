@@ -162,14 +162,14 @@
             }
             else {
                 //alert('Please select an option');
-                porcentaje.style.display = 'block';
-                fijo.style.display = 'block';
+                //porcentaje.style.display = 'block';
+                //fijo.style.display = 'block';
                 //document.getElementById('ContentPlaceHolder1_txtNomina').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtAsimilados').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtHonorarios').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtTN').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtEZWallet').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtSueldo').value = 0;
+                //document.getElementById('ContentPlaceHolder1_txtAsimilados').value = 0;
+                //document.getElementById('ContentPlaceHolder1_txtHonorarios').value = 0;
+                //document.getElementById('ContentPlaceHolder1_txtTN').value = 0;
+                //document.getElementById('ContentPlaceHolder1_txtEZWallet').value = 0;
+                //document.getElementById('ContentPlaceHolder1_txtSueldo').value = 0;
                 //Card´s
                 cresidencia.style.display = 'block';
                 cdlaborales.style.display = 'block';
@@ -672,7 +672,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <div runat="server" id="divimss" style="display: none;">
+                                <div runat="server" id="divimss">
                                     <table>
                                         <tr>
                                             <td>Porcentaje(%):</td>
@@ -706,7 +706,7 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div runat="server" id="divasam" style="display: none;">
+                                <div runat="server" id="divasam">
                                     <table>
                                         <tr>
                                             <td>Porcentaje (%):
@@ -724,12 +724,12 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div runat="server" id="divhonorarios" style="display: none;">
+                                <div runat="server" id="divhonorarios">
                                     <table>
                                         <tr>
                                             <td>Porcentaje (%):
                                             </td>
-                                            <td>Sueldo Sueldo Honorarios:
+                                            <td>Sueldo Honorarios:
                                             </td>
                                         </tr>
                                         <tr>
@@ -742,7 +742,7 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div runat="server" id="divpublicidad" style="display: none;">
+                                <div runat="server" id="divpublicidad">
                                     <table>
                                         <tr>
                                             <td>Porcentaje (%):
@@ -764,8 +764,8 @@
                             </div>
                         </div>
                         <div class="container_12 container">
-                             <div style="width: auto; border: 2px Solid #4a1414;">
-                </div>
+                            <div style="width: auto; border: 2px Solid #4a1414;">
+                            </div>
                             PAGOS
                 <div style="width: auto; border: 2px Solid #4a1414;">
                 </div>
@@ -814,7 +814,7 @@
                             </div>
                             DATOS ADICIONALES 
                              <div style="width: auto; border: 2px Solid #4a1414;">
-                </div>
+                             </div>
                             <div class="contenPanel ">
                                 <table>
                                     <tr>
