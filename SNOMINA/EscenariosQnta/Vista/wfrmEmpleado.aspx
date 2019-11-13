@@ -590,7 +590,7 @@
 
                                     </asp:TableRow>
                                 </asp:Table>--%>
-                                 <table id="tblBancos" class="table table-bordered" runat="server">
+                                <table id="tblBancos" class="table table-bordered" runat="server">
                                     <thead>
                                         <tr>
                                             <th>Banco</th>
@@ -623,6 +623,7 @@
                 <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordionExample">
                     <div class="card-body">
                         <div class="container_12 container">
+                            Datos Escolares
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
                             <div class="contenPanel">
@@ -653,6 +654,8 @@
                             </div>
 
                             <div class="container_12">
+                                <div style="width: auto; border: 2px Solid #4a1414;">
+                                </div>
                                 DATOS LABORALES
                                             <div style="width: auto; border: 2px Solid #4a1414;">
                                             </div>
@@ -660,53 +663,41 @@
                             <div class="contenPanel">
                                 <div runat="server" id="divPorcentaje" style="display: none;">
                                     <table>
-                                        <tr>
-                                            <td>Porcentaje Nomina:
+                                        <tr class="td">
+                                            <td colspan="2" align="center">Esquema:
                                             </td>
-                                            <td>Sueldo:
-                                            </td>
-
                                         </tr>
                                         <tr>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtNomina" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="txtSueldo" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            <td class="td" colspan="2" align="center">
+                                                <asp:DropDownList ID="ddlEsquemas" runat="server" CssClass="cssDropdown">
+                                                </asp:DropDownList>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Porcentaje Asimilados:
                                             </td>
-                                        </tr>
-                                        <tr>
+                                       
                                             <td class="td">
                                                 <asp:TextBox ID="txtAsimilados" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
-                                        </tr>
-                                        <tr>
+                                       
                                             <td>Porcentaje Honorarios:
                                             </td>
-                                        </tr>
-                                        <tr>
+                                       
                                             <td class="td">
                                                 <asp:TextBox ID="txtHonorarios" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
-                                        </tr>
-                                        <tr>
+                                        
                                             <td>Porcentaje TN:
                                             </td>
-                                        </tr>
-                                        <tr>
+                                        
                                             <td class="td">
                                                 <asp:TextBox ID="txtTN" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
-                                        </tr>
-                                        <tr>
+                                       
                                             <td>Porcentaje EZ Wallet:
                                             </td>
-                                        </tr>
-                                        <tr>
+                                       
                                             <td class="td">
                                                 <asp:TextBox ID="txtEZWallet" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
@@ -744,15 +735,7 @@
                                                 <asp:TextBox ID="txtSueldoTN" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>Sueldo EZ Wallet:
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtSueldoEZWallet" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                        </tr>
+
                                     </table>
                                 </div>
                                 <table>
@@ -958,7 +941,7 @@
                 <asp:Button ID="btnGuardar" Text="Guardar" runat="server" CssClass="btnG" OnClick="btnGuardar_Click" />
             </div>
 
-            <input type="text" name="numbanco" id="numbanco" value="0"/>
+            <input type="text" name="numbanco" id="numbanco" value="0" />
         </div>
     </div>
     <script type="text/javascript">
