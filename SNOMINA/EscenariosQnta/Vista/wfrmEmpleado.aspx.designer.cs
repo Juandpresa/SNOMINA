@@ -418,6 +418,24 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtPorcentajeASAM;
         
         /// <summary>
+        /// Control divhonorarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divhonorarios;
+        
+        /// <summary>
+        /// Control txtParocentajeHonorarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtParocentajeHonorarios;
+        
+        /// <summary>
         /// Control txtSueldoHonorarios.
         /// </summary>
         /// <remarks>
@@ -427,13 +445,31 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtSueldoHonorarios;
         
         /// <summary>
-        /// Control txtSueldoTN.
+        /// Control divpublicidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSueldoTN;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divpublicidad;
+        
+        /// <summary>
+        /// Control txtPorcentajePubli.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPorcentajePubli;
+        
+        /// <summary>
+        /// Control txtSueldoPubli.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSueldoPubli;
         
         /// <summary>
         /// Control ddlPagadora.
