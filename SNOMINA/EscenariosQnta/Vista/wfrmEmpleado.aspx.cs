@@ -980,7 +980,7 @@ namespace EscenariosQnta
             FechaIngreso = DateTime.Parse(txtFechaIngreso.Text.ToString());
             FechaNac = DateTime.Parse(txtFechaNacimiento.Text.ToString());
             //FechaNac = string.IsNullOrEmpty(txtFechaNacimiento.Text.ToString()) ? null : txtFechaNacimiento.Text.ToString();
-            Nomina = float.Parse(txtNomina.Text.ToString());
+            //Nomina = float.Parse(txtNomina.Text.ToString());
             Asimilados = float.Parse(txtAsimilados.Text.ToString());
             Honorarios = float.Parse(txtHonorarios.Text.ToString());
             TN = float.Parse(txtTN.Text.ToString());

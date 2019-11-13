@@ -153,7 +153,7 @@
                 document.getElementById('ContentPlaceHolder1_txtSueldoNeto').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldoHonorarios').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
+                //document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
                 //Card´s
                 cresidencia.style.display = 'block';
                 cdlaborales.style.display = 'block';
@@ -164,7 +164,7 @@
                 //alert('Please select an option');
                 porcentaje.style.display = 'block';
                 fijo.style.display = 'block';
-                document.getElementById('ContentPlaceHolder1_txtNomina').value = 0;
+                //document.getElementById('ContentPlaceHolder1_txtNomina').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtAsimilados').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtHonorarios').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtTN').value = 0;
@@ -551,8 +551,7 @@
                                     </tr>
                                 </table>
                                 <div>
-                                    <asp:Button ID="btnABanco" Text="Agregar" runat="server" CssClass="btn btn-info" CausesValidation="False" OnClick="btnABanco_Click" UseSubmitBehavior="False" />
-                                    <%--                                    <button type="button" class="btn btn-success" id="btnAgregarBanco">Agregar</button>--%>
+                                    <button type="button" class="btn btn-success" id="btnAgregarBanco">Agregar</button>
                                     <br />
                                     <br />
                                 </div>
@@ -661,58 +660,66 @@
                                             </div>
                             </div>
                             <div class="contenPanel">
-                                <div runat="server" id="divPorcentaje" style="display: none;">
+                                <table>
+                                    <tr class="td">
+                                        <td colspan="2" align="center">Esquema:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td" colspan="2" align="center">
+                                            <asp:DropDownList ID="ddlEsquemas" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div runat="server" id="divimss" style="display: none;">
                                     <table>
-                                        <tr class="td">
-                                            <td colspan="2" align="center">Esquema:
-                                            </td>
+                                        <tr>
+                                            <td>Porcentaje(%):</td>
                                         </tr>
                                         <tr>
-                                            <td class="td" colspan="2" align="center">
-                                                <asp:DropDownList ID="ddlEsquemas" runat="server" CssClass="cssDropdown">
-                                                </asp:DropDownList>
-                                            </td>
+                                            <td>txtPorcentajeIMSS</td>
                                         </tr>
-                                        <tr>
-                                            <td>Porcentaje Asimilados:
-                                            </td>
-                                       
-                                            <td class="td">
-                                                <asp:TextBox ID="txtAsimilados" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                       
-                                            <td>Porcentaje Honorarios:
-                                            </td>
-                                       
-                                            <td class="td">
-                                                <asp:TextBox ID="txtHonorarios" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                        
-                                            <td>Porcentaje TN:
-                                            </td>
-                                        
-                                            <td class="td">
-                                                <asp:TextBox ID="txtTN" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                       
-                                            <td>Porcentaje EZ Wallet:
-                                            </td>
-                                       
-                                            <td class="td">
-                                                <asp:TextBox ID="txtEZWallet" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div runat="server" id="divFijo" style="display: none;">
-                                    <table>
                                         <tr>
                                             <td>Sueldo Bruto:
+                                            </td>
+                                            <td>Sueldo Neto:
+                                            </td>
+                                            <td>Sueldo Diario:
+                                            </td>
+                                            <td>Sueldo Diario Integrado:
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="td">
                                                 <asp:TextBox ID="txtSueldoBruto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="SueldoNetoC" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtSueldoDiario" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtSueldoDI" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div runat="server" id="divasam" style="display: none;">
+                                    <table>
+                                        <tr>
+                                            <td>Porcentaje (%):
+                                            </td>
+                                            <td>Sueldo Neto:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtSueldoNetoI" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtPorcentajeASAM" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                         </tr>
 
@@ -738,27 +745,6 @@
 
                                     </table>
                                 </div>
-                                <table>
-                                    <tr>
-                                        <td>Bono
-                                        </td>
-                                        <td>Comision
-                                        </td>
-                                        <td>Otros Ingresos
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:TextBox ID="txtBono" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                        </td>
-                                        <td>
-                                            <asp:TextBox ID="txtComisionEmp" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                        </td>
-                                        <td>
-                                            <asp:TextBox ID="txtOtrosIngresos" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                </table>
                             </div>
                         </div>
                         <div class="container_12 container">
@@ -784,11 +770,6 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Esquema Actual:
-                                        </td>
-                                        <td>Fecha Ultimo Pago:
-                                        </td>
-                                        <td></td>
                                         <td>
                                             <div class="panelAntiguedad" style="display: none">
                                                 <asp:Label Text="Antiguedad (Años)" ID="lblAntiguedad" runat="server" />
@@ -796,14 +777,6 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlEsquemaActual" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtUltimoPago" runat="server" Text="" CssClass="datepicker" required="required"
-                                                placeholder="dd/mm/yyyy"></asp:TextBox>
-                                        </td>
                                         <td>
                                             <asp:CheckBox runat="server" ID="chkAntiguedad" CssClass="chkBox" CausesValidation="True" Text="Presenta Antiguedad" OnCheckedChanged="chkAntiguedad_CheckedChanged"></asp:CheckBox>
                                         </td>
@@ -824,48 +797,18 @@
                             <div class="contenPanel ">
                                 <table>
                                     <tr>
-                                        <td>Importe Fonacot:
-                                        </td>
-                                        <td>Infonavit:
-                                        </td>
-                                        <td>Importe Infonavit:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:TextBox ID="txtImporteFonacot" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                        </td>
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlInfonavit" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtImporteInfonavit" runat="server" Text="0" CssClass="textbox"
-                                                onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pension Alimenticia:
-                                        </td>
-                                        <td>Importe Pension:
-                                        </td>
                                         <td>Prima de Riesgo:
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlPension" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtImportePension" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                        </td>
                                         <td class="td">
                                             <asp:DropDownList ID="ddlPrimaRiesgo" runat="server" CssClass="cssDropdown">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
                                 </table>
+                            </div>
+                            <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
                         </div>
                     </div>
