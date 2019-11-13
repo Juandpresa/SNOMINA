@@ -94,11 +94,11 @@ namespace EscenariosQnta
       if (!IsPostBack)
       {
         ObtenPrimaRiesgo();
-        ObtenInfonavit();
+        //ObtenInfonavit();
         //ObtenPrestacion();
         ObtenFactor();
-        ObtenPension();
-        ObtenEsquema();
+        //ObtenPension();
+        //ObtenEsquema();
         ObtenClasificacionEmpleado();
         ObtenTipoEsquema();
         //ObtenEmpleado();
@@ -454,30 +454,30 @@ namespace EscenariosQnta
       }
     }
 
-    protected void ObtenInfonavit()
-    {
-      try
-      {
-        DataTable dtInfonavit = new DataTable();
+    //protected void ObtenInfonavit()
+    //{
+    //  try
+    //  {
+    //    DataTable dtInfonavit = new DataTable();
 
-        dtInfonavit = clsQuery.execQueryDataTable("SP_ObtenInfonavit");
+    //    dtInfonavit = clsQuery.execQueryDataTable("SP_ObtenInfonavit");
 
-        if (dtInfonavit.Rows.Count > 0)
-        {
-          ddlInfonavit.DataSource = dtInfonavit;
-          ddlInfonavit.DataTextField = "TipoInfonavit";
-          ddlInfonavit.DataValueField = "Id_TpoInfo";
-          ddlInfonavit.DataBind();
-        }
+    //    if (dtInfonavit.Rows.Count > 0)
+    //    {
+    //      ddlInfonavit.DataSource = dtInfonavit;
+    //      ddlInfonavit.DataTextField = "TipoInfonavit";
+    //      ddlInfonavit.DataValueField = "Id_TpoInfo";
+    //      ddlInfonavit.DataBind();
+    //    }
 
-        ddlInfonavit.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    //    ddlInfonavit.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
 
-      }
-      catch (Exception ex)
-      {
-        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
-      }
-    }
+    //  }
+    //  catch (Exception ex)
+    //  {
+    //    Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+    //  }
+    //}
 
     //protected void ObtenPrestacion()
     //{
@@ -504,55 +504,55 @@ namespace EscenariosQnta
     //    }
     //}
 
-    protected void ObtenPension()
-    {
-      try
-      {
-        DataTable dtPension = new DataTable();
+    //protected void ObtenPension()
+    //{
+    //  try
+    //  {
+    //    DataTable dtPension = new DataTable();
 
-        dtPension = clsQuery.execQueryDataTable("SP_ObtenPensionAlimenticia");
+    //    dtPension = clsQuery.execQueryDataTable("SP_ObtenPensionAlimenticia");
 
-        if (dtPension.Rows.Count > 0)
-        {
-          ddlPension.DataSource = dtPension;
-          ddlPension.DataTextField = "Descripcion";
-          ddlPension.DataValueField = "Id_TpoPensA";
-          ddlPension.DataBind();
-        }
+    //    if (dtPension.Rows.Count > 0)
+    //    {
+    //      ddlPension.DataSource = dtPension;
+    //      ddlPension.DataTextField = "Descripcion";
+    //      ddlPension.DataValueField = "Id_TpoPensA";
+    //      ddlPension.DataBind();
+    //    }
 
-        ddlPension.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    //    ddlPension.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
 
-      }
-      catch (Exception ex)
-      {
-        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
-      }
-    }
+    //  }
+    //  catch (Exception ex)
+    //  {
+    //    Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+    //  }
+    //}
 
-    protected void ObtenEsquema()
-    {
-      try
-      {
-        DataTable dtEsquemaActual = new DataTable();
+    //protected void ObtenEsquema()
+    //{
+    //  try
+    //  {
+    //    DataTable dtEsquemaActual = new DataTable();
 
-        dtEsquemaActual = clsQuery.execQueryDataTable("SP_ObtenEsquemaPago");
+    //    dtEsquemaActual = clsQuery.execQueryDataTable("SP_ObtenEsquemaPago");
 
-        if (dtEsquemaActual.Rows.Count > 0)
-        {
-          ddlEsquemaActual.DataSource = dtEsquemaActual;
-          ddlEsquemaActual.DataTextField = "Descripcion";
-          ddlEsquemaActual.DataValueField = "Id_TpoEsq";
-          ddlEsquemaActual.DataBind();
-        }
+    //    if (dtEsquemaActual.Rows.Count > 0)
+    //    {
+    //      ddlEsquemaActual.DataSource = dtEsquemaActual;
+    //      ddlEsquemaActual.DataTextField = "Descripcion";
+    //      ddlEsquemaActual.DataValueField = "Id_TpoEsq";
+    //      ddlEsquemaActual.DataBind();
+    //    }
 
-        ddlEsquemaActual.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    //    ddlEsquemaActual.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
 
-      }
-      catch (Exception ex)
-      {
-        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
-      }
-    }
+    //  }
+    //  catch (Exception ex)
+    //  {
+    //    Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+    //  }
+    //}
 
     protected void ObtenClasificacionEmpleado()
     {
@@ -626,22 +626,22 @@ namespace EscenariosQnta
       txtFechaIngreso.Text = string.Empty;
       txtFechaNacimiento.Text = string.Empty;
       //1txtNomina.Text = "0"; //string.Empty;
-      txtAsimilados.Text = "0"; //string.Empty;
-      txtHonorarios.Text = "0"; //string.Empty;            
-      txtTN.Text = "0"; //string.Empty;
-      txtEZWallet.Text = "0"; //string.Empty;
+      //txtAsimilados.Text = "0"; //string.Empty;
+      //txtHonorarios.Text = "0"; //string.Empty;            
+      //txtTN.Text = "0"; //string.Empty;
+      //txtEZWallet.Text = "0"; //string.Empty;
       //2txtSueldo.Text = "0";
       txtSueldoBruto.Text = "0"; //string.Empty;
       txtSueldoNeto.Text = "0"; //string.Empty;
       txtSueldoHonorarios.Text = "0";
-      txtSueldoTN.Text = "0";
-      txtImporteInfonavit.Text = "0"; //string.Empty;
-      txtBono.Text = "0"; //string.Empty;
-      txtComisionEmp.Text = "0"; //string.Empty;
-      txtOtrosIngresos.Text = "0"; //string.Empty;
+      //txtSueldoTN.Text = "0";
+      //txtImporteInfonavit.Text = "0"; //string.Empty;
+      //txtBono.Text = "0"; //string.Empty;
+      //txtComisionEmp.Text = "0"; //string.Empty;
+      //txtOtrosIngresos.Text = "0"; //string.Empty;
       //txtUbicacionLaboral.Text = string.Empty;
-      txtImporteFonacot.Text = "0"; //string.Empty;
-      txtImportePension.Text = "0"; //string.Empty;
+      //txtImporteFonacot.Text = "0"; //string.Empty;
+      //txtImportePension.Text = "0"; //string.Empty;
                                     //txtNacionalidad.Text = string.Empty;
 
       rbtTipoEsquema.ClearSelection();
@@ -651,11 +651,11 @@ namespace EscenariosQnta
 
       
       ObtenPrimaRiesgo();
-      ObtenInfonavit();
+      //ObtenInfonavit();
       //ObtenPrestacion();
       ObtenFactor();
-      ObtenPension();
-      ObtenEsquema();
+      //ObtenPension();
+      //ObtenEsquema();
       ObtenClasificacionEmpleado();
       ObtenerNivelE();
       ObtenerInstitucion();
@@ -981,29 +981,29 @@ namespace EscenariosQnta
             FechaNac = DateTime.Parse(txtFechaNacimiento.Text.ToString());
             //FechaNac = string.IsNullOrEmpty(txtFechaNacimiento.Text.ToString()) ? null : txtFechaNacimiento.Text.ToString();
             //3Nomina = float.Parse(txtNomina.Text.ToString());
-            Asimilados = float.Parse(txtAsimilados.Text.ToString());
-            Honorarios = float.Parse(txtHonorarios.Text.ToString());
-            TN = float.Parse(txtTN.Text.ToString());
-            EZWallet = float.Parse(txtEZWallet.Text.ToString());
+            //Asimilados = float.Parse(txtAsimilados.Text.ToString());
+            //Honorarios = float.Parse(txtHonorarios.Text.ToString());
+            //TN = float.Parse(txtTN.Text.ToString());
+            //EZWallet = float.Parse(txtEZWallet.Text.ToString());
             //OtrosProductos = "0";// txtOtrosProductos.Text.ToString();                        
             //SueldoIntegrado = "0";//txtSueldoIntegrado.Text.ToString();
             //4Sueldo = float.Parse(txtSueldo.Text.ToString());
             SueldoBruto = float.Parse(txtSueldoBruto.Text.ToString());
             SueldoNeto = float.Parse(txtSueldoNeto.Text.ToString());
             SueldoHonorarios = float.Parse(txtSueldoHonorarios.Text.ToString());
-            SueldoTN = float.Parse(txtSueldoTN.Text.ToString());
+            //SueldoTN = float.Parse(txtSueldoTN.Text.ToString());
             //5SueldoEZWallet = float.Parse(txtSueldoEZWallet.Text.ToString());
             //Id_Prestac = ddlPrestacion.SelectedItem.Value;
             //UbicaLabora = txtUbicacionLaboral.Text.ToString();
-            Id_Infonavit = int.Parse(ddlInfonavit.SelectedItem.Value);
-            ImporteInfonavit = decimal.Parse(txtImporteInfonavit.Text.ToString());
-            Bono = decimal.Parse(txtBono.Text.ToString());
-            ComisionEmpleado = decimal.Parse(txtComisionEmp.Text.ToString());
-            OtrosIngresos = decimal.Parse(txtOtrosIngresos.Text.ToString());
-            ImpFonacot = decimal.Parse(txtImporteFonacot.Text.ToString());
-            Id_Pension = int.Parse(ddlPension.SelectedItem.Value);
-            ImportePension = decimal.Parse(txtImportePension.Text.ToString());
-            Id_EsquemaActual = int.Parse(ddlEsquemaActual.SelectedItem.Value);
+            //Id_Infonavit = int.Parse(ddlInfonavit.SelectedItem.Value);
+            //ImporteInfonavit = decimal.Parse(txtImporteInfonavit.Text.ToString());
+            //Bono = decimal.Parse(txtBono.Text.ToString());
+            //ComisionEmpleado = decimal.Parse(txtComisionEmp.Text.ToString());
+            //OtrosIngresos = decimal.Parse(txtOtrosIngresos.Text.ToString());
+            //ImpFonacot = decimal.Parse(txtImporteFonacot.Text.ToString());
+            //Id_Pension = int.Parse(ddlPension.SelectedItem.Value);
+            //ImportePension = decimal.Parse(txtImportePension.Text.ToString());
+            //Id_EsquemaActual = int.Parse(ddlEsquemaActual.SelectedItem.Value);
             Id_ClasifEmp = int.Parse(ddlClasificacionEmpleado.SelectedItem.Value);
             //Nacionalidad = txtNacionalidad.Text.ToString();
 
@@ -1016,7 +1016,7 @@ namespace EscenariosQnta
             correo = txtCorreo.Text.ToString();
             telLocal = txtTelefonoLocal.Text.ToString();
             telMovil = txtTelefonoLocal.Text.ToString();
-            FechaUltimoPago = DateTime.Parse(txtUltimoPago.Text.ToString());
+            //FechaUltimoPago = DateTime.Parse(txtUltimoPago.Text.ToString());
             PeriodoPago = int.Parse(ddlPeriodoPago.SelectedItem.Value);
             IdNEstudios = int.Parse(ddlNivelE.SelectedItem.Value);
             IdInstituto = int.Parse(ddlInstitucion.SelectedItem.Value);
