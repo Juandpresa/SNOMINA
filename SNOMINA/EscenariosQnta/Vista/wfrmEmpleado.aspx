@@ -152,7 +152,7 @@
                 document.getElementById('ContentPlaceHolder1_txtSueldoBruto').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldoNeto').value = 0;
                 document.getElementById('ContentPlaceHolder1_txtSueldoHonorarios').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
+                //document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
                 //document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
                 //Card´s
                 cresidencia.style.display = 'block';
@@ -678,7 +678,7 @@
                                             <td>Porcentaje(%):</td>
                                         </tr>
                                         <tr>
-                                            <td>txtPorcentajeIMSS</td>
+                                        <td><asp:TextBox ID="txtPorcentajeIMSS" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox></td>
                                         </tr>
                                         <tr>
                                             <td>Sueldo Bruto:
@@ -747,7 +747,7 @@
                                         <tr>
                                             <td>Porcentaje (%):
                                             </td>
-                                            <td>Sueldo Sueldo Honorarios:
+                                            <td>Sueldo Publicidad:
                                             </td>
                                         </tr>
                                         <tr>
