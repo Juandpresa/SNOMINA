@@ -553,13 +553,13 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.DropDownList ddlPrimaRiesgo;
         
         /// <summary>
-        /// Control ddlCCostos.
+        /// Control txtCentroCostos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCCostos;
+        protected global::System.Web.UI.WebControls.DropDownList txtCentroCostos;
         
         /// <summary>
         /// Control txtFIObra.
