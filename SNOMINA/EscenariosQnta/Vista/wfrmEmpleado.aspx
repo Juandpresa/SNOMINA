@@ -131,10 +131,12 @@
         }
 
         function showContent() {
-            var porcentaje = document.getElementById('ContentPlaceHolder1_divPorcentaje');
-            var fijo = document.getElementById('ContentPlaceHolder1_divFijo');
-            var reside = document.getElementById('ContentPlaceHolder1_cresidencia');
-
+            //var porcentaje = document.getElementById('ContentPlaceHolder1_divPorcentaje');
+            //var fijo = document.getElementById('ContentPlaceHolder1_divFijo');
+            //var reside = document.getElementById('ContentPlaceHolder1_cresidencia');
+            var esimss = document.getElementById('ContentPlaceHolder1_divimss');
+            var esasam = document.getElementById('ContentPlaceHolder1_divasam');
+            var opesq = $('#<%=ddlEsquemas.ClientID%>').value();
             var rb = document.getElementById("<%=rbtTipoEsquema.ClientID%>");
             var inputs = rb.getElementsByTagName('input');
             var flag = false;
@@ -146,7 +148,9 @@
                     break;
                 }
             }
-
+            if (opesq == 1) {
+                esimss.style.display = 'block';
+            }
             if (selected.value == "1") {
                 //alert(selected.value);
                 document.getElementById('ContentPlaceHolder1_txtSueldoBruto').value = 0;
@@ -612,7 +616,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card" id="cdcomplemento" style="display: none">
+            <div class="card" id="cdcomplemento" style="display: block">
                 <div class="card-header" id="heading6">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
@@ -672,7 +676,7 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <div runat="server" id="divimss">
+                                <div runat="server" id="divimss" style="display: none">
                                     <table>
                                         <tr>
                                             <td>Porcentaje(%):</td>
@@ -706,7 +710,7 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div runat="server" id="divasam">
+                                <div runat="server" id="divasam" style="display: none">
                                     <table>
                                         <tr>
                                             <td>Porcentaje (%):
@@ -724,7 +728,7 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div runat="server" id="divhonorarios">
+                                <div runat="server" id="divhonorarios" style="display: none">
                                     <table>
                                         <tr>
                                             <td>Porcentaje (%):
@@ -742,7 +746,7 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div runat="server" id="divpublicidad">
+                                <div runat="server" id="divpublicidad" style="display: none">
                                     <table>
                                         <tr>
                                             <td>Porcentaje (%):
