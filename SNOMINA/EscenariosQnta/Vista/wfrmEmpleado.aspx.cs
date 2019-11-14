@@ -1320,12 +1320,12 @@ namespace EscenariosQnta
       foreach (GridViewRow gvr in grd.Rows)
       {
         dr = dt.NewRow();
-        Label txtGBanco = gvr.FindControl("txtGBanco") as Label;
-        Label txtGCuenta = gvr.FindControl("txtGCuenta") as Label;
-        Label txtGClabe = gvr.FindControl("txtGClabe") as Label;
-        Label txtGTarjeta = gvr.FindControl("txtGTarjeta") as Label;
+        TextBox txtGBanco = gvr.FindControl("txtGBanco") as TextBox;
+        TextBox txtGCuenta = gvr.FindControl("txtGCuenta") as TextBox;
+        TextBox txtGClabe = gvr.FindControl("txtGClabe") as TextBox;
+        TextBox txtGTarjeta = gvr.FindControl("txtGTarjeta") as TextBox;
         CheckBox chkGPrioridad = gvr.FindControl("chkGPrioridad") as CheckBox;
-        Label txtGIdBanco = gvr.FindControl("txtGIdBanco") as Label;
+        TextBox txtGIdBanco = gvr.FindControl("txtGIdBanco") as TextBox;
         dr[0] = txtGBanco.Text;
         dr[1] = txtGCuenta.Text;
         dr[2] = txtGClabe.Text;
@@ -1349,7 +1349,8 @@ namespace EscenariosQnta
     }
 
     protected void grd_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {      
+    {
+      
       grd.DeleteRow(e.RowIndex);
       grd.DataSource = dt;
       grd.DataBind();
