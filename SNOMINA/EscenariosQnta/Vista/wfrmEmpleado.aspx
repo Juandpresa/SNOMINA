@@ -30,11 +30,6 @@
                 }
             });
 
-           <%-- $("#<%=tblBancos.ClientID%>").on('click', '.delete', function () {
-                $(this).closest('tr').remove();
-            });--%>
-
-
 
             $('#btnAgregarBanco').click(function () {
                 AgregarBanco();
@@ -133,9 +128,6 @@
         function showContent() {
             //var porcentaje = document.getElementById('ContentPlaceHolder1_divPorcentaje');
             //var fijo = document.getElementById('ContentPlaceHolder1_divFijo');
-            //var reside = document.getElementById('ContentPlaceHolder1_cresidencia');
-            var esimss = document.getElementById('ContentPlaceHolder1_divimss');
-            var esasam = document.getElementById('ContentPlaceHolder1_divasam');
             var rb = document.getElementById("<%=rbtTipoEsquema.ClientID%>");
             var inputs = rb.getElementsByTagName('input');
             var flag = false;
@@ -148,12 +140,6 @@
                 }
             }
 
-           <%-- if ($('#<%=ddlEsquemas.ClientID%>').text() == 'IMSS') {
-                divimss.style.display = 'block';
-            }
-            else {
-                divasam.style.display = 'block'
-            }--%>
             if (selected.value == "1") {
                 //alert(selected.value);
                 document.getElementById('ContentPlaceHolder1_txtSueldoBruto').value = 0;
@@ -184,7 +170,28 @@
                 cdcomplemento.style.display = 'block';
             }
         }
-
+        function MostrarEsq() {
+            //var esimss = document.getElementById('ContentPlaceHolder1_divimss');
+            //var esasam = document.getElementById('ContentPlaceHolder1_divasam');
+            var listaEsq = $('#<%=ddlEsquemas.ClientID%>').find('option:selected').val();
+            if (document.addEventListener) {
+                listaEsq.addEventListener('change', function (e) {
+                    if (this.value == "1") {
+                        document.getElementById('divimss').style.display = "block";
+                    } else {
+                        document.getElementById('divasam').style.display = "none";
+                    }
+                }, false);
+            } else {
+                listaEsq.attachEvent('onchange', function (e) {
+                    if (this.value == "2") {
+                        document.getElementById('divasam').style.display = "block";
+                    } else {
+                        document.getElementById('divimss').style.display = "none";
+                    }
+                });
+            }
+        }
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
 
     </script>
@@ -665,7 +672,7 @@
                                     </tr>
                                     <tr>
                                         <td class="td" colspan="2" align="center">
-                                            <asp:DropDownList ID="ddlEsquemas" runat="server" CssClass="cssDropdown">
+                                            <asp:DropDownList ID="ddlEsquemas" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsq()">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -787,6 +794,7 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td></td>
                                         <td>
                                             <div class="panelAntiguedad" style="display: none">
                                                 <asp:Label Text="Antiguedad (Años)" ID="lblAntiguedad" runat="server" />
