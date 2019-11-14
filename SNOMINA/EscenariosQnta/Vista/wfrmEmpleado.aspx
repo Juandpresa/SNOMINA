@@ -171,25 +171,38 @@
             }
         }
         function MostrarEsq() {
-            //var esimss = document.getElementById('ContentPlaceHolder1_divimss');
-            //var esasam = document.getElementById('ContentPlaceHolder1_divasam');
+            var esimss = document.getElementById('ContentPlaceHolder1_divimss');
+            var esasam = document.getElementById('ContentPlaceHolder1_divasam');
+            var eshon = document.getElementById('ContentPlaceHolder1_divhonorarios');
+            var espub = document.getElementById('ContentPlaceHolder1_divpublicidad');
             var listaEsq = $('#<%=ddlEsquemas.ClientID%>').find('option:selected').val();
-            if (document.addEventListener) {
-                listaEsq.addEventListener('change', function (e) {
-                    if (this.value == "1") {
-                        document.getElementById('divimss').style.display = "block";
-                    } else {
-                        document.getElementById('divasam').style.display = "none";
-                    }
-                }, false);
-            } else {
-                listaEsq.attachEvent('onchange', function (e) {
-                    if (this.value == "2") {
-                        document.getElementById('divasam').style.display = "block";
-                    } else {
-                        document.getElementById('divimss').style.display = "none";
-                    }
-                });
+            if (listaEsq == 1) {
+                esimss.style.display = 'block';
+                esasam.style.display = 'none';
+                eshon.style.display = 'none';
+                espub.style.display = 'none';
+            }
+            if (listaEsq == 2) {
+                esasam.style.display = 'block';
+                esimss.style.display = 'none';
+                eshon.style.display = 'none';
+                espub.style.display = 'none';
+            }
+            if (listaEsq == 3) {
+                esimss.style.display = 'block';
+                esasam.style.display = 'block';
+                eshon.style.display = 'none';
+                espub.style.display = 'none';
+            }
+            if (listaEsq == 4) {
+                eshon.style.display = 'block';
+                esimss.style.display = 'none';
+                esasam.style.display = 'none';
+            }
+            if (listaEsq == 5) {
+                espub.style.display = 'block';
+                esimss.style.display = 'none';
+                esasam.style.display = 'none';
             }
         }
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
@@ -666,12 +679,12 @@
                             </div>
                             <div class="contenPanel">
                                 <table>
-                                    <tr class="td">
-                                        <td colspan="2" align="center">Esquema:
+                                    <tr>
+                                        <td align="center">Esquema:
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="td" colspan="2" align="center">
+                                        <td class="td" align="center">
                                             <asp:DropDownList ID="ddlEsquemas" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsq()">
                                             </asp:DropDownList>
                                         </td>
@@ -681,14 +694,19 @@
                                     <table>
                                         <tr>
                                             <td>Porcentaje(%):</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <asp:TextBox ID="txtPorcentajeIMSS" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox></td>
-                                        </tr>
-                                        <tr>
                                             <td>Sueldo Bruto:
                                             </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtPorcentajeIMSS" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtSueldoBruto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <td>Sueldo Neto:
                                             </td>
                                             <td>Sueldo Diario:
@@ -697,9 +715,6 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtSueldoBruto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
                                             <td class="td">
                                                 <asp:TextBox ID="SueldoNetoC" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
