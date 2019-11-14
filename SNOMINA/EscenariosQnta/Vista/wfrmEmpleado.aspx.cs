@@ -86,7 +86,7 @@ namespace EscenariosQnta
     string RetunValue;
     clsDatos clsQuery = new clsDatos();
     string ValidacionControles = string.Empty;
-
+    DataTable dt = new DataTable();
     #endregion
 
     protected void Page_Load(object sender, EventArgs e)
@@ -115,7 +115,32 @@ namespace EscenariosQnta
         ObtenEmpleadoras();
         ObtenEntidad();
         ObtenTipoContrato();
+
+        grd.DataSource = GetTableWithInitialData(); //get first initial data
+        grd.DataBind();
       }
+    }
+
+    public DataTable GetTableWithInitialData() //this might be your sp for select
+    {
+      DataTable table = new DataTable();
+      table.Columns.Add("Banco", typeof(string));
+      table.Columns.Add("Cuenta", typeof(string));
+      table.Columns.Add("Clabe", typeof(string));
+      table.Columns.Add("Tarjeta", typeof(string));
+      table.Columns.Add("Prioridad", typeof(string));
+      return table;
+    }
+
+    public DataTable GetTableWithNoData() //returns only structure if the select columns
+    {
+      DataTable table = new DataTable();
+      table.Columns.Add("Banco", typeof(string));
+      table.Columns.Add("Cuenta", typeof(string));
+      table.Columns.Add("Clabe", typeof(string));
+      table.Columns.Add("Tarjeta", typeof(string));
+      table.Columns.Add("Prioridad", typeof(string));
+      return table;
     }
 
     protected void ObtenTipoContrato()
@@ -1049,31 +1074,31 @@ namespace EscenariosQnta
               //int carr = int.Parse(IdCarrera);
               strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, IdNEstudios, IdInstituto, IdCarrera);
 
-              for (int i = 0; i <= tblBancos.Rows.Count; i++)
-              {
-                // Iterate through the cells of a row.
-                for (int j = 0; j <= tblBancos.Rows[i].Cells.Count - 1; j++)
-                {
-                  if (j == 1)
-                  {
-                    cuenta = tblBancos.Rows[i].Cells[j].InnerText;
-                  }
-                  if (j == 2)
-                  {
-                    clabe = tblBancos.Rows[i].Cells[j].InnerText;
-                  }
-                  if (j == 3)
-                  {
-                    tarjeta = tblBancos.Rows[i].Cells[j].InnerText;
-                  }
-                  if (j == 4)
-                  {
-                    IdBanco = int.Parse(tblBancos.Rows[i].Cells[j].InnerText);
-                  }
-                }
-                //int idBan = int.Parse(IdBanco);
-                strQueryIB = BLLInfoBancaria.InsInfoBancaria(IdBanco, emp, cuenta, clabe, tarjeta);
-              }
+              //for (int i = 0; i <= tblBancos.Rows.Count; i++)
+              //{
+              //  // Iterate through the cells of a row.
+              //  for (int j = 0; j <= tblBancos.Rows[i].Cells.Count - 1; j++)
+              //  {
+              //    if (j == 1)
+              //    {
+              //      cuenta = tblBancos.Rows[i].Cells[j].InnerText;
+              //    }
+              //    if (j == 2)
+              //    {
+              //      clabe = tblBancos.Rows[i].Cells[j].InnerText;
+              //    }
+              //    if (j == 3)
+              //    {
+              //      tarjeta = tblBancos.Rows[i].Cells[j].InnerText;
+              //    }
+              //    if (j == 4)
+              //    {
+              //      IdBanco = int.Parse(tblBancos.Rows[i].Cells[j].InnerText);
+              //    }
+              //  }
+              //  //int idBan = int.Parse(IdBanco);
+              //  strQueryIB = BLLInfoBancaria.InsInfoBancaria(IdBanco, emp, cuenta, clabe, tarjeta);
+              //}
 
 
               if (RetunValue == "1")
@@ -1275,16 +1300,41 @@ namespace EscenariosQnta
       ObtenClientes(int.Parse(ddlEmpleadora.SelectedValue));
     }
 
-    protected void btnABanco_Click(object sender, EventArgs e)
+    protected void btbAddTarjeta_Click(object sender, EventArgs e)
     {
-      HtmlTableRow tRow = new HtmlTableRow();
-      for (int i = 1; i < 8; i++)
+      dt = GetTableWithNoData(); //get select column header only records not required
+      DataRow dr;
+      foreach (GridViewRow gvr in grd.Rows)
       {
-        HtmlTableCell tb = new HtmlTableCell();
-        tb.InnerText = "text";
-        tRow.Controls.Add(tb);
+        dr = dt.NewRow();
+        TextBox txtGBanco = gvr.FindControl("txtGBanco") as TextBox;
+        TextBox txtGCuenta = gvr.FindControl("txtGCuenta") as TextBox;
+        TextBox txtGClabe = gvr.FindControl("txtGClabe") as TextBox;
+        TextBox txtGTarjeta = gvr.FindControl("txtGTarjeta") as TextBox;
+        CheckBox chkGPrioridad = gvr.FindControl("chkGPrioridad") as CheckBox;
+        dr[0] = txtGBanco.Text;
+        dr[1] = txtGCuenta.Text;
+        dr[2] = txtGClabe.Text;
+        dr[3] = txtGTarjeta.Text;
+        dr[4] = chkGPrioridad.Checked == false;
+
+        dt.Rows.Add(dr); //add grid values in to row and add row to the blank table
       }
-      tblBancos.Rows.Add(tRow);
+      dr = dt.NewRow(); //add last empty row
+      dr[0] = ddlBanco.SelectedItem.Text;
+      dr[1] = txtCuenta.Text;
+      dr[2] = txtClabe.Text;
+      dr[3] = txtTarjeta.Text;
+      dr[4] = true;
+      dt.Rows.Add(dr);
+      grd.DataSource = dt; //bind new datatable to grid
+      grd.DataBind();
+      
+    }
+
+    protected void grd_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+
     }
   }
 }
