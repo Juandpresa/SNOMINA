@@ -1349,11 +1349,10 @@ namespace EscenariosQnta
     }
 
     protected void grd_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
-      //dt = GetTableWithNoData();
-      //int index = Convert.ToInt32(e.RowIndex);
-      //dt.Rows[index].Delete();
-
+    {      
+      grd.DeleteRow(e.RowIndex);
+      grd.DataSource = dt;
+      grd.DataBind();
     }
   }
 }
