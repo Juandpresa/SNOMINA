@@ -1319,19 +1319,19 @@ namespace EscenariosQnta
       DataRow dr;
       foreach (GridViewRow gvr in grd.Rows)
       {
-        //dr = dt.NewRow();
-        //Label txtGBanco = gvr.FindControl("txtGBanco") as Label;
-        //Label txtGCuenta = gvr.FindControl("txtGCuenta") as Label;
-        //Label txtGClabe = gvr.FindControl("txtGClabe") as Label;
-        //Label txtGTarjeta = gvr.FindControl("txtGTarjeta") as Label;
-        //CheckBox chkGPrioridad = gvr.FindControl("chkGPrioridad") as CheckBox;
-        //Label txtGIdBanco = gvr.FindControl("txtGIdBanco") as Label;
-        //dr[0] = txtGBanco.Text;
-        //dr[1] = txtGCuenta.Text;
-        //dr[2] = txtGClabe.Text;
-        //dr[3] = txtGTarjeta.Text;
-        //dr[4] = chkGPrioridad.Checked == false;
-        //dr[5] = txtGIdBanco.Text;
+        dr = dt.NewRow();
+        Label txtGBanco = gvr.FindControl("txtGBanco") as Label;
+        Label txtGCuenta = gvr.FindControl("txtGCuenta") as Label;
+        Label txtGClabe = gvr.FindControl("txtGClabe") as Label;
+        Label txtGTarjeta = gvr.FindControl("txtGTarjeta") as Label;
+        CheckBox chkGPrioridad = gvr.FindControl("chkGPrioridad") as CheckBox;
+        Label txtGIdBanco = gvr.FindControl("txtGIdBanco") as Label;
+        dr[0] = txtGBanco.Text;
+        dr[1] = txtGCuenta.Text;
+        dr[2] = txtGClabe.Text;
+        dr[3] = txtGTarjeta.Text;
+        dr[4] = chkGPrioridad.Checked == false;
+        dr[5] = txtGIdBanco.Text;
 
         dt.Rows.Add(dr); //add grid values in to row and add row to the blank table
       }
