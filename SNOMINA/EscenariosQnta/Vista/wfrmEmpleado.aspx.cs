@@ -1320,12 +1320,12 @@ namespace EscenariosQnta
       foreach (GridViewRow gvr in grd.Rows)
       {
         dr = dt.NewRow();
-        TextBox txtGBanco = gvr.FindControl("txtGBanco") as TextBox;
-        TextBox txtGCuenta = gvr.FindControl("txtGCuenta") as TextBox;
-        TextBox txtGClabe = gvr.FindControl("txtGClabe") as TextBox;
-        TextBox txtGTarjeta = gvr.FindControl("txtGTarjeta") as TextBox;
+        Label txtGBanco = gvr.FindControl("txtGBanco") as Label;
+        Label txtGCuenta = gvr.FindControl("txtGCuenta") as Label;
+        Label txtGClabe = gvr.FindControl("txtGClabe") as Label;
+        Label txtGTarjeta = gvr.FindControl("txtGTarjeta") as Label;
         CheckBox chkGPrioridad = gvr.FindControl("chkGPrioridad") as CheckBox;
-        TextBox txtGIdBanco = gvr.FindControl("txtGIdBanco") as TextBox;
+        Label txtGIdBanco = gvr.FindControl("txtGIdBanco") as Label;
         dr[0] = txtGBanco.Text;
         dr[1] = txtGCuenta.Text;
         dr[2] = txtGClabe.Text;
