@@ -115,12 +115,36 @@ namespace EscenariosQnta
         ObtenEmpleadoras();
         ObtenEntidad();
         ObtenTipoContrato();
+        ObtenEsquema();
 
         grd.DataSource = GetTableWithInitialData(); //get first initial data
         grd.DataBind();
       }
     }
+    protected void ObtenEsquema()
+    {
+      try
+      {
+        DataTable dtEsquema = new DataTable();
 
+        dtEsquema = clsQuery.execQueryDataTable("SP_ObtenerEsquemas");
+
+        if (dtEsquema.Rows.Count > 0)
+        {
+          ddlEsquemas.DataSource = dtEsquema;
+          ddlEsquemas.DataTextField = "NombreEsquema";
+          ddlEsquemas.DataValueField = "IdCatEsquemas";
+          ddlEsquemas.DataBind();
+        }
+
+        ddlEsquemas.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      }
+    }
     public DataTable GetTableWithInitialData() //this might be your sp for select
     {
       DataTable table = new DataTable();
