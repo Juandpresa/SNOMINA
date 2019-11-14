@@ -153,6 +153,7 @@ namespace EscenariosQnta
       table.Columns.Add("Clabe", typeof(string));
       table.Columns.Add("Tarjeta", typeof(string));
       table.Columns.Add("Prioridad", typeof(string));
+      table.Columns.Add("IdBanco", typeof(string));
       return table;
     }
 
@@ -164,6 +165,7 @@ namespace EscenariosQnta
       table.Columns.Add("Clabe", typeof(string));
       table.Columns.Add("Tarjeta", typeof(string));
       table.Columns.Add("Prioridad", typeof(string));
+      table.Columns.Add("IdBanco", typeof(string));
       return table;
     }
 
@@ -1093,36 +1095,23 @@ namespace EscenariosQnta
               RetunValue = strQueryEmp;
               IdEmpleado = BLLEmpleado.ObtenerUltimoEmpleado();
               emp = int.Parse(IdEmpleado);
-              //int ne = int.Parse(IdNEstudios);
-              //int ins = int.Parse(IdInstituto);
-              //int carr = int.Parse(IdCarrera);
+       
               strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, IdNEstudios, IdInstituto, IdCarrera);
 
-              //for (int i = 0; i <= tblBancos.Rows.Count; i++)
-              //{
-              //  // Iterate through the cells of a row.
-              //  for (int j = 0; j <= tblBancos.Rows[i].Cells.Count - 1; j++)
-              //  {
-              //    if (j == 1)
-              //    {
-              //      cuenta = tblBancos.Rows[i].Cells[j].InnerText;
-              //    }
-              //    if (j == 2)
-              //    {
-              //      clabe = tblBancos.Rows[i].Cells[j].InnerText;
-              //    }
-              //    if (j == 3)
-              //    {
-              //      tarjeta = tblBancos.Rows[i].Cells[j].InnerText;
-              //    }
-              //    if (j == 4)
-              //    {
-              //      IdBanco = int.Parse(tblBancos.Rows[i].Cells[j].InnerText);
-              //    }
-              //  }
-              //  //int idBan = int.Parse(IdBanco);
-              //  strQueryIB = BLLInfoBancaria.InsInfoBancaria(IdBanco, emp, cuenta, clabe, tarjeta);
-              //}
+              foreach (GridViewRow gvr in grd.Rows)
+              {
+                
+                TextBox txtGCuenta = gvr.FindControl("txtGCuenta") as TextBox;
+                TextBox txtGClabe = gvr.FindControl("txtGClabe") as TextBox;
+                TextBox txtGTarjeta = gvr.FindControl("txtGTarjeta") as TextBox;
+                CheckBox chkGPrioridad = gvr.FindControl("chkGPrioridad") as CheckBox;
+                TextBox txtGIdBanco = gvr.FindControl("txtGIdBanco") as TextBox;
+                cuenta = txtGCuenta.Text;
+                clabe = txtGClabe.Text;
+                tarjeta = txtGTarjeta.Text;
+                IdBanco = int.Parse(txtGIdBanco.Text);
+                //  strQueryIB = BLLInfoBancaria.InsInfoBancaria(IdBanco, emp, cuenta, clabe, tarjeta);
+              }
 
 
               if (RetunValue == "1")
@@ -1336,11 +1325,13 @@ namespace EscenariosQnta
         TextBox txtGClabe = gvr.FindControl("txtGClabe") as TextBox;
         TextBox txtGTarjeta = gvr.FindControl("txtGTarjeta") as TextBox;
         CheckBox chkGPrioridad = gvr.FindControl("chkGPrioridad") as CheckBox;
+        TextBox txtGIdBanco = gvr.FindControl("txtGIdBanco") as TextBox;
         dr[0] = txtGBanco.Text;
         dr[1] = txtGCuenta.Text;
         dr[2] = txtGClabe.Text;
         dr[3] = txtGTarjeta.Text;
         dr[4] = chkGPrioridad.Checked == false;
+        dr[5] = txtGIdBanco.Text;
 
         dt.Rows.Add(dr); //add grid values in to row and add row to the blank table
       }
@@ -1350,6 +1341,7 @@ namespace EscenariosQnta
       dr[2] = txtClabe.Text;
       dr[3] = txtTarjeta.Text;
       dr[4] = true;
+      dr[5] = ddlBanco.SelectedItem.Value;
       dt.Rows.Add(dr);
       grd.DataSource = dt; //bind new datatable to grid
       grd.DataBind();
@@ -1358,6 +1350,9 @@ namespace EscenariosQnta
 
     protected void grd_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
+      //dt = GetTableWithNoData();
+      //int index = Convert.ToInt32(e.RowIndex);
+      //dt.Rows[index].Delete();
 
     }
   }
