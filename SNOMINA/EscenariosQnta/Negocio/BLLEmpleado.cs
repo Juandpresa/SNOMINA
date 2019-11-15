@@ -87,5 +87,19 @@ namespace EscenariosQnta.Negocio
       }
       return tabla;
     }
+
+    public static DataTable ObtenPagadoras(int idEmpleadora)
+    {
+      DataTable tabla = new DataTable();
+      try
+      {
+        tabla = DALEmpleado.ObtenPagadoras(idEmpleadora);
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+      return tabla;
+    }
   }
 }

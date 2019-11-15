@@ -102,7 +102,6 @@ namespace EscenariosQnta
         ObtenClasificacionEmpleado();
         ObtenTipoEsquema();
         //ObtenEmpleado();
-        ObtenPagadoras();
         ObtenSexo();
         ObtenTipoPago();
         ObtenPeriodoPago();
@@ -378,19 +377,19 @@ namespace EscenariosQnta
       }
     }
 
-    protected void ObtenPagadoras()
+    protected void ObtenPagadoras(int idEmpleadora)
     {
       try
       {
         DataTable dtPagadora = new DataTable();
 
-        dtPagadora = clsQuery.execQueryDataTable("SP_ObtenPagadoras");
+        dtPagadora = BLLEmpleado.ObtenPagadoras(idEmpleadora);
 
         if (dtPagadora.Rows.Count > 0)
         {
           ddlPagadora.DataSource = dtPagadora;
           ddlPagadora.DataTextField = "Alias";
-          ddlPagadora.DataValueField = "idRazonSocial";
+          ddlPagadora.DataValueField = "PagadoraID";
           ddlPagadora.DataBind();
         }
 
@@ -1311,6 +1310,7 @@ namespace EscenariosQnta
     protected void ddlEmpleadora_SelectedIndexChanged(object sender, EventArgs e)
     {
       ObtenClientes(int.Parse(ddlEmpleadora.SelectedValue));
+      ObtenPagadoras(int.Parse(ddlEmpleadora.SelectedValue));
     }
 
     protected void btbAddTarjeta_Click(object sender, EventArgs e)
