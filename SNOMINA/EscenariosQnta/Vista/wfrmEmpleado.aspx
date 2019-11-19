@@ -172,80 +172,37 @@
         }
         function MostrarEsq() {
             var esimss = document.getElementById('ContentPlaceHolder1_divimss');
-            var esasam = document.getElementById('ContentPlaceHolder1_divasam');
-            var eshon = document.getElementById('ContentPlaceHolder1_divhonorarios');
-            var espub = document.getElementById('ContentPlaceHolder1_divpublicidad');
-            var esmix = document.getElementById('ContentPlaceHolder1_ddlEMixto');
             var txtpors = document.getElementById('ContentPlaceHolder1_divPorSueldo');
             var listaEsq = $('#<%=ddlEsquemas.ClientID%>').find('option:selected').val();
             if (listaEsq == 1) {
                 esimss.style.display = 'block';
-                esasam.style.display = 'none';
-                eshon.style.display = 'none';
-                espub.style.display = 'none';
+                txtpors.style.display = 'none';
+                $('.mix').hide();
             }
             if (listaEsq == 2) {
-                esmix.style.display = 'block';
-
+                $('.mix').show();
+                esimss.style.display = 'none';
+                txtpors.style.display = 'none';
             }
             if (listaEsq == 3) {
-                esasam.style.display = 'block';
+                txtpors.style.display = 'block';
                 esimss.style.display = 'none';
-                eshon.style.display = 'none';
-                espub.style.display = 'none';
+                $('.mix').hide();
             }
 
             if (listaEsq == 4) {
-                eshon.style.display = 'block';
+                txtpors.style.display = 'block';
                 esimss.style.display = 'none';
-                esasam.style.display = 'none';
-                espub.style.display = 'none';
+                $('.mix').hide();
             }
             if (listaEsq == 5) {
-                espub.style.display = 'block';
+                txtpors.style.display = 'block';
                 esimss.style.display = 'none';
-                esasam.style.display = 'none';
-                eshon.style.display = 'none';
+                $('.mix').hide();
             }
         }
-           function MostrarEsqM() {
-            var esimss = document.getElementById('ContentPlaceHolder1_divimss');
-            var esasam = document.getElementById('ContentPlaceHolder1_divasam');
-            var eshon = document.getElementById('ContentPlaceHolder1_divhonorarios');
-            var espub = document.getElementById('ContentPlaceHolder1_divpublicidad');
-            var esmix = document.getElementById('ContentPlaceHolder1_ddlEMixto');
-            var txtpors = document.getElementById('ContentPlaceHolder1_divPorSueldo');
-            var listaEsqM = $('#<%=ddlEMixto.ClientID%>').find('option:selected').val();
-            if (listaEsqM == 1) {
-                esimss.style.display = 'block';
-                esmix.style.display = 'block';
-                esasam.style.display = 'none';
-                eshon.style.display = 'none';
-                espub.style.display = 'none';
-            }
-            if (listaEsq == 3) {
-                esasam.style.display = 'block';
-                esmix.style.display = 'block';
-                esimss.style.display = 'none';
-                eshon.style.display = 'none';
-                espub.style.display = 'none';
-            }
 
-            if (listaEsqM == 4) {
-                eshon.style.display = 'block';
-                esmix.style.display = 'block';
-                esimss.style.display = 'none';
-                esasam.style.display = 'none';
-                espub.style.display = 'none';
-            }
-            if (listaEsqM == 5) {
-                espub.style.display = 'block';
-                esmix.style.display = 'block';
-                esimss.style.display = 'none';
-                esasam.style.display = 'none';
-                eshon.style.display = 'none';
-            }
-        }
+
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
 
     </script>
@@ -792,18 +749,37 @@
                                     <tr>
                                         <td align="center">Esquema:
                                         </td>
+                                        <td align="center">
+                                            <div class="mix" style="display:none" >
+                                                <asp:Label Text="Mixto:" ID="Mixto" runat="server" />
+                                            </div>
+                                        </td>
+
                                     </tr>
                                     <tr>
                                         <td class="td" align="center">
                                             <asp:DropDownList ID="ddlEsquemas" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsq()">
                                             </asp:DropDownList>
                                         </td>
-                                        <td class="td" align="center" style="display: none">
-                                            <asp:DropDownList ID="ddlEMixto" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsq()">
+                                        <td align="center">
+                                            <div class="mix" style="display:none" >
+                                            <asp:DropDownList ID="ddlEMixto" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsqM()">
                                             </asp:DropDownList>
+                                           </div>
                                         </td>
+
                                     </tr>
                                 </table>
+
+<%--                                <div runat="server"  style="display: none">
+                                    <table>
+                                        <tr>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                    </table>
+                                </div>--%>
+
                                 <div runat="server" id="divimss" style="display: none">
                                     <table>
                                         <tr>
@@ -841,38 +817,14 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div runat="server" id="divasam" style="display: none">
+                                <div runat="server" id="divPorSueldo" style="display: none">
                                     <table>
                                         <tr>
-                                            <td>Porcentaje ASAM (%):
+                                            <td>Porcentaje(%):
                                             </td>
                                             <td>Sueldo Neto:
                                             </td>
                                         </tr>
-                                    </table>
-                                </div>
-                                <div runat="server" id="divhonorarios" style="display: none">
-                                    <table>
-                                        <tr>
-                                            <td>Porcentaje Honorarios (%):
-                                            </td>
-                                            <td>Sueldo Honorarios:
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div runat="server" id="divpublicidad" style="display: none">
-                                    <table>
-                                        <tr>
-                                            <td>Porcentaje Publicidad (%):
-                                            </td>
-                                            <td>Sueldo Publicidad:
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div runat="server" id="divPorSueldo" style="display: none">
-                                    <table>
                                         <tr>
                                             <td class="td">
                                                 <asp:TextBox ID="txtPorcentaje" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
@@ -934,6 +886,7 @@
                                 </asp:UpdatePanel>
                             </div>
                         </div>
+
 
                         <div class="container_12 container">
                             <div style="width: auto; border: 2px Solid #4a1414;">

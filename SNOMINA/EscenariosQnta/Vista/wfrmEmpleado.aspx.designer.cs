@@ -526,33 +526,6 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtSueldoDI;
         
         /// <summary>
-        /// Control divasam.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divasam;
-        
-        /// <summary>
-        /// Control divhonorarios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divhonorarios;
-        
-        /// <summary>
-        /// Control divpublicidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divpublicidad;
-        
-        /// <summary>
         /// Control divPorSueldo.
         /// </summary>
         /// <remarks>
