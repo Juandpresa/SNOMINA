@@ -515,8 +515,9 @@
                                         </td>
                                         <td>Tipo de Contrato:
                                         </td>
-                                        <td>Empleado de Construccion:
+                                        <td>Dias de Contrato:
                                         </td>
+
                                     </tr>
                                     <tr>
                                         <td class="td">
@@ -528,14 +529,20 @@
                                             <asp:DropDownList ID="ddlContrato" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
                                         </td>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtDiasC" runat="server" Text="" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empleado de Construccion:
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>
                                             <asp:CheckBox ID="chkObra" runat="server" CssClass="chkBox" />
                                         </td>
-                                        <%--                                        <td class="td">
-                                            <asp:TextBox ID="txtUbicacionLaboral" runat="server" Text="" CssClass="textbox"></asp:TextBox>
-                                        </td>--%>
-                                    </tr>
 
+                                    </tr>
                                 </table>
                             </div>
                             <div style="width: auto; border: 2px Solid #4a1414;">
