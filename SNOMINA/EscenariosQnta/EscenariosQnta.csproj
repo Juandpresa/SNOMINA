@@ -184,6 +184,7 @@
     <Content Include="css\jquery.datetimepicker.css" />
     <Content Include="css\login.css" />
     <Content Include="image\nomina.png" />
+    <Content Include="image\usuario.png" />
     <Content Include="js\bootstrap-datepicker.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />

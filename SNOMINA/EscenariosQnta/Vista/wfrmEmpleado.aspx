@@ -198,11 +198,13 @@
                 eshon.style.display = 'block';
                 esimss.style.display = 'none';
                 esasam.style.display = 'none';
+                espub.style.display = 'none';
             }
             if (listaEsq == 5) {
                 espub.style.display = 'block';
                 esimss.style.display = 'none';
                 esasam.style.display = 'none';
+                eshon.style.display = 'none';
             }
         }
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
@@ -240,37 +242,41 @@
                         <div class="container_12 container">
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
-                            <div class="contenPanel">
+
+                            <div class="contenPanel row">
                                 <table>
                                     <tr>
+
                                         <td>Empleadora:
                                         </td>
                                         <td>Cliente:
                                         </td>
-                                        <td>Clave Empleado:
-                                        </td>
+                                        <td></td>
                                     </tr>
-
                                     <tr>
-                                        <td class="td">
+                                        <td>
                                             <asp:DropDownList ID="ddlEmpleadora" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlEmpleadora_SelectedIndexChanged"
                                                 AutoPostBack="true">
                                             </asp:DropDownList>
                                         </td>
-                                        <td class="td">
+                                        <td>
                                             <asp:DropDownList ID="ddlCliente" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged"
                                                 AutoPostBack="true">
                                             </asp:DropDownList>
                                         </td>
-                                        <%--<td class="td">
-                                <asp:DropDownList ID="ddlEscenario" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlEscenario_SelectedIndexChanged"
-                                    AutoPostBack="true">
-                                </asp:DropDownList>
-                            </td>--%>
-                                        <td class="td">
+                                        <td rowspan="2" colspan="2">
+                                            <asp:Image ID="FotoEmp" runat="server" ImageUrl="~/image/usuario.png" Width="128px" Height="128px" />
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Clave Empleado:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
                                             <asp:TextBox ID="txtIdentificador" runat="server" Text="" CssClass="textboxid" ReadOnly="true"></asp:TextBox>
                                             <asp:TextBox ID="txtClave" runat="server" Text="" CssClass="textboxcl" required="required"></asp:TextBox>
-
                                         </td>
                                     </tr>
                                     <tr>
@@ -465,7 +471,7 @@
                                         </td>
                                         <td>Descripcion Puesto:
                                         </td>
-                                        <td>Fecha Ingreso:
+                                        <td>Departamento:
                                         </td>
                                     </tr>
                                     <tr>
@@ -478,25 +484,46 @@
                                             <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" runat="server" Text="" CssClass="textbox"></asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtFechaIngreso" runat="server" Text="" CssClass="datepicker" required="required"
-                                                placeholder="dd/mm/yyyy"></asp:TextBox>
+                                            <asp:TextBox ID="txtDepto" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Turno:
+                                        </td>
+                                        <td>Jornada:
+                                        </td>
+                                        <td>Horario:
                                         </td>
                                     </tr>
                                     <tr>
-                                        <%--<td>Prestacion:
-                                        </td>--%>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlTurno" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlJornada" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlHorario" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fecha Ingreso:
+                                        </td>
                                         <td>Tipo de Contrato:
                                         </td>
                                         <td>Empleado de Construccion:
                                         </td>
-                                        <%--                                        <td>Ubicacion Laboral:
-                                        </td>--%>
                                     </tr>
                                     <tr>
-                                        <%--<td class="td">
-                                            <asp:DropDownList ID="ddlPrestacion" runat="server" CssClass="cssDropdown" required="required">
-                                            </asp:DropDownList>
-                                        </td>--%>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtFechaIngreso" runat="server" Text="" CssClass="datepicker" required="required"
+                                                placeholder="dd/mm/yyyy"></asp:TextBox>
+                                        </td>
+
                                         <td class="td">
                                             <asp:DropDownList ID="ddlContrato" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
@@ -830,7 +857,7 @@
                                 </table>
                             </div>
                         </div>
-                      
+
                         <div class="container_12 container">
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
@@ -842,10 +869,22 @@
                                     <tr>
                                         <td>Prima de Riesgo:
                                         </td>
+                                        <td>Nacionalidad:
+                                        </td>
+                                        <td>Estado Civil:
+                                        </td>
+
                                     </tr>
                                     <tr>
                                         <td class="td">
                                             <asp:DropDownList ID="ddlPrimaRiesgo" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtNacionalidad" runat="server" Text="Mexicana" CssClass="textbox"> </asp:TextBox>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlECivil" runat="server" CssClass="cssDropdown">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -882,8 +921,8 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:DropDownList ID="txtCentroCostos" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
+                                            <asp:TextBox ID="txtCentroCostos" runat="server" CssClass="cssDropdown">
+                                            </asp:TextBox>
                                         </td>
 
                                         <td class="td">
@@ -934,9 +973,4 @@
 
     </script>
 </asp:Content>
-<%--<td>Nacionalidad:
-</td>
-<td class="td">
-    <asp:TextBox ID="txtNacionalidad" runat="server" Text="Mexicana" CssClass="textbox"> </asp:TextBox>
-</td>
---%>
+
