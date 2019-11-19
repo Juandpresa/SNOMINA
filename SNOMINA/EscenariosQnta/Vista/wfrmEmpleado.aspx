@@ -175,6 +175,8 @@
             var esasam = document.getElementById('ContentPlaceHolder1_divasam');
             var eshon = document.getElementById('ContentPlaceHolder1_divhonorarios');
             var espub = document.getElementById('ContentPlaceHolder1_divpublicidad');
+            var esmix = document.getElementById('ContentPlaceHolder1_ddlEMixto');
+            var txtpors = document.getElementById('ContentPlaceHolder1_divPorSueldo');
             var listaEsq = $('#<%=ddlEsquemas.ClientID%>').find('option:selected').val();
             if (listaEsq == 1) {
                 esimss.style.display = 'block';
@@ -183,17 +185,16 @@
                 espub.style.display = 'none';
             }
             if (listaEsq == 2) {
+                esmix.style.display = 'block';
+
+            }
+            if (listaEsq == 3) {
                 esasam.style.display = 'block';
                 esimss.style.display = 'none';
                 eshon.style.display = 'none';
                 espub.style.display = 'none';
             }
-            if (listaEsq == 3) {
-                esimss.style.display = 'block';
-                esasam.style.display = 'block';
-                eshon.style.display = 'none';
-                espub.style.display = 'none';
-            }
+
             if (listaEsq == 4) {
                 eshon.style.display = 'block';
                 esimss.style.display = 'none';
@@ -714,12 +715,53 @@
                             <div class="contenPanel">
                                 <table>
                                     <tr>
+                                        <td>Razon Social Pagadora:
+                                        </td>
+                                        <td>Tipo Pago:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlPagadora" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlTipoPago" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <div class="panelAntiguedad" style="display: none">
+                                                <asp:Label Text="Antiguedad (Años)" ID="lblAntiguedad" runat="server" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:CheckBox runat="server" ID="chkAntiguedad" CssClass="chkBox" CausesValidation="True" Text="Presenta Antiguedad" OnCheckedChanged="chkAntiguedad_CheckedChanged"></asp:CheckBox>
+                                        </td>
+                                        <td>
+                                            <div class="panelAntiguedad" style="display: none">
+                                                <asp:TextBox runat="server" value="0" ID="txtAntiguedad" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table>
+                                    <tr>
                                         <td align="center">Esquema:
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="td" align="center">
                                             <asp:DropDownList ID="ddlEsquemas" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsq()">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td" align="center" style="display: none">
+                                            <asp:DropDownList ID="ddlEMixto" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsq()">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -764,17 +806,9 @@
                                 <div runat="server" id="divasam" style="display: none">
                                     <table>
                                         <tr>
-                                            <td>Porcentaje (%):
+                                            <td>Porcentaje ASAM (%):
                                             </td>
                                             <td>Sueldo Neto:
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtSueldoNetoI" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtPorcentajeASAM" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                         </tr>
                                     </table>
@@ -782,17 +816,9 @@
                                 <div runat="server" id="divhonorarios" style="display: none">
                                     <table>
                                         <tr>
-                                            <td>Porcentaje (%):
+                                            <td>Porcentaje Honorarios (%):
                                             </td>
                                             <td>Sueldo Honorarios:
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtParocentajeHonorarios" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtSueldoHonorarios" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                         </tr>
                                     </table>
@@ -800,68 +826,74 @@
                                 <div runat="server" id="divpublicidad" style="display: none">
                                     <table>
                                         <tr>
-                                            <td>Porcentaje (%):
+                                            <td>Porcentaje Publicidad (%):
                                             </td>
                                             <td>Sueldo Publicidad:
                                             </td>
                                         </tr>
+                                    </table>
+                                </div>
+                                <div runat="server" id="divPorSueldo" style="display: none">
+                                    <table>
                                         <tr>
                                             <td class="td">
-                                                <asp:TextBox ID="txtPorcentajePubli" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                                <asp:TextBox ID="txtPorcentaje" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                             <td class="td">
-                                                <asp:TextBox ID="txtSueldoPubli" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                                <asp:TextBox ID="txtSueldo" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
+                                <asp:UpdatePanel runat="server" ID="UpdatePanel2" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <div>
+                                            <asp:Button ID="btnEsquema" runat="server" Text="Agregar" UseSubmitBehavior="False" CssClass="btn btn-info" OnClick="btnEsquema_Click" />
+                                            <br />
+                                            <br />
+                                        </div>
+                                        <asp:GridView ID="GridView2" runat="server" CssClass="table table-responsive-sm" DataKeyNames="Esquema" AutoGenerateColumns="false" AutoGenerateDeleteButton="True" OnRowDeleting="grd_RowDeleting">
+                                            <Columns>
+                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Esquema">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="txtEsquema" runat="server" Text='<%# Eval("Esquema") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Porcentaje">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="txtPorcentaje" runat="server" Text='<%# Eval("Porcentaje") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Sueldo Bruto">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="txtSueldoB" runat="server" Text='<%# Eval("SueldoBruto") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Sueldo Neto">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="txtSueldoN" runat="server" Text='<%# Eval("SueldoNeto") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Sueldo Diario">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="txtSueldoD" runat="server" Text='<%# Eval("SueldoDiario") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Sueldo Diario Integrado">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="txtSueldoDI" runat="server" Text='<%# Eval("SueldoDiarioI") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Right" HeaderText="IdEsquema" Visible="false">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="txtGIEsquema" runat="server" Text='<%# Eval("IdEsquema") %>' Visible="false"></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
 
-                            </div>
-                        </div>
-                        <div class="container_12 container">
-                            <div style="width: auto; border: 2px Solid #4a1414;">
-                            </div>
-                            PAGOS
-                <div style="width: auto; border: 2px Solid #4a1414;">
-                </div>
-                            <div class="contenPanel">
-                                <table>
-                                    <tr>
-                                        <td>Razon Social Pagadora:
-                                        </td>
-                                        <td>Tipo Pago:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlPagadora" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
-                                        </td>
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlTipoPago" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <div class="panelAntiguedad" style="display: none">
-                                                <asp:Label Text="Antiguedad (Años)" ID="lblAntiguedad" runat="server" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:CheckBox runat="server" ID="chkAntiguedad" CssClass="chkBox" CausesValidation="True" Text="Presenta Antiguedad" OnCheckedChanged="chkAntiguedad_CheckedChanged"></asp:CheckBox>
-                                        </td>
-                                        <td>
-                                            <div class="panelAntiguedad" style="display: none">
-                                                <asp:TextBox runat="server" value="0" ID="txtAntiguedad" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </table>
+                                            </Columns>
+                                        </asp:GridView>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                             </div>
                         </div>
 

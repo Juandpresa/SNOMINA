@@ -87,6 +87,7 @@ namespace EscenariosQnta
     clsDatos clsQuery = new clsDatos();
     string ValidacionControles = string.Empty;
     DataTable dtTarjeta = new DataTable();
+    DataTable dtEsquema = new DataTable();
     #endregion
 
     protected void Page_Load(object sender, EventArgs e)
@@ -1374,6 +1375,41 @@ namespace EscenariosQnta
       grd.DataSource = dtTarjeta;
       grd.DataBind();
 
+    }
+
+    protected void btnEsquema_Click(object sender, EventArgs e)
+    {
+      dtEsquema = GetTableWithNoData(); //get select column header only records not required
+      DataRow dr;
+      foreach (GridViewRow gvr in grd.Rows)
+      {
+        dr = dtEsquema.NewRow();
+        Label txtGBanco = gvr.FindControl("txtGBanco") as Label;
+        Label txtGCuenta = gvr.FindControl("txtGCuenta") as Label;
+        Label txtGClabe = gvr.FindControl("txtGClabe") as Label;
+        Label txtGTarjeta = gvr.FindControl("txtGTarjeta") as Label;
+        CheckBox chkGPrioridad = gvr.FindControl("chkGPrioridad") as CheckBox;
+        Label txtGIdBanco = gvr.FindControl("txtGIdBanco") as Label;
+        dr[0] = txtGBanco.Text;
+        dr[1] = txtGCuenta.Text;
+        dr[2] = txtGClabe.Text;
+        dr[3] = txtGTarjeta.Text;
+        dr[4] = chkGPrioridad.Checked == false;
+        dr[5] = txtGIdBanco.Text;
+
+        dtTarjeta.Rows.Add(dr); //add grid values in to row and add row to the blank table
+      }
+      dr = dtTarjeta.NewRow(); //add last empty row
+      dr[0] = ddlBanco.SelectedItem.Text;
+      dr[1] = txtCuenta.Text;
+      dr[2] = txtClabe.Text;
+      dr[3] = txtTarjeta.Text;
+      dr[4] = true;
+      dr[5] = ddlBanco.SelectedItem.Value;
+      dtTarjeta.Rows.Add(dr);
+      int fil = dtTarjeta.Rows.Count;
+      grd.DataSource = dtTarjeta; //bind new datatable to grid
+      grd.DataBind();
     }
   }
 }

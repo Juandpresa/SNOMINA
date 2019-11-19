@@ -409,6 +409,51 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.DropDownList ddlCarrera;
         
         /// <summary>
+        /// Control ddlPagadora.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPagadora;
+        
+        /// <summary>
+        /// Control ddlTipoPago.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoPago;
+        
+        /// <summary>
+        /// Control lblAntiguedad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAntiguedad;
+        
+        /// <summary>
+        /// Control chkAntiguedad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkAntiguedad;
+        
+        /// <summary>
+        /// Control txtAntiguedad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAntiguedad;
+        
+        /// <summary>
         /// Control ddlEsquemas.
         /// </summary>
         /// <remarks>
@@ -416,6 +461,15 @@ namespace EscenariosQnta {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEsquemas;
+        
+        /// <summary>
+        /// Control ddlEMixto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEMixto;
         
         /// <summary>
         /// Control divimss.
@@ -481,24 +535,6 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divasam;
         
         /// <summary>
-        /// Control txtSueldoNetoI.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSueldoNetoI;
-        
-        /// <summary>
-        /// Control txtPorcentajeASAM.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPorcentajeASAM;
-        
-        /// <summary>
         /// Control divhonorarios.
         /// </summary>
         /// <remarks>
@@ -506,24 +542,6 @@ namespace EscenariosQnta {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divhonorarios;
-        
-        /// <summary>
-        /// Control txtParocentajeHonorarios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtParocentajeHonorarios;
-        
-        /// <summary>
-        /// Control txtSueldoHonorarios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSueldoHonorarios;
         
         /// <summary>
         /// Control divpublicidad.
@@ -535,67 +553,58 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divpublicidad;
         
         /// <summary>
-        /// Control txtPorcentajePubli.
+        /// Control divPorSueldo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPorcentajePubli;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPorSueldo;
         
         /// <summary>
-        /// Control txtSueldoPubli.
+        /// Control txtPorcentaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSueldoPubli;
+        protected global::System.Web.UI.WebControls.TextBox txtPorcentaje;
         
         /// <summary>
-        /// Control ddlPagadora.
+        /// Control txtSueldo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPagadora;
+        protected global::System.Web.UI.WebControls.TextBox txtSueldo;
         
         /// <summary>
-        /// Control ddlTipoPago.
+        /// Control UpdatePanel2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoPago;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
         
         /// <summary>
-        /// Control lblAntiguedad.
+        /// Control btnEsquema.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAntiguedad;
+        protected global::System.Web.UI.WebControls.Button btnEsquema;
         
         /// <summary>
-        /// Control chkAntiguedad.
+        /// Control GridView2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkAntiguedad;
-        
-        /// <summary>
-        /// Control txtAntiguedad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAntiguedad;
+        protected global::System.Web.UI.WebControls.GridView GridView2;
         
         /// <summary>
         /// Control ddlPrimaRiesgo.
