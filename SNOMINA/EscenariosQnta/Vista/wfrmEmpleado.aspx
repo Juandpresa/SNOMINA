@@ -208,6 +208,44 @@
                 eshon.style.display = 'none';
             }
         }
+           function MostrarEsqM() {
+            var esimss = document.getElementById('ContentPlaceHolder1_divimss');
+            var esasam = document.getElementById('ContentPlaceHolder1_divasam');
+            var eshon = document.getElementById('ContentPlaceHolder1_divhonorarios');
+            var espub = document.getElementById('ContentPlaceHolder1_divpublicidad');
+            var esmix = document.getElementById('ContentPlaceHolder1_ddlEMixto');
+            var txtpors = document.getElementById('ContentPlaceHolder1_divPorSueldo');
+            var listaEsqM = $('#<%=ddlEMixto.ClientID%>').find('option:selected').val();
+            if (listaEsqM == 1) {
+                esimss.style.display = 'block';
+                esmix.style.display = 'block';
+                esasam.style.display = 'none';
+                eshon.style.display = 'none';
+                espub.style.display = 'none';
+            }
+            if (listaEsq == 3) {
+                esasam.style.display = 'block';
+                esmix.style.display = 'block';
+                esimss.style.display = 'none';
+                eshon.style.display = 'none';
+                espub.style.display = 'none';
+            }
+
+            if (listaEsqM == 4) {
+                eshon.style.display = 'block';
+                esmix.style.display = 'block';
+                esimss.style.display = 'none';
+                esasam.style.display = 'none';
+                espub.style.display = 'none';
+            }
+            if (listaEsqM == 5) {
+                espub.style.display = 'block';
+                esmix.style.display = 'block';
+                esimss.style.display = 'none';
+                esasam.style.display = 'none';
+                eshon.style.display = 'none';
+            }
+        }
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
 
     </script>

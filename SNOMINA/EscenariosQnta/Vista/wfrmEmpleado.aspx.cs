@@ -697,7 +697,7 @@ namespace EscenariosQnta
       //2txtSueldo.Text = "0";
       txtSueldoBruto.Text = "0"; //string.Empty;
       txtSueldoNeto.Text = "0"; //string.Empty;
-      txtSueldoHonorarios.Text = "0";
+      //txtSueldoHonorarios.Text = "0";
       //txtSueldoTN.Text = "0";
       //txtImporteInfonavit.Text = "0"; //string.Empty;
       //txtBono.Text = "0"; //string.Empty;
@@ -1054,7 +1054,7 @@ namespace EscenariosQnta
             //4Sueldo = float.Parse(txtSueldo.Text.ToString());
             SueldoBruto = float.Parse(txtSueldoBruto.Text.ToString());
             SueldoNeto = float.Parse(txtSueldoNeto.Text.ToString());
-            SueldoHonorarios = float.Parse(txtSueldoHonorarios.Text.ToString());
+            //SueldoHonorarios = float.Parse(txtSueldoHonorarios.Text.ToString());
             //SueldoTN = float.Parse(txtSueldoTN.Text.ToString());
             //5SueldoEZWallet = float.Parse(txtSueldoEZWallet.Text.ToString());
             //Id_Prestac = ddlPrestacion.SelectedItem.Value;
