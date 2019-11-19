@@ -763,7 +763,7 @@
                                         </td>
                                         <td align="center">
                                             <div class="mix" style="display:none" >
-                                            <asp:DropDownList ID="ddlEMixto" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsqM()">
+                                            <asp:DropDownList ID="ddlEMixto" runat="server" CssClass="cssDropdown">
                                             </asp:DropDownList>
                                            </div>
                                         </td>

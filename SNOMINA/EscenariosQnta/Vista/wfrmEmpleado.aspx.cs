@@ -124,16 +124,44 @@ namespace EscenariosQnta
         ObtenerNivelE();
         ObtenerInstitucion();
         ObtenBanco();
-        ObtenerEmpleadora();
+        //ObtenerEmpleadora();
         ObtenEmpleadoras();
         ObtenEntidad();
         ObtenTipoContrato();
         ObtenEsquema();
+        ObtenEsquemaNoMixto();
 
         grd.DataSource = GetTableWithInitialData(); //get first initial data
         grd.DataBind();
       }
     }
+
+    protected void ObtenEsquemaNoMixto()
+    {
+      try
+      {
+        DataTable dtEsquemaNM = new DataTable();
+
+        dtEsquemaNM = clsQuery.execQueryDataTable("SP_ObtenEsquemasNoMixto");
+        ddlEMixto.Items.Clear();
+
+        if (dtEsquemaNM.Rows.Count > 0)
+        {
+          ddlEMixto.DataSource = dtEsquemaNM;
+          ddlEMixto.DataTextField = "NombreEsquema";
+          ddlEMixto.DataValueField = "IdCatEsquemas";
+          ddlEMixto.DataBind();
+        }
+
+        ddlEMixto.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      }
+    }
+
     protected void ObtenEsquema()
     {
       try
@@ -141,6 +169,7 @@ namespace EscenariosQnta
         DataTable dtEsquema = new DataTable();
 
         dtEsquema = clsQuery.execQueryDataTable("SP_ObtenerEsquemas");
+        ddlEsquemas.Items.Clear();
 
         if (dtEsquema.Rows.Count > 0)
         {
@@ -189,6 +218,7 @@ namespace EscenariosQnta
         DataTable dtTipoContrato = new DataTable();
 
         dtTipoContrato = clsQuery.execQueryDataTable("SP_ObtenTipoContrato");
+        ddlPagadora.Items.Clear();
 
         if (dtTipoContrato.Rows.Count > 0)
         {
@@ -231,21 +261,21 @@ namespace EscenariosQnta
         Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
       }
     }
-    protected void ObtenerEmpleadora()
-    {
-      DataTable dtEmpleadora = new DataTable();
+    //protected void ObtenerEmpleadora()
+    //{
+    //  DataTable dtEmpleadora = new DataTable();
 
-      dtEmpleadora = clsQuery.execQueryDataTable("SP_ObtenerEmpleadoras");
+    //  dtEmpleadora = clsQuery.execQueryDataTable("SP_ObtenerEmpleadoras");
 
-      if (dtEmpleadora.Rows.Count > 0)
-      {
-        ddlEmpleadora.DataSource = dtEmpleadora;
-        ddlEmpleadora.DataTextField = "Alias";
-        ddlEmpleadora.DataValueField = "idRazonSocial";
-        ddlEmpleadora.DataBind();
-      }
-      ddlEmpleadora.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
-    }
+    //  if (dtEmpleadora.Rows.Count > 0)
+    //  {
+    //    ddlEmpleadora.DataSource = dtEmpleadora;
+    //    ddlEmpleadora.DataTextField = "Alias";
+    //    ddlEmpleadora.DataValueField = "idRazonSocial";
+    //    ddlEmpleadora.DataBind();
+    //  }
+    //  ddlEmpleadora.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+    //}
     protected void ObtenClave(int idCte)
     {
       IdEmpleado = BLLEmpleado.ObtenerUltimoEmpleado();
@@ -398,6 +428,7 @@ namespace EscenariosQnta
         DataTable dtPagadora = new DataTable();
 
         dtPagadora = BLLEmpleado.ObtenPagadoras(idEmpleadora);
+        ddlPagadora.Items.Clear();
 
         if (dtPagadora.Rows.Count > 0)
         {
@@ -406,7 +437,7 @@ namespace EscenariosQnta
           ddlPagadora.DataValueField = "PagadoraID";
           ddlPagadora.DataBind();
         }
-
+        
         ddlPagadora.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
 
       }
@@ -423,6 +454,7 @@ namespace EscenariosQnta
         DataTable dtCliente = new DataTable();
 
         dtCliente = BLLEmpleado.ObtenClientes(idEmpleadora);
+        ddlCliente.Items.Clear();
 
         if (dtCliente.Rows.Count > 0)
         {
@@ -448,6 +480,7 @@ namespace EscenariosQnta
         DataTable dtEmpleadora = new DataTable();
 
         dtEmpleadora = clsQuery.execQueryDataTable("SP_ObtenEmpleadoras");
+        ddlEmpleadora.Items.Clear();
 
         if (dtEmpleadora.Rows.Count > 0)
         {
