@@ -38,7 +38,7 @@ namespace EscenariosQnta
     int Id_Prestac;
     string UbicaLabora = "Hola";
     int Id_Infonavit;
-    decimal  ImporteInfonavit;
+    decimal ImporteInfonavit;
     decimal ImpFonacot;
     decimal Bono;
     decimal ComisionEmpleado;
@@ -70,6 +70,19 @@ namespace EscenariosQnta
     string clabe;
     string tarjeta;
     int Antiguedad;
+    string foto;
+    string calle;
+    string numero;
+    string colonia;
+    int estado;
+    string ciudad;
+    string cp;
+    string departamento;
+    int turno;
+    int horario;
+    int jornada;
+    int diasContrato;
+    int estadoCivil;
 
     int emp = 0;
 
