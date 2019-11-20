@@ -130,9 +130,36 @@ namespace EscenariosQnta
         ObtenTipoContrato();
         ObtenEsquema();
         ObtenEsquemaNoMixto();
+        ObtenEstadoCivil();
 
         grd.DataSource = GetTableWithInitialData(); //get first initial data
         grd.DataBind();
+      }
+    }
+
+    protected void ObtenEstadoCivil()
+    {
+      try
+      {
+        DataTable dtEstadoCivil = new DataTable();
+
+        dtEstadoCivil = clsQuery.execQueryDataTable("SP_ObtenEstadoCivil");
+        ddlECivil.Items.Clear();
+
+        if (dtEstadoCivil.Rows.Count > 0)
+        {
+          ddlECivil.DataSource = dtEstadoCivil;
+          ddlECivil.DataTextField = "EstadoCivil";
+          ddlECivil.DataValueField = "IdEstadoCivil";
+          ddlECivil.DataBind();
+        }
+
+        ddlECivil.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
       }
     }
 
