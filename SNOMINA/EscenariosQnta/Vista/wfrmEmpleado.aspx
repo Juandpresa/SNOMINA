@@ -176,6 +176,7 @@
             var listaEsq = $('#<%=ddlEsquemas.ClientID%>').find('option:selected').val();
             if (listaEsq == 1) {
                 esimss.style.display = 'block';
+                document.getElementById('ContentPlaceHolder1_txtPorcentajeIMSS').value = 100;
                 txtpors.style.display = 'none';
                 $('.mix').hide();
             }
@@ -186,17 +187,20 @@
             }
             if (listaEsq == 3) {
                 txtpors.style.display = 'block';
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
                 esimss.style.display = 'none';
                 $('.mix').hide();
             }
 
             if (listaEsq == 4) {
                 txtpors.style.display = 'block';
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
                 esimss.style.display = 'none';
                 $('.mix').hide();
             }
             if (listaEsq == 5) {
                 txtpors.style.display = 'block';
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
                 esimss.style.display = 'none';
                 $('.mix').hide();
             }
@@ -279,7 +283,7 @@
                                         <td></td>
                                         <td align="center">
                                             <br />
-                                            <input type="file" id="btnFoto" class="btn btn-info"/>
+                                            <input type="file" id="btnFoto" class="btn btn-info" />
                                         </td>
                                         <td></td>
                                     </tr>
