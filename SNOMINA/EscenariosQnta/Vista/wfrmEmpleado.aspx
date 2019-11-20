@@ -210,7 +210,7 @@
                 txtpors.style.display = 'none';
                 $('.mix').hide();
             }
-   
+
             if (listaEsq == 3) {
                 txtpors.style.display = 'block';
                 esimss.style.display = 'none';
@@ -269,12 +269,27 @@
                             <div class="contenPanel row">
                                 <table>
                                     <tr>
-
-                                        <td>Empleadora:
-                                        </td>
-                                        <td>Cliente:
+                                        <td></td>
+                                        <td valign="top" align="center">
+                                            <asp:Image ID="Image1" runat="server" ImageUrl="~/image/perfil.jpg" Width="128px" Height="150px" />
                                         </td>
                                         <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td align="center">
+                                            <br />
+                                            <input type="file" id="btnFoto" class="btn btn-info"/>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empleadora:
+                                        </td>
+                                        <td>Empleadora:
+                                        </td>
+                                        <td>Empleadora:
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -287,16 +302,6 @@
                                                 AutoPostBack="true">
                                             </asp:DropDownList>
                                         </td>
-                                        <td rowspan="2" colspan="2">
-                                            <asp:Image ID="FotoEmp" runat="server" ImageUrl="~/image/usuario.png" Width="128px" Height="128px" />
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Clave Empleado:
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <td>
                                             <asp:TextBox ID="txtIdentificador" runat="server" Text="" CssClass="textboxid" ReadOnly="true"></asp:TextBox>
                                             <asp:TextBox ID="txtClave" runat="server" Text="" CssClass="textboxcl" required="required"></asp:TextBox>
@@ -790,23 +795,13 @@
                                         </td>
                                         <td align="center">
                                             <div class="mix" style="display: none">
-                                                <asp:DropDownList ID="ddlEMixto" runat="server" CssClass="cssDropdown">
+                                                <asp:DropDownList ID="ddlEMixto" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsqM()">
                                                 </asp:DropDownList>
                                             </div>
                                         </td>
 
                                     </tr>
                                 </table>
-
-                                <%--                                <div runat="server"  style="display: none">
-                                    <table>
-                                        <tr>
-                                        </tr>
-                                        <tr>
-                                        </tr>
-                                    </table>
-                                </div>--%>
-
                                 <div runat="server" id="divimss" style="display: none">
                                     <table>
                                         <tr>
