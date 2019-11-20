@@ -201,6 +201,33 @@
                 $('.mix').hide();
             }
         }
+        function MostrarEsqM() {
+            var esimss = document.getElementById('ContentPlaceHolder1_divimss');
+            var txtpors = document.getElementById('ContentPlaceHolder1_divPorSueldo');
+            var listaEsq = $('#<%=ddlEsquemas.ClientID%>').find('option:selected').val();
+            if (listaEsq == 1) {
+                esimss.style.display = 'block';
+                txtpors.style.display = 'none';
+                $('.mix').hide();
+            }
+   
+            if (listaEsq == 3) {
+                txtpors.style.display = 'block';
+                esimss.style.display = 'none';
+                $('.mix').hide();
+            }
+
+            if (listaEsq == 4) {
+                txtpors.style.display = 'block';
+                esimss.style.display = 'none';
+                $('.mix').hide();
+            }
+            if (listaEsq == 5) {
+                txtpors.style.display = 'block';
+                esimss.style.display = 'none';
+                $('.mix').hide();
+            }
+        }
 
 
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
@@ -750,7 +777,7 @@
                                         <td align="center">Esquema:
                                         </td>
                                         <td align="center">
-                                            <div class="mix" style="display:none" >
+                                            <div class="mix" style="display: none">
                                                 <asp:Label Text="Mixto:" ID="Mixto" runat="server" />
                                             </div>
                                         </td>
@@ -762,16 +789,16 @@
                                             </asp:DropDownList>
                                         </td>
                                         <td align="center">
-                                            <div class="mix" style="display:none" >
-                                            <asp:DropDownList ID="ddlEMixto" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
-                                           </div>
+                                            <div class="mix" style="display: none">
+                                                <asp:DropDownList ID="ddlEMixto" runat="server" CssClass="cssDropdown">
+                                                </asp:DropDownList>
+                                            </div>
                                         </td>
 
                                     </tr>
                                 </table>
 
-<%--                                <div runat="server"  style="display: none">
+                                <%--                                <div runat="server"  style="display: none">
                                     <table>
                                         <tr>
                                         </tr>
