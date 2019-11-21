@@ -214,7 +214,6 @@ namespace EscenariosQnta.Data
 
         if (ds.Tables.Count > 0)
           tabla = ds.Tables[0];
-
       }
       catch (Exception)
       {

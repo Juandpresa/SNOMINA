@@ -101,6 +101,7 @@ namespace EscenariosQnta
     string ValidacionControles = string.Empty;
     DataTable dtTarjeta = new DataTable();
     DataTable dtEsquema = new DataTable();
+    DataTable dtHorarios = new DataTable();
     #endregion
 
     protected void Page_Load(object sender, EventArgs e)
@@ -131,9 +132,40 @@ namespace EscenariosQnta
         ObtenEsquema();
         ObtenEsquemaNoMixto();
         ObtenEstadoCivil();
+        ObtenHorarios();
 
         grd.DataSource = GetTableWithInitialData(); //get first initial data
         grd.DataBind();
+        grdHorario2.DataSource = GetGridHorarios(); //get first initial data
+        grdHorario2.DataBind();
+      }
+    }
+
+//    
+
+    protected void ObtenHorarios()
+    {
+      try
+      {
+        DataTable dtHorarios = new DataTable();
+
+        dtHorarios = clsQuery.execQueryDataTable("SP_ObtenHorarios");
+        ddlHorario.Items.Clear();
+
+        if (dtHorarios.Rows.Count > 0)
+        {
+          ddlHorario.DataSource = dtHorarios;
+          ddlHorario.DataTextField = "NomHorario";
+          ddlHorario.DataValueField = "IdHorario";
+          ddlHorario.DataBind();
+        }
+
+        ddlHorario.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
       }
     }
 
@@ -225,6 +257,14 @@ namespace EscenariosQnta
       table.Columns.Add("IdBanco", typeof(string));
       return table;
     }
+    public DataTable GetGridHorarios() //this might be your sp for select
+    {
+      DataTable table = new DataTable();
+      table.Columns.Add("Dia", typeof(string));
+      table.Columns.Add("Entrada", typeof(string));
+      table.Columns.Add("Salida", typeof(string));
+      return table;
+    }
 
     public DataTable GetTableWithNoData() //returns only structure if the select columns
     {
@@ -235,6 +275,14 @@ namespace EscenariosQnta
       table.Columns.Add("Tarjeta", typeof(string));
       table.Columns.Add("Prioridad", typeof(string));
       table.Columns.Add("IdBanco", typeof(string));
+      return table;
+    }
+    public DataTable GetGridHorariosConDatos() //returns only structure if the select columns
+    {
+      DataTable table = new DataTable();
+      table.Columns.Add("Dia", typeof(string));
+      table.Columns.Add("Entrada", typeof(string));
+      table.Columns.Add("Salida", typeof(string));
       return table;
     }
 
@@ -1483,6 +1531,108 @@ namespace EscenariosQnta
       int fil = dtTarjeta.Rows.Count;
       grd.DataSource = dtTarjeta; //bind new datatable to grid
       grd.DataBind();
+    }
+
+    protected void ddlHorario_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      grdHorario2.DataSourceID = null;
+      grdHorario2.DataSource = null;
+      grdHorario2.DataBind();
+      
+      DataTable dtHorario = new DataTable();
+        DataTable dtDias = new DataTable();
+        dtDias.Columns.Add("Dia");
+        DataRow dia = dtDias.NewRow();
+        dia["Dia"] = "Lunes";
+        dtDias.Rows.Add(dia);
+
+      dia = dtDias.NewRow();
+      dia["Dia"] = "Martes";
+      dtDias.Rows.Add(dia);
+
+      dia = dtDias.NewRow();
+      dia["Dia"] = "Miercoles";
+      dtDias.Rows.Add(dia);
+
+      dia = dtDias.NewRow();
+      dia["Dia"] = "Jueves";
+      dtDias.Rows.Add(dia);
+
+      dia = dtDias.NewRow();
+      dia["Dia"] = "Viernes";
+      dtDias.Rows.Add(dia);
+
+      dia = dtDias.NewRow();
+      dia["Dia"] = "Sabado";
+      dtDias.Rows.Add(dia);
+
+      dia = dtDias.NewRow();
+      dia["Dia"] = "Domingo";
+      dtDias.Rows.Add(dia);
+
+      dtHorario = BLLHorario.LlenaGridHorario(int.Parse(ddlHorario.SelectedValue));
+
+      
+      dtHorarios = GetGridHorariosConDatos(); //get select column header only records not required
+      DataRow dr;
+
+      foreach (GridViewRow gvr in grdHorario2.Rows)
+      {
+        dr = dtHorarios.NewRow();
+        Label txtGDia = gvr.FindControl("txtGDia") as Label;
+        Label txtGEntrada = gvr.FindControl("txtGEntrada") as Label;
+        Label txtGSalida = gvr.FindControl("txtGSalida") as Label;
+        dr[0] = txtGDia.Text;
+        dr[1] = txtGEntrada.Text;
+        dr[2] = txtGSalida.Text;
+
+        dtHorarios.Rows.Add(dr); //add grid values in to row and add row to the blank table
+      }
+      for (int i = 0; i < dtDias.Rows.Count; i++)
+      {
+        dr = dtHorarios.NewRow(); //add last empty row
+        dr[0] = dtDias.Rows[i]["Dia"].ToString();
+        if (i==0)
+        {
+          dr[1] = dtHorario.Rows[0][2].ToString();
+          dr[2] = dtHorario.Rows[0][9].ToString();
+        }
+        if (i == 1)
+        {
+          dr[1] = dtHorario.Rows[0][3].ToString();
+          dr[2] = dtHorario.Rows[0][10].ToString();
+        }
+        if (i == 2)
+        {
+          dr[1] = dtHorario.Rows[0][4].ToString();
+          dr[2] = dtHorario.Rows[0][11].ToString();
+        }
+        if (i == 3)
+        {
+          dr[1] = dtHorario.Rows[0][5].ToString();
+          dr[2] = dtHorario.Rows[0][12].ToString();
+        }
+        if (i == 4)
+        {
+          dr[1] = dtHorario.Rows[0][6].ToString();
+          dr[2] = dtHorario.Rows[0][13].ToString();
+        }
+        if (i == 5)
+        {
+          dr[1] = dtHorario.Rows[0][7].ToString();
+          dr[2] = dtHorario.Rows[0][14].ToString();
+        }
+        if (i == 6)
+        {
+          dr[1] = dtHorario.Rows[0][8].ToString();
+          dr[2] = dtHorario.Rows[0][15].ToString();
+        }
+
+        dtHorarios.Rows.Add(dr);
+      }
+      
+      grdHorario2.DataSource = dtHorarios; //bind new datatable to grid
+      grdHorario2.DataBind();
     }
   }
 }

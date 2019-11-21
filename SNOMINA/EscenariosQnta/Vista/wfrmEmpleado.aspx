@@ -37,6 +37,18 @@
             });
 
         });
+        
+        function showimagepreview(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+
+                    document.getElementsByTagName("img")[0].setAttribute("src", e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
         var accordionItems = new Array();
 
@@ -275,7 +287,8 @@
                                     <tr>
                                         <td></td>
                                         <td valign="top" align="center">
-                                            <asp:Image ID="Image1" runat="server" ImageUrl="~/image/perfil.jpg" Width="128px" Height="150px" />
+                                          <img id="img" alt="" style="width:128px; height:150px" src="../image/perfil.jpg"/>
+
                                         </td>
                                         <td></td>
                                     </tr>
@@ -283,7 +296,8 @@
                                         <td></td>
                                         <td align="center">
                                             <br />
-                                            <input type="file" id="btnFoto" class="btn btn-info" />
+                                          <asp:FileUpload ID="fileFoto" runat="server"             onchange="showimagepreview(this)" CssClass="btn btn-info"/>
+                                            <%--<input type="file" id="btnFoto" class="btn btn-info" />--%>
                                         </td>
                                         <td></td>
                                     </tr>
@@ -518,31 +532,8 @@
                                         <td class="td">
                                             <asp:TextBox ID="txtDepto" runat="server" Text="" CssClass="textbox"></asp:TextBox>
                                         </td>
-
                                     </tr>
-                                    <tr>
-                                        <td>Turno:
-                                        </td>
-                                        <td>Jornada:
-                                        </td>
-                                        <td>Horario:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlTurno" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
-                                        </td>
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlJornada" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
-                                        </td>
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlHorario" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                  <tr>
                                         <td>Fecha Ingreso:
                                         </td>
                                         <td>Tipo de Contrato:
@@ -575,7 +566,58 @@
                                         </td>
 
                                     </tr>
-                                </table>
+                                  </table>
+                              <br />
+
+                               <asp:UpdatePanel runat="server" ID="UpdatePanel3" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                              <table>
+                                    <tr>
+                                        <td>Turno:
+                                        </td>
+                                        <td>Jornada:
+                                        </td>
+                                        <td>Horario:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlTurno" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlJornada" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlHorario" runat="server" CssClass="cssDropdown" AutoPostBack="True" OnSelectedIndexChanged="ddlHorario_SelectedIndexChanged">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>                            
+                                      <br />
+                                       <asp:GridView ID="grdHorario2" runat="server" CssClass="table table-responsive-sm" AutoGenerateColumns="false">
+                                            <Columns>
+                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Dia">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="txtGDia" runat="server" Text='<%# Eval("Dia") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Entrada">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="txtGEntrada" runat="server" Text='<%# Eval("Entrada") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Salida">
+                                                    <ItemTemplate>
+                                                        <asp:Label ID="txtGSalida" runat="server" Text='<%# Eval("Salida") %>'></asp:Label>
+                                                    </ItemTemplate>
+                                                </asp:TemplateField>
+                                            </Columns>
+                                        </asp:GridView>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                             </div>
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
@@ -587,8 +629,7 @@
                 <div class="card-header" id="heading5">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                            DATOS DE PAGO
-                        </button>
+                            DATOS DE PAGO</button>
                     </h2>
                 </div>
                 <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
