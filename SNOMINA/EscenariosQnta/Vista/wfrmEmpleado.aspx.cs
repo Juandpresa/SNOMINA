@@ -1609,15 +1609,16 @@ namespace EscenariosQnta
       {
         dr[0] = ddlEsquemas.SelectedItem.Text;
       }      
-      dr[1] = txtP.Text;
-      dr[2] = txtClabe.Text;
-      dr[3] = txtTarjeta.Text;
-      dr[4] = true;
-      dr[5] = ddlBanco.SelectedItem.Value;
-      dtTarjeta.Rows.Add(dr);
-      int fil = dtTarjeta.Rows.Count;
-      grd.DataSource = dtTarjeta; //bind new datatable to grid
-      grd.DataBind();
+      dr[1] = txtPorcentaje.Text;
+      dr[2] = txtSueldoBruto.Text;
+      dr[3] = txtSueldoNeto.Text;
+      dr[4] = txtSueldoDiario.Text;
+      dr[5] = txtSueldoDI.Text;
+      dr[6] = ddlEsquemas.SelectedItem.Value;
+      dtEsquema.Rows.Add(dr);
+      int fil = dtEsquema.Rows.Count;
+      grdEsquemas.DataSource = dtEsquema; //bind new datatable to grid
+      grdEsquemas.DataBind();
     }
 
     protected void ddlHorario_SelectedIndexChanged(object sender, EventArgs e)
