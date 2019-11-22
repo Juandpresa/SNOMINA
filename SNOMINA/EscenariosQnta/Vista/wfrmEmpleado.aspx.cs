@@ -133,6 +133,8 @@ namespace EscenariosQnta
         ObtenEsquemaNoMixto();
         ObtenEstadoCivil();
         ObtenHorarios();
+        ObtenJornada();
+        ObtenTurno();
 
         grd.DataSource = GetTableWithInitialData(); //get first initial data
         grd.DataBind();
@@ -141,7 +143,57 @@ namespace EscenariosQnta
       }
     }
 
-//    
+    protected void ObtenTurno()
+    {
+      try
+      {
+        DataTable dtTurno = new DataTable();
+
+        dtTurno = clsQuery.execQueryDataTable("SP_ObtenTurno");
+        ddlTurno.Items.Clear();
+
+        if (dtTurno.Rows.Count > 0)
+        {
+          ddlTurno.DataSource = dtTurno;
+          ddlTurno.DataTextField = "Turno";
+          ddlTurno.DataValueField = "IdTurno";
+          ddlTurno.DataBind();
+        }
+
+        ddlTurno.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      }
+    }
+
+    protected void ObtenJornada()
+    {
+      try
+      {
+        DataTable dtJornada = new DataTable();
+
+        dtJornada = clsQuery.execQueryDataTable("SP_ObtenJornada");
+        ddlJornada.Items.Clear();
+
+        if (dtJornada.Rows.Count > 0)
+        {
+          ddlJornada.DataSource = dtJornada;
+          ddlJornada.DataTextField = "Jornada";
+          ddlJornada.DataValueField = "IdJornada";
+          ddlJornada.DataBind();
+        }
+
+        ddlJornada.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      }
+    }
 
     protected void ObtenHorarios()
     {
