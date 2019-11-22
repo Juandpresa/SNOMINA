@@ -177,6 +177,7 @@
             }
         }
         function MostrarEsq() {
+         
             var esimss = document.getElementById('ContentPlaceHolder1_divimss');
             var txtpors = document.getElementById('ContentPlaceHolder1_divPorSueldo');
             var listaEsq = $('#<%=ddlEsquemas.ClientID%>').find('option:selected').val();
