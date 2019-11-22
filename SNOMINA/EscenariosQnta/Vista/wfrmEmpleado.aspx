@@ -184,6 +184,7 @@
                 txtpors.style.display = 'block';
                 esimss.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentajeIMSS').value = 100;
+                document.getElementById('ContentPlaceHolder1_txtPorcentajeIMSS');
                 $('.mix').hide();
             }
             if (listaEsq == 2) {
@@ -890,15 +891,16 @@
                                                         <br />
                                                         <asp:Button ID="btnEsquema" runat="server" Text="Agregar" UseSubmitBehavior="False" CssClass="btn btn-info" OnClick="btnEsquema_Click" />
                                                     </td>
-                                                    <td align="right">
-                                                         <br />
+                                                    <td class="td" style="text-align: right">
+                                                        <br />
                                                         <br />
                                                         Total (%):
                                                     </td>
+                                                    <td></td>
                                                     <td align="center">
-                                                         <br />
                                                         <br />
-                                                        <asp:TextBox ID="txtTotalE" ReadOnly="true" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                                        <br />
+                                                        &nbsp;&nbsp;<asp:TextBox ID="txtTotalE" ReadOnly="true" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                                     </td>
                                                 </tr>
                                             </table>
