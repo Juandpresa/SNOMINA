@@ -184,7 +184,7 @@
                 txtpors.style.display = 'block';
                 esimss.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentajeIMSS').value = 100;
-                document.getElementById('ContentPlaceHolder1_txtPorcentajeIMSS');
+                document.getElementById('ContentPlaceHolder1_txtPorcentajeIMSS').readOnly = true;
                 $('.mix').hide();
             }
             if (listaEsq == 2) {
@@ -194,7 +194,8 @@
             }
             if (listaEsq == 3) {
                 txtpors.style.display = 'block';
-                document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = true;
                 esimss.style.display = 'none';
                 $('.mix').hide();
             }
@@ -202,12 +203,14 @@
             if (listaEsq == 4) {
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = true;
                 esimss.style.display = 'none';
                 $('.mix').hide();
             }
             if (listaEsq == 5) {
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = true;
                 esimss.style.display = 'none';
                 $('.mix').hide();
             }
@@ -218,21 +221,25 @@
             var listaEsq = $('#<%=ddlEMixto.ClientID%>').find('option:selected').val();
             if (listaEsq == 1) {
                 esimss.style.display = 'block';
-                txtpors.style.display = 'none';
+                txtpors.style.display = 'block';
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
             }
 
             if (listaEsq == 3) {
                 txtpors.style.display = 'block';
                 esimss.style.display = 'none';
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
             }
 
             if (listaEsq == 4) {
                 txtpors.style.display = 'block';
                 esimss.style.display = 'none';
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
             }
             if (listaEsq == 5) {
                 txtpors.style.display = 'block';
                 esimss.style.display = 'none';
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
             }
         }
 
