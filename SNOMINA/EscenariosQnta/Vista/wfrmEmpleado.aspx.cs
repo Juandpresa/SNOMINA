@@ -1733,5 +1733,42 @@ namespace EscenariosQnta
       grdHorario2.DataSource = dtHorarios; //bind new datatable to grid
       grdHorario2.DataBind();
     }
+
+    protected void grdEsquemas_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+      dtEsquema = GetGridEsquemasConDatos();
+      DataRow dr;
+      foreach (GridViewRow gvrE in grdEsquemas.Rows)
+      {
+        dr = dtEsquema.NewRow();
+        Label txtGEsquema = gvrE.FindControl("txtEsquema") as Label;
+        Label txtGPorcentaje = gvrE.FindControl("txtPorcentaje") as Label;
+        Label txtGSueldoB = gvrE.FindControl("txtSueldoB") as Label;
+        Label txtGSueldoN = gvrE.FindControl("txtSueldoN") as Label;
+        Label txtGSueldoD = gvrE.FindControl("txtSueldoD") as Label;
+        Label txtGSueldoDI = gvrE.FindControl("txtSueldoDI") as Label;
+        Label txtGIEsquema = gvrE.FindControl("txtGIEsquema") as Label;
+        dr[0] = txtGEsquema.Text;
+        dr[1] = txtGPorcentaje.Text;
+        dr[2] = txtGSueldoB.Text;
+        dr[3] = txtGSueldoN.Text;
+        dr[4] = txtGSueldoD.Text;
+        dr[5] = txtGSueldoDI.Text;
+        dr[6] = txtGIEsquema.Text;
+
+        dtEsquema.Rows.Add(dr);
+      }
+      //dr[1] = dtHorario.Rows[0][7].ToString();
+      int Porc = int.Parse(dtEsquema.Rows[e.RowIndex][1].ToString());
+      txtTotalE.Text = (int.Parse(txtTotalE.Text) - Porc).ToString();
+
+      //int txtPorc = int.Parse(txtTotalE.Text);
+      //int res = txtPorc - Porc;
+      //txtTotalE.Text = res.ToString();
+      dtEsquema.Rows.RemoveAt(e.RowIndex);
+      grdEsquemas.DataSource = dtTarjeta;
+      grdEsquemas.DataBind();
+
+    }
   }
 }
