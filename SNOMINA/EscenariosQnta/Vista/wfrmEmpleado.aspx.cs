@@ -316,10 +316,10 @@ namespace EscenariosQnta
       DataTable table = new DataTable();
       table.Columns.Add("Esquema", typeof(string));
       table.Columns.Add("Porcentaje", typeof(string));
-      table.Columns.Add("Sueldo Bruto", typeof(string));
-      table.Columns.Add("Sueldo Neto", typeof(string));
-      table.Columns.Add("Sueldo Diario", typeof(string));
-      table.Columns.Add("Sueldo Diario Integrado", typeof(string));
+      table.Columns.Add("SueldoBruto", typeof(string));
+      table.Columns.Add("SueldoNeto", typeof(string));
+      table.Columns.Add("SueldoDiario", typeof(string));
+      table.Columns.Add("SueldoDiarioI", typeof(string));
       table.Columns.Add("IdEsquema", typeof(string));
       return table;
     }
@@ -348,10 +348,10 @@ namespace EscenariosQnta
       DataTable table = new DataTable();
       table.Columns.Add("Esquema", typeof(string));
       table.Columns.Add("Porcentaje", typeof(string));
-      table.Columns.Add("Sueldo Bruto", typeof(string));
-      table.Columns.Add("Sueldo Neto", typeof(string));
-      table.Columns.Add("Sueldo Diario", typeof(string));
-      table.Columns.Add("Sueldo Diario Integrado", typeof(string));
+      table.Columns.Add("SueldoBruto", typeof(string));
+      table.Columns.Add("SueldoNeto", typeof(string));
+      table.Columns.Add("SueldoDiario", typeof(string));
+      table.Columns.Add("SueldoDiarioI", typeof(string));
       table.Columns.Add("IdEsquema", typeof(string));
       return table;
     }
@@ -1580,16 +1580,16 @@ namespace EscenariosQnta
     {
       dtEsquema = GetGridEsquemasConDatos(); //get select column header only records not required
       DataRow dr;
-      foreach (GridViewRow gvr in grdEsquemas.Rows)
+      foreach (GridViewRow gvrE in grdEsquemas.Rows)
       {
         dr = dtEsquema.NewRow();
-        Label txtGEsquema = gvr.FindControl("txtEsquema") as Label;
-        Label txtGPorcentaje = gvr.FindControl("txtPorcentaje") as Label;
-        Label txtGSueldoB = gvr.FindControl("txtSueldoB") as Label;
-        Label txtGSueldoN = gvr.FindControl("txtSueldoN") as Label;
-        Label txtGSueldoD = gvr.FindControl("txtSueldoD") as Label;
-        Label txtGSueldoDI = gvr.FindControl("txtSueldoDI") as Label;
-        Label txtGIEsquema = gvr.FindControl("txtGIEsquema") as Label;
+        Label txtGEsquema = gvrE.FindControl("txtEsquema") as Label;
+        Label txtGPorcentaje = gvrE.FindControl("txtPorcentaje") as Label;
+        Label txtGSueldoB = gvrE.FindControl("txtSueldoB") as Label;
+        Label txtGSueldoN = gvrE.FindControl("txtSueldoN") as Label;
+        Label txtGSueldoD = gvrE.FindControl("txtSueldoD") as Label;
+        Label txtGSueldoDI = gvrE.FindControl("txtSueldoDI") as Label;
+        Label txtGIEsquema = gvrE.FindControl("txtGIEsquema") as Label;
         dr[0] = txtGEsquema.Text;
         dr[1] = txtGPorcentaje.Text;
         dr[2] = txtGSueldoB.Text;
@@ -1603,15 +1603,15 @@ namespace EscenariosQnta
       dr = dtEsquema.NewRow(); //add last empty row
       if (ddlEMixto.Visible==true)
       {
-        dr[0] = ddlEMixto.SelectedItem.Text;
+        dr[0] = ddlEsquemas.SelectedItem.Text;
       }
       else
       {
-        dr[0] = ddlEsquemas.SelectedItem.Text;
+        dr[0] = ddlEMixto.SelectedItem.Text;        
       }      
       dr[1] = txtPorcentaje.Text;
       dr[2] = txtSueldoBruto.Text;
-      dr[3] = txtSueldoNeto.Text;
+      dr[3] = txtSueldo.Text;
       dr[4] = txtSueldoDiario.Text;
       dr[5] = txtSueldoDI.Text;
       dr[6] = ddlEsquemas.SelectedItem.Value;
