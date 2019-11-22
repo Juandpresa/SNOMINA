@@ -30,14 +30,8 @@
                 }
             });
 
-
-            $('#btnAgregarBanco').click(function () {
-                AgregarBanco();
-                Limpiar();
-            });
-
         });
-        
+
         function showimagepreview(input) {
 
             if (input.files && input.files[0]) {
@@ -154,9 +148,9 @@
 
             if (selected.value == "1") {
                 //alert(selected.value);
-                document.getElementById('ContentPlaceHolder1_txtSueldoBruto').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtSueldoNeto').value = 0;
-                document.getElementById('ContentPlaceHolder1_txtSueldoHonorarios').value = 0;
+                //document.getElementById('ContentPlaceHolder1_txtSueldoBruto').value = 0;
+                //document.getElementById('ContentPlaceHolder1_txtSueldoNeto').value = 0;
+                //document.getElementById('ContentPlaceHolder1_txtSueldoHonorarios').value = 0;
                 //document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
                 //document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
                 //Card´s
@@ -190,10 +184,10 @@
                 esimss.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentajeIMSS').value = 100;
                 txtpors.style.display = 'none';
-                $('.mix').hide();
+                //$('.mix').hide();
             }
             if (listaEsq == 2) {
-                $('.mix').show();
+                //$('.mix').show();
                 esimss.style.display = 'none';
                 txtpors.style.display = 'none';
             }
@@ -201,47 +195,43 @@
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
                 esimss.style.display = 'none';
-                $('.mix').hide();
+                //$('.mix').hide();
             }
 
             if (listaEsq == 4) {
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
                 esimss.style.display = 'none';
-                $('.mix').hide();
+                //$('.mix').hide();
             }
             if (listaEsq == 5) {
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
                 esimss.style.display = 'none';
-                $('.mix').hide();
+                //$('.mix').hide();
             }
         }
         function MostrarEsqM() {
             var esimss = document.getElementById('ContentPlaceHolder1_divimss');
             var txtpors = document.getElementById('ContentPlaceHolder1_divPorSueldo');
-            var listaEsq = $('#<%=ddlEsquemas.ClientID%>').find('option:selected').val();
+            var listaEsq = $('#<%=ddlEMixto.ClientID%>').find('option:selected').val();
             if (listaEsq == 1) {
                 esimss.style.display = 'block';
                 txtpors.style.display = 'none';
-                $('.mix').hide();
             }
 
             if (listaEsq == 3) {
                 txtpors.style.display = 'block';
                 esimss.style.display = 'none';
-                $('.mix').hide();
             }
 
             if (listaEsq == 4) {
                 txtpors.style.display = 'block';
                 esimss.style.display = 'none';
-                $('.mix').hide();
             }
             if (listaEsq == 5) {
                 txtpors.style.display = 'block';
                 esimss.style.display = 'none';
-                $('.mix').hide();
             }
         }
 
@@ -287,7 +277,7 @@
                                     <tr>
                                         <td></td>
                                         <td valign="top" align="center">
-                                          <img id="img" alt="" style="width:128px; height:150px" src="../image/perfil.jpg"/>
+                                            <img id="img" alt="" style="width: 128px; height: 150px" src="../image/perfil.jpg" />
 
                                         </td>
                                         <td></td>
@@ -296,17 +286,19 @@
                                         <td></td>
                                         <td align="center">
                                             <br />
-                                          <asp:FileUpload ID="fileFoto" runat="server"             onchange="showimagepreview(this)" CssClass="btn btn-info"/>
-                                            <%--<input type="file" id="btnFoto" class="btn btn-info" />--%>
+                                            <asp:FileUpload ID="fileFoto" runat="server" onchange="showimagepreview(this)" CssClass="btn btn-info" />
+                                        <br />
+                                        <br />
                                         </td>
                                         <td></td>
                                     </tr>
+
                                     <tr>
                                         <td>Empleadora:
                                         </td>
-                                        <td>Empleadora:
+                                        <td>Cliente:
                                         </td>
-                                        <td>Empleadora:
+                                        <td>Clave Empleado:
                                         </td>
                                     </tr>
                                     <tr>
@@ -422,8 +414,7 @@
                                 <table>
                                     <tr>
                                         <td class="td">
-                                            <asp:RadioButtonList runat="server" ID="rbtTipoEsquema" CssClass="chkBox" onchange="javascript:showContent()"
-                                                CausesValidation="True">
+                                            <asp:RadioButtonList runat="server" ID="rbtTipoEsquema" CssClass="chkBox" onchange="javascript:showContent()" CausesValidation="True">
                                             </asp:RadioButtonList>
                                         </td>
                                     </tr>
@@ -533,7 +524,7 @@
                                             <asp:TextBox ID="txtDepto" runat="server" Text="" CssClass="textbox"></asp:TextBox>
                                         </td>
                                     </tr>
-                                  <tr>
+                                    <tr>
                                         <td>Fecha Ingreso:
                                         </td>
                                         <td>Tipo de Contrato:
@@ -566,38 +557,38 @@
                                         </td>
 
                                     </tr>
-                                  </table>
-                              <br />
+                                </table>
+                                <br />
 
-                               <asp:UpdatePanel runat="server" ID="UpdatePanel3" UpdateMode="Conditional">
+                                <asp:UpdatePanel runat="server" ID="UpdatePanel3" UpdateMode="Conditional">
                                     <ContentTemplate>
-                              <table>
-                                    <tr>
-                                        <td>Turno:
-                                        </td>
-                                        <td>Jornada:
-                                        </td>
-                                        <td>Horario:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlTurno" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
-                                        </td>
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlJornada" runat="server" CssClass="cssDropdown">
-                                            </asp:DropDownList>
-                                        </td>
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlHorario" runat="server" CssClass="cssDropdown" AutoPostBack="True" OnSelectedIndexChanged="ddlHorario_SelectedIndexChanged">
-                                            </asp:DropDownList>
-                                        </td>
-                                    </tr>
-                                    
-                                </table>                            
-                                      <br />
-                                       <asp:GridView ID="grdHorario2" runat="server" CssClass="table table-responsive-sm" AutoGenerateColumns="false">
+                                        <table>
+                                            <tr>
+                                                <td>Turno:
+                                                </td>
+                                                <td>Jornada:
+                                                </td>
+                                                <td>Horario:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td">
+                                                    <asp:DropDownList ID="ddlTurno" runat="server" CssClass="cssDropdown">
+                                                    </asp:DropDownList>
+                                                </td>
+                                                <td class="td">
+                                                    <asp:DropDownList ID="ddlJornada" runat="server" CssClass="cssDropdown">
+                                                    </asp:DropDownList>
+                                                </td>
+                                                <td class="td">
+                                                    <asp:DropDownList ID="ddlHorario" runat="server" CssClass="cssDropdown" AutoPostBack="True" OnSelectedIndexChanged="ddlHorario_SelectedIndexChanged">
+                                                    </asp:DropDownList>
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                        <br />
+                                        <asp:GridView ID="grdHorario2" runat="server" CssClass="table table-responsive-sm" AutoGenerateColumns="false">
                                             <Columns>
                                                 <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Dia">
                                                     <ItemTemplate>
@@ -806,7 +797,7 @@
                                         <td></td>
                                         <td>
                                             <div class="panelAntiguedad" style="display: none">
-                                                <asp:Label Text="Antiguedad (Años)" ID="lblAntiguedad" runat="server" />
+                                                <asp:Label Text="Antiguedad" ID="lblAntiguedad" runat="server" />
                                             </div>
                                         </td>
                                     </tr>
@@ -816,7 +807,7 @@
                                         </td>
                                         <td>
                                             <div class="panelAntiguedad" style="display: none">
-                                                <asp:TextBox runat="server" value="0" ID="txtAntiguedad" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                                <asp:TextBox ID="txtAntiguedad" runat="server" Text="" CssClass="datepicker" placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
                                             </div>
 
                                         </td>
