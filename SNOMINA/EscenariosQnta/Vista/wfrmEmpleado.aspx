@@ -181,9 +181,9 @@
             var txtpors = document.getElementById('ContentPlaceHolder1_divPorSueldo');
             var listaEsq = $('#<%=ddlEsquemas.ClientID%>').find('option:selected').val();
             if (listaEsq == 1) {
+                txtpors.style.display = 'block';
                 esimss.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentajeIMSS').value = 100;
-                txtpors.style.display = 'none';
                 $('.mix').hide();
             }
             if (listaEsq == 2) {
@@ -287,8 +287,8 @@
                                         <td align="center">
                                             <br />
                                             <asp:FileUpload ID="fileFoto" runat="server" onchange="showimagepreview(this)" CssClass="btn btn-info" />
-                                        <br />
-                                        <br />
+                                            <br />
+                                            <br />
                                         </td>
                                         <td></td>
                                     </tr>
@@ -838,43 +838,6 @@
 
                                     </tr>
                                 </table>
-                                <div runat="server" id="divimss" style="display: none">
-                                    <table>
-                                        <tr>
-                                            <td>Porcentaje(%):</td>
-                                            <td>Sueldo Bruto:
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtPorcentajeIMSS" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtSueldoBruto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sueldo Neto:
-                                            </td>
-                                            <td>Sueldo Diario:
-                                            </td>
-                                            <td>Sueldo Diario Integrado:
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="td">
-                                                <asp:TextBox ID="SueldoNetoC" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtSueldoDiario" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtSueldoDI" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
                                 <div runat="server" id="divPorSueldo" style="display: none">
                                     <table>
                                         <tr>
@@ -889,6 +852,30 @@
                                             </td>
                                             <td class="td">
                                                 <asp:TextBox ID="txtSueldo" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div runat="server" id="divimss" style="display: none">
+                                    <table>
+                                        <tr>
+                                            <td>Sueldo Bruto:
+                                            </td>
+                                            <td>Sueldo Diario:
+                                            </td>
+                                            <td>Sueldo Diario Integrado:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtSueldoBruto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtSueldoDiario" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtSueldoDI" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                         </tr>
                                     </table>
