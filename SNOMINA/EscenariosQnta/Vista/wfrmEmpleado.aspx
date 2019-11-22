@@ -193,24 +193,9 @@
                 esimss.style.display = 'none';
                 txtpors.style.display = 'none';
             }
-            if (listaEsq == 3) {
+            if (listaEsq >= 3) {
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100
-                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = true;
-                esimss.style.display = 'none';
-                $('.mix').hide();
-            }
-
-            if (listaEsq == 4) {
-                txtpors.style.display = 'block';
-                document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
-                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = true;
-                esimss.style.display = 'none';
-                $('.mix').hide();
-            }
-            if (listaEsq == 5) {
-                txtpors.style.display = 'block';
-                document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = true;
                 esimss.style.display = 'none';
                 $('.mix').hide();
@@ -226,18 +211,7 @@
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
             }
 
-            if (listaEsq == 3) {
-                txtpors.style.display = 'block';
-                esimss.style.display = 'none';
-                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
-            }
-
-            if (listaEsq == 4) {
-                txtpors.style.display = 'block';
-                esimss.style.display = 'none';
-                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
-            }
-            if (listaEsq == 5) {
+            if (listaEsq >= 3) {
                 txtpors.style.display = 'block';
                 esimss.style.display = 'none';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
@@ -664,9 +638,9 @@
                                     <tr>
                                         <td>No. Tarjeta:
                                         </td>
-                                        <td>Sueldo Neto:
-                                        </td>
                                         <td>Periodo de Pago:
+                                        </td>
+                                        <td>Sueldo Neto:
                                         </td>
                                     </tr>
                                     <tr>
@@ -675,11 +649,11 @@
                                             </asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtSueldoNeto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                        </td>
-                                        <td class="td">
                                             <asp:DropDownList ID="ddlPeriodoPago" runat="server" CssClass="cssDropdown">
                                             </asp:DropDownList>
+                                        </td>
+                                         <td class="td">
+                                            <asp:TextBox ID="txtSueldoNeto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
                                     </tr>
                                 </table>
