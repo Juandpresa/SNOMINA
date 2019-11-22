@@ -1578,7 +1578,9 @@ namespace EscenariosQnta
 
     protected void btnEsquema_Click(object sender, EventArgs e)
     {
-      if (int.Parse(txtTotalE.Text)<100)
+      int TotalP = int.Parse(txtTotalE.Text);
+      int res = TotalP + int.Parse(txtPorcentaje.Text);
+      if (res<=100)
       {
         dtEsquema = GetGridEsquemasConDatos(); //get select column header only records not required
         DataRow dr;
@@ -1761,12 +1763,8 @@ namespace EscenariosQnta
       //dr[1] = dtHorario.Rows[0][7].ToString();
       int Porc = int.Parse(dtEsquema.Rows[e.RowIndex][1].ToString());
       txtTotalE.Text = (int.Parse(txtTotalE.Text) - Porc).ToString();
-
-      //int txtPorc = int.Parse(txtTotalE.Text);
-      //int res = txtPorc - Porc;
-      //txtTotalE.Text = res.ToString();
       dtEsquema.Rows.RemoveAt(e.RowIndex);
-      grdEsquemas.DataSource = dtTarjeta;
+      grdEsquemas.DataSource = dtEsquema;
       grdEsquemas.DataBind();
 
     }
