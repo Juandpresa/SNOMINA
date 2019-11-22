@@ -1606,13 +1606,13 @@ namespace EscenariosQnta
           dtEsquema.Rows.Add(dr); //add grid values in to row and add row to the blank table
         }
         dr = dtEsquema.NewRow(); //add last empty row
-        if (ddlEMixto.Visible == true)
+        if (ddlEMixto.SelectedIndex > 0)
         {
-          dr[0] = ddlEsquemas.SelectedItem.Text;
+          dr[0] = ddlEMixto.SelectedItem.Text;
         }
         else
         {
-          dr[0] = ddlEMixto.SelectedItem.Text;
+          dr[0] = ddlEsquemas.SelectedItem.Text;
         }
         dr[1] = txtPorcentaje.Text;
         dr[2] = txtSueldoBruto.Text;
@@ -1627,6 +1627,7 @@ namespace EscenariosQnta
         int fil = dtEsquema.Rows.Count;
         grdEsquemas.DataSource = dtEsquema; //bind new datatable to grid
         grdEsquemas.DataBind();
+        
       }
       else
       {
