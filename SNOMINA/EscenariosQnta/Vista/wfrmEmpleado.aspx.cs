@@ -83,7 +83,7 @@ namespace EscenariosQnta
     int jornada;
     int diasContrato;
     int estadoCivil;
-
+    int porc = 0;
     int emp = 0;
 
     DateTime FechUltimoPago;
@@ -1578,48 +1578,58 @@ namespace EscenariosQnta
 
     protected void btnEsquema_Click(object sender, EventArgs e)
     {
-      dtEsquema = GetGridEsquemasConDatos(); //get select column header only records not required
-      DataRow dr;
-      int porc = 0;
-      foreach (GridViewRow gvrE in grdEsquemas.Rows)
+      if (int.Parse(txtTotalE.Text)<100)
       {
-        dr = dtEsquema.NewRow();
-        Label txtGEsquema = gvrE.FindControl("txtEsquema") as Label;
-        Label txtGPorcentaje = gvrE.FindControl("txtPorcentaje") as Label;
-        Label txtGSueldoB = gvrE.FindControl("txtSueldoB") as Label;
-        Label txtGSueldoN = gvrE.FindControl("txtSueldoN") as Label;
-        Label txtGSueldoD = gvrE.FindControl("txtSueldoD") as Label;
-        Label txtGSueldoDI = gvrE.FindControl("txtSueldoDI") as Label;
-        Label txtGIEsquema = gvrE.FindControl("txtGIEsquema") as Label;
-        dr[0] = txtGEsquema.Text;
-        dr[1] = txtGPorcentaje.Text;
-        dr[2] = txtGSueldoB.Text;
-        dr[3] = txtGSueldoN.Text;
-        dr[4] = txtGSueldoD.Text;
-        dr[5] = txtGSueldoDI.Text;
-        dr[6] = txtGIEsquema.Text;
-        porc = porc + int.Parse(txtGPorcentaje.Text);
-        dtEsquema.Rows.Add(dr); //add grid values in to row and add row to the blank table
-      }
-      dr = dtEsquema.NewRow(); //add last empty row
-      if (ddlEMixto.Visible==true)
-      {
-        dr[0] = ddlEsquemas.SelectedItem.Text;
+        dtEsquema = GetGridEsquemasConDatos(); //get select column header only records not required
+        DataRow dr;
+
+        foreach (GridViewRow gvrE in grdEsquemas.Rows)
+        {
+          dr = dtEsquema.NewRow();
+          Label txtGEsquema = gvrE.FindControl("txtEsquema") as Label;
+          Label txtGPorcentaje = gvrE.FindControl("txtPorcentaje") as Label;
+          Label txtGSueldoB = gvrE.FindControl("txtSueldoB") as Label;
+          Label txtGSueldoN = gvrE.FindControl("txtSueldoN") as Label;
+          Label txtGSueldoD = gvrE.FindControl("txtSueldoD") as Label;
+          Label txtGSueldoDI = gvrE.FindControl("txtSueldoDI") as Label;
+          Label txtGIEsquema = gvrE.FindControl("txtGIEsquema") as Label;
+          dr[0] = txtGEsquema.Text;
+          dr[1] = txtGPorcentaje.Text;
+          dr[2] = txtGSueldoB.Text;
+          dr[3] = txtGSueldoN.Text;
+          dr[4] = txtGSueldoD.Text;
+          dr[5] = txtGSueldoDI.Text;
+          dr[6] = txtGIEsquema.Text;
+
+          dtEsquema.Rows.Add(dr); //add grid values in to row and add row to the blank table
+        }
+        dr = dtEsquema.NewRow(); //add last empty row
+        if (ddlEMixto.Visible == true)
+        {
+          dr[0] = ddlEsquemas.SelectedItem.Text;
+        }
+        else
+        {
+          dr[0] = ddlEMixto.SelectedItem.Text;
+        }
+        dr[1] = txtPorcentaje.Text;
+        dr[2] = txtSueldoBruto.Text;
+        dr[3] = txtSueldo.Text;
+        dr[4] = txtSueldoDiario.Text;
+        dr[5] = txtSueldoDI.Text;
+        dr[6] = ddlEsquemas.SelectedItem.Value;
+        dtEsquema.Rows.Add(dr);
+        porc = int.Parse(txtTotalE.Text);
+        porc = porc + int.Parse(txtPorcentaje.Text);
+        txtTotalE.Text = porc.ToString();
+        int fil = dtEsquema.Rows.Count;
+        grdEsquemas.DataSource = dtEsquema; //bind new datatable to grid
+        grdEsquemas.DataBind();
       }
       else
       {
-        dr[0] = ddlEMixto.SelectedItem.Text;        
-      }      
-      dr[1] = txtPorcentaje.Text;
-      dr[2] = txtSueldoBruto.Text;
-      dr[3] = txtSueldo.Text;
-      dr[4] = txtSueldoDiario.Text;
-      dr[5] = txtSueldoDI.Text;
-      dr[6] = ddlEsquemas.SelectedItem.Value;
-      dtEsquema.Rows.Add(dr);
-      int fil = dtEsquema.Rows.Count;
-      grdEsquemas.DataSource = dtEsquema; //bind new datatable to grid
-      grdEsquemas.DataBind();
+        Mensaje("GUARDADO", CuadroMensaje.CuadroMensajeIcono.Exitoso);
+      }
     }
 
     protected void ddlHorario_SelectedIndexChanged(object sender, EventArgs e)
