@@ -184,10 +184,10 @@
                 esimss.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentajeIMSS').value = 100;
                 txtpors.style.display = 'none';
-                //$('.mix').hide();
+                $('.mix').hide();
             }
             if (listaEsq == 2) {
-                //$('.mix').show();
+                $('.mix').show();
                 esimss.style.display = 'none';
                 txtpors.style.display = 'none';
             }
@@ -195,20 +195,20 @@
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
                 esimss.style.display = 'none';
-                //$('.mix').hide();
+                $('.mix').hide();
             }
 
             if (listaEsq == 4) {
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
                 esimss.style.display = 'none';
-                //$('.mix').hide();
+                $('.mix').hide();
             }
             if (listaEsq == 5) {
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100;
                 esimss.style.display = 'none';
-                //$('.mix').hide();
+                $('.mix').hide();
             }
         }
         function MostrarEsqM() {
