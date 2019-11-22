@@ -138,6 +138,8 @@ namespace EscenariosQnta
 
         grd.DataSource = GetTableWithInitialData(); //get first initial data
         grd.DataBind();
+        grd.DataSource = GetGridEsquemas(); //get first initial data
+        grd.DataBind();
         grdHorario2.DataSource = GetGridHorarios(); //get first initial data
         grdHorario2.DataBind();
       }
@@ -309,6 +311,18 @@ namespace EscenariosQnta
       table.Columns.Add("IdBanco", typeof(string));
       return table;
     }
+    public DataTable GetGridEsquemas() //this might be your sp for select
+    {
+      DataTable table = new DataTable();
+      table.Columns.Add("Esquema", typeof(string));
+      table.Columns.Add("Porcentaje", typeof(string));
+      table.Columns.Add("Sueldo Bruto", typeof(string));
+      table.Columns.Add("Sueldo Neto", typeof(string));
+      table.Columns.Add("Sueldo Diario", typeof(string));
+      table.Columns.Add("Sueldo Diario Integrado", typeof(string));
+      table.Columns.Add("IdEsquema", typeof(string));
+      return table;
+    }
     public DataTable GetGridHorarios() //this might be your sp for select
     {
       DataTable table = new DataTable();
@@ -327,6 +341,18 @@ namespace EscenariosQnta
       table.Columns.Add("Tarjeta", typeof(string));
       table.Columns.Add("Prioridad", typeof(string));
       table.Columns.Add("IdBanco", typeof(string));
+      return table;
+    }
+    public DataTable GetGridEsquemasConDatos() //returns only structure if the select columns
+    {
+      DataTable table = new DataTable();
+      table.Columns.Add("Esquema", typeof(string));
+      table.Columns.Add("Porcentaje", typeof(string));
+      table.Columns.Add("Sueldo Bruto", typeof(string));
+      table.Columns.Add("Sueldo Neto", typeof(string));
+      table.Columns.Add("Sueldo Diario", typeof(string));
+      table.Columns.Add("Sueldo Diario Integrado", typeof(string));
+      table.Columns.Add("IdEsquema", typeof(string));
       return table;
     }
     public DataTable GetGridHorariosConDatos() //returns only structure if the select columns
@@ -1552,29 +1578,38 @@ namespace EscenariosQnta
 
     protected void btnEsquema_Click(object sender, EventArgs e)
     {
-      dtEsquema = GetTableWithNoData(); //get select column header only records not required
+      dtEsquema = GetGridEsquemasConDatos(); //get select column header only records not required
       DataRow dr;
-      foreach (GridViewRow gvr in grd.Rows)
+      foreach (GridViewRow gvr in grdEsquemas.Rows)
       {
         dr = dtEsquema.NewRow();
-        Label txtGBanco = gvr.FindControl("txtGBanco") as Label;
-        Label txtGCuenta = gvr.FindControl("txtGCuenta") as Label;
-        Label txtGClabe = gvr.FindControl("txtGClabe") as Label;
-        Label txtGTarjeta = gvr.FindControl("txtGTarjeta") as Label;
-        CheckBox chkGPrioridad = gvr.FindControl("chkGPrioridad") as CheckBox;
-        Label txtGIdBanco = gvr.FindControl("txtGIdBanco") as Label;
-        dr[0] = txtGBanco.Text;
-        dr[1] = txtGCuenta.Text;
-        dr[2] = txtGClabe.Text;
-        dr[3] = txtGTarjeta.Text;
-        dr[4] = chkGPrioridad.Checked == false;
-        dr[5] = txtGIdBanco.Text;
+        Label txtGEsquema = gvr.FindControl("txtEsquema") as Label;
+        Label txtGPorcentaje = gvr.FindControl("txtPorcentaje") as Label;
+        Label txtGSueldoB = gvr.FindControl("txtSueldoB") as Label;
+        Label txtGSueldoN = gvr.FindControl("txtSueldoN") as Label;
+        Label txtGSueldoD = gvr.FindControl("txtSueldoD") as Label;
+        Label txtGSueldoDI = gvr.FindControl("txtSueldoDI") as Label;
+        Label txtGIEsquema = gvr.FindControl("txtGIEsquema") as Label;
+        dr[0] = txtGEsquema.Text;
+        dr[1] = txtGPorcentaje.Text;
+        dr[2] = txtGSueldoB.Text;
+        dr[3] = txtGSueldoN.Text;
+        dr[4] = txtGSueldoD.Text;
+        dr[5] = txtGSueldoDI.Text;
+        dr[6] = txtGIEsquema.Text;
 
-        dtTarjeta.Rows.Add(dr); //add grid values in to row and add row to the blank table
+        dtEsquema.Rows.Add(dr); //add grid values in to row and add row to the blank table
       }
-      dr = dtTarjeta.NewRow(); //add last empty row
-      dr[0] = ddlBanco.SelectedItem.Text;
-      dr[1] = txtCuenta.Text;
+      dr = dtEsquema.NewRow(); //add last empty row
+      if (ddlEMixto.Visible==true)
+      {
+        dr[0] = ddlEMixto.SelectedItem.Text;
+      }
+      else
+      {
+        dr[0] = ddlEsquemas.SelectedItem.Text;
+      }      
+      dr[1] = txtP.Text;
       dr[2] = txtClabe.Text;
       dr[3] = txtTarjeta.Text;
       dr[4] = true;
