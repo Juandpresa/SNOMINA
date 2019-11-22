@@ -1580,6 +1580,7 @@ namespace EscenariosQnta
     {
       dtEsquema = GetGridEsquemasConDatos(); //get select column header only records not required
       DataRow dr;
+      int porc = 0;
       foreach (GridViewRow gvrE in grdEsquemas.Rows)
       {
         dr = dtEsquema.NewRow();
@@ -1597,7 +1598,7 @@ namespace EscenariosQnta
         dr[4] = txtGSueldoD.Text;
         dr[5] = txtGSueldoDI.Text;
         dr[6] = txtGIEsquema.Text;
-
+        porc = porc + int.Parse(txtGPorcentaje.Text);
         dtEsquema.Rows.Add(dr); //add grid values in to row and add row to the blank table
       }
       dr = dtEsquema.NewRow(); //add last empty row
