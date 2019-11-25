@@ -29,8 +29,20 @@
                     $("#cdobra").hide();
                 }
             });
-
+            
         });
+
+        <%--$('#<%=txtFFObra.ClientID%>').click{
+            CDias();
+        };
+
+        function CDias(){
+            var inicio =$('#<%=txtFIObra.ClientID%>').val.datepicker();
+            var fin = $('#<%=txtFFObra.ClientID%>').val.datepicker();
+            var tdias = 0;
+            tdias = (fin - inicio);
+            $('#<%=txtDiasTobra.ClientID%>').value(tdias);
+        }--%>
 
         function showimagepreview(input) {
 
@@ -767,6 +779,8 @@
                                         </td>
                                         <td>Tipo Pago:
                                         </td>
+                                        <td>Prestaciones:
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="td">
@@ -775,6 +789,10 @@
                                         </td>
                                         <td class="td">
                                             <asp:DropDownList ID="ddlTipoPago" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlPrestacion" runat="server" CssClass="cssDropdown">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
