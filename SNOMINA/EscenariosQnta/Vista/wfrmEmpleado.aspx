@@ -655,6 +655,9 @@
                                          <td class="td">
                                             <asp:TextBox ID="txtSueldoNeto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
+                                        <td>
+                                            <asp:TextBox ID="txtSBruto" runat="server"  CssClass="textbox" Visible="false"></asp:TextBox>
+                                        </td>
                                     </tr>
                                 </table>
 
