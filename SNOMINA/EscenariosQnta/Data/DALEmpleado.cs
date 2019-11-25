@@ -14,7 +14,7 @@ namespace EscenariosQnta.Data
   {
     static SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnxSQL"].ConnectionString);
 
-    public static void InsEmpleado(int idEscenario, int idCte, int idPrimaRgo, string nombre, string paterno, string materno, string puesto, string descPuesto, DateTime fechIngreso, DateTime fechNacimiento, float sueldoB, float sueldoN, int idPrestaciones, int idClasifEmp, string nacionalidad, int idTipoEsquema, string cve, int pagadora, int sexo, int tipoPago, string curp, string rfc, string correo, string telefonoL, string telefonoM, int periodoPago, DateTime antiguedad, int idEmpleadora)
+    public static void InsEmpleado(int idEscenario, int idCte, int idPrimaRgo, string nombre, string paterno, string materno, string puesto, string descPuesto, DateTime fechIngreso, DateTime fechNacimiento, float sueldoB, float sueldoN, int idPrestaciones, int idClasifEmp, string nacionalidad, int idTipoEsquema, string cve, int pagadora, int sexo, int tipoPago, string curp, string rfc, string correo, string telefonoL, string telefonoM, int periodoPago, DateTime antiguedad, int idEmpleadora, string foto, string calle, string numero, string colonia, int estado, string ciudad, string cp, string departamento, int turno, int horario, int jornada, int diasContrato, int ecivil, int tipoContrato)
     {
       try
       {
@@ -50,6 +50,21 @@ namespace EscenariosQnta.Data
         cmd.Parameters.AddWithValue("@PeriodoPagoID", periodoPago);
         cmd.Parameters.AddWithValue("@Antigueda", antiguedad);
         cmd.Parameters.AddWithValue("@Id_Empleadora", idEmpleadora);
+
+        cmd.Parameters.AddWithValue("@Foto", foto);
+        cmd.Parameters.AddWithValue("@Calle", calle);
+        cmd.Parameters.AddWithValue("@Numero", numero);
+        cmd.Parameters.AddWithValue("@Colonia", colonia);
+        cmd.Parameters.AddWithValue("@Estado", estado);
+        cmd.Parameters.AddWithValue("@Ciudad", ciudad);
+        cmd.Parameters.AddWithValue("@CP", cp);
+        cmd.Parameters.AddWithValue("@Departamento", departamento);
+        cmd.Parameters.AddWithValue("@Turno", turno);
+        cmd.Parameters.AddWithValue("@Horario", horario);
+        cmd.Parameters.AddWithValue("@Jornada", jornada);
+        cmd.Parameters.AddWithValue("@DiasContrato", diasContrato);
+        cmd.Parameters.AddWithValue("@EstadoCivil", ecivil);
+        cmd.Parameters.AddWithValue("@IdTipoContrato", tipoContrato);
 
         cmd.ExecuteNonQuery();
       }

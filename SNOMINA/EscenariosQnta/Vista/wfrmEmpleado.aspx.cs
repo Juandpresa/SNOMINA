@@ -83,6 +83,7 @@ namespace EscenariosQnta
     int jornada;
     int diasContrato;
     int estadoCivil;
+    int tipoContrato;
     int porc = 0;
     int emp = 0;
 
@@ -110,7 +111,7 @@ namespace EscenariosQnta
       {
         ObtenPrimaRiesgo();
         //ObtenInfonavit();
-        ObtenPrestacion();
+        //ObtenPrestacion();
         ObtenFactor();
         //ObtenPension();
         //ObtenEsquema();
@@ -729,30 +730,6 @@ namespace EscenariosQnta
     //  }
     //}
 
-    protected void ObtenPrestacion()
-    {
-      try
-      {
-        DataTable dtPrestacion = new DataTable();
-
-        dtPrestacion = clsQuery.execQueryDataTable("SP_ObtenPrestaciones");
-
-        if (dtPrestacion.Rows.Count > 0)
-        {
-          ddlPrestacion.DataSource = dtPrestacion;
-          ddlPrestacion.DataTextField = "Nombre";
-          ddlPrestacion.DataValueField = "Id_Prest";
-          ddlPrestacion.DataBind();
-        }
-
-        ddlPrestacion.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
-
-      }
-      catch (Exception ex)
-      {
-        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
-      }
-    }
 
     //protected void ObtenPension()
     //{
@@ -837,16 +814,16 @@ namespace EscenariosQnta
 
       if (dtFactor.Rows.Count > 0)
       {
-        //ddlPrestacion.DataSource = dtFactor;
-        //ddlPrestacion.DataTextField = "Nombre";
-        //ddlPrestacion.DataValueField = "Id_Factor";
-        //ddlPrestacion.DataBind();
+        ddlPrestacion.DataSource = dtFactor;
+        ddlPrestacion.DataTextField = "Nombre";
+        ddlPrestacion.DataValueField = "Id_Factor";
+        ddlPrestacion.DataBind();
 
         //gvFactor.DataSource = dtFactor;
         //gvFactor.DataBind();
       }
 
-      //ddlPrestacion.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+      ddlPrestacion.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
 
     }
 
@@ -1243,7 +1220,7 @@ namespace EscenariosQnta
             //SueldoHonorarios = float.Parse(txtSueldoHonorarios.Text.ToString());
             //SueldoTN = float.Parse(txtSueldoTN.Text.ToString());
             //5SueldoEZWallet = float.Parse(txtSueldoEZWallet.Text.ToString());
-            Id_Prestac = ddlPrestacion.SelectedItem.Value;
+            Id_Prestac = int.Parse(ddlPrestacion.SelectedItem.Value);
             //UbicaLabora = txtUbicacionLaboral.Text.ToString();
             //Id_Infonavit = int.Parse(ddlInfonavit.SelectedItem.Value);
             //ImporteInfonavit = decimal.Parse(txtImporteInfonavit.Text.ToString());
@@ -1274,6 +1251,18 @@ namespace EscenariosQnta
             Id_Empleadora = int.Parse(ddlEmpleadora.SelectedItem.Value);
             foto = "fotito";
             calle = txtCalle.Text.ToString();
+            numero = txtNumero.Text.ToString();
+            colonia = txtColonia.Text.ToString();
+            estado = int.Parse(ddlEntidad.SelectedItem.Value);
+            ciudad = txtCiudadDel.Text.ToString();
+            cp = txtCP.Text.ToString();
+            departamento = txtDepto.Text.ToString();
+            turno = int.Parse(ddlTurno.SelectedItem.Value);
+            horario = int.Parse(ddlHorario.SelectedItem.Value);
+            jornada = int.Parse(ddlJornada.SelectedItem.Value);
+            diasContrato = int.Parse(txtDiasC.Text.ToString());
+            estadoCivil = int.Parse(ddlECivil.SelectedItem.Value);
+            tipoContrato = int.Parse(ddlContrato.SelectedItem.Value);
 
             strQueryCV = BLLEmpleado.ObtenerClavesExistentes(Cve);
             if (strQueryCV != "1")
@@ -1287,7 +1276,7 @@ namespace EscenariosQnta
               }
               else
               {
-                strQueryEmp = BLLEmpleado.InsEmpleado(Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, FechaIngreso, FechaNac, SueldoBruto, SueldoNeto, Id_Prestac, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, PeriodoPago, Antiguedad, Id_Empleadora);
+                //strQueryEmp = BLLEmpleado.InsEmpleado(Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, FechaIngreso, FechaNac, SueldoBruto, SueldoNeto, Id_Prestac, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, PeriodoPago, Antiguedad, Id_Empleadora, foto, calle, numero, colonia, estado, ciudad, cp, departamento, turno, horario, jornada, diasContrato, estadoCivil, tipoContrato);
                 
               }
 
@@ -1295,21 +1284,21 @@ namespace EscenariosQnta
               IdEmpleado = BLLEmpleado.ObtenerUltimoEmpleado();
               emp = int.Parse(IdEmpleado);
        
-              strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, IdNEstudios, IdInstituto, IdCarrera);
+              //strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, IdNEstudios, IdInstituto, IdCarrera);
 
               foreach (GridViewRow gvr in grd.Rows)
               {
                 
-                TextBox txtGCuenta = gvr.FindControl("txtGCuenta") as TextBox;
-                TextBox txtGClabe = gvr.FindControl("txtGClabe") as TextBox;
-                TextBox txtGTarjeta = gvr.FindControl("txtGTarjeta") as TextBox;
+                Label txtGCuenta = gvr.FindControl("txtGCuenta") as Label;
+                Label txtGClabe = gvr.FindControl("txtGClabe") as Label;
+                Label txtGTarjeta = gvr.FindControl("txtGTarjeta") as Label;
                 CheckBox chkGPrioridad = gvr.FindControl("chkGPrioridad") as CheckBox;
-                TextBox txtGIdBanco = gvr.FindControl("txtGIdBanco") as TextBox;
+                Label txtGIdBanco = gvr.FindControl("txtGIdBanco") as Label;
                 cuenta = txtGCuenta.Text;
                 clabe = txtGClabe.Text;
                 tarjeta = txtGTarjeta.Text;
                 IdBanco = int.Parse(txtGIdBanco.Text);
-                //  strQueryIB = BLLInfoBancaria.InsInfoBancaria(IdBanco, emp, cuenta, clabe, tarjeta);
+                strQueryIB = BLLInfoBancaria.InsInfoBancaria(IdBanco, emp, cuenta, clabe, tarjeta);
               }
 
 

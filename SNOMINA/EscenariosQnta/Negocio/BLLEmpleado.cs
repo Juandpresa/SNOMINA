@@ -11,11 +11,11 @@ namespace EscenariosQnta.Negocio
 {
   public class BLLEmpleado
   {
-    public static string InsEmpleado(int idEscenario, int idCte, int idPrimaRgo, string nombre, string paterno, string materno, string puesto, string descPuesto, DateTime fechIngreso, DateTime fechNacimiento, float sueldoB, float sueldoN, int idPrestaciones, int idClasifEmp, string nacionalidad, int idTipoEsquema, string cve, int pagadora, int sexo, int tipoPago, string curp, string rfc, string correo, string telefonoL, string telefonoM, int periodoPago, DateTime antiguedad, int idEmpleadora)
+    public static string InsEmpleado(int idEscenario, int idCte, int idPrimaRgo, string nombre, string paterno, string materno, string puesto, string descPuesto, DateTime fechIngreso, DateTime fechNacimiento, float sueldoB, float sueldoN, int idPrestaciones, int idClasifEmp, string nacionalidad, int idTipoEsquema, string cve, int pagadora, int sexo, int tipoPago, string curp, string rfc, string correo, string telefonoL, string telefonoM, int periodoPago, DateTime antiguedad, int idEmpleadora, string foto, string calle, string numero, string colonia, int estado, string ciudad, string cp, string departamento, int turno, int horario, int jornada, int diasContrato, int ecivil, int tipoContrato)
     {
       try
       {
-        DALEmpleado.InsEmpleado(idEscenario, idCte, idPrimaRgo, nombre, paterno, materno, puesto, descPuesto, fechIngreso, fechNacimiento, sueldoB, sueldoN, idPrestaciones, idClasifEmp, nacionalidad, idTipoEsquema, cve, pagadora, sexo, tipoPago, curp, rfc, correo, telefonoL, telefonoM, periodoPago, antiguedad, idEmpleadora);
+        DALEmpleado.InsEmpleado(idEscenario, idCte, idPrimaRgo, nombre, paterno, materno, puesto, descPuesto, fechIngreso, fechNacimiento, sueldoB, sueldoN, idPrestaciones, idClasifEmp, nacionalidad, idTipoEsquema, cve, pagadora, sexo, tipoPago, curp, rfc, correo, telefonoL, telefonoM, periodoPago, antiguedad, idEmpleadora, foto, calle, numero, colonia, estado, ciudad, cp, departamento, turno, horario, jornada, diasContrato, ecivil, tipoContrato);
         return "1";
       }
       catch (Exception)
