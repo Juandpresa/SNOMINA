@@ -69,7 +69,7 @@ namespace EscenariosQnta
     string cuenta;
     string clabe;
     string tarjeta;
-    int Antiguedad;
+    DateTime Antiguedad;
     string foto;
     string calle;
     string numero;
@@ -110,7 +110,7 @@ namespace EscenariosQnta
       {
         ObtenPrimaRiesgo();
         //ObtenInfonavit();
-        //ObtenPrestacion();
+        ObtenPrestacion();
         ObtenFactor();
         //ObtenPension();
         //ObtenEsquema();
@@ -729,30 +729,30 @@ namespace EscenariosQnta
     //  }
     //}
 
-    //protected void ObtenPrestacion()
-    //{
-    //    try
-    //    {
-    //        DataTable dtPrestacion = new DataTable();
+    protected void ObtenPrestacion()
+    {
+      try
+      {
+        DataTable dtPrestacion = new DataTable();
 
-    //        dtPrestacion = clsQuery.execQueryDataTable("SP_ObtenPrestaciones");
+        dtPrestacion = clsQuery.execQueryDataTable("SP_ObtenPrestaciones");
 
-    //        if (dtPrestacion.Rows.Count > 0)
-    //        {
-    //            ddlPrestacion.DataSource = dtPrestacion;
-    //            ddlPrestacion.DataTextField = "Nombre";
-    //            ddlPrestacion.DataValueField = "Id_Prest";
-    //            ddlPrestacion.DataBind();
-    //        }
+        if (dtPrestacion.Rows.Count > 0)
+        {
+          ddlPrestacion.DataSource = dtPrestacion;
+          ddlPrestacion.DataTextField = "Nombre";
+          ddlPrestacion.DataValueField = "Id_Prest";
+          ddlPrestacion.DataBind();
+        }
 
-    //        ddlPrestacion.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+        ddlPrestacion.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
 
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);            
-    //    }
-    //}
+      }
+      catch (Exception ex)
+      {
+        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      }
+    }
 
     //protected void ObtenPension()
     //{
@@ -1243,7 +1243,7 @@ namespace EscenariosQnta
             //SueldoHonorarios = float.Parse(txtSueldoHonorarios.Text.ToString());
             //SueldoTN = float.Parse(txtSueldoTN.Text.ToString());
             //5SueldoEZWallet = float.Parse(txtSueldoEZWallet.Text.ToString());
-            //Id_Prestac = ddlPrestacion.SelectedItem.Value;
+            Id_Prestac = ddlPrestacion.SelectedItem.Value;
             //UbicaLabora = txtUbicacionLaboral.Text.ToString();
             //Id_Infonavit = int.Parse(ddlInfonavit.SelectedItem.Value);
             //ImporteInfonavit = decimal.Parse(txtImporteInfonavit.Text.ToString());
@@ -1255,7 +1255,7 @@ namespace EscenariosQnta
             //ImportePension = decimal.Parse(txtImportePension.Text.ToString());
             //Id_EsquemaActual = int.Parse(ddlEsquemaActual.SelectedItem.Value);
             Id_ClasifEmp = int.Parse(ddlClasificacionEmpleado.SelectedItem.Value);
-            //Nacionalidad = txtNacionalidad.Text.ToString();
+            Nacionalidad = txtNacionalidad.Text.ToString();
 
             Cve = txtIdentificador.Text.ToString() + txtClave.Text.ToString();
             RSPagadora = int.Parse(ddlPagadora.SelectedItem.Value);
@@ -1266,14 +1266,14 @@ namespace EscenariosQnta
             correo = txtCorreo.Text.ToString();
             telLocal = txtTelefonoLocal.Text.ToString();
             telMovil = txtTelefonoLocal.Text.ToString();
-            //FechaUltimoPago = DateTime.Parse(txtUltimoPago.Text.ToString());
             PeriodoPago = int.Parse(ddlPeriodoPago.SelectedItem.Value);
             IdNEstudios = int.Parse(ddlNivelE.SelectedItem.Value);
             IdInstituto = int.Parse(ddlInstitucion.SelectedItem.Value);
             IdCarrera = int.Parse(ddlCarrera.SelectedItem.Value);
-            Antiguedad = int.Parse(txtAntiguedad.Text.ToString());
-
+            Antiguedad = DateTime.Parse(txtAntiguedad.Text.ToString());
             Id_Empleadora = int.Parse(ddlEmpleadora.SelectedItem.Value);
+            foto = "fotito";
+            calle = txtCalle.Text.ToString();
 
             strQueryCV = BLLEmpleado.ObtenerClavesExistentes(Cve);
             if (strQueryCV != "1")
@@ -1287,7 +1287,7 @@ namespace EscenariosQnta
               }
               else
               {
-                strQueryEmp = BLLEmpleado.InsEmpleado(Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechaIngreso, FechaNac, Nomina, Asimilados, Honorarios, TN, EZWallet, Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet, Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, FechaUltimoPago, PeriodoPago, Antiguedad, Id_Empleadora);
+                strQueryEmp = BLLEmpleado.InsEmpleado(Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, FechaIngreso, FechaNac, SueldoBruto, SueldoNeto, Id_Prestac, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, PeriodoPago, Antiguedad, Id_Empleadora);
                 
               }
 

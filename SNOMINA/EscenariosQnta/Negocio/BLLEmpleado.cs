@@ -11,11 +11,11 @@ namespace EscenariosQnta.Negocio
 {
   public class BLLEmpleado
   {
-    public static string InsEmpleado(int idEscenario, int idCte, int idPrimaRgo, string nombre, string paterno, string materno, string puesto, string descPuesto, string ubicacion, DateTime fechIngreso, DateTime fechNacimiento, float porcNomina, float porcAsimilados, float porcHonorarios, float porcTN, float porcEZWallet, float sueldo, float sueldoB, float sueldoN, float sueldoH, float sueldoT, float sueldoEZ, decimal bono, decimal comision, decimal otrosIngresos, decimal impFonacot, int idInfonavit, decimal impInfonavit, int idPrestaciones, int idPension, decimal impPension, int idEsquemaActual, int idClasifEmp, int idTipoEsquema, string cve, int pagadora, int sexo, int tipoPago, string curp, string rfc, string correo, string telefonoL, string telefonoM, DateTime fechUltimoPago, int periodoPago, int antiguedad, int idEmpleadora)
+    public static string InsEmpleado(int idEscenario, int idCte, int idPrimaRgo, string nombre, string paterno, string materno, string puesto, string descPuesto, DateTime fechIngreso, DateTime fechNacimiento, float sueldoB, float sueldoN, int idPrestaciones, int idClasifEmp, string nacionalidad, int idTipoEsquema, string cve, int pagadora, int sexo, int tipoPago, string curp, string rfc, string correo, string telefonoL, string telefonoM, int periodoPago, DateTime antiguedad, int idEmpleadora)
     {
       try
       {
-        DALEmpleado.InsEmpleado(idEscenario, idCte, idPrimaRgo, nombre, paterno, materno, puesto, descPuesto, ubicacion, fechIngreso, fechNacimiento, porcNomina, porcAsimilados, porcHonorarios, porcTN, porcEZWallet, sueldo, sueldoB, sueldoN, sueldoH, sueldoT, sueldoEZ, bono, comision, otrosIngresos, impFonacot, idInfonavit, impInfonavit, idPrestaciones, idPension, impPension, idEsquemaActual, idClasifEmp, idTipoEsquema, cve, pagadora, sexo, tipoPago, curp, rfc, correo, telefonoL, telefonoM, fechUltimoPago, periodoPago, antiguedad, idEmpleadora);
+        DALEmpleado.InsEmpleado(idEscenario, idCte, idPrimaRgo, nombre, paterno, materno, puesto, descPuesto, fechIngreso, fechNacimiento, sueldoB, sueldoN, idPrestaciones, idClasifEmp, nacionalidad, idTipoEsquema, cve, pagadora, sexo, tipoPago, curp, rfc, correo, telefonoL, telefonoM, periodoPago, antiguedad, idEmpleadora);
         return "1";
       }
       catch (Exception)
