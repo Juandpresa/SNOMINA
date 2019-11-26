@@ -267,11 +267,13 @@
   <ItemGroup>
     <Compile Include="Clases\CuadroMensaje.cs" />
     <Compile Include="Clases\CuadroMensajeBasico.cs" />
+    <Compile Include="Data\DALDatosObra.cs" />
     <Compile Include="Data\DALEmpleado.cs" />
     <Compile Include="Data\DALGradoAcademico.cs" />
     <Compile Include="Data\DALHorario.cs" />
     <Compile Include="Data\DALInfoBancaria.cs" />
     <Compile Include="Data\DALRelacionRSocial.cs" />
+    <Compile Include="Negocio\BLLDatosObra.cs" />
     <Compile Include="Negocio\BLLEmpleado.cs" />
     <Compile Include="Negocio\BLLGradoAcademico.cs" />
     <Compile Include="Negocio\BLLHorario.cs" />

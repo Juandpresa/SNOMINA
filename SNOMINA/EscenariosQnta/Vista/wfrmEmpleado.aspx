@@ -29,21 +29,10 @@
                     $("#cdobra").hide();
                 }
             });
-            
+
         });
-
-        <%--$('#<%=txtFFObra.ClientID%>').click{
-            CDias();
-        };
-
-        function CDias(){
-            var inicio =$('#<%=txtFIObra.ClientID%>').val.datepicker();
-            var fin = $('#<%=txtFFObra.ClientID%>').val.datepicker();
-            var tdias = 0;
-            tdias = (fin - inicio);
-            $('#<%=txtDiasTobra.ClientID%>').value(tdias);
-        }--%>
-
+       
+       
         function showimagepreview(input) {
 
             if (input.files && input.files[0]) {
@@ -189,7 +178,7 @@
             }
         }
         function MostrarEsq() {
-         
+
             var esimss = document.getElementById('ContentPlaceHolder1_divimss');
             var txtpors = document.getElementById('ContentPlaceHolder1_divPorSueldo');
             var listaEsq = $('#<%=ddlEsquemas.ClientID%>').find('option:selected').val();
@@ -664,11 +653,11 @@
                                             <asp:DropDownList ID="ddlPeriodoPago" runat="server" CssClass="cssDropdown">
                                             </asp:DropDownList>
                                         </td>
-                                         <td class="td">
+                                        <td class="td">
                                             <asp:TextBox ID="txtSueldoNeto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtSBruto" runat="server"  CssClass="textbox" Visible="false"></asp:TextBox>
+                                            <asp:TextBox ID="txtSBruto" runat="server" CssClass="textbox" Visible="false"></asp:TextBox>
                                         </td>
                                     </tr>
                                 </table>
@@ -725,7 +714,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card" id="cdcomplemento" style="display: block">
+            <div class="card" id="cdcomplemento" style="display: none">
                 <div class="card-header" id="heading6">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
@@ -991,7 +980,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card cdobra" id="cdobra" style="display: none">
+            <div class="card cdobra" id="cdobra" style="display: block">
                 <div class="card-header" id="heading7">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
@@ -1005,6 +994,8 @@
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
                             <div class="contenPanel">
+                                <asp:UpdatePanel runat="server" ID="UpdatePanel4" UpdateMode="Always">
+                                    <ContentTemplate>
                                 <table>
                                     <tr>
                                         <td>Centro de Costos:
@@ -1026,9 +1017,8 @@
                                         </td>
                                         <td class="td">
                                             <asp:TextBox ID="txtFFObra" runat="server" Text="" CssClass="datepicker"
-                                                placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
+                                                placeholder="dd/mm/yyyy" required="required" OnTextChanged="txtFFObra_TextChanged" AutoPostBack="True"></asp:TextBox>
                                         </td>
-
                                     </tr>
                                     <tr>
                                         <td>Dias Totales de Obra:
@@ -1046,10 +1036,12 @@
                                             <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtUbicacionO" TextMode="MultiLine" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                            <asp:TextBox ID="txtUbicacionO" TextMode="MultiLine" MaxLength="100" runat="server" Text="" CssClass="textbox"></asp:TextBox>
                                         </td>
                                     </tr>
                                 </table>
+                                        </ContentTemplate>
+                                </asp:UpdatePanel>
                             </div>
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>

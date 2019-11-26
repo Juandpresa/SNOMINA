@@ -1758,5 +1758,16 @@ namespace EscenariosQnta
       grdEsquemas.DataBind();
 
     }
+
+    protected void txtFFObra_TextChanged(object sender, EventArgs e)
+    {
+      DateTime fi = DateTime.Parse(txtFIObra.Text.ToString());
+      DateTime ff = DateTime.Parse(txtFFObra.Text.ToString());
+      if (txtFIObra.Text != " " || txtFIObra.Text != null)
+      {
+        string diasO = BLLDatosObra.ObtenerDiasObra(fi,ff);
+        txtDiasTobra.Text = diasO;
+      }
+    }
   }
 }
