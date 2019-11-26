@@ -84,6 +84,12 @@ namespace EscenariosQnta
     int diasContrato;
     int estadoCivil;
     int tipoContrato;
+    int idEsquema;
+    decimal porcentaje;
+    decimal sueldoB;
+    decimal sueldoN;
+    decimal sueldoD;
+    decimal sdi;
     int porc = 0;
     int emp = 0;
 
@@ -97,6 +103,7 @@ namespace EscenariosQnta
     string strQueryIB = string.Empty;
     string strQueryCV = string.Empty;
     string strQueryEmp = string.Empty;
+    string strQueryDE = string.Empty;
     string RetunValue;
     clsDatos clsQuery = new clsDatos();
     string ValidacionControles = string.Empty;
@@ -1298,7 +1305,24 @@ namespace EscenariosQnta
                 clabe = txtGClabe.Text;
                 tarjeta = txtGTarjeta.Text;
                 IdBanco = int.Parse(txtGIdBanco.Text);
-                strQueryIB = BLLInfoBancaria.InsInfoBancaria(IdBanco, emp, cuenta, clabe, tarjeta);
+                //strQueryIB = BLLInfoBancaria.InsInfoBancaria(IdBanco, emp, cuenta, clabe, tarjeta);
+              }
+
+              foreach (GridViewRow gvrE in grdEsquemas.Rows)
+              {
+                Label txtGPorcentaje = gvrE.FindControl("txtPorcentaje") as Label;
+                Label txtGSueldoB = gvrE.FindControl("txtSueldoB") as Label;
+                Label txtGSueldoN = gvrE.FindControl("txtSueldoN") as Label;
+                Label txtGSueldoD = gvrE.FindControl("txtSueldoD") as Label;
+                Label txtGSueldoDI = gvrE.FindControl("txtSueldoDI") as Label;
+                Label txtGIEsquema = gvrE.FindControl("txtGIEsquema") as Label;
+                porcentaje = decimal.Parse(txtGPorcentaje.Text);
+                sueldoB = decimal.Parse(txtGSueldoB.Text);
+                sueldoN = decimal.Parse(txtGSueldoN.Text);
+                sueldoD = decimal.Parse(txtGSueldoD.Text);
+                sdi = decimal.Parse(txtGSueldoDI.Text);
+                idEsquema = int.Parse(txtGIEsquema.Text);
+                strQueryDE = BLLDetalleEsquemas.InsDetalleEsquemas(emp, idEsquema, porcentaje, sueldoB, sueldoN, sueldoD, sdi);
               }
 
 
