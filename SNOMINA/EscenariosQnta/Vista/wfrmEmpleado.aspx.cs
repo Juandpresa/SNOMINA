@@ -1785,11 +1785,11 @@ namespace EscenariosQnta
 
     protected void txtFFObra_TextChanged(object sender, EventArgs e)
     {
-      DateTime fi = DateTime.Parse(txtFIObra.Text.ToString());
-      DateTime ff = DateTime.Parse(txtFFObra.Text.ToString());
+      DateTime ini = DateTime.Parse(txtFIObra.Text.ToString());
+      DateTime fi = DateTime.Parse(txtFFObra.Text.ToString());
       if (txtFIObra.Text != " " || txtFIObra.Text != null)
       {
-        string diasO = BLLDatosObra.ObtenerDiasObra(fi,ff);
+        string diasO = BLLDatosObra.ObtenerDiasObra(ini,fi);
         txtDiasTobra.Text = diasO;
       }
     }

@@ -31,8 +31,8 @@
             });
 
         });
-       
-       
+
+
         function showimagepreview(input) {
 
             if (input.files && input.files[0]) {
@@ -155,6 +155,7 @@
                 //document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
                 //document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
                 //Card´s
+                $('.panelSueldo').style.display='block';
                 cresidencia.style.display = 'block';
                 cdlaborales.style.display = 'block';
                 cpago.style.display = 'block';
@@ -175,6 +176,7 @@
                 cdlaborales.style.display = 'block';
                 cpago.style.display = 'block';
                 cdcomplemento.style.display = 'block';
+                $('.panelSueldo').style.display='none';
             }
         }
         function MostrarEsq() {
@@ -641,7 +643,11 @@
                                         </td>
                                         <td>Periodo de Pago:
                                         </td>
-                                        <td>Sueldo Neto:
+                                        <td>
+                                            <div class="panelSueldo" style="display: none">
+                                                <asp:Label Text="Sueldo Neto:" ID="SNeto" runat="server" />
+                                            </div>
+
                                         </td>
                                     </tr>
                                     <tr>
@@ -653,8 +659,11 @@
                                             <asp:DropDownList ID="ddlPeriodoPago" runat="server" CssClass="cssDropdown">
                                             </asp:DropDownList>
                                         </td>
+
                                         <td class="td">
-                                            <asp:TextBox ID="txtSueldoNeto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            <div class="panelSueldo style="display: none">
+                                                <asp:TextBox ID="txtSueldoNeto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </div>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtSBruto" runat="server" CssClass="textbox" Visible="false"></asp:TextBox>
@@ -994,53 +1003,53 @@
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
                             <div class="contenPanel">
-                                <asp:UpdatePanel runat="server" ID="UpdatePanel4" UpdateMode="Always">
+                                <asp:UpdatePanel runat="server" ID="UpdatePanelO" UpdateMode="Conditional">
                                     <ContentTemplate>
-                                <table>
-                                    <tr>
-                                        <td>Centro de Costos:
-                                        </td>
-                                        <td>Fecha Inicio de Obra:
-                                        </td>
-                                        <td>Fecha Fin de Obra:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtCentroCostos" runat="server" CssClass="cssDropdown">
-                                            </asp:TextBox>
-                                        </td>
+                                        <table>
+                                            <tr>
+                                                <td>Centro de Costos:
+                                                </td>
+                                                <td>Fecha Inicio de Obra:
+                                                </td>
+                                                <td>Fecha Fin de Obra:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtCentroCostos" runat="server" CssClass="cssDropdown">
+                                                    </asp:TextBox>
+                                                </td>
 
-                                        <td class="td">
-                                            <asp:TextBox ID="txtFIObra" runat="server" Text="" CssClass="datepicker"
-                                                placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtFFObra" runat="server" Text="" CssClass="datepicker"
-                                                placeholder="dd/mm/yyyy" required="required" OnTextChanged="txtFFObra_TextChanged" AutoPostBack="True"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dias Totales de Obra:
-                                        </td>
-                                        <td>Tipo de Obra:
-                                        </td>
-                                        <td>Ubicación:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtUbicacionO" TextMode="MultiLine" MaxLength="100" runat="server" Text="" CssClass="textbox"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                </table>
-                                        </ContentTemplate>
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtFIObra" runat="server" Text="" CssClass="datepicker"
+                                                        placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
+                                                </td>
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtFFObra" runat="server" Text="" CssClass="datepicker"
+                                                        placeholder="dd/mm/yyyy" required="required" OnTextChanged="txtFFObra_TextChanged" AutoPostBack="True"></asp:TextBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dias Totales de Obra:
+                                                </td>
+                                                <td>Tipo de Obra:
+                                                </td>
+                                                <td>Ubicación:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox" ReadOnly="True"></asp:TextBox>
+                                                </td>
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                                </td>
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtUbicacionO" TextMode="MultiLine" MaxLength="100" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </ContentTemplate>
                                 </asp:UpdatePanel>
                             </div>
                             <div style="width: auto; border: 2px Solid #4a1414;">

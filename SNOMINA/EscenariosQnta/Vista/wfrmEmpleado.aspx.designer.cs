@@ -346,6 +346,15 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtClabe;
         
         /// <summary>
+        /// Control SNeto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SNeto;
+        
+        /// <summary>
         /// Control txtTarjeta.
         /// </summary>
         /// <remarks>
@@ -643,13 +652,13 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.DropDownList ddlECivil;
         
         /// <summary>
-        /// Control UpdatePanel4.
+        /// Control UpdatePanelO.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel4;
+        protected global::System.Web.UI.UpdatePanel UpdatePanelO;
         
         /// <summary>
         /// Control txtCentroCostos.
