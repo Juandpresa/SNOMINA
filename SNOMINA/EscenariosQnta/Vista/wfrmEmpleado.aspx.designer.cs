@@ -553,15 +553,6 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtSueldo;
         
         /// <summary>
-        /// Control divimss.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divimss;
-        
-        /// <summary>
         /// Control txtSueldoBruto.
         /// </summary>
         /// <remarks>
@@ -571,22 +562,13 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtSueldoBruto;
         
         /// <summary>
-        /// Control txtSueldoDiario.
+        /// Control divimss.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSueldoDiario;
-        
-        /// <summary>
-        /// Control txtSueldoDI.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSueldoDI;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divimss;
         
         /// <summary>
         /// Control UpdatePanel2.

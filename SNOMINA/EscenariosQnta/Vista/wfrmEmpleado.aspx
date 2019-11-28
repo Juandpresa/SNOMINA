@@ -838,7 +838,7 @@
                                         </td>
 
                                     </tr>
-                                </table>
+                                </table>                              
                                 <div runat="server" id="divPorSueldo" style="display: none">
                                     <table>
                                         <tr>
@@ -846,23 +846,26 @@
                                             </td>
                                             <td>Sueldo Neto:
                                             </td>
+                                            <td>Sueldo Bruto:
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="td">
                                                 <asp:TextBox ID="txtPorcentaje" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                             <td class="td">
-                                                <asp:TextBox ID="txtSueldo" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                                <asp:TextBox ID="txtSueldo" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);" AutoPostBack="False"></asp:TextBox>
+                                            </td>
+                                          <td class="td">
+                                                <asp:TextBox ID="txtSueldoBruto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
 
                                 <div runat="server" id="divimss" style="display: none">
-                                    <table>
-                                        <tr>
-                                            <td>Sueldo Bruto:
-                                            </td>
+                                   <%-- <table>
+                                        <tr>                                            
                                             <td>Sueldo Diario:
                                             </td>
                                             <td>Sueldo Diario Integrado:
@@ -870,17 +873,14 @@
                                         </tr>
                                         <tr>
                                             <td class="td">
-                                                <asp:TextBox ID="txtSueldoBruto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                            <td class="td">
                                                 <asp:TextBox ID="txtSueldoDiario" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                             <td class="td">
                                                 <asp:TextBox ID="txtSueldoDI" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                         </tr>
-                                    </table>
-                                </div>
+                                    </table>--%>
+                                </div>                                      
                                 <asp:UpdatePanel runat="server" ID="UpdatePanel2" UpdateMode="Conditional">
                                     <ContentTemplate>
                                         <div>

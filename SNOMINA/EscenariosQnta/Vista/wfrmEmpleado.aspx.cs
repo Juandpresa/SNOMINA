@@ -90,6 +90,7 @@ namespace EscenariosQnta
     decimal sueldoN;
     decimal sueldoD;
     decimal sdi;
+    string sb;
     int porc = 0;
     int emp = 0;
 
@@ -1591,6 +1592,23 @@ namespace EscenariosQnta
 
     protected void btnEsquema_Click(object sender, EventArgs e)
     {
+      Antiguedad = DateTime.Parse(txtAntiguedad.Text.ToString());
+      PeriodoPago = int.Parse(ddlPeriodoPago.SelectedItem.Value);
+      Id_Prestac = int.Parse(ddlPrestacion.SelectedItem.Value);
+      string[] re = new string[3];
+      decimal sn = decimal.Parse(txtSueldo.Text.ToString());
+      if (ddlEMixto.SelectedItem.Text == "IMSS")
+      {
+        re = BLLDetalleEsquemas.ObtenerSB_SD_SDI(sn,Antiguedad, PeriodoPago, Id_Prestac);
+      }
+
+      for (int i = 0; i < re.Length; i++)
+      {
+        sb = re[0];
+        sueldoD = decimal.Parse(re[1]);
+        sdi = decimal.Parse(re[2]);        
+      }
+
       int TotalP = int.Parse(txtTotalE.Text);
       int res = TotalP + int.Parse(txtPorcentaje.Text);
       if (res<=100)
@@ -1628,10 +1646,10 @@ namespace EscenariosQnta
           dr[0] = ddlEsquemas.SelectedItem.Text;
         }
         dr[1] = txtPorcentaje.Text;
-        dr[2] = txtSueldoBruto.Text;
+        dr[2] = sb;
         dr[3] = txtSueldo.Text;
-        dr[4] = txtSueldoDiario.Text;
-        dr[5] = txtSueldoDI.Text;
+        dr[4] = sueldoD;
+        dr[5] = sdi;
         dr[6] = ddlEsquemas.SelectedItem.Value;
         dtEsquema.Rows.Add(dr);
         porc = int.Parse(txtTotalE.Text);
@@ -1793,5 +1811,7 @@ namespace EscenariosQnta
         txtDiasTobra.Text = diasO;
       }
     }
+
+    
   }
 }
