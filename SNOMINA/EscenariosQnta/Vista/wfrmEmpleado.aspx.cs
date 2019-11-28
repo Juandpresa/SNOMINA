@@ -1592,12 +1592,20 @@ namespace EscenariosQnta
 
     protected void btnEsquema_Click(object sender, EventArgs e)
     {
-      Antiguedad = DateTime.Parse(txtAntiguedad.Text.ToString());
+      if (txtAntiguedad.Text == "" || txtAntiguedad.Text == null)
+      {
+        Antiguedad = DateTime.Now;
+      }
+      else
+      {
+        Antiguedad = DateTime.Parse(txtAntiguedad.Text.ToString());
+      }
+      
       PeriodoPago = int.Parse(ddlPeriodoPago.SelectedItem.Value);
       Id_Prestac = int.Parse(ddlPrestacion.SelectedItem.Value);
       string[] re = new string[3];
       decimal sn = decimal.Parse(txtSueldo.Text.ToString());
-      if (ddlEMixto.SelectedItem.Text == "IMSS")
+      if (ddlEMixto.SelectedItem.Text == "IMSS" || ddlEsquemas.SelectedItem.Text == "IMSS")
       {
         re = BLLDetalleEsquemas.ObtenerSB_SD_SDI(sn,Antiguedad, PeriodoPago, Id_Prestac);
       }
