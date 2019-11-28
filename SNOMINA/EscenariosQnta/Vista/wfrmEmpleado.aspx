@@ -155,7 +155,7 @@
                 //document.getElementById('ContentPlaceHolder1_txtSueldoTN').value = 0;
                 //document.getElementById('ContentPlaceHolder1_txtSueldoEZWallet').value = 0;
                 //Card´s
-                $('.panelSueldo').style.display='block';
+                $(".panelSueldo").show();
                 cresidencia.style.display = 'block';
                 cdlaborales.style.display = 'block';
                 cpago.style.display = 'block';
@@ -176,7 +176,7 @@
                 cdlaborales.style.display = 'block';
                 cpago.style.display = 'block';
                 cdcomplemento.style.display = 'block';
-                $('.panelSueldo').style.display='none';
+                $(".panelSueldo").hide();
             }
         }
         function MostrarEsq() {
@@ -661,7 +661,7 @@
                                         </td>
 
                                         <td class="td">
-                                            <div class="panelSueldo style="display: none">
+                                            <div class="panelSueldo" style="display: none">
                                                 <asp:TextBox ID="txtSueldoNeto" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </div>
                                         </td>
