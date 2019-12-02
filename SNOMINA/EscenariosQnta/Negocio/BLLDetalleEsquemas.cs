@@ -22,11 +22,24 @@ namespace EscenariosQnta.Negocio
       }
     }
 
-    public static string[] ObtenerSB_SD_SDI(decimal sueldoN, DateTime antiguedad, int periodoPago, int factor)
+    public static string[] ObtenerSNETO_SD_SDI(decimal sueldoB, DateTime antiguedad, int periodoPago, int factor)
     {
       try
       {
-        string [] res = DALDetalleEsquemas.ObtenerSB_SD_SDI(sueldoN, antiguedad, periodoPago, factor);        
+        string [] res = DALDetalleEsquemas.ObtenerSNETO_SD_SDI(sueldoB, antiguedad, periodoPago, factor);        
+        return res;
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+    }
+
+    public static string[] ObtenerSBRUTO_SD_SDI(decimal sueldoN, DateTime antiguedad, int periodoPago, int factor)
+    {
+      try
+      {
+        string[] res = DALDetalleEsquemas.ObtenerSBRUTO_SD_SDI(sueldoN, antiguedad, periodoPago, factor);
         return res;
       }
       catch (Exception)

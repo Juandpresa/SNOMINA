@@ -1604,10 +1604,19 @@ namespace EscenariosQnta
       PeriodoPago = int.Parse(ddlPeriodoPago.SelectedItem.Value);
       Id_Prestac = int.Parse(ddlPrestacion.SelectedItem.Value);
       string[] re = new string[3];
-      decimal sn = decimal.Parse(txtSueldo.Text.ToString());
+      decimal sbruto = decimal.Parse(txtSueldoBruto.Text.ToString());
+      decimal sneto = decimal.Parse(txtSueldo.Text.ToString());
       if (ddlEMixto.SelectedItem.Text == "IMSS" || ddlEsquemas.SelectedItem.Text == "IMSS")
       {
-        re = BLLDetalleEsquemas.ObtenerSB_SD_SDI(sn,Antiguedad, PeriodoPago, Id_Prestac);
+        if (txtSueldoBruto.Text != "0")
+        {
+          re = BLLDetalleEsquemas.ObtenerSNETO_SD_SDI(sbruto, Antiguedad, PeriodoPago, Id_Prestac);
+        }
+        else
+        {
+          re = BLLDetalleEsquemas.ObtenerSBRUTO_SD_SDI(sneto, Antiguedad, PeriodoPago, Id_Prestac);
+        }
+        
       }
 
       for (int i = 0; i < re.Length; i++)
@@ -1654,8 +1663,17 @@ namespace EscenariosQnta
           dr[0] = ddlEsquemas.SelectedItem.Text;
         }
         dr[1] = txtPorcentaje.Text;
-        dr[2] = sb;
-        dr[3] = txtSueldo.Text;
+        if (txtSueldoBruto.Text != "0")
+        {
+          dr[2] = txtSueldoBruto.Text;
+          dr[3] = sb;
+        }
+        else
+        {
+          dr[2] = sb;
+          dr[3] = txtSueldo.Text;
+        }
+       
         dr[4] = sueldoD;
         dr[5] = sdi;
         dr[6] = ddlEsquemas.SelectedItem.Value;
