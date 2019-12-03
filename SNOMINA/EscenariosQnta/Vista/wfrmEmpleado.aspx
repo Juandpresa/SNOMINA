@@ -262,7 +262,7 @@
                                     <tr>
                                         <td></td>
                                         <td valign="top" align="center">
-                                            <img id="img" alt="" style="width: 135px; height: 160px" src="../image/perfil.jpg" />
+                                            <img id="img" alt="" style="width: 135px; height: 160px" src="../image/usuario.png" />
 
                                         </td>
                                         <td></td>
