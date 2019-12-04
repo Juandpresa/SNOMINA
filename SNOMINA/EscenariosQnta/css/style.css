@@ -7,6 +7,12 @@ body {
     line-height: 1.25;
     font-family: 'Dosis', Sans-Serif;
 }
+@font-face {
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: normal;
+    src: url(fonts/Dosis-Regular.otf);
+}
 
 #skills {
     margin: 2%;
