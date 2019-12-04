@@ -30,8 +30,25 @@
                 }
             });
 
+            $('#<%=txtFFObra.ClientID%>').change(function () {
+                var f1 = '01/01/2017';
+                var f2='20/06/2017';
+                var res = restaFechas(f1, f2);
+                $('#<%=txtDiasTobra.ClientID%>').val(res);     
+            });
 
-        });
+        });      
+
+        restaFechas = function(f1,f2)
+         {
+         var aFecha1 = f1.split('/'); 
+         var aFecha2 = f2.split('/'); 
+         var fFecha1 = Date.UTC(aFecha1[2],aFecha1[1]-1,aFecha1[0]); 
+         var fFecha2 = Date.UTC(aFecha2[2],aFecha2[1]-1,aFecha2[0]); 
+         var dif = fFecha2 - fFecha1;
+         var dias = Math.floor(dif / (1000 * 60 * 60 * 24)); 
+         return dias;
+        }
 
         function showimagepreview(input) {
 
@@ -130,25 +147,6 @@
 
             // other key
             return false
-        }
-
-
-        $('#<%=txtFFObra.ClientID%>').on('change',function () {
-            var f1 =$("<%=txtFIObra.ClientID%>");
-            var f2=$("<%=txtFFObra.ClientID%>");
-            var res = restaFechas(f1, f2);
-            $('#<%=txtDiasTobra.ClientID%>').text(res);     
-        });
-
-        restaFechas = function(f1,f2)
-         {
-         var aFecha1 = f1.split('/'); 
-         var aFecha2 = f2.split('/'); 
-         var fFecha1 = Date.UTC(aFecha1[2],aFecha1[1]-1,aFecha1[0]); 
-         var fFecha2 = Date.UTC(aFecha2[2],aFecha2[1]-1,aFecha2[0]); 
-         var dif = fFecha2 - fFecha1;
-         var dias = Math.floor(dif / (1000 * 60 * 60 * 24)); 
-         return dias;
         }
 
         function showContent() {
