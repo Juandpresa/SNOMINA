@@ -30,8 +30,27 @@
                 }
             });
 
+          $('#<%=txtFFObra.ClientID%>').change(function () {
+            var f1 = '01/01/2017';
+            var f2='20/06/2017';
+            var res = restaFechas(f1, f2);
+            $('#<%=txtDiasTobra.ClientID%>').val(res) ;
+              
+          });
+
         });
 
+         restaFechas = function(f1,f2)
+         {
+         var aFecha1 = f1.split('/'); 
+         var aFecha2 = f2.split('/'); 
+         var fFecha1 = Date.UTC(aFecha1[2],aFecha1[1]-1,aFecha1[0]); 
+         var fFecha2 = Date.UTC(aFecha2[2],aFecha2[1]-1,aFecha2[0]); 
+         var dif = fFecha2 - fFecha1;
+         var dias = Math.floor(dif / (1000 * 60 * 60 * 24)); 
+         return dias;
+         }
+        
 
         function showimagepreview(input) {
 
@@ -396,14 +415,18 @@
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
                             <div class="contenPanel">
+                              <asp:UpdatePanel runat="server" ID="UpdatePanel4" UpdateMode="Conditional">
+                                    <ContentTemplate>
                                 <table>
                                     <tr>
                                         <td class="td">
-                                            <asp:RadioButtonList runat="server" ID="rbtTipoEsquema" CssClass="chkBox" onchange="javascript:showContent()" CausesValidation="True">
+                                            <asp:RadioButtonList runat="server" ID="rbtTipoEsquema" CssClass="chkBox" onchange="javascript:showContent()" CausesValidation="True" AutoPostBack="True" OnSelectedIndexChanged="rbtTipoEsquema_SelectedIndexChanged">
                                             </asp:RadioButtonList>
                                         </td>
                                     </tr>
                                 </table>
+                                      </ContentTemplate>
+                                </asp:UpdatePanel>
                             </div>
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
@@ -415,8 +438,7 @@
                 <div class="card-header" id="heading3">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                            DATOS DE RESIDENCIA
-                        </button>
+                            DATOS DE RESIDENCIA</button>
                     </h2>
                 </div>
                 <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionExample">
@@ -808,7 +830,7 @@
                                         </td>
                                         <td>
                                             <div class="panelAntiguedad" style="display: none">
-                                                <asp:TextBox ID="txtAntiguedad" runat="server" Text="" CssClass="datepicker" placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
+                                                <asp:TextBox ID="txtAntiguedad" runat="server" Text="" CssClass="datepicker" placeholder="dd/mm/yyyy"></asp:TextBox>
                                             </div>
 
                                         </td>
@@ -1039,7 +1061,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox" ReadOnly="True"></asp:TextBox>
+                                                    <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
                                                 </td>
                                                 <td class="td">
                                                     <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox"></asp:TextBox>

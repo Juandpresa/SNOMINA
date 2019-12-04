@@ -1164,7 +1164,7 @@ namespace EscenariosQnta
     //}
 
     protected void btnGuardar_Click(object sender, EventArgs e)
-    {
+   {
       
       try
       {
@@ -1255,7 +1255,14 @@ namespace EscenariosQnta
             IdNEstudios = int.Parse(ddlNivelE.SelectedItem.Value);
             IdInstituto = int.Parse(ddlInstitucion.SelectedItem.Value);
             IdCarrera = int.Parse(ddlCarrera.SelectedItem.Value);
-            Antiguedad = DateTime.Parse(txtAntiguedad.Text.ToString());
+            if (txtAntiguedad.Text == "" || txtAntiguedad.Text == null)
+            {
+              Antiguedad = DateTime.Now;
+            }
+            else
+            {
+              Antiguedad = DateTime.Parse(txtAntiguedad.Text.ToString());
+            }
             Id_Empleadora = int.Parse(ddlEmpleadora.SelectedItem.Value);
             foto = "fotito";
             calle = txtCalle.Text.ToString();
@@ -1829,15 +1836,61 @@ namespace EscenariosQnta
 
     protected void txtFFObra_TextChanged(object sender, EventArgs e)
     {
-      DateTime ini = DateTime.Parse(txtFIObra.Text.ToString());
-      DateTime fi = DateTime.Parse(txtFFObra.Text.ToString());
-      if (txtFIObra.Text != " " || txtFIObra.Text != null)
-      {
-        string diasO = BLLDatosObra.ObtenerDiasObra(ini,fi);
-        txtDiasTobra.Text = diasO;
-      }
+      ////DateTime ini = DateTime.Parse(txtFIObra.Text.ToString());
+      ////DateTime fi = DateTime.Parse(txtFFObra.Text.ToString());
+      //if (txtFIObra.Text != " " || txtFIObra.Text != null)
+      //{
+      //  string diasO = BLLDatosObra.ObtenerDiasObra(DateTime.Now, DateTime.Now);
+      //  txtDiasTobra.Text = diasO;
+      //}
     }
 
-    
+    protected void rbtTipoEsquema_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      if (rbtTipoEsquema.Items[0].Selected == true)
+      {
+        ddlNivelE.Enabled = false;
+        ddlInstitucion.Enabled = false;
+        ddlCarrera.Enabled = false;
+        ddlPagadora.Enabled = false;
+        ddlTipoPago.Enabled = false;
+        ddlPrestacion.Enabled = false;
+        chkAntiguedad.Enabled = false;
+        //txtAntiguedad.Enabled = false;
+        ddlEsquemas.Enabled = false;
+        ddlEMixto.Enabled = false;
+        txtPorcentaje.Enabled = false;
+        txtSueldo.Enabled = false;
+        txtSueldoBruto.Enabled = false;
+        btnEsquema.Enabled = false;
+        txtTotalE.Enabled = false;
+        grdEsquemas.Enabled = false;
+        ddlPrimaRiesgo.Enabled = false;
+        txtNacionalidad.Enabled = false;
+        ddlECivil.Enabled = false;
+      }
+      else
+      {
+        ddlNivelE.Enabled = true;
+        ddlInstitucion.Enabled = true;
+        ddlCarrera.Enabled = true;
+        ddlPagadora.Enabled = true;
+        ddlTipoPago.Enabled = true;
+        ddlPrestacion.Enabled = true;
+        chkAntiguedad.Enabled = true;
+        //txtAntiguedad.Enabled = false;
+        ddlEsquemas.Enabled = true;
+        ddlEMixto.Enabled = true;
+        txtPorcentaje.Enabled = true;
+        txtSueldo.Enabled = true;
+        txtSueldoBruto.Enabled = true;
+        btnEsquema.Enabled = true;
+        txtTotalE.Enabled = true;
+        grdEsquemas.Enabled = true;
+        ddlPrimaRiesgo.Enabled = true;
+        txtNacionalidad.Enabled = true;
+        ddlECivil.Enabled = true;
+      }
+    }
   }
 }
