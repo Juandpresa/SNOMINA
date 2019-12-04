@@ -1834,17 +1834,6 @@ namespace EscenariosQnta
 
     }
 
-    protected void txtFFObra_TextChanged(object sender, EventArgs e)
-    {
-      ////DateTime ini = DateTime.Parse(txtFIObra.Text.ToString());
-      ////DateTime fi = DateTime.Parse(txtFFObra.Text.ToString());
-      //if (txtFIObra.Text != " " || txtFIObra.Text != null)
-      //{
-      //  string diasO = BLLDatosObra.ObtenerDiasObra(DateTime.Now, DateTime.Now);
-      //  txtDiasTobra.Text = diasO;
-      //}
-    }
-
     protected void rbtTipoEsquema_SelectedIndexChanged(object sender, EventArgs e)
     {
       if (rbtTipoEsquema.Items[0].Selected == true)

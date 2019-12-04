@@ -30,14 +30,38 @@
                 }
             });
 
-            $('#<%=txtFFObra.ClientID%>').change(function () {
-                var f1 = '01/01/2017';
-                var f2='20/06/2017';
-                var res = restaFechas(f1, f2);
-                $('#<%=txtDiasTobra.ClientID%>').val(res);     
-            });
+          
+          $('#<%=txtFFObra.ClientID%>').on('change', function () {
+              
+              var f1 = $('#<%=txtFIObra.ClientID%>').val();
+              var f2 = $('#<%=txtFFObra.ClientID%>').val();
+              var s1 = formato(f1);
+              var s2 = formato(f2);
+              var res = restaFechas(s1, s2);
+              if (f1 != "") {
+                 $('#<%=txtDiasTobra.ClientID%>').val(res);  
+              }
+                  
+          });
+
+          $('#<%=txtFIObra.ClientID%>').on('change', function () {
+              
+              var f1 = $('#<%=txtFIObra.ClientID%>').val();
+              var f2 = $('#<%=txtFFObra.ClientID%>').val();
+              var s1 = formato(f1);
+              var s2 = formato(f2);
+              var res = restaFechas(s1, s2);
+              if (f2 != "") {
+                 $('#<%=txtDiasTobra.ClientID%>').val(res);  
+              }
+                  
+          });
 
         });      
+
+        function formato(texto) {
+          return texto.replace(/^(\d{4})[/](\d{2})[/](\d{2})$/g, '$3/$2/$1');
+        }
 
         restaFechas = function(f1,f2)
          {
@@ -1046,7 +1070,7 @@
                                                 </td>
                                                 <td class="td">
                                                     <asp:TextBox ID="txtFFObra" runat="server" Text="" CssClass="datepicker"
-                                                        placeholder="dd/mm/yyyy" required="required" OnTextChanged="txtFFObra_TextChanged" AutoPostBack="True"></asp:TextBox>
+                                                        placeholder="dd/mm/yyyy" required="required" AutoPostBack="False"></asp:TextBox>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1059,7 +1083,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                                    <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox" ReadOnly="true"></asp:TextBox>
                                                 </td>
                                                 <td class="td">
                                                     <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
