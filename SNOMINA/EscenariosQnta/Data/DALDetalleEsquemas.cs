@@ -85,7 +85,7 @@ namespace EscenariosQnta.Data
       {
         string[] res = new string[3];
         conn.Open();
-        string Query = "SP_PiramidacionNetoABruto2";
+        string Query = "SP_PiramidacionNetoABruto";
         SqlCommand cmd = new SqlCommand(Query, conn);
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@SueldoNomina", sueldoN);
