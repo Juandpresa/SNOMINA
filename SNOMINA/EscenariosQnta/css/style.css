@@ -1,4 +1,13 @@
 /**** Disenio Cuerpo - INICIO ****/
+
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+
+@font-face {
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: normal;
+    src: url(fonts/Dosis-Regular.otf);
+}
 body {
     background: #fff;
     color: #383a3c;
@@ -7,12 +16,7 @@ body {
     line-height: 1.25;
     font-family: 'Dosis', Sans-Serif;
 }
-@font-face {
-    font-family: 'Dosis';
-    font-style: normal;
-    font-weight: normal;
-    src: url(fonts/Dosis-Regular.otf);
-}
+
 
 #skills {
     margin: 2%;
