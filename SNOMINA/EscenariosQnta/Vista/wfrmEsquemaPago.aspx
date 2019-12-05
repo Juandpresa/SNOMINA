@@ -100,13 +100,20 @@
                     <table>
                         <tr>
                             <td>
-                                Esquema Pago:
+                               Tipo de Esquema de Pago:
+                            </td>
+                            <td>
+                                SP a Ejecutar:
                             </td>
                         </tr>
                         <tr>
                             <td class="td">
-                                <asp:TextBox ID="txtDescripcion" runat="server" Text="" onkeypress="return isAlphabetKey(event)"
-                                    required CssClass="textbox"></asp:TextBox>
+                                <asp:TextBox ID="txtNEsquema" runat="server" Text="" onkeypress="return isAlphabetKey(event)"
+                                    required="required" CssClass="textbox"></asp:TextBox>
+                            </td>
+                            <td class="td">
+                                <asp:TextBox ID="txtSPutilizado" runat="server" Text="" 
+                                    required="required" CssClass="textbox"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
@@ -123,16 +130,25 @@
                         <Columns>
                             <asp:TemplateField ItemStyle-Width="30px" HeaderText="Id_TpoEsq" Visible="false">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblId_TpoEsq" runat="server" Text='<%# Eval("Id_TpoEsq")%>'></asp:Label>
+                                    <asp:Label ID="lblId_TpoEsq" runat="server" Text='<%# Eval("IdCatEsquemas")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Descripcion">
+                            <asp:TemplateField HeaderText="Nombre Esquema">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblDescripcion" runat="server" Text='<%# Eval("Descripcion")%>'></asp:Label>
+                                    <asp:Label ID="lblNombreEsquema" runat="server" Text='<%# Eval("NombreEsquema")%>'></asp:Label>
                                 </ItemTemplate>
                                 <EditItemTemplate>
-                                    <asp:TextBox ID="txtDescripcion" runat="server" onkeypress="return isAlphabetKey(event)"
-                                        Text='<%# Eval("Descripcion")%>'></asp:TextBox>
+                                    <asp:TextBox ID="txtNombreEsquema" runat="server" onkeypress="return isAlphabetKey(event)"
+                                        Text='<%# Eval("NombreEsquema")%>'></asp:TextBox>
+                                </EditItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="SP_Utilizado">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblId_SPNombre" runat="server" Text='<%# Eval("SP_Nombre")%>'></asp:Label>
+                                </ItemTemplate>
+                                 <EditItemTemplate>
+                                    <asp:TextBox ID="txtSPNombre" runat="server" onkeypress="return isAlphabetKey(event)"
+                                        Text='<%# Eval("SP_Nombre")%>'></asp:TextBox>
                                 </EditItemTemplate>
                             </asp:TemplateField>
                            <asp:CommandField  ShowEditButton="True" >

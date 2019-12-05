@@ -88,7 +88,7 @@
                             <%--<li><a href="wfrmPrestacion.aspx">Prestaciones</a></li>--%>
                             <li><a href="../Vista/wfrmInfonavit.aspx">Infonavit</a></li>
                             <li><a href="../Vista/wfrmPensionAlimenticia.aspx">Pension Alimenticia</a></li>
-                            <%--<li><a href="../Vista/wfrmEsquemaPago.aspx">Esquema Actual</a></li>--%>
+                            <li><a href="../Vista/wfrmEsquemaPago.aspx">Esquema Actual</a></li>
                             <li><a href="../Vista/wfrmFunciones.aspx">Funciones</a></li>
                             <li><a href="../Vista/wfrmConceptos.aspx">Conceptos</a></li>
                         </ul>
