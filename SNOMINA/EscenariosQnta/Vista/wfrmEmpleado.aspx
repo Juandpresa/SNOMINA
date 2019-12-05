@@ -55,7 +55,18 @@
                     $('#<%=txtDiasTobra.ClientID%>').val(res);
                 }
 
-            });
+          });
+
+          $('#<%=txtPorcentaje.ClientID%>').on('change', function () {                
+            var ST = $('#<%=txtST.ClientID%>').val();
+            var Por = $('#<%=txtPorcentaje.ClientID%>').val();
+            if (ST == "") {
+              ST = 0;
+            }
+            var respor = parseFloat(Por) * parseFloat(ST) / 100;
+
+            $('#<%=txtSueldo.ClientID%>').val(respor);
+          });
 
         });
 

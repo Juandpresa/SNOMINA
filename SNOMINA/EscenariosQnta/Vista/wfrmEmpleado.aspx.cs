@@ -95,6 +95,8 @@ namespace EscenariosQnta
     int emp = 0;
     string sp_imss_BaN = "SP_Piramidacion";
     string sp_imss_NaB = "SP_PiramidacionNetoABruto";
+    int contimss = 0;
+
     DateTime FechUltimoPago;
     DateTime FechIngreso;
     DateTime? FechNacimiento;
@@ -1622,18 +1624,22 @@ namespace EscenariosQnta
       }
       strQuerySP_Esq = BLLDetalleEsquemas.ObtenerNomSPEsquema(int.Parse(ddlEsquemas.SelectedItem.Value));
 
-      if (strQuerySP_Esq == sp_imss_BaN || strQuerySP_EMix == sp_imss_NaB)
+      if (int.Parse(txtSueldoBruto.Text) < 1)
       {
-        if (txtSueldoBruto.Text != "0")
+        if (strQuerySP_Esq == sp_imss_BaN || strQuerySP_EMix == sp_imss_NaB)
         {
-          re = BLLDetalleEsquemas.ObtenerSNETO_SD_SDI(sbruto, Antiguedad, PeriodoPago, Id_Prestac);
+          if (txtSueldoBruto.Text != "0")
+          {
+            re = BLLDetalleEsquemas.ObtenerSNETO_SD_SDI(sbruto, Antiguedad, PeriodoPago, Id_Prestac);
+          }
+          else
+          {
+            re = BLLDetalleEsquemas.ObtenerSBRUTO_SD_SDI(sneto, Antiguedad, PeriodoPago, Id_Prestac);
+          }
         }
-        else
-        {
-          re = BLLDetalleEsquemas.ObtenerSBRUTO_SD_SDI(sneto, Antiguedad, PeriodoPago, Id_Prestac);
-        }
-        
+        txtSueldoBruto.Text = "1";
       }
+      
 
       for (int i = 0; i < re.Length; i++)
       {
