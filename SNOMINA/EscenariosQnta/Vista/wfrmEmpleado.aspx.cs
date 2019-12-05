@@ -93,7 +93,8 @@ namespace EscenariosQnta
     string sb;
     int porc = 0;
     int emp = 0;
-
+    string sp_imss_BaN = "SP_Piramidacion";
+    string sp_imss_NaB = "SP_PiramidacionNetoABruto";
     DateTime FechUltimoPago;
     DateTime FechIngreso;
     DateTime? FechNacimiento;
@@ -105,6 +106,8 @@ namespace EscenariosQnta
     string strQueryCV = string.Empty;
     string strQueryEmp = string.Empty;
     string strQueryDE = string.Empty;
+    string strQuerySP_Esq = string.Empty;
+    string strQuerySP_EMix = string.Empty;
     string RetunValue;
     clsDatos clsQuery = new clsDatos();
     string ValidacionControles = string.Empty;
@@ -1613,7 +1616,13 @@ namespace EscenariosQnta
       string[] re = new string[3];
       decimal sbruto = decimal.Parse(txtSueldoBruto.Text.ToString());
       decimal sneto = decimal.Parse(txtSueldo.Text.ToString());
-      if (ddlEMixto.SelectedItem.Text == "IMSS" || ddlEsquemas.SelectedItem.Text == "IMSS")
+      if (int.Parse(ddlEMixto.SelectedItem.Value) > 0)
+      {
+        strQuerySP_EMix = BLLDetalleEsquemas.ObtenerNomSPEsquema(int.Parse(ddlEsquemas.SelectedItem.Value));
+      }
+      strQuerySP_Esq = BLLDetalleEsquemas.ObtenerNomSPEsquema(int.Parse(ddlEsquemas.SelectedItem.Value));
+
+      if (strQuerySP_Esq == sp_imss_BaN || strQuerySP_EMix == sp_imss_NaB)
       {
         if (txtSueldoBruto.Text != "0")
         {

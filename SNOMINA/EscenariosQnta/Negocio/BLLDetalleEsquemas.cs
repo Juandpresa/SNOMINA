@@ -47,5 +47,17 @@ namespace EscenariosQnta.Negocio
         throw;
       }
     }
+
+    public static string ObtenerNomSPEsquema(int idEsq)
+    {
+      try
+      {
+        return DALDetalleEsquemas.ObtenerNomSPEsquema(idEsq);
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+    }
   }
 }

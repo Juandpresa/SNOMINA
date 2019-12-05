@@ -756,7 +756,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card" id="cdcomplemento" style="display: none">
+            <div class="card" id="cdcomplemento" style="display: block">
                 <div class="card-header" id="heading6">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
