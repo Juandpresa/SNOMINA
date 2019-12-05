@@ -221,43 +221,33 @@
             }
         }
         function MostrarEsq() {
-
-            var esimss = document.getElementById('ContentPlaceHolder1_divimss');
             var txtpors = document.getElementById('ContentPlaceHolder1_divPorSueldo');
             var listaEsq = $('#<%=ddlEsquemas.ClientID%>').find('option:selected').val();
             if (listaEsq == 1) {
                 txtpors.style.display = 'block';
-                esimss.style.display = 'block';
-                document.getElementById('ContentPlaceHolder1_txtPorcentajeIMSS').value = 100;
-                document.getElementById('ContentPlaceHolder1_txtPorcentajeIMSS').readOnly = true;
+                document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = true;
                 $('.mix').hide();
             }
             if (listaEsq == 2) {
                 $('.mix').show();
-                esimss.style.display = 'none';
                 txtpors.style.display = 'none';
             }
             if (listaEsq >= 3) {
                 txtpors.style.display = 'block';
-                document.getElementById('ContentPlaceHolder1_txtPorcentaje').value = 100
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = true;
-                esimss.style.display = 'none';
                 $('.mix').hide();
             }
         }
         function MostrarEsqM() {
-            var esimss = document.getElementById('ContentPlaceHolder1_divimss');
             var txtpors = document.getElementById('ContentPlaceHolder1_divPorSueldo');
             var listaEsq = $('#<%=ddlEMixto.ClientID%>').find('option:selected').val();
             if (listaEsq == 1) {
-                esimss.style.display = 'block';
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
             }
 
             if (listaEsq >= 3) {
                 txtpors.style.display = 'block';
-                esimss.style.display = 'none';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
             }
         }
@@ -867,7 +857,6 @@
                                                 <asp:Label Text="Mixto:" ID="Mixto" runat="server" />
                                             </div>
                                         </td>
-
                                     </tr>
                                     <tr>
                                         <td class="td" align="center">
@@ -880,7 +869,6 @@
                                                 </asp:DropDownList>
                                             </div>
                                         </td>
-
                                     </tr>
                                 </table>
                                 <div runat="server" id="divPorSueldo" style="display: none">
@@ -895,7 +883,7 @@
                                         </tr>
                                         <tr>
                                             <td class="td">
-                                                <asp:TextBox ID="txtPorcentaje" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                                <asp:TextBox ID="txtPorcentaje" runat="server" Text="100" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </td>
                                             <td class="td">
                                                 <asp:TextBox ID="txtSueldo" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);" AutoPostBack="False"></asp:TextBox>
@@ -907,24 +895,6 @@
                                     </table>
                                 </div>
 
-                                <div runat="server" id="divimss" style="display: none">
-                                    <%-- <table>
-                                        <tr>                                            
-                                            <td>Sueldo Diario:
-                                            </td>
-                                            <td>Sueldo Diario Integrado:
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtSueldoDiario" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtSueldoDI" runat="server" Text="0" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                    </table>--%>
-                                </div>
                                 <asp:UpdatePanel runat="server" ID="UpdatePanel2" UpdateMode="Conditional">
                                     <ContentTemplate>
                                         <div>

@@ -571,15 +571,6 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.TextBox txtSueldoBruto;
         
         /// <summary>
-        /// Control divimss.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divimss;
-        
-        /// <summary>
         /// Control UpdatePanel2.
         /// </summary>
         /// <remarks>
