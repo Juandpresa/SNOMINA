@@ -330,12 +330,12 @@
                                     <tr>
                                         <td>
                                             <asp:DropDownList ID="ddlEmpleadora" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlEmpleadora_SelectedIndexChanged"
-                                                AutoPostBack="true">
+                                                AutoPostBack="true" required="required">
                                             </asp:DropDownList>
                                         </td>
                                         <td>
                                             <asp:DropDownList ID="ddlCliente" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged"
-                                                AutoPostBack="true">
+                                                AutoPostBack="true" required="required">
                                             </asp:DropDownList>
                                         </td>
                                         <td>
@@ -373,7 +373,7 @@
                                     <tr>
 
                                         <td class="td">
-                                            <asp:DropDownList ID="ddlSexo" runat="server" CssClass="cssDropdown">
+                                            <asp:DropDownList ID="ddlSexo" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
                                         </td>
                                         <td class="td">
@@ -442,7 +442,7 @@
                                         <table>
                                             <tr>
                                                 <td class="td">
-                                                    <asp:RadioButtonList runat="server" ID="rbtTipoEsquema" CssClass="chkBox" onchange="javascript:showContent()" CausesValidation="True" AutoPostBack="True" OnSelectedIndexChanged="rbtTipoEsquema_SelectedIndexChanged">
+                                                    <asp:RadioButtonList runat="server" ID="rbtTipoEsquema" CssClass="chkBox" onchange="javascript:showContent()" CausesValidation="True" AutoPostBack="True" OnSelectedIndexChanged="rbtTipoEsquema_SelectedIndexChanged" required="required">
                                                     </asp:RadioButtonList>
                                                 </td>
                                             </tr>
@@ -480,7 +480,7 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:TextBox ID="txtCalle" runat="server" Text="" CssClass="textbox" required="true"></asp:TextBox>
+                                            <asp:TextBox ID="txtCalle" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
                                         </td>
                                         <td class="td">
                                             <asp:TextBox ID="txtNumero" runat="server" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
@@ -499,14 +499,14 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:DropDownList ID="ddlEntidad" runat="server" CssClass="cssDropdown">
+                                            <asp:DropDownList ID="ddlEntidad" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtCiudadDel" runat="server" Text="" CssClass="textbox" required="true"></asp:TextBox>
+                                            <asp:TextBox ID="txtCiudadDel" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtCP" runat="server" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            <asp:TextBox ID="txtCP" runat="server" CssClass="textbox" onkeypress="return isDecimalKey(event, this);" required="required"></asp:TextBox>
                                         </td>
                                     </tr>
                                 </table>
