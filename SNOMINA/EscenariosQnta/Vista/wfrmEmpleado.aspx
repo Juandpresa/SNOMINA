@@ -30,48 +30,47 @@
                 }
             });
 
-          
-          $('#<%=txtFFObra.ClientID%>').on('change', function () {
-              
-              var f1 = $('#<%=txtFIObra.ClientID%>').val();
-              var f2 = $('#<%=txtFFObra.ClientID%>').val();
-              var s1 = formato(f1);
-              var s2 = formato(f2);
-              var res = restaFechas(s1, s2);
-              if (f1 != "") {
-                 $('#<%=txtDiasTobra.ClientID%>').val(res);  
-              }
-                  
-          });
 
-          $('#<%=txtFIObra.ClientID%>').on('change', function () {
-              
-              var f1 = $('#<%=txtFIObra.ClientID%>').val();
-              var f2 = $('#<%=txtFFObra.ClientID%>').val();
-              var s1 = formato(f1);
-              var s2 = formato(f2);
-              var res = restaFechas(s1, s2);
-              if (f2 != "") {
-                 $('#<%=txtDiasTobra.ClientID%>').val(res);  
-              }
-                  
-          });
+            $('#<%=txtFFObra.ClientID%>').on('change', function () {
 
-        });      
+                var f1 = $('#<%=txtFIObra.ClientID%>').val();
+                var f2 = $('#<%=txtFFObra.ClientID%>').val();
+                var s1 = formato(f1);
+                var s2 = formato(f2);
+                var res = restaFechas(s1, s2);
+                if (f1 != "") {
+                    $('#<%=txtDiasTobra.ClientID%>').val(res);
+                }
+
+            });
+
+            $('#<%=txtFIObra.ClientID%>').on('change', function () {
+
+                var f1 = $('#<%=txtFIObra.ClientID%>').val();
+                var f2 = $('#<%=txtFFObra.ClientID%>').val();
+                var s1 = formato(f1);
+                var s2 = formato(f2);
+                var res = restaFechas(s1, s2);
+                if (f2 != "") {
+                    $('#<%=txtDiasTobra.ClientID%>').val(res);
+                }
+
+            });
+
+        });
 
         function formato(texto) {
-          return texto.replace(/^(\d{4})[/](\d{2})[/](\d{2})$/g, '$3/$2/$1');
+            return texto.replace(/^(\d{4})[/](\d{2})[/](\d{2})$/g, '$3/$2/$1');
         }
 
-        restaFechas = function(f1,f2)
-         {
-         var aFecha1 = f1.split('/'); 
-         var aFecha2 = f2.split('/'); 
-         var fFecha1 = Date.UTC(aFecha1[2],aFecha1[1]-1,aFecha1[0]); 
-         var fFecha2 = Date.UTC(aFecha2[2],aFecha2[1]-1,aFecha2[0]); 
-         var dif = fFecha2 - fFecha1;
-         var dias = Math.floor(dif / (1000 * 60 * 60 * 24)); 
-         return dias;
+        restaFechas = function (f1, f2) {
+            var aFecha1 = f1.split('/');
+            var aFecha2 = f2.split('/');
+            var fFecha1 = Date.UTC(aFecha1[2], aFecha1[1] - 1, aFecha1[0]);
+            var fFecha2 = Date.UTC(aFecha2[2], aFecha2[1] - 1, aFecha2[0]);
+            var dif = fFecha2 - fFecha1;
+            var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
+            return dias;
         }
 
         function showimagepreview(input) {
@@ -857,6 +856,11 @@
                                                 <asp:Label Text="Mixto:" ID="Mixto" runat="server" />
                                             </div>
                                         </td>
+                                        <td>
+                                            <div class="mix" style="display: none">
+                                                <asp:Label Text="Sueldo Total:" ID="SMixto" runat="server" />
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td class="td" align="center">
@@ -867,6 +871,11 @@
                                             <div class="mix" style="display: none">
                                                 <asp:DropDownList ID="ddlEMixto" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsqM()">
                                                 </asp:DropDownList>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="mix" style="display: none">
+                                                <asp:TextBox ID="txtST" runat="server" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                             </div>
                                         </td>
                                     </tr>

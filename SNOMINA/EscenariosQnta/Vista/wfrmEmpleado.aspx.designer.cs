@@ -517,6 +517,15 @@ namespace EscenariosQnta {
         protected global::System.Web.UI.WebControls.Label Mixto;
         
         /// <summary>
+        /// Control SMixto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SMixto;
+        
+        /// <summary>
         /// Control ddlEsquemas.
         /// </summary>
         /// <remarks>
@@ -533,6 +542,15 @@ namespace EscenariosQnta {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEMixto;
+        
+        /// <summary>
+        /// Control txtST.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtST;
         
         /// <summary>
         /// Control divPorSueldo.
