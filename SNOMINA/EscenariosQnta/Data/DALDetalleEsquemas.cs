@@ -118,5 +118,28 @@ namespace EscenariosQnta.Data
       }
     }
 
+    public static string ObtenerNomSPEsquema(int idEsq)
+    {
+      try
+      {
+        conn.Open();
+        string Query = "SP_ ObtenerNomSPEsquema";
+        SqlCommand cmd = new SqlCommand(Query, conn);
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.Parameters.AddWithValue("@IdEsquema", idEsq);
+        return cmd.ExecuteScalar().ToString();
+
+      }
+      catch (Exception)
+      {
+
+        throw;
+      }
+      finally
+      {
+        conn.Close();
+      }
+    }
+
   }
 }
