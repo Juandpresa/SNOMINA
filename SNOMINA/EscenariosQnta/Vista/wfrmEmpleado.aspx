@@ -224,15 +224,21 @@
             if (listaEsq == 1) {
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = true;
+                document.getElementById('ContentPlaceHolder1_txtSueldoBruto').style.display = 'block';
+                document.getElementById('ContentPlaceHolder1_lblSBruto').style.display = 'block';
                 $('.mix').hide();
             }
             if (listaEsq == 2) {
                 $('.mix').show();
                 txtpors.style.display = 'none';
+                document.getElementById('ContentPlaceHolder1_lblSBruto').style.display = 'none';
+                document.getElementById('ContentPlaceHolder1_txtSueldoBruto').style.display = 'none';
             }
             if (listaEsq >= 3) {
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = true;
+                document.getElementById('ContentPlaceHolder1_txtSueldoBruto').style.display = 'none';
+                document.getElementById('ContentPlaceHolder1_lblSBruto').style.display = 'none';
                 $('.mix').hide();
             }
         }
@@ -242,11 +248,15 @@
             if (listaEsq == 1) {
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
+                document.getElementById('ContentPlaceHolder1_txtSueldoBruto').style.display = 'block';
+                document.getElementById('ContentPlaceHolder1_lblSBruto').style.display = 'block';
             }
 
             if (listaEsq >= 3) {
                 txtpors.style.display = 'block';
                 document.getElementById('ContentPlaceHolder1_txtPorcentaje').readOnly = false;
+                document.getElementById('ContentPlaceHolder1_txtSueldoBruto').style.display = 'none';
+                document.getElementById('ContentPlaceHolder1_lblSBruto').style.display = 'none';
             }
         }
 
@@ -899,7 +909,8 @@
                                                     </td>
                                                     <td>Sueldo Neto:
                                                     </td>
-                                                    <td>Sueldo Bruto:
+                                                    <td>
+                                                        <asp:Label ID="lblSBruto" Text=" Sueldo Bruto:" runat="server" />
                                                     </td>
                                                 </tr>
                                                 <tr>
