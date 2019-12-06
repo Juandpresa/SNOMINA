@@ -1297,7 +1297,7 @@ namespace EscenariosQnta
               }
               else
               {
-                //strQueryEmp = BLLEmpleado.InsEmpleado(Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, FechaIngreso, FechaNac, SueldoBruto, SueldoNeto, Id_Prestac, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, PeriodoPago, Antiguedad, Id_Empleadora, foto, calle, numero, colonia, estado, ciudad, cp, departamento, turno, horario, jornada, diasContrato, estadoCivil, tipoContrato);
+                strQueryEmp = BLLEmpleado.InsEmpleado(Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, FechaIngreso, FechaNac, SueldoBruto, SueldoNeto, Id_Prestac, Id_ClasifEmp, Nacionalidad, TipoEsquema, Cve, RSPagadora, Sexo, TipoPago, curp, rfc, correo, telLocal, telMovil, PeriodoPago, Antiguedad, Id_Empleadora, foto, calle, numero, colonia, estado, ciudad, cp, departamento, turno, horario, jornada, diasContrato, estadoCivil, tipoContrato);
                 
               }
 
@@ -1305,7 +1305,7 @@ namespace EscenariosQnta
               IdEmpleado = BLLEmpleado.ObtenerUltimoEmpleado();
               emp = int.Parse(IdEmpleado);
        
-              //strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, IdNEstudios, IdInstituto, IdCarrera);
+              strQueryE = BLLGradoAcademico.InsGradoAcademico(emp, IdNEstudios, IdInstituto, IdCarrera);
 
               foreach (GridViewRow gvr in grd.Rows)
               {
@@ -1319,7 +1319,7 @@ namespace EscenariosQnta
                 clabe = txtGClabe.Text;
                 tarjeta = txtGTarjeta.Text;
                 IdBanco = int.Parse(txtGIdBanco.Text);
-                //strQueryIB = BLLInfoBancaria.InsInfoBancaria(IdBanco, emp, cuenta, clabe, tarjeta);
+                strQueryIB = BLLInfoBancaria.InsInfoBancaria(IdBanco, emp, cuenta, clabe, tarjeta);
               }
 
               foreach (GridViewRow gvrE in grdEsquemas.Rows)
