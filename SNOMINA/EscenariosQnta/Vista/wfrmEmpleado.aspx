@@ -54,7 +54,6 @@
                 if (f2 != "") {
                     $('#<%=txtDiasTobra.ClientID%>').val(res);
                 }
-
             });
         });
 
@@ -270,6 +269,12 @@
 
             $('#<%=txtSueldo.ClientID%>').val(respor);
         }
+       <%-- function ActivaF() {
+            var clave = $('#<%=txtClave.ClientID%>').val();
+            if (clave != "" || clave != false || clave != null) {
+                    $('#<%=fileFoto.ClientID%>').visible = true;
+                }
+        }--%>
 
         // document.getElementById("<%=rbtTipoEsquema.ClientID%>").required = true;
 
@@ -306,7 +311,6 @@
                         <div class="container_12 container">
                             <div style="width: auto; border: 2px Solid #4a1414;">
                             </div>
-
                             <div class="contenPanel row">
                                 <table>
                                     <tr>
@@ -321,108 +325,105 @@
                                         <td></td>
                                         <td align="center">
                                             <br />
-                                            <asp:FileUpload ID="fileFoto" runat="server" onchange="showimagepreview(this)" CssClass="btn btn-info" />
+                                            <asp:FileUpload ID="fileFoto" runat="server" onchange="showimagepreview(this)" CssClass="btn btn-info"/>
                                             <br />
                                             <br />
                                         </td>
                                         <td></td>
-                                    </tr>
+                                        <tr>
+                                            <td>Empleadora:
+                                            </td>
+                                            <td>Cliente:
+                                            </td>
+                                            <td>Clave Empleado:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:DropDownList ID="ddlEmpleadora" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlEmpleadora_SelectedIndexChanged"
+                                                    AutoPostBack="true" required="required">
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:DropDownList ID="ddlCliente" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged"
+                                                    AutoPostBack="true" required="required">
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="txtIdentificador" runat="server" Text="" CssClass="textboxid" ReadOnly="true"></asp:TextBox>
+                                                <asp:TextBox ID="txtClave" runat="server" Text="" CssClass="textboxcl" required="required"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nombre:
+                                            </td>
+                                            <td>Apellido Paterno:
+                                            </td>
+                                            <td>Apellido Materno:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtNombre" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtPaterno" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtMaterno" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sexo:
+                                            </td>
+                                            <td>Fecha Nacimiento:
+                                            </td>
+                                            <td>Curp:
+                                            </td>
+                                        </tr>
+                                        <tr>
 
-                                    <tr>
-                                        <td>Empleadora:
-                                        </td>
-                                        <td>Cliente:
-                                        </td>
-                                        <td>Clave Empleado:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:DropDownList ID="ddlEmpleadora" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlEmpleadora_SelectedIndexChanged"
-                                                AutoPostBack="true" required="required">
-                                            </asp:DropDownList>
-                                        </td>
-                                        <td>
-                                            <asp:DropDownList ID="ddlCliente" runat="server" CssClass="cssDropdown" OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged"
-                                                AutoPostBack="true" required="required">
-                                            </asp:DropDownList>
-                                        </td>
-                                        <td>
-                                            <asp:TextBox ID="txtIdentificador" runat="server" Text="" CssClass="textboxid" ReadOnly="true"></asp:TextBox>
-                                            <asp:TextBox ID="txtClave" runat="server" Text="" CssClass="textboxcl" required="required"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nombre:
-                                        </td>
-                                        <td>Apellido Paterno:
-                                        </td>
-                                        <td>Apellido Materno:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtNombre" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtPaterno" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtMaterno" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sexo:
-                                        </td>
-                                        <td>Fecha Nacimiento:
-                                        </td>
-                                        <td>Curp:
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                            <td class="td">
+                                                <asp:DropDownList ID="ddlSexo" runat="server" CssClass="cssDropdown" required="required">
+                                                </asp:DropDownList>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtFechaNacimiento" runat="server" Text="" CssClass="datepicker"
+                                                    placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtCurp" runat="server" Text="" CssClass="textbox" required="required" Style="text-transform: uppercase"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>RFC:
+                                            </td>
+                                            <td>Correo:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtRfc" runat="server" Text="" CssClass="textbox" required="required" Style="text-transform: uppercase"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtCorreo" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
+                                            </td>
 
-                                        <td class="td">
-                                            <asp:DropDownList ID="ddlSexo" runat="server" CssClass="cssDropdown" required="required">
-                                            </asp:DropDownList>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtFechaNacimiento" runat="server" Text="" CssClass="datepicker"
-                                                placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtCurp" runat="server" Text="" CssClass="textbox" required="required" Style="text-transform: uppercase"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>RFC:
-                                        </td>
-                                        <td>Correo:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtRfc" runat="server" Text="" CssClass="textbox" required="required" Style="text-transform: uppercase"></asp:TextBox>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtCorreo" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Telefono Movil:
-                                        </td>
-                                        <td>Telefono Fijo: 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtTelefonoMovil" runat="server" Text="" CssClass="textbox" required="required" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                        </td>
-                                        <td class="td">
-                                            <asp:TextBox ID="txtTelefonoLocal" runat="server" Text="" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                        </td>
-                                    </tr>
-
+                                        </tr>
+                                        <tr>
+                                            <td>Telefono Movil:
+                                            </td>
+                                            <td>Telefono Fijo: 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtTelefonoMovil" runat="server" Text="" CssClass="textbox" required="required" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                            <td class="td">
+                                                <asp:TextBox ID="txtTelefonoLocal" runat="server" Text="" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                            </td>
+                                        </tr>
                                 </table>
                             </div>
                             <div style="width: auto; border: 2px Solid #4a1414;"></div>
@@ -432,39 +433,41 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header" id="heading2">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                            TIPO DE ALTA
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <div class="container_12 container">
-                            <div style="width: auto; border: 2px Solid #4a1414;">
+            </ContentTemplate>
+                            </asp:UpdatePanel>
+                            <div class="card">
+                                <div class="card-header" id="heading2">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                            TIPO DE ALTA
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="container_12 container">
+                                            <div style="width: auto; border: 2px Solid #4a1414;">
+                                            </div>
+                                            <div class="contenPanel">
+                                                <asp:UpdatePanel runat="server" ID="UpdatePanel4" UpdateMode="Conditional">
+                                                    <ContentTemplate>
+                                                        <table>
+                                                            <tr>
+                                                                <td class="td">
+                                                                    <asp:RadioButtonList runat="server" ID="rbtTipoEsquema" CssClass="chkBox" onchange="javascript:showContent()" CausesValidation="True" AutoPostBack="True" OnSelectedIndexChanged="rbtTipoEsquema_SelectedIndexChanged" required="required">
+                                                                    </asp:RadioButtonList>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                            </div>
+                                            <div style="width: auto; border: 2px Solid #4a1414;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="contenPanel">
-                                <asp:UpdatePanel runat="server" ID="UpdatePanel4" UpdateMode="Conditional">
-                                    <ContentTemplate>
-                                        <table>
-                                            <tr>
-                                                <td class="td">
-                                                    <asp:RadioButtonList runat="server" ID="rbtTipoEsquema" CssClass="chkBox" onchange="javascript:showContent()" CausesValidation="True" AutoPostBack="True" OnSelectedIndexChanged="rbtTipoEsquema_SelectedIndexChanged" required="required">
-                                                    </asp:RadioButtonList>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
-                            </div>
-                            <div style="width: auto; border: 2px Solid #4a1414;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="card" id="cresidencia" style="display: none">
                 <div class="card-header" id="heading3">
                     <h2 class="mb-0">
@@ -776,7 +779,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card" id="cdcomplemento" style="display: block">
+            <div class="card" id="cdcomplemento" style="display:none">
                 <div class="card-header" id="heading6">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
@@ -823,52 +826,53 @@
                                             <div style="width: auto; border: 2px Solid #4a1414;">
                                             </div>
                             </div>
-                            <asp:UpdatePanel runat="server" ID="UpdatePanel2" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <div class="contenPanel">
-                                        <table>
-                                            <tr>
-                                                <td>Razon Social Pagadora:
-                                                </td>
-                                                <td>Tipo Pago:
-                                                </td>
-                                                <td>Prestaciones:
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="td">
-                                                    <asp:DropDownList ID="ddlPagadora" runat="server" CssClass="cssDropdown">
-                                                    </asp:DropDownList>
-                                                </td>
-                                                <td class="td">
-                                                    <asp:DropDownList ID="ddlTipoPago" runat="server" CssClass="cssDropdown">
-                                                    </asp:DropDownList>
-                                                </td>
-                                                <td class="td">
-                                                    <asp:DropDownList ID="ddlPrestacion" runat="server" CssClass="cssDropdown">
-                                                    </asp:DropDownList>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>
-                                                    <div class="panelAntiguedad" style="display: none">
-                                                        <asp:Label Text="Antiguedad" ID="lblAntiguedad" runat="server" />
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <asp:CheckBox runat="server" ID="chkAntiguedad" CssClass="chkBox" CausesValidation="True" Text="Presenta Antiguedad" OnCheckedChanged="chkAntiguedad_CheckedChanged"></asp:CheckBox>
-                                                </td>
-                                                <td>
-                                                    <div class="panelAntiguedad" style="display: none">
-                                                        <asp:TextBox ID="txtAntiguedad" runat="server" Text="" CssClass="datepicker" placeholder="dd/mm/yyyy"></asp:TextBox>
-                                                    </div>
 
-                                                </td>
-                                            </tr>
-                                        </table>
+                            <div class="contenPanel">
+                                <table>
+                                    <tr>
+                                        <td>Razon Social Pagadora:
+                                        </td>
+                                        <td>Tipo Pago:
+                                        </td>
+                                        <td>Prestaciones:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlPagadora" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlTipoPago" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlPrestacion" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <div class="panelAntiguedad" style="display: none">
+                                                <asp:Label Text="Antiguedad" ID="lblAntiguedad" runat="server" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:CheckBox runat="server" ID="chkAntiguedad" CssClass="chkBox" CausesValidation="True" Text="Presenta Antiguedad" OnCheckedChanged="chkAntiguedad_CheckedChanged"></asp:CheckBox>
+                                        </td>
+                                        <td>
+                                            <div class="panelAntiguedad" style="display: none">
+                                                <asp:TextBox ID="txtAntiguedad" runat="server" Text="" CssClass="datepicker" placeholder="dd/mm/yyyy"></asp:TextBox>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                                <asp:UpdatePanel runat="server" ID="UpdatePanel2" UpdateMode="Conditional">
+                                    <ContentTemplate>
                                         <table>
                                             <tr>
                                                 <td align="center">Esquema:
@@ -990,125 +994,125 @@
 
                                             </Columns>
                                         </asp:GridView>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
                         </div>
-                    </div>
 
 
-                    <div class="container_12 container">
-                        <div style="width: auto; border: 2px Solid #4a1414;">
-                        </div>
-                        DATOS ADICIONALES 
+                        <div class="container_12 container">
+                            <div style="width: auto; border: 2px Solid #4a1414;">
+                            </div>
+                            DATOS ADICIONALES 
                              <div style="width: auto; border: 2px Solid #4a1414;">
                              </div>
-                        <div class="contenPanel ">
-                            <table>
-                                <tr>
-                                    <td>Prima de Riesgo:
-                                    </td>
-                                    <td>Nacionalidad:
-                                    </td>
-                                    <td>Estado Civil:
-                                    </td>
+                            <div class="contenPanel ">
+                                <table>
+                                    <tr>
+                                        <td>Prima de Riesgo:
+                                        </td>
+                                        <td>Nacionalidad:
+                                        </td>
+                                        <td>Estado Civil:
+                                        </td>
 
-                                </tr>
-                                <tr>
-                                    <td class="td">
-                                        <asp:DropDownList ID="ddlPrimaRiesgo" runat="server" CssClass="cssDropdown">
-                                        </asp:DropDownList>
-                                    </td>
-                                    <td class="td">
-                                        <asp:TextBox ID="txtNacionalidad" runat="server" Text="Mexicana" CssClass="textbox"> </asp:TextBox>
-                                    </td>
-                                    <td class="td">
-                                        <asp:DropDownList ID="ddlECivil" runat="server" CssClass="cssDropdown">
-                                        </asp:DropDownList>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div style="width: auto; border: 2px Solid #4a1414;">
+                                    </tr>
+                                    <tr>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlPrimaRiesgo" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                        <td class="td">
+                                            <asp:TextBox ID="txtNacionalidad" runat="server" Text="Mexicana" CssClass="textbox"> </asp:TextBox>
+                                        </td>
+                                        <td class="td">
+                                            <asp:DropDownList ID="ddlECivil" runat="server" CssClass="cssDropdown">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div style="width: auto; border: 2px Solid #4a1414;">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card cdobra" id="cdobra" style="display: block">
-            <div class="card-header" id="heading7">
-                <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
-                        DATOS DE OBRA
-                    </button>
-                </h2>
-            </div>
-            <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordionExample">
-                <div class="card-body">
-                    <div class="container_12 container">
-                        <div style="width: auto; border: 2px Solid #4a1414;">
-                        </div>
-                        <div class="contenPanel">
-                            <asp:UpdatePanel runat="server" ID="UpdatePanelO" UpdateMode="Conditional">
-                                <ContentTemplate>
-                                    <table>
-                                        <tr>
-                                            <td>Centro de Costos:
-                                            </td>
-                                            <td>Fecha Inicio de Obra:
-                                            </td>
-                                            <td>Fecha Fin de Obra:
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtCentroCostos" runat="server" CssClass="cssDropdown">
-                                                </asp:TextBox>
-                                            </td>
+            <div class="card cdobra" id="cdobra" style="display: none">
+                <div class="card-header" id="heading7">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                            DATOS DE OBRA
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="container_12 container">
+                            <div style="width: auto; border: 2px Solid #4a1414;">
+                            </div>
+                            <div class="contenPanel">
+                                <asp:UpdatePanel runat="server" ID="UpdatePanelO" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <table>
+                                            <tr>
+                                                <td>Centro de Costos:
+                                                </td>
+                                                <td>Fecha Inicio de Obra:
+                                                </td>
+                                                <td>Fecha Fin de Obra:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtCentroCostos" runat="server" CssClass="cssDropdown">
+                                                    </asp:TextBox>
+                                                </td>
 
-                                            <td class="td">
-                                                <asp:TextBox ID="txtFIObra" runat="server" Text="" CssClass="datepicker"
-                                                    placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
-                                            </td>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtFFObra" runat="server" Text="" CssClass="datepicker"
-                                                    placeholder="dd/mm/yyyy" required="required" AutoPostBack="False"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dias Totales de Obra:
-                                            </td>
-                                            <td>Tipo de Obra:
-                                            </td>
-                                            <td>Ubicación:
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox" ReadOnly="true"></asp:TextBox>
-                                            </td>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
-                                            </td>
-                                            <td class="td">
-                                                <asp:TextBox ID="txtUbicacionO" TextMode="MultiLine" MaxLength="100" runat="server" Text="" CssClass="textbox"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
-                        </div>
-                        <div style="width: auto; border: 2px Solid #4a1414;">
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtFIObra" runat="server" Text="" CssClass="datepicker"
+                                                        placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
+                                                </td>
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtFFObra" runat="server" Text="" CssClass="datepicker"
+                                                        placeholder="dd/mm/yyyy" required="required" AutoPostBack="False"></asp:TextBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dias Totales de Obra:
+                                                </td>
+                                                <td>Tipo de Obra:
+                                                </td>
+                                                <td>Ubicación:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox" ReadOnly="true"></asp:TextBox>
+                                                </td>
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                                </td>
+                                                <td class="td">
+                                                    <asp:TextBox ID="txtUbicacionO" TextMode="MultiLine" MaxLength="100" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                            <div style="width: auto; border: 2px Solid #4a1414;">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div>
+                <br />
+                <br />
+                <asp:Button ID="btnGuardar" Text="Guardar" runat="server" CssClass="btnG" OnClick="btnGuardar_Click" />
+            </div>
         </div>
-        <div>
-            <br />
-            <br />
-            <asp:Button ID="btnGuardar" Text="Guardar" runat="server" CssClass="btnG" OnClick="btnGuardar_Click" />
-        </div>
-    </div>
     </div>
     <script type="text/javascript" runat="server">
 
