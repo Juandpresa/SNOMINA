@@ -94,8 +94,8 @@ namespace EscenariosQnta
     int porc = 0;
     int emp = 0;
     string sp_imss_BaN = "SP_Piramidacion";
-    string sp_imss_NaB = "SP_PiramidacionNetoABruto";
-    int contimss;
+    string sp_ASAM = "SP_PiramidacionASAM";
+    int contimss = 0;
 
     DateTime FechUltimoPago;
     DateTime FechIngreso;
@@ -156,6 +156,7 @@ namespace EscenariosQnta
         grd.DataBind();
         grdHorario2.DataSource = GetGridHorarios(); //get first initial data
         grdHorario2.DataBind();
+        Session["contador"] = 1;
       }
     }
 
@@ -1620,13 +1621,12 @@ namespace EscenariosQnta
       decimal sneto = decimal.Parse(txtSueldo.Text.ToString());
       if (int.Parse(ddlEMixto.SelectedItem.Value) > 0)
       {
-        strQuerySP_EMix = BLLDetalleEsquemas.ObtenerNomSPEsquema(int.Parse(ddlEsquemas.SelectedItem.Value));
+        strQuerySP_EMix = BLLDetalleEsquemas.ObtenerNomSPEsquema(int.Parse(ddlEMixto.SelectedItem.Value));
       }
       strQuerySP_Esq = BLLDetalleEsquemas.ObtenerNomSPEsquema(int.Parse(ddlEsquemas.SelectedItem.Value));
       
-      if (contimss < 1)
-      {
-        if (strQuerySP_Esq == sp_imss_BaN || strQuerySP_EMix == sp_imss_NaB)
+      
+        if (strQuerySP_Esq == sp_imss_BaN || strQuerySP_EMix == sp_imss_BaN)
         {
           if (txtSueldoBruto.Text != "0")
           {
@@ -1637,81 +1637,90 @@ namespace EscenariosQnta
             re = BLLDetalleEsquemas.ObtenerSBRUTO_SD_SDI(sneto, Antiguedad, PeriodoPago, Id_Prestac);
           }
         }
-        contimss++;
-      }
-      
 
-      for (int i = 0; i < re.Length; i++)
+      if (strQuerySP_Esq == sp_ASAM || strQuerySP_EMix == sp_ASAM)
       {
-        sb = re[0];
-        sueldoD = decimal.Parse(re[1]);
-        sdi = decimal.Parse(re[2]);        
-      }
+        re = BLLDetalleEsquemas.ObtenerSBRUTO_ASAM(sneto, Antiguedad, PeriodoPago, Id_Prestac);
+      }      
 
-      int TotalP = int.Parse(txtTotalE.Text);
-      int res = TotalP + int.Parse(txtPorcentaje.Text);
-      if (res<=100)
+        int TotalP = int.Parse(txtTotalE.Text);
+        int res = TotalP + int.Parse(txtPorcentaje.Text);
+      if (res <= 100)
       {
-        dtEsquema = GetGridEsquemasConDatos(); //get select column header only records not required
-        DataRow dr;
-
-        foreach (GridViewRow gvrE in grdEsquemas.Rows)
+        for (int i = 0; i < re.Length; i++)
         {
-          dr = dtEsquema.NewRow();
-          Label txtGEsquema = gvrE.FindControl("txtEsquema") as Label;
-          Label txtGPorcentaje = gvrE.FindControl("txtPorcentaje") as Label;
-          Label txtGSueldoB = gvrE.FindControl("txtSueldoB") as Label;
-          Label txtGSueldoN = gvrE.FindControl("txtSueldoN") as Label;
-          Label txtGSueldoD = gvrE.FindControl("txtSueldoD") as Label;
-          Label txtGSueldoDI = gvrE.FindControl("txtSueldoDI") as Label;
-          Label txtGIEsquema = gvrE.FindControl("txtGIEsquema") as Label;
-          dr[0] = txtGEsquema.Text;
-          dr[1] = txtGPorcentaje.Text;
-          dr[2] = txtGSueldoB.Text;
-          dr[3] = txtGSueldoN.Text;
-          dr[4] = txtGSueldoD.Text;
-          dr[5] = txtGSueldoDI.Text;
-          dr[6] = txtGIEsquema.Text;
-
-          dtEsquema.Rows.Add(dr); //add grid values in to row and add row to the blank table
+          sb = re[0];
+          sueldoD = decimal.Parse(re[1]);
+          sdi = decimal.Parse(re[2]);
         }
-        dr = dtEsquema.NewRow(); //add last empty row
-        if (ddlEMixto.SelectedIndex > 0)
+      }
+      if (res <= 100)
         {
-          dr[0] = ddlEMixto.SelectedItem.Text;
+          dtEsquema = GetGridEsquemasConDatos(); //get select column header only records not required
+          DataRow dr;
+
+          foreach (GridViewRow gvrE in grdEsquemas.Rows)
+          {
+            dr = dtEsquema.NewRow();
+            Label txtGEsquema = gvrE.FindControl("txtEsquema") as Label;
+            Label txtGPorcentaje = gvrE.FindControl("txtPorcentaje") as Label;
+            Label txtGSueldoB = gvrE.FindControl("txtSueldoB") as Label;
+            Label txtGSueldoN = gvrE.FindControl("txtSueldoN") as Label;
+            Label txtGSueldoD = gvrE.FindControl("txtSueldoD") as Label;
+            Label txtGSueldoDI = gvrE.FindControl("txtSueldoDI") as Label;
+            Label txtGIEsquema = gvrE.FindControl("txtGIEsquema") as Label;
+            dr[0] = txtGEsquema.Text;
+            dr[1] = txtGPorcentaje.Text;
+            dr[2] = txtGSueldoB.Text;
+            dr[3] = txtGSueldoN.Text;
+            dr[4] = txtGSueldoD.Text;
+            dr[5] = txtGSueldoDI.Text;
+            dr[6] = txtGIEsquema.Text;
+
+            dtEsquema.Rows.Add(dr); //add grid values in to row and add row to the blank table
+          }
+          dr = dtEsquema.NewRow(); //add last empty row
+          if (ddlEMixto.SelectedIndex > 0)
+          {
+            dr[0] = ddlEMixto.SelectedItem.Text;
+          }
+          else
+          {
+            dr[0] = ddlEsquemas.SelectedItem.Text;
+          }
+          dr[1] = txtPorcentaje.Text;
+          if (txtSueldoBruto.Text != "0")
+          {
+            dr[2] = txtSueldoBruto.Text;
+            dr[3] = sb;
+          }
+          else
+          {
+            dr[2] = sb;
+            dr[3] = txtSueldo.Text;
+          }
+
+          dr[4] = sueldoD;
+          dr[5] = sdi;
+          dr[6] = ddlEsquemas.SelectedItem.Value;
+          dtEsquema.Rows.Add(dr);
+          porc = int.Parse(txtTotalE.Text);
+          porc = porc + int.Parse(txtPorcentaje.Text);
+          txtTotalE.Text = porc.ToString();
+          int fil = dtEsquema.Rows.Count;
+          grdEsquemas.DataSource = dtEsquema; //bind new datatable to grid
+          grdEsquemas.DataBind();
+
         }
         else
         {
-          dr[0] = ddlEsquemas.SelectedItem.Text;
+          Mensaje("GUARDADO", CuadroMensaje.CuadroMensajeIcono.Exitoso);
         }
-        dr[1] = txtPorcentaje.Text;
-        if (txtSueldoBruto.Text != "0")
-        {
-          dr[2] = txtSueldoBruto.Text;
-          dr[3] = sb;
-        }
-        else
-        {
-          dr[2] = sb;
-          dr[3] = txtSueldo.Text;
-        }
-       
-        dr[4] = sueldoD;
-        dr[5] = sdi;
-        dr[6] = ddlEsquemas.SelectedItem.Value;
-        dtEsquema.Rows.Add(dr);
-        porc = int.Parse(txtTotalE.Text);
-        porc = porc + int.Parse(txtPorcentaje.Text);
-        txtTotalE.Text = porc.ToString();
-        int fil = dtEsquema.Rows.Count;
-        grdEsquemas.DataSource = dtEsquema; //bind new datatable to grid
-        grdEsquemas.DataBind();
-        
-      }
-      else
-      {
-        Mensaje("GUARDADO", CuadroMensaje.CuadroMensajeIcono.Exitoso);
-      }
+        ObtenEsquemaNoMixto();
+      ObtenEsquema();
+      ObtenFactor();
+      txtSueldo.Text = "0";
+      txtSueldoBruto.Text = "0";
     }
 
     protected void ddlHorario_SelectedIndexChanged(object sender, EventArgs e)

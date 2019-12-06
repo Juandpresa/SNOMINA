@@ -48,6 +48,19 @@ namespace EscenariosQnta.Negocio
       }
     }
 
+    public static string[] ObtenerSBRUTO_ASAM(decimal sueldoN, DateTime antiguedad, int periodoPago, int factor)
+    {
+      try
+      {
+        string[] res = DALDetalleEsquemas.ObtenerSBRUTO_ASAM(sueldoN, antiguedad, periodoPago, factor);
+        return res;
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+    }
+
     public static string ObtenerNomSPEsquema(int idEsq)
     {
       try

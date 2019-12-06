@@ -118,6 +118,45 @@ namespace EscenariosQnta.Data
       }
     }
 
+    public static string[] ObtenerSBRUTO_ASAM(decimal sueldoN, DateTime antiguedad, int periodoPago, int factor)
+    {
+      try
+      {
+        string[] res = new string[3];
+        conn.Open();
+        string Query = "SP_Piramidacion_ASAM";
+        SqlCommand cmd = new SqlCommand(Query, conn);
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.Parameters.AddWithValue("@SueldoNomina", sueldoN);
+        cmd.Parameters.AddWithValue("@Antigueda", antiguedad);
+        cmd.Parameters.AddWithValue("@PeriodoPagoID", periodoPago);
+        cmd.Parameters.AddWithValue("@IdFactor", factor);
+        // El resultado lo guardaremos en una tabla
+        DataTable tabla = new DataTable();
+        // Usamos un DataAdapter para leer los datos
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        // Llenamos la tabla con los datos leídos
+        da.Fill(tabla);
+        //DataColumn Clave = new DataColumn();
+        for (int i = 0; i < tabla.Rows.Count; i++)
+        {
+          for (int j = 0; j < 3; j++)
+          {
+            res[j] = tabla.Rows[i][j].ToString();
+          }
+        }
+        return res;
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+      finally
+      {
+        conn.Close();
+      }
+    }
+
     public static string ObtenerNomSPEsquema(int idEsq)
     {
       try

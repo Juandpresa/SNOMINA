@@ -814,6 +814,8 @@
                                             <div style="width: auto; border: 2px Solid #4a1414;">
                                             </div>
                             </div>
+                           <asp:UpdatePanel runat="server" ID="UpdatePanel2" UpdateMode="Conditional">
+                                    <ContentTemplate>
                             <div class="contenPanel">
                                 <table>
                                     <tr>
@@ -915,8 +917,7 @@
                                     </table>
                                 </div>
 
-                                <asp:UpdatePanel runat="server" ID="UpdatePanel2" UpdateMode="Conditional">
-                                    <ContentTemplate>
+                               
                                         <div>
                                             <table>
                                                 <tr>
