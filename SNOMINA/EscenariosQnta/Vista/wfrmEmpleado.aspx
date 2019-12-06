@@ -393,6 +393,8 @@
                                             </td>
                                             <td class="td">
                                                 <asp:TextBox ID="txtCurp" runat="server" Text="" CssClass="textbox" required="required" Style="text-transform: uppercase"></asp:TextBox>
+                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Ingreesa un Curp" ValidationExpression="/^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/" ControlToValidate="txtCurp" ForeColor="Red"></asp:RegularExpressionValidator>
+                                              
                                             </td>
                                         </tr>
                                         <tr>
@@ -407,6 +409,7 @@
                                             </td>
                                             <td class="td">
                                                 <asp:TextBox ID="txtCorreo" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
+                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Formato Incorrecto" ControlToValidate="txtCorreo" ForeColor="#FF3300" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                             </td>
 
                                         </tr>
@@ -419,9 +422,11 @@
                                         <tr>
                                             <td class="td">
                                                 <asp:TextBox ID="txtTelefonoMovil" runat="server" Text="" CssClass="textbox" required="required" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato Incorrecto" ControlToValidate="txtTelefonoMovil" ForeColor="#FF3300" ValidationExpression="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"></asp:RegularExpressionValidator>
                                             </td>
                                             <td class="td">
                                                 <asp:TextBox ID="txtTelefonoLocal" runat="server" Text="" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
+                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Formato Incorrecto" ForeColor="#FF3300" ValidationExpression="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" ControlToValidate="txtTelefonoLocal"></asp:RegularExpressionValidator>
                                             </td>
                                         </tr>
                                 </table>
@@ -439,8 +444,7 @@
                                 <div class="card-header" id="heading2">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                            TIPO DE ALTA
-                                        </button>
+                                            TIPO DE ALTA</button>
                                     </h2>
                                 </div>
                                 <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionExample">
