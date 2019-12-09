@@ -157,6 +157,7 @@ namespace EscenariosQnta
         grdHorario2.DataSource = GetGridHorarios(); //get first initial data
         grdHorario2.DataBind();
         Session["contador"] = 1;
+        //chkObra.Checked = true;
       }
     }
 
@@ -1903,6 +1904,28 @@ namespace EscenariosQnta
         ddlPrimaRiesgo.Enabled = true;
         txtNacionalidad.Enabled = true;
         ddlECivil.Enabled = true;
+      }
+    }
+
+    protected void chkObra_CheckedChanged(object sender, EventArgs e)
+    {
+      if (chkObra.Checked == true)
+      {
+        txtCentroCostos.Enabled = true;
+        txtFIObra.Enabled = true;
+        txtFFObra.Enabled = true;
+        txtDiasTobra.Enabled = true;
+        txtTObra.Enabled = true;
+        txtUbicacionO.Enabled = true;
+      }
+      else
+      {
+        txtCentroCostos.Enabled = false;
+        txtFIObra.Enabled = false;
+        txtFFObra.Enabled = false;
+        txtDiasTobra.Enabled = false;
+        txtTObra.Enabled = false;
+        txtUbicacionO.Enabled = false;
       }
     }
   }
