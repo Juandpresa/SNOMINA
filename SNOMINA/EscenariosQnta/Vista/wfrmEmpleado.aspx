@@ -523,6 +523,7 @@
                                         </td>
                                         <td class="td">
                                             <asp:TextBox ID="txtCP" runat="server" CssClass="textbox" onkeypress="return isDecimalKey(event, this);" required="required"></asp:TextBox>
+                                          <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="*" ControlToValidate="txtCP" ForeColor="Red" ValidationExpression="^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                 </table>
@@ -537,8 +538,7 @@
                 <div class="card-header" id="heading4">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                            DATOS LABORALES
-                        </button>
+                            DATOS LABORALES</button>
                     </h2>
                 </div>
                 <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordionExample">
@@ -559,14 +559,14 @@
                                     <tr>
 
                                         <td class="td">
-                                            <asp:DropDownList ID="ddlClasificacionEmpleado" runat="server" CssClass="cssDropdown">
+                                            <asp:DropDownList ID="ddlClasificacionEmpleado" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                            <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtDepto" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                            <asp:TextBox ID="txtDepto" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -592,17 +592,24 @@
                                             <asp:TextBox ID="txtDiasC" runat="server" Text="" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
                                     </tr>
+                                  </table>
+                              <asp:UpdatePanel runat="server" ID="UpdatePanel5" UpdateMode="Conditional">
+                                   <ContentTemplate>
+
+                              <table>
                                     <tr>
                                         <td>Empleado de Construccion:
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:CheckBox ID="chkObra" runat="server" CssClass="chkBox" />
+                                            <asp:CheckBox ID="chkObra" runat="server" CssClass="chkBox" OnCheckedChanged="chkObra_CheckedChanged" AutoPostBack="True" />
                                         </td>
 
                                     </tr>
                                 </table>
+                                     </ContentTemplate>
+                                                </asp:UpdatePanel>
                                 <br />
 
                                 <asp:UpdatePanel runat="server" ID="UpdatePanel3" UpdateMode="Conditional">
@@ -618,15 +625,15 @@
                                             </tr>
                                             <tr>
                                                 <td class="td">
-                                                    <asp:DropDownList ID="ddlTurno" runat="server" CssClass="cssDropdown">
+                                                    <asp:DropDownList ID="ddlTurno" runat="server" CssClass="cssDropdown" required="required">
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td class="td">
-                                                    <asp:DropDownList ID="ddlJornada" runat="server" CssClass="cssDropdown">
+                                                    <asp:DropDownList ID="ddlJornada" runat="server" CssClass="cssDropdown" required="required">
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td class="td">
-                                                    <asp:DropDownList ID="ddlHorario" runat="server" CssClass="cssDropdown" AutoPostBack="True" OnSelectedIndexChanged="ddlHorario_SelectedIndexChanged">
+                                                    <asp:DropDownList ID="ddlHorario" runat="server" CssClass="cssDropdown" AutoPostBack="True" OnSelectedIndexChanged="ddlHorario_SelectedIndexChanged" required="required">
                                                     </asp:DropDownList>
                                                 </td>
                                             </tr>
@@ -686,7 +693,7 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:DropDownList ID="ddlBanco" runat="server" CssClass="cssDropdown">
+                                            <asp:DropDownList ID="ddlBanco" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
                                         </td>
                                         <td class="td">
@@ -716,7 +723,7 @@
                                             </asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:DropDownList ID="ddlPeriodoPago" runat="server" CssClass="cssDropdown">
+                                            <asp:DropDownList ID="ddlPeriodoPago" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
                                         </td>
 
@@ -843,11 +850,11 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:DropDownList ID="ddlPagadora" runat="server" CssClass="cssDropdown">
+                                            <asp:DropDownList ID="ddlPagadora" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
                                         </td>
                                         <td class="td">
-                                            <asp:DropDownList ID="ddlTipoPago" runat="server" CssClass="cssDropdown">
+                                            <asp:DropDownList ID="ddlTipoPago" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
                                         </td>
                                         <td class="td">
@@ -894,7 +901,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="td" align="center">
-                                                    <asp:DropDownList ID="ddlEsquemas" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsq()">
+                                                    <asp:DropDownList ID="ddlEsquemas" runat="server" CssClass="cssDropdown" onchange="javascript:MostrarEsq()" required="required">
                                                     </asp:DropDownList>
                                                 </td>
                                                 <td align="center">
@@ -1023,14 +1030,14 @@
                                     </tr>
                                     <tr>
                                         <td class="td">
-                                            <asp:DropDownList ID="ddlPrimaRiesgo" runat="server" CssClass="cssDropdown">
+                                            <asp:DropDownList ID="ddlPrimaRiesgo" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
                                         </td>
                                         <td class="td">
-                                            <asp:TextBox ID="txtNacionalidad" runat="server" Text="Mexicana" CssClass="textbox"> </asp:TextBox>
+                                            <asp:TextBox ID="txtNacionalidad" runat="server" Text="Mexicana" CssClass="textbox" required="required"> </asp:TextBox>
                                         </td>
                                         <td class="td">
-                                            <asp:DropDownList ID="ddlECivil" runat="server" CssClass="cssDropdown">
+                                            <asp:DropDownList ID="ddlECivil" runat="server" CssClass="cssDropdown" required="required">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
@@ -1069,17 +1076,14 @@
                                             </tr>
                                             <tr>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtCentroCostos" runat="server" CssClass="cssDropdown">
-                                                    </asp:TextBox>
+                                                    <asp:TextBox ID="txtCentroCostos" runat="server" CssClass="cssDropdown" Enabled="False"></asp:TextBox>
                                                 </td>
 
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtFIObra" runat="server" Text="" CssClass="datepicker"
-                                                        placeholder="dd/mm/yyyy" required="required"></asp:TextBox>
+                                                    <asp:TextBox ID="txtFIObra" runat="server" Text="" CssClass="datepicker" placeholder="dd/mm/yyyy" required="required" Enabled="False"></asp:TextBox>
                                                 </td>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtFFObra" runat="server" Text="" CssClass="datepicker"
-                                                        placeholder="dd/mm/yyyy" required="required" AutoPostBack="False"></asp:TextBox>
+                                                    <asp:TextBox ID="txtFFObra" runat="server" Text="" CssClass="datepicker" placeholder="dd/mm/yyyy" required="required" AutoPostBack="False" Enabled="False"></asp:TextBox>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1092,13 +1096,13 @@
                                             </tr>
                                             <tr>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox" ReadOnly="true"></asp:TextBox>
+                                                    <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox" ReadOnly="true" Enabled="True"></asp:TextBox>
                                                 </td>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                                    <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox" Enabled="False"></asp:TextBox>
                                                 </td>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtUbicacionO" TextMode="MultiLine" MaxLength="100" runat="server" Text="" CssClass="textbox"></asp:TextBox>
+                                                    <asp:TextBox ID="txtUbicacionO" TextMode="MultiLine" MaxLength="100" runat="server" Text="" CssClass="textbox" Enabled="False"></asp:TextBox>
                                                 </td>
                                             </tr>
                                         </table>
