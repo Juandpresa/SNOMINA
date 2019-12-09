@@ -126,26 +126,33 @@ namespace EscenariosQnta
       gvEmpleado.EditIndex = e.NewEditIndex;
       if (txtNombre.Text == string.Empty && txtPaterno.Text == string.Empty && txtMaterno.Text == string.Empty)
       {
-
-        ObtenEmpleado();
+        if (Request.QueryString["Id_Empleado"] != null)
+        {
+          Response.Redirect("wfrmEdicionEmpleado.aspx");
+        }
+        //ObtenEmpleado();
       }
       else
       {
-        DataTable dtEmpleado = new DataTable();
-
-        Nombre = string.IsNullOrEmpty(txtNombre.Text.ToString()) ? null : txtNombre.Text.ToString();
-        Paterno = string.IsNullOrEmpty(txtPaterno.Text.ToString()) ? null : txtPaterno.Text.ToString();
-        Materno = string.IsNullOrEmpty(txtMaterno.Text.ToString()) ? null : txtMaterno.Text.ToString();
-
-        strQuery = string.Format("SP_ObtenEmpleadoPorNombre '{0}', '{1}', '{2}'", Nombre, Paterno, Materno);
-
-        dtEmpleado = clsQuery.execQueryDataTable(strQuery);
-
-        if (dtEmpleado.Rows.Count > 0)
+        if (Request.QueryString["Id_Empleado"] != null)
         {
-          gvEmpleado.DataSource = dtEmpleado;
-          gvEmpleado.DataBind();
+          Response.Redirect("wfrmEdicionEmpleado.aspx");
         }
+        //DataTable dtEmpleado = new DataTable();
+
+        //Nombre = string.IsNullOrEmpty(txtNombre.Text.ToString()) ? null : txtNombre.Text.ToString();
+        //Paterno = string.IsNullOrEmpty(txtPaterno.Text.ToString()) ? null : txtPaterno.Text.ToString();
+        //Materno = string.IsNullOrEmpty(txtMaterno.Text.ToString()) ? null : txtMaterno.Text.ToString();
+
+        //strQuery = string.Format("SP_ObtenEmpleadoPorNombre '{0}', '{1}', '{2}'", Nombre, Paterno, Materno);
+
+        //dtEmpleado = clsQuery.execQueryDataTable(strQuery);
+
+        //if (dtEmpleado.Rows.Count > 0)
+        //{
+        //  gvEmpleado.DataSource = dtEmpleado;
+        //  gvEmpleado.DataBind();
+        //}
       }
     }
 
@@ -571,6 +578,5 @@ namespace EscenariosQnta
       Literal ltrMensaje = (Literal)this.Master.FindControl("ltrMensaje");
       ltrMensaje.Text = Mensaje.Mostrar(this);
     }
-
   }
 }
