@@ -133,12 +133,12 @@
         <div class="container_13">
         </div>
       </div>
-      <div id="stars">
+     <%-- <div id="stars">
       </div>
       <div id="stars2">
       </div>
       <div id="srars3">
-      </div>
+      </div>--%>
       <div class="containerTitlePage ">
         <div class="titlePage">
           EMPLEADO
@@ -197,6 +197,16 @@
                       </ItemTemplate>
                       <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
+                      <asp:TemplateField HeaderText="Clave" SortExpression="Clave">
+                      <ItemTemplate>
+                        <asp:Label ID="lbClave" runat="server" Text='<%# Bind("Clave") %>'></asp:Label>
+                      </ItemTemplate>
+                      <EditItemTemplate>
+                        <asp:Label ID="txtClave" runat="server" AutoPostBack="true"
+                          OnSelectedIndexChanged="ddlClientegv_SelectedIndexChanged">
+                        </asp:Label>
+                      </EditItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Cliente" SortExpression="Cliente">
                       <ItemTemplate>
                         <asp:Label ID="lbId_Cliente" runat="server" Text='<%# Bind("Nombre_RazonSocial") %>'></asp:Label>
@@ -204,16 +214,6 @@
                       <EditItemTemplate>
                         <asp:DropDownList ID="ddlClientegv" runat="server" AutoPostBack="true"
                           OnSelectedIndexChanged="ddlClientegv_SelectedIndexChanged">
-                        </asp:DropDownList>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Escenario" SortExpression="Escenario">
-                      <ItemTemplate>
-                        <asp:Label ID="lbId_Escenario" runat="server" Text='<%# Bind("Id_Escenario") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <%--  <asp:TextBox ID="txtExcenario" runat="server" Text='<%# Eval("Id_Escenario")%>'></asp:TextBox>--%>
-                        <asp:DropDownList ID="ddlEscenariogv" runat="server">
                         </asp:DropDownList>
                       </EditItemTemplate>
                     </asp:TemplateField>
@@ -314,22 +314,6 @@
                         <asp:TextBox ID="txtPorcHonorarios" runat="server" Text='<%# Eval("PorcHonorarios")%>'></asp:TextBox>
                       </EditItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="TN %" SortExpression="PorcTN">
-                      <ItemTemplate>
-                        <asp:Label ID="lbPorcTN" runat="server" Text='<%# Bind("PorcTN") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtPorcTN" runat="server" Text='<%# Eval("PorcTN")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="EZ Wallet %" SortExpression="PorcEZWallet">
-                      <ItemTemplate>
-                        <asp:Label ID="lbPorcEZWallet" runat="server" Text='<%# Bind("PorcEZWallet") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtPorcEZWallet" runat="server" Text='<%# Eval("PorcEZWallet")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Sueldo" SortExpression="Sueldo">
                       <ItemTemplate>
                         <asp:Label ID="lbSueldo" runat="server" Text='<%# Bind("Sueldo") %>'></asp:Label>
@@ -354,130 +338,6 @@
                         <asp:TextBox ID="txtSueldoNeto" runat="server" Text='<%# Eval("SueldoNeto")%>'></asp:TextBox>
                       </EditItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Sueldo Honorarios" SortExpression="Sueldo Honorarios">
-                      <ItemTemplate>
-                        <asp:Label ID="lbSueldoHonorarios" runat="server" Text='<%# Bind("SueldoHonorarios") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtSueldoHonorarios" runat="server" Text='<%# Eval("SueldoHonorarios")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Sueldo TN" SortExpression="Sueldo TN">
-                      <ItemTemplate>
-                        <asp:Label ID="lbSueldoTN" runat="server" Text='<%# Bind("SueldoTN") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtSueldoTN" runat="server" Text='<%# Eval("SueldoTN")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Sueldo EZ Wallet" SortExpression="Sueldo EZ Wallet">
-                      <ItemTemplate>
-                        <asp:Label ID="lbSueldoEZWallet" runat="server" Text='<%# Bind("SueldoEZWallet") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtSueldoEZWallet" runat="server" Text='<%# Eval("SueldoEZWallet")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <%-- <asp:TemplateField HeaderText="Sueldo Integrado" SortExpression="Sueldo Integrado">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbSueldoIntegrado" runat="server" Text='<%# Bind("SueldoIntegrado") %>'></asp:Label>
-                                    </ItemTemplate>
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="txtSueldoIntegrado" runat="server" Text='<%# Eval("SueldoIntegrado")%>'></asp:TextBox>
-                                    </EditItemTemplate>
-                                </asp:TemplateField>--%>
-                    <asp:TemplateField HeaderText="Ubicacion Labora" SortExpression="Ubicacion Laboral">
-                      <ItemTemplate>
-                        <asp:Label ID="lbUbicaLabora" runat="server" Text='<%# Bind("UbicaLabora") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtUbicaLabora" runat="server" Text='<%# Eval("UbicaLabora")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Infonavit" SortExpression="Infonavit">
-                      <ItemTemplate>
-                        <asp:Label ID="lbInfonavit" runat="server" Text='<%# Bind("Infonavit") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:DropDownList ID="ddlInfonavitgv" runat="server">
-                        </asp:DropDownList>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Importe Infonavit" SortExpression="Importe Infonavit">
-                      <ItemTemplate>
-                        <asp:Label ID="lbImporteInfonavit" runat="server" Text='<%# Bind("ImporteInfonavit") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtImporteInfonavit" runat="server" Text='<%# Eval("ImporteInfonavit")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Bono" SortExpression="Bono">
-                      <ItemTemplate>
-                        <asp:Label ID="lbBono" runat="server" Text='<%# Bind("Bono") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtBono" runat="server" Text='<%# Eval("Bono")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Comisiones" SortExpression="Comisiones">
-                      <ItemTemplate>
-                        <asp:Label ID="lbComisionEmpleado" runat="server" Text='<%# Bind("Comisiones") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtComisionEmpleado" runat="server" Text='<%# Eval("Comisiones")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="OtrosIngresos" SortExpression="OtrosIngresos">
-                      <ItemTemplate>
-                        <asp:Label ID="lbOtrosIngresos" runat="server" Text='<%# Bind("OtrosIngresos") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtOtrosIngresos" runat="server" Text='<%# Eval("OtrosIngresos")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Importe Fonacot" SortExpression="Importe Fonacot">
-                      <ItemTemplate>
-                        <asp:Label ID="lbImpFonacot" runat="server" Text='<%# Bind("ImpFonacot") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtImpFonacot" runat="server" Text='<%# Eval("ImpFonacot")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Prestacion" SortExpression="Prestacion">
-                      <ItemTemplate>
-                        <asp:Label ID="lbPrestacion" runat="server" Text='<%# Bind("Prestacion") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:DropDownList ID="ddlPrestaciongv" runat="server">
-                        </asp:DropDownList>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Pension" SortExpression="Pension">
-                      <ItemTemplate>
-                        <asp:Label ID="lbPension" runat="server" Text='<%# Bind("Pension") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:DropDownList ID="ddlPensiongv" runat="server">
-                        </asp:DropDownList>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Importe Pension" SortExpression="Importe Pension">
-                      <ItemTemplate>
-                        <asp:Label ID="lbImportePension" runat="server" Text='<%# Bind("ImportePension") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtImportePension" runat="server" Text='<%# Eval("ImportePension")%>'></asp:TextBox>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Esquema" SortExpression="Esquema">
-                      <ItemTemplate>
-                        <asp:Label ID="lbEsquema" runat="server" Text='<%# Bind("Esquema") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:DropDownList ID="ddlEsquemagv" runat="server">
-                        </asp:DropDownList>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Clasificacion" SortExpression="Clasificacion">
                       <ItemTemplate>
                         <asp:Label ID="lbClasificacion" runat="server" Text='<%# Bind("Clasificacion") %>'></asp:Label>
@@ -485,14 +345,6 @@
                       <EditItemTemplate>
                         <asp:DropDownList ID="ddlClasificaciongv" runat="server">
                         </asp:DropDownList>
-                      </EditItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Nacionalidad" SortExpression="Nacionalidad">
-                      <ItemTemplate>
-                        <asp:Label ID="lbNacionalidad" runat="server" Text='<%# Bind("Nacionalidad") %>'></asp:Label>
-                      </ItemTemplate>
-                      <EditItemTemplate>
-                        <asp:TextBox ID="txtNacionalidad" runat="server" Text='<%# Eval("Nacionalidad")%>'></asp:TextBox>
                       </EditItemTemplate>
                     </asp:TemplateField>
                     <%-- <asp:TemplateField HeaderText="SueldoMensual" SortExpression="SueldoMensual">

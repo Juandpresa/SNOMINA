@@ -209,6 +209,7 @@
     <Content Include="Vista\wfrmClasificacionEmpleados.aspx" />
     <Content Include="Vista\wfrmConceptos.aspx" />
     <Content Include="Vista\wfrmConceptosEscenario.aspx" />
+    <Content Include="Vista\wfrmEdicionEmpleado.aspx" />
     <Content Include="Vista\wfrmEmpleado.aspx" />
     <Content Include="Vista\wfrmEmpleadoCargaMasiva.aspx" />
     <Content Include="Vista\wfrmEmpleadoConsulta.aspx" />
@@ -343,6 +344,13 @@
     </Compile>
     <Compile Include="Vista\wfrmConceptosEscenario.aspx.designer.cs">
       <DependentUpon>wfrmConceptosEscenario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\wfrmEdicionEmpleado.aspx.cs">
+      <DependentUpon>wfrmEdicionEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\wfrmEdicionEmpleado.aspx.designer.cs">
+      <DependentUpon>wfrmEdicionEmpleado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\wfrmEmpleado.aspx.cs">
       <DependentUpon>wfrmEmpleado.aspx</DependentUpon>
