@@ -181,7 +181,7 @@
                 <asp:GridView runat="server" ID="gvEmpleado" CssClass="mGrid" AutoGenerateColumns="False"
                   OnRowCancelingEdit="gvEmpleado_RowCancelingEdit" OnRowEditing="gvEmpleado_RowEditing"
                   OnRowUpdating="gvEmpleado_RowUpdating" OnRowDataBound="gvEmpleado_RowDataBound"
-                  OnPageIndexChanging="gvEmpleado_PageIndexChanging" PageSize="100" AllowPaging="true">
+                  OnPageIndexChanging="gvEmpleado_PageIndexChanging" PageSize="100" AllowPaging="true" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvEmpleado_SelectedIndexChanged" AutoGenerateEditButton="False">
                   <Columns>
                     <asp:TemplateField ItemStyle-Width="30px" HeaderText="" Visible="true">
                       <HeaderTemplate>
@@ -191,7 +191,7 @@
                         <asp:CheckBox ID="chkSeleccion" runat="server" />
                       </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Id_Empleado" Visible="false">
+                    <asp:TemplateField HeaderText="Id_Empleado">
                       <ItemTemplate>
                         <asp:Label ID="lbId_Empleado" runat="server" Text='<%# Bind("Id_Empleado") %>'></asp:Label>
                       </ItemTemplate>
@@ -367,9 +367,9 @@
                           Enabled="false"></asp:TextBox>
                       </EditItemTemplate>
                     </asp:TemplateField>
-                    <asp:CommandField ShowEditButton="True">
+                    <%--<asp:CommandField ShowEditButton="True">
                       <ControlStyle Font-Bold="True" ForeColor="#0066CC" />
-                    </asp:CommandField>
+                    </asp:CommandField>--%>
                   </Columns>
                   <AlternatingRowStyle BackColor="#EDECEC" />
                 </asp:GridView>

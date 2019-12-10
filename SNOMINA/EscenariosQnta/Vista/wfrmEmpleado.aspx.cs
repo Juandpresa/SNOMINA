@@ -1909,24 +1909,25 @@ namespace EscenariosQnta
 
     protected void chkObra_CheckedChanged(object sender, EventArgs e)
     {
-      if (chkObra.Checked == true)
-      {
-        txtCentroCostos.Enabled = true;
-        txtFIObra.Enabled = true;
-        txtFFObra.Enabled = true;
-        txtDiasTobra.Enabled = true;
-        txtTObra.Enabled = true;
-        txtUbicacionO.Enabled = true;
-      }
-      else
-      {
-        txtCentroCostos.Enabled = false;
-        txtFIObra.Enabled = false;
-        txtFFObra.Enabled = false;
-        txtDiasTobra.Enabled = false;
-        txtTObra.Enabled = false;
-        txtUbicacionO.Enabled = false;
-      }
+      //if (chkObra.Checked == true)
+      //{
+      //  txtCentroCostos.Enabled = true;
+      //  txtFIObra.Enabled = true;
+      //  txtFFObra.Enabled = true;
+      //  txtDiasTobra.Enabled = true;
+      //  txtTObra.Enabled = true;
+      //  txtUbicacionO.Enabled = true;
+      //  txtCentroCostos.Visible = false;
+      //}
+      //else
+      //{
+      //  txtCentroCostos.Enabled = false;
+      //  txtFIObra.Enabled = false;
+      //  txtFFObra.Enabled = false;
+      //  txtDiasTobra.Enabled = false;
+      //  txtTObra.Enabled = false;
+      //  txtUbicacionO.Enabled = false;
+      //}
     }
   }
 }

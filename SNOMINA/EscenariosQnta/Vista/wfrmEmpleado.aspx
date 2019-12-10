@@ -1076,14 +1076,14 @@
                                             </tr>
                                             <tr>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtCentroCostos" runat="server" CssClass="cssDropdown" Enabled="False"></asp:TextBox>
+                                                    <asp:TextBox ID="txtCentroCostos" runat="server" CssClass="cssDropdown"></asp:TextBox>
                                                 </td>
 
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtFIObra" runat="server" Text="" CssClass="datepicker" placeholder="dd/mm/yyyy" required="required" Enabled="False"></asp:TextBox>
+                                                    <asp:TextBox ID="txtFIObra" runat="server" Text="" CssClass="datepicker" placeholder="dd/mm/yyyy"></asp:TextBox>
                                                 </td>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtFFObra" runat="server" Text="" CssClass="datepicker" placeholder="dd/mm/yyyy" required="required" AutoPostBack="False" Enabled="False"></asp:TextBox>
+                                                    <asp:TextBox ID="txtFFObra" runat="server" Text="" CssClass="datepicker" placeholder="dd/mm/yyyy" AutoPostBack="False"></asp:TextBox>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1096,13 +1096,13 @@
                                             </tr>
                                             <tr>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox" ReadOnly="true" Enabled="True"></asp:TextBox>
+                                                    <asp:TextBox ID="txtDiasTobra" runat="server" Text="" CssClass="textbox" ReadOnly="true"></asp:TextBox>
                                                 </td>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox" Enabled="False"></asp:TextBox>
+                                                    <asp:TextBox ID="txtTObra" runat="server" Text="" CssClass="textbox"></asp:TextBox>
                                                 </td>
                                                 <td class="td">
-                                                    <asp:TextBox ID="txtUbicacionO" TextMode="MultiLine" MaxLength="100" runat="server" Text="" CssClass="textbox" Enabled="False"></asp:TextBox>
+                                                    <asp:TextBox ID="txtUbicacionO" TextMode="MultiLine" MaxLength="100" runat="server" Text="" CssClass="textbox"></asp:TextBox>
                                                 </td>
                                             </tr>
                                         </table>

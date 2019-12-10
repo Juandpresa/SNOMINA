@@ -16,7 +16,7 @@ namespace EscenariosQnta.Vista
     {
       if (!IsPostBack)
       {
-       
+        int idEmp = (int)Session["IdEmpleado"];
       }
     }
   }

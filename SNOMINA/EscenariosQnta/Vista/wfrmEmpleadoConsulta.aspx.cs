@@ -117,129 +117,129 @@ namespace EscenariosQnta
 
     protected void gvEmpleado_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
     {
-      gvEmpleado.EditIndex = -1;
-      ObtenEmpleado();
+      //gvEmpleado.EditIndex = -1;
+      //ObtenEmpleado();
     }
 
     protected void gvEmpleado_RowEditing(object sender, GridViewEditEventArgs e)
     {
-      gvEmpleado.EditIndex = e.NewEditIndex;
-      if (txtNombre.Text == string.Empty && txtPaterno.Text == string.Empty && txtMaterno.Text == string.Empty)
-      {
-        if (Request.QueryString["Id_Empleado"] != null)
-        {
-          Response.Redirect("wfrmEdicionEmpleado.aspx");
-        }
-        //ObtenEmpleado();
-      }
-      else
-      {
-        if (Request.QueryString["Id_Empleado"] != null)
-        {
-          Response.Redirect("wfrmEdicionEmpleado.aspx");
-        }
-        //DataTable dtEmpleado = new DataTable();
+      //gvEmpleado.EditIndex = e.NewEditIndex;
+      //if (txtNombre.Text == string.Empty && txtPaterno.Text == string.Empty && txtMaterno.Text == string.Empty)
+      //{
+      //  if (Request.QueryString["Id_Empleado"] != null)
+      //  {
+      //    Response.Redirect("wfrmEdicionEmpleado.aspx");
+      //  }
+      //  //ObtenEmpleado();
+      //}
+      //else
+      //{
+      //  if (Request.QueryString["Id_Empleado"] != null)
+      //  {
+      //    Response.Redirect("wfrmEdicionEmpleado.aspx");
+      //  }
+      //  //DataTable dtEmpleado = new DataTable();
 
-        //Nombre = string.IsNullOrEmpty(txtNombre.Text.ToString()) ? null : txtNombre.Text.ToString();
-        //Paterno = string.IsNullOrEmpty(txtPaterno.Text.ToString()) ? null : txtPaterno.Text.ToString();
-        //Materno = string.IsNullOrEmpty(txtMaterno.Text.ToString()) ? null : txtMaterno.Text.ToString();
+      //  //Nombre = string.IsNullOrEmpty(txtNombre.Text.ToString()) ? null : txtNombre.Text.ToString();
+      //  //Paterno = string.IsNullOrEmpty(txtPaterno.Text.ToString()) ? null : txtPaterno.Text.ToString();
+      //  //Materno = string.IsNullOrEmpty(txtMaterno.Text.ToString()) ? null : txtMaterno.Text.ToString();
 
-        //strQuery = string.Format("SP_ObtenEmpleadoPorNombre '{0}', '{1}', '{2}'", Nombre, Paterno, Materno);
+      //  //strQuery = string.Format("SP_ObtenEmpleadoPorNombre '{0}', '{1}', '{2}'", Nombre, Paterno, Materno);
 
-        //dtEmpleado = clsQuery.execQueryDataTable(strQuery);
+      //  //dtEmpleado = clsQuery.execQueryDataTable(strQuery);
 
-        //if (dtEmpleado.Rows.Count > 0)
-        //{
-        //  gvEmpleado.DataSource = dtEmpleado;
-        //  gvEmpleado.DataBind();
-        //}
-      }
+      //  //if (dtEmpleado.Rows.Count > 0)
+      //  //{
+      //  //  gvEmpleado.DataSource = dtEmpleado;
+      //  //  gvEmpleado.DataBind();
+      //  //}
+      //}
     }
 
     protected void gvEmpleado_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
-      try
-      {
-        Id = ((Label)gvEmpleado.Rows[e.RowIndex].FindControl("lbId_Empleado")).Text;
-        Id_Escenario = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlEscenariogv")).Text;
-        Id_Cliente = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlClientegv")).Text;
-        Nombre = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtNombre")).Text;
-        Paterno = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPaterno")).Text;
-        Materno = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtMaterno")).Text;
-        Puesto = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPuesto")).Text;
-        DescriPto = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtDescriPto")).Text;
-        Id_PrimaRgo = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlPrimaRiesgogv")).Text;
-        FechaIngreso = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtFechaIngreso")).Text;
-        FechaNac = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtFechaNac")).Text;
-        Nomina = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorcNomina")).Text;
-        Asimilados = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorcAsimilados")).Text;
-        Honorarios = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorcHonorarios")).Text;
-        TN = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorcTN")).Text;
-        EZWallet = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorcEZWallet")).Text;
-        Sueldo = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldo")).Text;
-        //OtrosProductos = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorOtrosProductos")).Text;
-        SueldoBruto = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoBruto")).Text.Replace(",", ".");
-        SueldoNeto = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoNeto")).Text.Replace(",", ".");
-        SueldoHonorarios = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoHonorarios")).Text.Replace(",", ".");
-        SueldoTN = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoTN")).Text.Replace(",", ".");
-        SueldoEZWallet = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoEZWallet")).Text.Replace(",", ".");
-        //SueldoIntegrado = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoIntegrado")).Text.Replace(",", ".");
-        Id_Prestac = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlPrimaRiesgogv")).Text;
-        UbicaLabora = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtUbicaLabora")).Text;
-        Id_Infonavit = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlInfonavitgv")).Text;
-        ImporteInfonavit = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtImporteInfonavit")).Text.Replace(",", ".");
-        Bono = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtBono")).Text.Replace(",", ".");
-        ComisionEmpleado = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtComisionEmpleado")).Text.Replace(",", ".");
-        OtrosIngresos = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtOtrosIngresos")).Text.Replace(",", ".");
-        ImpFonacot = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtImpFonacot")).Text.Replace(",", ".");
-        Id_Pension = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlPensiongv")).Text;
-        ImportePension = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtImportePension")).Text.Replace(",", ".");
-        Id_EsquemaActual = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlEsquemagv")).Text;
-        Id_ClasifEmp = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlClasificaciongv")).Text;
-        Nacionalidad = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtNacionalidad")).Text;
+      //try
+      //{
+      //  Id = ((Label)gvEmpleado.Rows[e.RowIndex].FindControl("lbId_Empleado")).Text;
+      //  Id_Escenario = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlEscenariogv")).Text;
+      //  Id_Cliente = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlClientegv")).Text;
+      //  Nombre = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtNombre")).Text;
+      //  Paterno = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPaterno")).Text;
+      //  Materno = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtMaterno")).Text;
+      //  Puesto = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPuesto")).Text;
+      //  DescriPto = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtDescriPto")).Text;
+      //  Id_PrimaRgo = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlPrimaRiesgogv")).Text;
+      //  FechaIngreso = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtFechaIngreso")).Text;
+      //  FechaNac = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtFechaNac")).Text;
+      //  Nomina = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorcNomina")).Text;
+      //  Asimilados = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorcAsimilados")).Text;
+      //  Honorarios = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorcHonorarios")).Text;
+      //  TN = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorcTN")).Text;
+      //  EZWallet = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorcEZWallet")).Text;
+      //  Sueldo = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldo")).Text;
+      //  //OtrosProductos = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtPorOtrosProductos")).Text;
+      //  SueldoBruto = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoBruto")).Text.Replace(",", ".");
+      //  SueldoNeto = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoNeto")).Text.Replace(",", ".");
+      //  SueldoHonorarios = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoHonorarios")).Text.Replace(",", ".");
+      //  SueldoTN = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoTN")).Text.Replace(",", ".");
+      //  SueldoEZWallet = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoEZWallet")).Text.Replace(",", ".");
+      //  //SueldoIntegrado = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtSueldoIntegrado")).Text.Replace(",", ".");
+      //  Id_Prestac = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlPrimaRiesgogv")).Text;
+      //  UbicaLabora = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtUbicaLabora")).Text;
+      //  Id_Infonavit = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlInfonavitgv")).Text;
+      //  ImporteInfonavit = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtImporteInfonavit")).Text.Replace(",", ".");
+      //  Bono = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtBono")).Text.Replace(",", ".");
+      //  ComisionEmpleado = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtComisionEmpleado")).Text.Replace(",", ".");
+      //  OtrosIngresos = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtOtrosIngresos")).Text.Replace(",", ".");
+      //  ImpFonacot = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtImpFonacot")).Text.Replace(",", ".");
+      //  Id_Pension = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlPensiongv")).Text;
+      //  ImportePension = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtImportePension")).Text.Replace(",", ".");
+      //  Id_EsquemaActual = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlEsquemagv")).Text;
+      //  Id_ClasifEmp = ((DropDownList)gvEmpleado.Rows[e.RowIndex].FindControl("ddlClasificaciongv")).Text;
+      //  Nacionalidad = ((TextBox)gvEmpleado.Rows[e.RowIndex].FindControl("txtNacionalidad")).Text;
 
-        TipoEsquema = ((RadioButtonList)gvEmpleado.Rows[e.RowIndex].FindControl("rbtTipoEsquema")).SelectedValue;
+      //  TipoEsquema = ((RadioButtonList)gvEmpleado.Rows[e.RowIndex].FindControl("rbtTipoEsquema")).SelectedValue;
 
-        CultureInfo provider = CultureInfo.InvariantCulture;
+      //  CultureInfo provider = CultureInfo.InvariantCulture;
 
-        FechIngreso = DateTime.Parse(FechaIngreso);
-        FechNacimiento = string.IsNullOrEmpty(FechaNac) ? (DateTime?)null : DateTime.Parse(FechaNac);
+      //  FechIngreso = DateTime.Parse(FechaIngreso);
+      //  FechNacimiento = string.IsNullOrEmpty(FechaNac) ? (DateTime?)null : DateTime.Parse(FechaNac);
 
-        if (FechNacimiento == null)
-        {
-          //strQuery = string.Format("dbo.SP_ActualizaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', {8}, '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}',{17},{18},'{19}',{20},'{21}','{22}','{23}',{24},'{25}',{26},{27},'{28}','{29}','{30}'",
-          //Id, Id_Escenario, Id_Cliente, Nombre, Paterno, Materno, Puesto, DescriPto, Id_PrimaRgo, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento, Nomina, Asimilados, Honorarios, OtrosProductos, SueldoBruto, SueldoNeto,
-          //  SueldoIntegrado, Id_Prestac, UbicaLabora, Id_Infonavit, ImporteInfonvit, Bono, ComisionesEmpleado, OtrosIngresos, ImpFonacot, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad);
-          strQuery = string.Format("dbo.SP_ActualizaEmpleado {0}, {1}, {2}, {3}, '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},{33},'{34}', {35}",
-                    Id, Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento, Nomina, Asimilados, Honorarios, TN, EZWallet,
-                    Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                    Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema);
-        }
-        else
-        {
-          //strQuery = string.Format("dbo.SP_ActualizaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', {8}, '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}',{17},{18},'{19}',{20},'{21}','{22}','{23}',{24},'{25}',{26},{27},'{28}','{29}','{30}'",
-          //Id, Id_Escenario, Id_Cliente, Nombre, Paterno, Materno, Puesto, DescriPto, Id_PrimaRgo, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento.Value.ToString("yyyyMMdd"), Nomina, Asimilados, Honorarios, OtrosProductos, SueldoBruto, SueldoNeto,
-          //SueldoIntegrado, Id_Prestac, UbicaLabora, Id_Infonavit, ImporteInfonvit, Bono, ComisionesEmpleado, OtrosIngresos, ImpFonacot, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad);
+      //  if (FechNacimiento == null)
+      //  {
+      //    //strQuery = string.Format("dbo.SP_ActualizaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', {8}, '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}',{17},{18},'{19}',{20},'{21}','{22}','{23}',{24},'{25}',{26},{27},'{28}','{29}','{30}'",
+      //    //Id, Id_Escenario, Id_Cliente, Nombre, Paterno, Materno, Puesto, DescriPto, Id_PrimaRgo, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento, Nomina, Asimilados, Honorarios, OtrosProductos, SueldoBruto, SueldoNeto,
+      //    //  SueldoIntegrado, Id_Prestac, UbicaLabora, Id_Infonavit, ImporteInfonvit, Bono, ComisionesEmpleado, OtrosIngresos, ImpFonacot, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad);
+      //    strQuery = string.Format("dbo.SP_ActualizaEmpleado {0}, {1}, {2}, {3}, '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},{33},'{34}', {35}",
+      //              Id, Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento, Nomina, Asimilados, Honorarios, TN, EZWallet,
+      //              Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
+      //              Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema);
+      //  }
+      //  else
+      //  {
+      //    //strQuery = string.Format("dbo.SP_ActualizaEmpleado {0}, {1}, {2}, '{3}', '{4}', '{5}', '{6}', '{7}', {8}, '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}',{17},{18},'{19}',{20},'{21}','{22}','{23}',{24},'{25}',{26},{27},'{28}','{29}','{30}'",
+      //    //Id, Id_Escenario, Id_Cliente, Nombre, Paterno, Materno, Puesto, DescriPto, Id_PrimaRgo, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento.Value.ToString("yyyyMMdd"), Nomina, Asimilados, Honorarios, OtrosProductos, SueldoBruto, SueldoNeto,
+      //    //SueldoIntegrado, Id_Prestac, UbicaLabora, Id_Infonavit, ImporteInfonvit, Bono, ComisionesEmpleado, OtrosIngresos, ImpFonacot, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad);
 
-          strQuery = string.Format("dbo.SP_ActualizaEmpleado {0}, {1}, {2}, {3}, '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},{33},'{34}', {35}",
-                  Id, Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento.Value.ToString("yyyyMMdd"), Nomina, Asimilados, Honorarios, TN, EZWallet,
-                  Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
-                  Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema);
-        }
+      //    strQuery = string.Format("dbo.SP_ActualizaEmpleado {0}, {1}, {2}, {3}, '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}','{22}','{23}','{24}','{25}',{26},'{27}',{28},{29},'{30}',{31},{32},{33},'{34}', {35}",
+      //            Id, Id_Escenario, Id_Cliente, Id_PrimaRgo, Nombre, Paterno, Materno, Puesto, DescriPto, UbicaLabora, FechIngreso.ToString("yyyyMMdd HH:mm:ss"), FechNacimiento.Value.ToString("yyyyMMdd"), Nomina, Asimilados, Honorarios, TN, EZWallet,
+      //            Sueldo, SueldoBruto, SueldoNeto, SueldoHonorarios, SueldoTN, SueldoEZWallet,
+      //            Bono, ComisionEmpleado, OtrosIngresos, ImpFonacot, Id_Infonavit, ImporteInfonavit, Id_Prestac, Id_Pension, ImportePension, Id_EsquemaActual, Id_ClasifEmp, Nacionalidad, TipoEsquema);
+      //  }
 
-        RetunValue = clsQuery.execQueryString(strQuery);
+      //  RetunValue = clsQuery.execQueryString(strQuery);
 
-        if (RetunValue == "1")
-        {
-          gvEmpleado.EditIndex = -1;
-          ObtenEmpleado();
-          Mensaje("ACTUALIZADO", CuadroMensaje.CuadroMensajeIcono.Exitoso);
-        }
-      }
-      catch (Exception ex)
-      {
-        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
-      }
+      //  if (RetunValue == "1")
+      //  {
+      //    gvEmpleado.EditIndex = -1;
+      //    ObtenEmpleado();
+      //    Mensaje("ACTUALIZADO", CuadroMensaje.CuadroMensajeIcono.Exitoso);
+      //  }
+      //}
+      //catch (Exception ex)
+      //{
+      //  Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      //}
     }
 
     protected void gvEmpleado_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -468,32 +468,32 @@ namespace EscenariosQnta
 
     protected void ddlClientegv_SelectedIndexChanged(object sender, EventArgs e)
     {
-      try
-      {
-        DropDownList ddlClientegv = (DropDownList)sender;
-        GridViewRow row = (GridViewRow)ddlClientegv.Parent.Parent;
-        int idx = row.RowIndex;
+      //try
+      //{
+      //  DropDownList ddlClientegv = (DropDownList)sender;
+      //  GridViewRow row = (GridViewRow)ddlClientegv.Parent.Parent;
+      //  int idx = row.RowIndex;
 
-        DataTable dtEscenarioByCliente = new DataTable();
+      //  DataTable dtEscenarioByCliente = new DataTable();
 
-        strQuery = string.Format("SP_ObtenEscenarioPorCliente {0}", idx);
+      //  strQuery = string.Format("SP_ObtenEscenarioPorCliente {0}", idx);
 
-        dtEscenarioByCliente = clsQuery.execQueryDataTable(strQuery);
+      //  dtEscenarioByCliente = clsQuery.execQueryDataTable(strQuery);
 
-        //if (dtEscenarioByCliente.Rows.Count > 0)
-        //{
-        //    ddlEscenariogv.DataSource = dtEscenarioByCliente;
-        //    ddlEscenariogv.DataTextField = "Id_Escenario";
-        //    ddlEscenariogv.DataValueField = "Id_Escenario";
-        //    ddlEscenariogv.DataBind();
-        //}
+      //  //if (dtEscenarioByCliente.Rows.Count > 0)
+      //  //{
+      //  //    ddlEscenariogv.DataSource = dtEscenarioByCliente;
+      //  //    ddlEscenariogv.DataTextField = "Id_Escenario";
+      //  //    ddlEscenariogv.DataValueField = "Id_Escenario";
+      //  //    ddlEscenariogv.DataBind();
+      //  //}
 
-        //ddlEscenariogv.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
-      }
-      catch (Exception ex)
-      {
-        Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
-      }
+      //  //ddlEscenariogv.Items.Insert(0, new ListItem(">> Seleccione una Opcion <<", "-1"));
+      //}
+      //catch (Exception ex)
+      //{
+      //  Mensaje("ERROR: " + ex.ToString(), CuadroMensaje.CuadroMensajeIcono.Error);
+      //}
     }
 
     protected void btnBorrar_Click(object sender, EventArgs e)
@@ -577,6 +577,15 @@ namespace EscenariosQnta
       CuadroMensaje Mensaje = new CuadroMensaje(textomensaje, "MENSAJE", icono, CuadroMensaje.CuadroMensajeBoton.Ok, CuadroMensaje.CuadroMensajeEstilo.EstiloB);
       Literal ltrMensaje = (Literal)this.Master.FindControl("ltrMensaje");
       ltrMensaje.Text = Mensaje.Mostrar(this);
+    }
+
+    protected void gvEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      GridViewRow row = gvEmpleado.SelectedRow;
+      Label lblGIdEmp = row.FindControl("lbId_Empleado") as Label;
+      //string a = lblGIdEmp.Text;
+      Session["IdEmpleado"] = int.Parse(lblGIdEmp.Text.ToString());
+      Response.Redirect("wfrmEdicionEmpleado.aspx");
     }
   }
 }
