@@ -96,7 +96,7 @@ namespace EscenariosQnta
     string sp_imss_BaN = "SP_Piramidacion";
     string sp_ASAM = "SP_PiramidacionASAM";
     int contimss = 0;
-
+    string ruta;
     DateTime FechUltimoPago;
     DateTime FechIngreso;
     DateTime? FechNacimiento;
@@ -1184,23 +1184,31 @@ namespace EscenariosQnta
           if (string.IsNullOrEmpty(ValidaSalarios()))
           {
 
-            //for (int i = 0; i <= rdlTipoNomina.Items.Count - 1; i++)
-            //{
-            //    if (rdlTipoNomina.Items[i].Selected == true)
-            //    {
-            //        if (rdlTipoNomina.SelectedValue.ToString() == "Brutos")
-            //        {
-            //            Nomina = "100";
-            //            Asimilados = "0";
-            //        }
-            //        else if (rdlTipoNomina.SelectedValue.ToString() == "Netos")
-            //        {
-            //            Nomina = "0";
-            //            Asimilados = "100";
-            //        }
-            //    }
-            //}
             
+              if (fileFoto.HasFile)
+              {
+                ruta = "~/fotos/" + fileFoto.FileName;
+              fileFoto.SaveAs(Server.MapPath(ruta));
+              }
+
+
+              //for (int i = 0; i <= rdlTipoNomina.Items.Count - 1; i++)
+              //{
+              //    if (rdlTipoNomina.Items[i].Selected == true)
+              //    {
+              //        if (rdlTipoNomina.SelectedValue.ToString() == "Brutos")
+              //        {
+              //            Nomina = "100";
+              //            Asimilados = "0";
+              //        }
+              //        else if (rdlTipoNomina.SelectedValue.ToString() == "Netos")
+              //        {
+              //            Nomina = "0";
+              //            Asimilados = "100";
+              //        }
+              //    }
+              //}
+
               if (rbtTipoEsquema.Items[0].Selected == true)
               {
                   TipoEsquema = 1;
@@ -1271,7 +1279,7 @@ namespace EscenariosQnta
               Antiguedad = DateTime.Parse(txtAntiguedad.Text.ToString());
             }
             Id_Empleadora = int.Parse(ddlEmpleadora.SelectedItem.Value);
-            foto = "fotito";
+            foto = ruta;
             calle = txtCalle.Text.ToString();
             numero = txtNumero.Text.ToString();
             colonia = txtColonia.Text.ToString();

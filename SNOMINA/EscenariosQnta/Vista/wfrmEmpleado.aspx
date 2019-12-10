@@ -393,7 +393,7 @@
                                             </td>
                                             <td class="td">
                                                 <asp:TextBox ID="txtCurp" runat="server" Text="" CssClass="textbox" required="required" Style="text-transform: uppercase"></asp:TextBox>
-                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Ingreesa un Curp" ValidationExpression="/^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/" ControlToValidate="txtCurp" ForeColor="Red"></asp:RegularExpressionValidator>
+<%--                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Ingreesa un Curp" ValidationExpression="/^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/" ControlToValidate="txtCurp" ForeColor="Red"></asp:RegularExpressionValidator>--%>
                                               
                                             </td>
                                         </tr>
