@@ -26,18 +26,29 @@ namespace EscenariosQnta.Vista
 
     public void SpInformacion()
     {
-      string[] es = new string[30];
-      int cont = 0;
+      string[] es = new string[38];
       DataTable dtEMP = new DataTable();
       dtEMP = BLLEmpleado.ObtenEmpleadoById(idEmp);
       for (int i = 0; i <= dtEMP.Rows.Count; i++)
       {
-        for (int j = 2; j < 30; j++)
+        for (int j = 0; j < 37; j++)
         {
-          es[cont] = dtEMP.Rows[0][j].ToString();
-          cont++;
+          es[j] = dtEMP.Rows[0][j].ToString();
         }
       }
+      //ddlEmpleadora.Text = es[1].ToString();
+      ddlCliente.Text = es[2].ToString();
+      txtClave.Text = es[3].ToString();
+      txtNombre.Text = es[4].ToString();
+      txtPaterno.Text = es[5].ToString();
+      txtMaterno.Text = es[6].ToString();
+      //ddlSexo.Text = es[7].ToString();
+      txtFechaNacimiento.Text = es[8].ToString();
+      txtCurp.Text = es[9].ToString();
+      txtRfc.Text = es[10].ToString();
+      txtCorreo.Text = es[11].ToString();
+      txtTelefonoMovil.Text = es[12].ToString();
+      txtTelefonoLocal.Text = es[13].ToString();
     }
   }
 }
