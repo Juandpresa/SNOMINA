@@ -376,6 +376,8 @@
               </ContentTemplate>
             </asp:UpdatePanel>
           </div>
+            <br />
+            <br />
           <asp:Button ID="btnBorrar" runat="server" Text="Borrar Empleado" CssClass="btn" OnClick="btnBorrar_Click" />
         </div>
       </div>
