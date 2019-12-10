@@ -101,5 +101,19 @@ namespace EscenariosQnta.Negocio
       }
       return tabla;
     }
+
+    public static DataTable ObtenEmpleadoById(int idEmp)
+    {
+      DataTable tabla = new DataTable();
+      try
+      {
+        tabla = DALEmpleado.ObtenEmpleadoById(idEmp);
+      }
+      catch (Exception)
+      {
+        throw;
+      }
+      return tabla;
+    }
   }
 }
