@@ -26,13 +26,16 @@ namespace EscenariosQnta.Vista
 
     public void SpInformacion()
     {
+      string[] es = new string[30];
+      int cont = 0;
       DataTable dtEMP = new DataTable();
       dtEMP = BLLEmpleado.ObtenEmpleadoById(idEmp);
       for (int i = 0; i <= dtEMP.Rows.Count; i++)
       {
         for (int j = 2; j < 30; j++)
         {
-          string es = dtEMP.Rows[0][j].ToString();
+          es[cont] = dtEMP.Rows[0][j].ToString();
+          cont++;
         }
       }
     }
