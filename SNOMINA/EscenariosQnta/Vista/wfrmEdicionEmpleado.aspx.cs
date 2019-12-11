@@ -8,12 +8,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using EscenariosQnta.Clases;
+using EscenariosQnta.Data;
 using EscenariosQnta.Negocio;
 
 namespace EscenariosQnta.Vista
 {
   public partial class wfrmEdicionEmpleado : System.Web.UI.Page
   {
+    clsDatos clsQuery = new clsDatos();
     int idEmp;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,9 +24,25 @@ namespace EscenariosQnta.Vista
       {
         idEmp = (int)Session["IdEmpleado"];
         SpInformacion();
+
+
+        ObtenTipoEsquema();
       }
     }
+    protected void ObtenTipoEsquema()
+    {
+      DataTable dtTipoEsquema = new DataTable();
 
+      dtTipoEsquema = clsQuery.execQueryDataTable("Sp_ObtenTipoEsquema");
+
+      if (dtTipoEsquema.Rows.Count > 0)
+      {
+        rbtTipoEsquema.DataSource = dtTipoEsquema;
+        rbtTipoEsquema.DataTextField = "TipoEsquema";
+        rbtTipoEsquema.DataValueField = "Id_TipoEsquema";
+        rbtTipoEsquema.DataBind();
+      }
+    }
     public void SpInformacion()
     {
       string[] es = new string[38];
