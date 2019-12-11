@@ -437,8 +437,7 @@
                     </div>
                 </div>
             </div>
-            </ContentTemplate>
-                            </asp:UpdatePanel>
+            
                             <div class="card">
                                 <div class="card-header" id="heading2">
                                     <h2 class="mb-0">
