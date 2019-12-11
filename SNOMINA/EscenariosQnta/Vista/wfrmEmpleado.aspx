@@ -325,7 +325,7 @@
                                         <td></td>
                                         <td align="center">
                                             <br />
-                                            <asp:FileUpload ID="fileFoto" runat="server" onchange="showimagepreview(this)" CssClass="btn btn-info"/>
+                                            <asp:FileUpload ID="fileFoto" runat="server" onchange="showimagepreview(this)" CssClass="btn btn-info" />
                                             <br />
                                             <br />
                                         </td>
@@ -393,7 +393,7 @@
                                             </td>
                                             <td class="td">
                                                 <asp:TextBox ID="txtCurp" runat="server" Text="" CssClass="textbox" required="required" Style="text-transform: uppercase"></asp:TextBox>
-<%--                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Ingreesa un Curp" ValidationExpression="/^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/" ControlToValidate="txtCurp" ForeColor="Red"></asp:RegularExpressionValidator>--%>
+                                                <%--                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Ingreesa un Curp" ValidationExpression="/^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/" ControlToValidate="txtCurp" ForeColor="Red"></asp:RegularExpressionValidator>--%>
                                               
                                             </td>
                                         </tr>
@@ -409,7 +409,7 @@
                                             </td>
                                             <td class="td">
                                                 <asp:TextBox ID="txtCorreo" runat="server" Text="" CssClass="textbox" required="required"></asp:TextBox>
-                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Formato Incorrecto" ControlToValidate="txtCorreo" ForeColor="#FF3300" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Formato Incorrecto" ControlToValidate="txtCorreo" ForeColor="#FF3300" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                             </td>
 
                                         </tr>
@@ -422,11 +422,11 @@
                                         <tr>
                                             <td class="td">
                                                 <asp:TextBox ID="txtTelefonoMovil" runat="server" Text="" CssClass="textbox" required="required" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato Incorrecto" ControlToValidate="txtTelefonoMovil" ForeColor="#FF3300" ValidationExpression="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"></asp:RegularExpressionValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato Incorrecto" ControlToValidate="txtTelefonoMovil" ForeColor="#FF3300" ValidationExpression="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"></asp:RegularExpressionValidator>
                                             </td>
                                             <td class="td">
                                                 <asp:TextBox ID="txtTelefonoLocal" runat="server" Text="" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
-                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Formato Incorrecto" ForeColor="#FF3300" ValidationExpression="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" ControlToValidate="txtTelefonoLocal"></asp:RegularExpressionValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Formato Incorrecto" ForeColor="#FF3300" ValidationExpression="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" ControlToValidate="txtTelefonoLocal"></asp:RegularExpressionValidator>
                                             </td>
                                         </tr>
                                 </table>
@@ -438,8 +438,8 @@
                     </div>
                 </div>
             </div>
-            </ContentTemplate>
-                            </asp:UpdatePanel>
+
+           
                             <div class="card">
                                 <div class="card-header" id="heading2">
                                     <h2 class="mb-0">
@@ -523,7 +523,7 @@
                                         </td>
                                         <td class="td">
                                             <asp:TextBox ID="txtCP" runat="server" CssClass="textbox" onkeypress="return isDecimalKey(event, this);" required="required"></asp:TextBox>
-                                          <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="*" ControlToValidate="txtCP" ForeColor="Red" ValidationExpression="^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$"></asp:RegularExpressionValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="*" ControlToValidate="txtCP" ForeColor="Red" ValidationExpression="^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$"></asp:RegularExpressionValidator>
                                         </td>
                                     </tr>
                                 </table>
@@ -592,24 +592,24 @@
                                             <asp:TextBox ID="txtDiasC" runat="server" Text="" CssClass="textbox" onkeypress="return isDecimalKey(event, this);"></asp:TextBox>
                                         </td>
                                     </tr>
-                                  </table>
-                              <asp:UpdatePanel runat="server" ID="UpdatePanel5" UpdateMode="Conditional">
-                                   <ContentTemplate>
-
-                              <table>
-                                    <tr>
-                                        <td>Empleado de Construccion:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <asp:CheckBox ID="chkObra" runat="server" CssClass="chkBox" OnCheckedChanged="chkObra_CheckedChanged" AutoPostBack="True" />
-                                        </td>
-
-                                    </tr>
                                 </table>
-                                     </ContentTemplate>
-                                                </asp:UpdatePanel>
+                                <asp:UpdatePanel runat="server" ID="UpdatePanel5" UpdateMode="Conditional">
+                                    <ContentTemplate>
+
+                                        <table>
+                                            <tr>
+                                                <td>Empleado de Construccion:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:CheckBox ID="chkObra" runat="server" CssClass="chkBox" OnCheckedChanged="chkObra_CheckedChanged" AutoPostBack="True" />
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                                 <br />
 
                                 <asp:UpdatePanel runat="server" ID="UpdatePanel3" UpdateMode="Conditional">
@@ -790,7 +790,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card" id="cdcomplemento" style="display:none">
+            <div class="card" id="cdcomplemento" style="display: none">
                 <div class="card-header" id="heading6">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
